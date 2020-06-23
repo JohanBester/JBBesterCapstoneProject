@@ -1,11 +1,11 @@
 # STIX_Capstone
 
 ## Project name: 
-STIX FMA Club Finder
+STIX FMA Fun Finder
 
 
 ## Description: 
-The STIX project has been built as my capstone project for the Junne2020 Savvy Coders bootcamp. 
+The STIX project has been built as my capstone project for the June 2020 Savvy Coders full-stack bootcamp. 
 This application offers a very simple application to help enthusiasts find the closest **Filipino Martial arts clubs or events** in their area.
 
 
@@ -19,21 +19,22 @@ This README contains the following information
 
 
 ## Installation: 
-Installation instructions will be added as they become clearer…
-
+Installation instructions will be added as they become clearer, but the application will initially be available as a website, and eventually as a mobile app.
 
 ## Usage: 
-This App should be pretty simple to use, Once installed the UI has an input fieled for a zip code, and two option buttons – one for school and one for event. 
-Toward the bottom of the display, 2 simple text buttons offer the options to "Add School / Event" or to "Contact Us".
+This App should be pretty simple to use, Once installed the UI has an input field for a zip code, and 3 option buttons – one for school, one for event, and one for all. By default he all option is selected.
+Toward the bottom of the display, a simple text button offers the options to "Add a School / Event".
 
-Clicking the "Add School / Event" button opens a form interface that requests info about the submitter and the addition to be made. 
+Clicking the "Add a School / Event" button opens a form interface that requests info about the submitter and the addition to be made. 
 
-Clicking the "Contact Us" button opensa a form interface that allows the users to write to the creator of the app.
+In the application-wide footer there are 3 buttons - "About", "Home", "Contact".
+Clicking on the "About" button takes the user to the about us page with basic info on the application.
+Clicking the "Contact" button opensa a contact us form interface that allows the users to write to the application owner.
 
-Searching (submitting) without a zip will ask for one to continue.
-The option buttons are optional. Searching without an option selected will return all schools and events that match the zip code search parameters.
+Searching (submitting) without a zip will ask for one to continue - a zip code is required.
+The option buttons below the search bar are optional. Searching without an option selected will return all schools and events that match the zip code search parameters.
 
-When search results are returned, first results returned will fall into a default 50-mile radius. Filtering options and a search button will be presented to narrow the search. Filter drop-down options will include fields for… Zip, State, Radius, and Type (which would be school, event, or all). Choosing new options and clicking the search button agian will return the new seerch results.
+When search results are returned, first results returned will fall into a default 50-mile radius. Filtering options and a search button will be presented to narrow the search. Filter drop-down options will include fields for… Zip, State, Radius, Type (which would be school, event, or all), and style (which could be Arnis, Escrima, kali, or All). Choosing new options and clicking the search button agian will return the new seerch results.
 
 
 ## Contributing: 
