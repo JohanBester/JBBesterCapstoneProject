@@ -1,25 +1,57 @@
-# Savvy Coders Project Boilerplate Starter Kit
+# STIX_Capstone
 
-## Overview
+## Project name: 
+STIX FMA Club Finder
 
-This template repository contains several opinionated, 'starter' files and settings to help Savvy Coder students focus more time and energy on learning how to code and/or craft 'business logic' for projects and less time on configurations.
 
-In addition to a '.gitignore' and some VS Code specific extensions and settings, it includes the 'recommended' settings for:
+## Description: 
+The STIX project has been built as my capstone project for the Junne2020 Savvy Coders bootcamp. 
+This application offers a very simple application to help enthusiasts find the closest **Filipino Martial arts clubs or events** in their area.
 
-1. [ESLint](eslint.org)
-2. [Stylelint](stylelint.io)
-3. [Prettier](prettier.io)
 
-## Get Started
+## Table of Contents: 
+This README contains the following information
+- Installation 
+- Usage 
+- Contributions
+- Credits
+- Licensing
 
-**First and foremost,** make sure that your local machine is set up with all of the 'dev environment tooling' as per [this guide...](https://www.notion.so/codefinity/Setting-up-a-Local-Dev-Environment-97de62a546f943fbbc7a246b4785a343)
 
-Well, after establishing your directory structure on your local machine, (e.g. '~/Code/SavvyCoders'), kindly [follow these girections](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) - essentially, there should be a button 👆🏾that says **Use this template.**
+## Installation: 
+Installation instructions will be added as they become clearer…
 
-Once this repo has been created on your GitHub, you can click on the button to 'clone' it as usual. Once it's `clone`d to your local machine, kindly `cd` into the directory and **be sure to do:** `npm i` to get all of the goodies. If you see any _errors_ (warnings are 🙆🏾‍♂️) on Windows, you may have to do `npm install`.
 
-Now, enter `code .` to open this project in VS Code, and look for a prompt to 'install some extensions' once inside VS Code (in the bottom right of your screen). You should install these. 👍🏾
+## Usage: 
+This App should be pretty simple to use, Once installed the UI has an input fieled for a zip code, and two option buttons – one for school and one for event. 
+Toward the bottom of the display, 2 simple text buttons offer the options to "Add School / Event" or to "Contact Us".
 
-Update this README and make any other initial changes or 🌱 files, etc. Go ahead and do your usual `git` steps, etc. etc. etc.
+Clicking the "Add School / Event" button opens a form interface that requests info about the submitter and the addition to be made. 
 
-**Note:** This is a template repository, no need to 'fork it.
+Clicking the "Contact Us" button opensa a form interface that allows the users to write to the creator of the app.
+
+Searching (submitting) without a zip will ask for one to continue.
+The option buttons are optional. Searching without an option selected will return all schools and events that match the zip code search parameters.
+
+When search results are returned, first results returned will fall into a default 50-mile radius. Filtering options and a search button will be presented to narrow the search. Filter drop-down options will include fields for… Zip, State, Radius, and Type (which would be school, event, or all). Choosing new options and clicking the search button agian will return the new seerch results.
+
+
+## Contributing: 
+Instructions on how to contribute to this project will be shared as they become available.
+
+
+## Credits: 
+Credits will be included as credit is due to those awesome peeps that have given of themselves to this project.
+
+
+## License: 
+
+### MIT License
+Copyright (c) 2020 Johan B. Bester
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
