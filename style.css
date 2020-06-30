@@ -1,0 +1,48 @@
+body{
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 40px;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-family: "ZCOOL KuaiLe", "Times New Roman";
+}
+.fixed-header, .fixed-footer {
+  width: 100%;
+  position: fixed;
+  padding: 10px 0;
+}
+.fixed-header {
+  top: 0;
+  left: 0;
+  background-color: #364D99;
+}
+.fixed-footer {
+  bottom: 0;
+  left: 0;
+  background-color: #cc0000;
+}
+
+.appname {
+  padding: 60px 0;
+  padding-left: 30%;
+  color: #ffffff;
+}
+
+.appname1 {
+  font-family: "ZCOOL KuaiLe", "Times New Roman";
+  font-size: xx-large;
+  font-weight: 900;
+  letter-spacing: 4px;
+}
+
+.appname2 {
+  font-family: "Roboto", sans-serif;
+  font-size: xx-large;
+  font-weight: 900;
+}
+
+.logo {
+  float: left;
+  margin: 8px;
+}
+
