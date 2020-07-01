@@ -13,8 +13,7 @@ body{
   margin: 0;
   font-size: 16px;
   font-family: "ZCOOL KuaiLe", "Times New Roman";
-  font-family: "Roboto", sans-serif;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", "Open Sans", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -45,6 +44,14 @@ h6 {
   font-size: 1.25em;
 }
 
+p {
+  display: block;
+  margin-block-start: .5em;
+  margin-block-end: .5em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
 .fixed-header,
 .fixed-footer {
   width: 100%;
@@ -64,7 +71,7 @@ h6 {
   bottom: 0;
   left: 0;
   background-color: var(--red-color);
-  min-height: 20%;
+  height: 20%;
 }
 
 /*=====================*/
@@ -89,14 +96,14 @@ h6 {
 }
 
 .appname1 {
-  font-family: "ZCOOL KuaiLe", Times New Roman;
+  font-family: "ZCOOL KuaiLe", "Times New Roman";
   font-size: xx-large;
   font-weight: 900;
   letter-spacing: 4px;
 }
 
 .appname2 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", "Open Sans", sans-serif;
   font-size: xx-large;
   font-weight: 900;
 }
@@ -106,31 +113,41 @@ h6 {
 /*===================*/
 footer {
   display: grid;
+  grid-gap: 5px;
   grid-template-columns: repeat(2, minmax(100px, 1fr));
-  align-items: center;
 }
 
 footer > div {
   /* border: 1px dotted var(--black-color); */
-  padding: 5px;
+  margin: 0;
+  padding: 0;
 }
 
+#disclaimers {
+  margin: 10px;
+  padding: 5px;
+}
 #disclaimers .disTop {
-  font-family: ;
+  margin: 0;
+}
+#disclaimers .disText {
+  /* margin: 0; */
 }
 
 #navButtons {
   display: grid;
-  /* grid-gap: 5px; */
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 45px;
-  justify-items: center;
+  grid-column-gap: 5px;
+  justify-content: center;
+  align-self: center;
+  margin: 5px 5% 5px 3px;
 }
 
 .btnStyled {
   border: 0;
   line-height: 1.8;
-  padding: 0 10px;
+  padding: 0 5px;
   font-size: 0.8rem;
   text-align: center;
   color: var(--white-color);
@@ -145,8 +162,17 @@ footer > div {
               inset -2px -2px 3px var(--black-color);
 }
 
+.btnStyled a {
+  color: var(--white-color);
+  text-decoration: none;
+}
+
 .btnStyled:hover {
   background-color: var(--yellow-color);
+  color: var(--black-color);
+}
+
+.btnStyled:hover a {
   color: var(--black-color);
 }
 
@@ -155,10 +181,9 @@ footer > div {
               inset 2px 2px 3px var(--black-color);
 }
 
-
-/*===========================*/
-/* Home Page Main App Section*/
-/*===========================*/
+/*================*/
+/* Template Page  */
+/*================*/
 main {
   position: fixed;
   top: 20%;
@@ -173,23 +198,82 @@ main {
 }
 
 main > div {
-  border: 1px dotted var(--black-color);
+  /* border: 1px dotted var(--black-color); */
   margin: 5px;
   padding: 5px;
 }
 
-#homeIntro {
+#tempIntro {
   grid-area: intro;
+  text-align: center;
+}
+#tempIntro .introTitle {
+  margin: 0;
 }
 
 #addOrImage {
   grid-area: spacer;
-  overflow: hidden;
+  overflow-y: auto;
+  border: 1px dotted var(--black-color);
+  text-align: center;
 }
 
-#appBody {
+#tempBody {
   grid-area: content;
+  overflow-y: auto;
+  border: 1px dotted var(--black-color);
 }
+
+.secHead {
+  margin: 0;
+  font-size: 1.75em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/*===========================*/
+/* Home Page Main App Section*/
+/*===========================*/
+#homeIntro {
+  grid-area: intro;
+  text-align: center;
+}
+#homeIntro .introTitle {
+  margin: 0;
+}
+
+#homeBody {
+  grid-area: content;
+  overflow-y: auto;
+  border: 1px dotted var(--black-color);
+}
+
+.homeHead {
+  font-size: 1.75em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/*================*/
+/* About Us Page  */
+/*================*/
+#aboutIntro {
+  grid-area: intro;
+  text-align: center;
+}
+
+#aboutBody {
+  grid-area: content;
+  overflow-y: auto;
+  border: 1px dotted var(--black-color);
+}
+
+.homeHead {
+  font-size: 1.75em;
+  font-weight: bold;
+  text-align: center;
+}
+
 
 
 /*=====================*/
