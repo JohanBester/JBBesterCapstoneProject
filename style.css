@@ -1,38 +1,95 @@
+:root {
+  --blue-color: #364D99;
+  --red-color: #cc0000;
+  --yellow-color: #ffff00;
+  --white-color: #ffffff;
+  --grey-color: #808080;
+  --black-color: #000000;
+}
+
 body{
   width: 100%;
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", sans-serif;
-  font-family: "Roboto", sans-serif;
+  font-size: 16px;
   font-family: "ZCOOL KuaiLe", "Times New Roman";
+  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
-.fixed-header, .fixed-footer {
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.75em;
+}
+
+h3 {
+  font-size: 1.60em;
+}
+
+h4 {
+  font-size: 1.50em;
+}
+
+h5 {
+  font-size: 1.40em;
+}
+
+h6 {
+  font-size: 1.25em;
+}
+
+.fixed-header,
+.fixed-footer {
   width: 100%;
   position: fixed;
   padding: 0;
   z-index: 99;
 }
+
 .fixed-header {
   top: 0;
   left: 0;
-  background-color: #364D99;
+  background-color: var(--blue-color);
   height: 20%;
 }
+
 .fixed-footer {
   bottom: 0;
   left: 0;
-  background-color: #cc0000;
+  background-color: var(--red-color);
   min-height: 20%;
+}
+
+/*=====================*/
+/* Page Header Section */
+/*=====================*/
+.logo {
+  float: left;
+  margin: 5px 5px 5px 10%;
+  max-height: 90%;
+  width: auto;
 }
 
 .appname {
   padding: 50px 0;
   padding-left: 35%;
-  color: #ffffff;
+  color: var(--white-color);
+}
+
+.appname > a {
+  color: var(--white-color);
+  text-decoration: none;
 }
 
 .appname1 {
-  font-family: "ZCOOL KuaiLe", "Times New Roman";
+  font-family: "ZCOOL KuaiLe", Times New Roman;
   font-size: xx-large;
   font-weight: 900;
   letter-spacing: 4px;
@@ -44,20 +101,107 @@ body{
   font-weight: 900;
 }
 
-.logo {
-  float: left;
-  margin: 5px 5px 5px 10%;
-  max-height: 90%;
-  width: auto;
+/*===================*/
+/* The Footer Section*/
+/*===================*/
+footer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  align-items: center;
 }
 
+footer > div {
+  /* border: 1px dotted var(--black-color); */
+  padding: 5px;
+}
+
+#disclaimers .disTop {
+  font-family: ;
+}
+
+#navButtons {
+  display: grid;
+  /* grid-gap: 5px; */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 45px;
+  justify-items: center;
+}
+
+.btnStyled {
+  border: 0;
+  line-height: 1.8;
+  padding: 0 10px;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--white-color);
+  text-shadow: 1px 1px 1px var(--black-color);
+  border-radius: 15px;
+  background-color: var(--red-color);
+  background-image: linear-gradient(to top left,
+                                    rgba(0, 0, 0, .2),
+                                    rgba(0, 0, 0, .2) 30%,
+                                    rgba(0, 0, 0, 0));
+  box-shadow: inset 2px 2px 3px var(--grey-color),
+              inset -2px -2px 3px var(--black-color);
+}
+
+.btnStyled:hover {
+  background-color: var(--yellow-color);
+  color: var(--black-color);
+}
+
+.btnStyled:active {
+  box-shadow: inset -2px -2px 3px var(--white-color),
+              inset 2px 2px 3px var(--black-color);
+}
+
+
+/*===========================*/
+/* Home Page Main App Section*/
+/*===========================*/
+main {
+  position: fixed;
+  top: 20%;
+  height: 60%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(100px, 1fr) minmax(200px, 3fr);
+  grid-template-rows: 20% 80%;
+  grid-template-areas:
+      "intro intro"
+      "spacer content";
+}
+
+main > div {
+  border: 1px dotted var(--black-color);
+  margin: 5px;
+  padding: 5px;
+}
+
+#homeIntro {
+  grid-area: intro;
+}
+
+#addOrImage {
+  grid-area: spacer;
+  overflow: hidden;
+}
+
+#appBody {
+  grid-area: content;
+}
+
+
+/*=====================*/
+/* Search Results Page */
+/*=====================*/
 .container {
   position: fixed;
   top: 35%;
   max-height: 45%;
   width: 100%;
   overflow-y: auto;
-  color: #000000;
+  color: var(--black-color);
   z-index: 1;
   display: grid;
   grid-gap: 5px;
@@ -69,8 +213,8 @@ body{
 }
 
 .container > div {
-  border: 1px dotted #000000;
-  padding: 20px;
+  border: 1px dotted var(--black-color);
+  padding: 25px;
 }
 
 .searchbar {
@@ -78,13 +222,13 @@ body{
   top: 28%;
   left: 2%;
   width: 95%;
-  color: #000000;
+  color: var(--black-color);
   display: grid;
   grid-gap: 0;
   grid-template-columns: repeat(6, minmax(20px, 1fr));
 }
 .searchbar > div {
-  border: 1px solid #000000;
+  border: 1px solid var(--black-color);
   padding: 5px;
   text-align: center;
 }
