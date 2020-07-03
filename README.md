@@ -8,7 +8,7 @@ STIX FMA Fun Finder
 The STIX project has been built as my capstone project for the June 2020 Savvy Coders full-stack bootcamp. 
 This application offers a very simple application to help enthusiasts find the closest **Filipino Martial arts clubs or events** in their area.
 
-![Image of FMA practitioners](DOCS/filipino-martial-arts-arnis-escrima-kali-stick-fighting.png)
+![Image of FMA practitioners](/IMAGES/filipino-martial-arts-arnis-escrima-kali-stick-fighting.png)
 
 ## Table of Contents: 
 This README contains the following information
