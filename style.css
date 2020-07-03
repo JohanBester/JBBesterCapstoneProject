@@ -52,6 +52,22 @@ p {
   margin-inline-end: 0px;
 }
 
+a {
+  color: var(--red-color);
+  font-weight: bold;
+}
+
+a:visited {
+  color: var(--grey-color);
+  font-weight: bold;
+}
+
+a:hover {
+  color: var(--yellow-color);
+  font-weight: bold;
+}
+
+
 .fixed-header,
 .fixed-footer {
   width: 100%;
@@ -85,7 +101,7 @@ p {
 }
 
 .appname {
-  padding: 50px 0;
+  padding: 40px 0;
   padding-left: 35%;
   color: var(--white-color);
 }
@@ -97,14 +113,14 @@ p {
 
 .appname1 {
   font-family: "ZCOOL KuaiLe", "Times New Roman";
-  font-size: xx-large;
+  font-size: 3em;
   font-weight: 900;
   letter-spacing: 4px;
 }
 
 .appname2 {
   font-family: "Roboto", "Open Sans", sans-serif;
-  font-size: xx-large;
+  font-size: 3em;
   font-weight: 900;
 }
 
