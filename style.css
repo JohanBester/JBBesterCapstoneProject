@@ -1,6 +1,6 @@
 :root {
   --blue-color: #364D99;
-  --red-color: #cc0000;
+  --red-color: #c82828;
   --yellow-color: #ffff00;
   --white-color: #ffffff;
   --grey-color: #808080;
@@ -288,6 +288,29 @@ main > div {
   font-weight: bold;
   text-align: center;
 }
+
+#addInfo {
+  text-align: center;
+  font-size: large;
+}
+
+#addInfo a {
+  color: var(--blue-color);
+}
+
+#addInfo a:hover {
+  color: var(--yellow-color);
+  text-decoration: none;
+}
+
+#addInfo:hover {
+  margin: 5px 25%;
+  padding: 0 10px;
+  border: 3px solid var(--grey-color);
+  border-radius: 15px;
+  background-color: var(--grey-color);
+}
+
 
 /*=====================*/
 /* Search Results Page */
