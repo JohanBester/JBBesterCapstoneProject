@@ -20,21 +20,41 @@
 
   <main>
     <div class="pageIntro">
-      <h1 class="introTitle">Enter your zip code to search</h1>
+      <p>With the STIX Filipino Martial Arts Fun Finder app you can now find the FMA clubs, groups, schools and events you are looking for, by searching with a zip code! Enter a zip code and click the search button for quick easy results. To make your search more specific, choose to search for a club, group, school or event by clicking the option.</p>
     </div>
 
     <div class="addOrImage">
-      <h6> Place Add or Image here for wider screen layouts</h6>
+      <img id="imgFMAfighters" src="./IMAGES/filipino-martial-arts-arnis-escrima-kali-stick-fighting.png" alt="Silhouette of two Filipino martial Artists stick fighting"/>
+      <p> Place Add or Image here for wider screen layouts</p>
     </div>
 
     <div class="mainBody">
-      <h4 class="secHead"></h4>
-      <p>WIth the STIX FMA Fun Finder app you can find FMA clubs, groups, schools and events by searching with a zip code here!</p>
-      <br>
-      <p style="text-align: center;"><a href="./FMAsearchResults.html">Click to see an Example of the Search Results Page</a></p>
-      <br/>
-      <div class="addInfo">
-    	  <a href="AddInfo.html">Click here to Add a club, school or event</a> 
+      <h1 class="secHead">Please enter your zip code to search</h1>
+
+      <form id="search-form">
+        <div class="form-group">
+          <label id="search-label" for="search">Zip Code <span class="required">*</span></label>
+          <input type="text" name="search" id="search" class="form-control" placeholder="Enter Zip Code Here" required>
+          <button type="submit" id="search" class="btnStyled submit-button" onclick="window.location = './FMAsearchResults.html'">Search</button>
+        </div>
+
+        <div id="options" class="form-group">
+          <label>
+            <input name="selectOptions" value="club" type="radio" class="input-radio">Club</label>
+          <label>
+            <input name="selectOptions" value="group" type="radio" class="input-radio">Group</label>
+          <label>
+            <input name="selectOptions" value="school" type="radio" class="input-radio">School</label>
+          <label>
+            <input name="selectOptions" value="event" type="radio" class="input-radio">Event</label>
+          <label>
+            <input name="selectOptions" value="all" type="radio" class="input-radio" checked="">All</label>
+        </div>
+      </form>
+
+      <!-- <p style="text-size: smaller; text-align: center;"><a href="./FMAsearchResults.html">( Click to see an Example of the Search Results Page -- This will be removed when search is working )</a></p> -->
+      <div id="hpAddInfoButton" class="addInfo">
+    	  <a href="AddInfo.html">Click here to ADD a club, group, school or event</a> 
       </div>
       <br/>
     </div>

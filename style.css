@@ -72,9 +72,9 @@ a:hover {
   font-weight: bold;
 }
 
-/*=============================*/
-/* Site-wide header and Footer */
-/*=============================*/
+/*=================================*/
+/*== Site-wide header and Footer ==*/
+/*=================================*/
 .fixed-header,
 .fixed-footer {
   width: 100%;
@@ -97,9 +97,9 @@ a:hover {
   height: 20%;
 }
 
-/*=====================*/
-/* Page Header Section */
-/*=====================*/
+/*=========================*/
+/*== Page Header Section ==*/
+/*=========================*/
 .logo {
   float: left;
   margin: 5px 5px 5px 5%;
@@ -131,9 +131,9 @@ a:hover {
   font-weight: 900;
 }
 
-/*===================*/
-/* The Footer Section*/
-/*===================*/
+/*========================*/
+/*== The Footer Section ==*/
+/*========================*/
 footer {
   display: grid;
   grid-gap: 5px;
@@ -180,7 +180,7 @@ footer > div {
   font-size: 0.8rem;
   text-align: center;
   color: var(--white-color);
-  text-shadow: 1px 1px 1px var(--black-color);
+  text-shadow: 1px 1px 1px var(--grey-color);
   border-radius: 15px;
   background-color: var(--red-color);
   background-image: linear-gradient(
@@ -212,9 +212,9 @@ footer > div {
     inset 2px 2px 3px var(--black-color);
 }
 
-/*==========================*/
-/* SIte-wide Template Page  */
-/*==========================*/
+/*=============================*/
+/*== Site-wide Template Page ==*/
+/*=============================*/
 main {
   position: fixed;
   top: 20%;
@@ -245,6 +245,7 @@ main > div {
 .addOrImage {
   grid-area: spacer;
   overflow-y: auto;
+  overflow-x: hidden;
   border: 1px dotted var(--black-color);
   text-align: center;
 }
@@ -252,15 +253,17 @@ main > div {
 .mainBody {
   grid-area: content;
   overflow-y: auto;
-  /* border: 1px dotted var(--black-color); */
 }
 
 .secHead {
-  margin: 0;
-  font-size: 1.75em;
+  font-size: 1.5em;
   font-weight: bold;
   text-align: center;
 }
+
+/*=====================================*/
+/* === Add More Info Button Styles === */
+/*=====================================*/
 
 .addInfo {
   text-align: center;
@@ -277,16 +280,102 @@ main > div {
 }
 
 .addInfo:hover {
-  margin: 5px 25%;
   padding: 0 10px;
   border: 3px solid var(--grey-color);
   border-radius: 15px;
   background-color: var(--grey-color);
 }
 
-/*===========================*/
-/* Home Page Main App Section*/
-/*===========================*/
+/*=====================================*/
+/*=== FORM STYLES  ====================*/
+/*=====================================*/
+
+form {
+  margin: 0 auto;
+}
+
+.form-group {
+  margin: 5px auto;
+  padding: 5px;
+  text-align: center;
+}
+
+.form-control {
+  font-size: large;
+  color: var(--black-color);
+  padding: 10px;
+  background-color: #fff;
+  border: 2px solid var(--yellow-color);
+  border-radius: 10px;
+}
+
+.form-control:hover {
+  border: 2px solid var(--red-color);
+}
+
+#dropdown.form-control {
+
+}
+
+.required {
+  color: red;
+  font-weight: 700;
+}
+
+.hint {
+  color: var(--black-color);
+  font-style: italic;
+  font-size: large;
+}
+
+label {
+  align-items: center;
+  font-size: larger;
+  font-weight: 700;
+  color: var(--blue-color);
+  margin-bottom: 0.5rem;
+  margin-right: 5px;
+}
+
+.input-radio,
+.input-checkbox {
+  display: inline-block;
+  margin: 0.8rem;
+  min-height: 1.3rem;
+  min-width: 1.4rem;
+}
+
+.input-textarea {
+  min-height: 120px;
+  width: 93%;
+  padding: 0.7rem;
+  resize: vertical;
+}
+
+.submit-button {
+  padding: 0.5rem 2.5rem;
+  font-size: medium;
+  border-radius: 15px;
+}
+
+/*========================*/
+/*== Home Page Settings ==*/
+/*========================*/
+#options {
+  margin-top: 0;
+  padding-top: 0;
+  text-align: center;
+}
+
+#imgFMAfighters {
+  width: 100%;
+}
+
+#hpAddInfoButton {
+  position: fixed;
+  bottom: 25%;
+  left: 48%;
+}
 
 /*====================================*/
 /* Search Results Page and Search Bar */
@@ -340,3 +429,8 @@ main > div {
   line-height: 1.5em;
   margin-bottom: 15px;
 }
+
+/*=================*/
+/* Contact Page */
+/*=================*/
+
