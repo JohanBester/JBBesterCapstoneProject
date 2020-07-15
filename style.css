@@ -72,6 +72,18 @@ a:hover {
   font-weight: bold;
 }
 
+.right {
+  text-align: right !important;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.left {
+  text-align: left !important;
+}
+
 /*=================================*/
 /*== Site-wide header and Footer ==*/
 /*=================================*/
@@ -108,7 +120,7 @@ a:hover {
 }
 
 .appname {
-  padding: 40px 0;
+  padding: 3% 0;
   padding-left: 31%;
   color: var(--white-color);
 }
@@ -120,14 +132,14 @@ a:hover {
 
 .appname1 {
   font-family: "ZCOOL KuaiLe", "Times New Roman";
-  font-size: 3em;
+  font-size: 3rem;
   font-weight: 900;
   letter-spacing: 4px;
 }
 
 .appname2 {
   font-family: "Roboto", "Open Sans", sans-serif;
-  font-size: 3em;
+  font-size: 3rem;
   font-weight: 900;
 }
 
@@ -137,11 +149,10 @@ a:hover {
 footer {
   display: grid;
   grid-gap: 5px;
-  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  grid-template-columns: repeat(2, minmax(95px, 1fr));
 }
 
 footer > div {
-  /* border: 1px dotted var(--black-color); */
   margin: 0;
   padding: 0;
 }
@@ -156,6 +167,11 @@ footer > div {
   color: var(--black-color);
   text-decoration: none;
 }
+
+#disclaimers:hover {
+  border: 0.5px solid var(--black-color);
+}
+
 #disclaimers .disTop {
   margin: 0;
 }
@@ -166,8 +182,9 @@ footer > div {
 #navButtons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 45px;
+  grid-template-rows: 40px;
   grid-column-gap: 5px;
+  grid-auto-flow: row;
   justify-content: center;
   align-self: center;
   margin: 5px 5% 5px 3px;
@@ -222,24 +239,14 @@ main {
   width: 100%;
   display: grid;
   grid-template-columns: minmax(100px, 1fr) minmax(200px, 3fr);
-  grid-template-rows: 20% 80%;
-  grid-template-areas:
-    "intro intro"
-    "spacer content";
+  /* grid-template-rows: 20% 80%; */
+  grid-template-areas: "spacer content"; 
 }
 
 main > div {
   /* border: 1px dotted var(--black-color); */
   margin: 5px;
   padding: 5px;
-}
-
-.pageIntro {
-  grid-area: intro;
-  text-align: center;
-}
-.pageIntro .introTitle {
-  margin: 0;
 }
 
 .addOrImage {
@@ -250,9 +257,18 @@ main > div {
   text-align: center;
 }
 
+#imgFMAfighters {
+  width: 100%;
+}
+
 .mainBody {
   grid-area: content;
   overflow-y: auto;
+}
+
+.pageIntro {
+  text-align: center;
+  margin: 0;
 }
 
 .secHead {
@@ -268,22 +284,23 @@ main > div {
 .addInfo {
   text-align: center;
   font-size: large;
+  margin: 10px auto;
+  position: relative;
+  bottom: 0;
 }
-
 .addInfo a {
   color: var(--blue-color);
 }
-
 .addInfo a:hover {
   color: var(--yellow-color);
   text-decoration: none;
 }
-
 .addInfo:hover {
   padding: 0 10px;
-  border: 3px solid var(--grey-color);
+  border: 0 solid var(--grey-color);
   border-radius: 15px;
   background-color: var(--grey-color);
+  width: 50%;
 }
 
 /*=====================================*/
@@ -291,7 +308,13 @@ main > div {
 /*=====================================*/
 
 form {
-  margin: 0 auto;
+  margin: 10px auto;
+  background-color: lightblue;
+  border-radius: 10px;
+  min-width: 200px;
+  width: 60%;
+  max-width: 560px;
+  padding: 20px;
 }
 
 .form-group {
@@ -307,14 +330,13 @@ form {
   background-color: #fff;
   border: 2px solid var(--yellow-color);
   border-radius: 10px;
+  width: 60%;
+  max-width: 300px;
+  min-width: 100px;
 }
 
 .form-control:hover {
   border: 2px solid var(--red-color);
-}
-
-#dropdown.form-control {
-
 }
 
 .required {
@@ -329,7 +351,16 @@ form {
 }
 
 label {
-  align-items: center;
+  text-align: right;
+  font-size: larger;
+  font-weight: 700;
+  color: var(--blue-color);
+  margin-bottom: 0.5rem;
+  margin-right: 5px;
+}
+
+.labelText {
+  text-align: center;
   font-size: larger;
   font-weight: 700;
   color: var(--blue-color);
@@ -346,10 +377,22 @@ label {
 }
 
 .input-textarea {
-  min-height: 120px;
-  width: 93%;
-  padding: 0.7rem;
+  min-height: 80px;
+  width: 95%;
+  max-width: 500px;
+  min-width: 100px;
   resize: vertical;
+  color: var(--black-color);
+  font-size: larger;
+  padding: 10px;
+  background-color: #fff;
+  border: 2px solid var(--yellow-color);
+  border-radius: 10px;
+  margin: 0 40px 0 20px;
+}
+
+.input-textarea:hover {
+  border: 2px solid var(--red-color);
 }
 
 .submit-button {
@@ -367,14 +410,17 @@ label {
   text-align: center;
 }
 
-#imgFMAfighters {
-  width: 100%;
+#search {
+  width: auto;
 }
 
-#hpAddInfoButton {
-  position: fixed;
-  bottom: 25%;
-  left: 48%;
+#search.btnStyled {
+  background-color: var(--yellow-color);
+  color: var(--black-color);
+}
+#search.btnStyled:hover {
+  background-color: var(--red-color);
+  color: var(--white-color);
 }
 
 /*====================================*/
@@ -430,7 +476,47 @@ label {
   margin-bottom: 15px;
 }
 
-/*=================*/
-/* Contact Page */
-/*=================*/
+/*==================*/
+/*== Contact Page ==*/
+/*==================*/
+#ddRole.form-control {
+  width: 60%;
+  max-width: 324px;
+  min-width: 100px;
+}
+
+#clear.btnStyled {
+  background-color: var(--blue-color);
+}
+#clear.btnStyled:hover {
+  background-color: var(--red-color);
+  color: var(--white-color);
+}
+
+#send.btnStyled {
+  background-color: var(--yellow-color);
+  color: var(--black-color);
+}
+#send.btnStyled:hover {
+  background-color: var(--red-color);
+  color: var(--white-color);
+}
+
+/*=======================*/
+/*== Add New Info Page ==*/
+/*=======================*/
+#ddRole, #ddType {
+  width: 60%;
+  max-width: 324px;
+  min-width: 100px;
+}
+
+#sendInfo.btnStyled {
+  background-color: var(--yellow-color);
+  color: var(--black-color);
+}
+#sendInfo.btnStyled:hover {
+  background-color: var(--red-color);
+  color: var(--white-color);
+}
 

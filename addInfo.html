@@ -21,9 +21,6 @@
   </header>
 
   <main>
-    <div class="pageIntro">
-      <h1 class="introTitle">Please help to Add More FMA Info to the list</h1>
-    </div>
 
     <div class="addOrImage">
       <img id="imgFMAfighters" src="./IMAGES/filipino-martial-arts-arnis-escrima-kali-stick-fighting.png" alt="Silhouette of two Filipino martial Artists stick fighting"/>
@@ -31,8 +28,87 @@
     </div>
 
     <div class="mainBody">
-      <h2 class="secHead">The "Add Content Form" will be placed here</h2>
-      <p>To alert us to add new information about an FMA club, group, school, or event, pPlease fill out all the fields with the necessary information as indicated.</p>
+      <div class="pageIntro">
+        <h1 class="introTitle">Please help to Add More FMA Info to the list</h1>
+        <p>To alert us about new clubs, groups, schools, or events you think we should add to this list, please fill out all the fields in this form with the necessary information as indicated. Thanks!</p>
+      </div>
+  
+      <form id="contact-form">
+        <div class="form-group right">
+          <label id="name-label" for="name">Full Name <span class="required">*</span></label>
+          <input type="text" name="name" id="name" class="form-control" placeholder="Enter your full name" required>
+        </div>
+        
+        <div class="form-group right">
+          <label id="email-label" for="email">Email <span class="required">*</span></label>
+          <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email address" required>
+        </div>
+        
+        <div class="form-group right">
+          <label id="phone-label" for="phone">Phone <span class="required">*</span></label>
+          <input type="phone" name="phone" id="phone" class="form-control" placeholder="Enter your phone number" required>
+        </div>
+        
+        <div class="form-group right">
+          <label id="website-label" for="website">website (Optional)&nbsp;</label>
+          <input type="website" name="website" id="website" class="form-control" placeholder="Enter a website address">
+        </div>
+        
+        <div class="form-group right">
+          <p class="labelText" for="role">Which best describes your role? (Optional)</p>
+          <select id="ddRole" name="role" class="form-control">
+            <option disabled selected value>Select your current role</option>
+            <option value="student">FMA Student</option>
+            <option value="instructor">FMA Instructor</option>         
+            <option value="Organizer">Event Organizer</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+                <div class="form-group right">
+          <p class="labelText" for="type">What information would you like to add? <span class="required">*</span></p>
+          <select id="ddType" name="type" class="form-control" required>
+            <option disabled selected value>What to add</option>
+            <option value="Club">Club</option>
+            <option value="group">Group</option>
+            <option value="school">School</option>
+            <option value="event">Event</option>
+          </select>
+        </div>
+
+        <div class="form-group right">
+          <p class="labelText" for="type">What is the name of the FMA venue or event to add? <span class="required">*</span></p>
+          <label id="eventName-label" for="eventName">FMA Name <span class="required">*</span></label>
+          <input type="eventName" name="eventName" id="eventName" class="form-control" placeholder="Enter the event or venue name" required>
+        </div>
+        
+        <div class="form-group right">
+          <p class="labelText" for="activityAddress">Please enter the address details for the new FMA venue <span class="required">*</span></p>
+          <div id="activityAddress">
+            <label id="address-label" for="address">Address <span class="required">*</span></label>
+            <input type="address" name="address" id="address" class="form-control" placeholder="Enter an Address" required><br />
+            <label id="state-label" for="state">State <span class="required">*</span></label>
+            <input type="state" name="address" id="state" class="form-control" placeholder="Enter a State" required><br />
+            <label id="zipcode-label" for="zipcode">Zip Code <span class="required">*</span></label>
+            <input type="zipcode" name="address" id="zipcode" class="form-control" placeholder="Enter a Zip Code" required>
+          </div>         
+        </div>
+
+        <div class="form-group">
+          <p class="labelText">Enter additional information you want to suggest here. <span class="required">*</span></p>
+          <textarea id="comments" class="input-textarea" name="comment" placeholder="Enter all details here here..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <button type="reset" id="clear" class="btnStyled submit-button" onclick="form.reset()">Clear</button>
+          <button type="submit" id="sendInfo" class="btnStyled submit-button">Send Info</button>
+        </div>
+      </form>
+      
+      <br/>
+      <div class="addInfo">
+    	  <a href="AddInfo.html">Click here to Add a club, school or event</a> 
+      </div>
       <br/>
 
     </div>
