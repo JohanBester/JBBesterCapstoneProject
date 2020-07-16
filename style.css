@@ -9,6 +9,8 @@
 
 body {
   width: 100%;
+  min-width: 300px;
+  overflow: auto;
   padding: 0;
   margin: 0;
   font-size: 16px;
@@ -26,27 +28,27 @@ h6 {
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 2rem;
 }
 
 h2 {
-  font-size: 1.75em;
+  font-size: 1.75rem;
 }
 
 h3 {
-  font-size: 1.60em;
+  font-size: 1.6rem;
 }
 
 h4 {
-  font-size: 1.50em;
+  font-size: 1.5rem;
 }
 
 h5 {
-  font-size: 1.40em;
+  font-size: 1.4rem;
 }
 
 h6 {
-  font-size: 1.25em;
+  font-size: 1.25rem;
 }
 
 p {
@@ -90,6 +92,7 @@ a:hover {
 .fixed-header,
 .fixed-footer {
   width: 100%;
+  min-width: 300px;
   position: fixed;
   padding: 0;
   z-index: 99;
@@ -143,13 +146,17 @@ a:hover {
   font-weight: 900;
 }
 
+@media (max-width: 768px) {
+  .appname1, .appname2 {
+    font-size: 2rem;
+  }
+}
+
 /*========================*/
 /*== The Footer Section ==*/
 /*========================*/
 footer {
-  display: grid;
-  grid-gap: 5px;
-  grid-template-columns: repeat(2, minmax(95px, 1fr));
+  display: flex;
 }
 
 footer > div {
@@ -158,6 +165,7 @@ footer > div {
 }
 
 #disclaimers {
+  width: 50%;
   margin: 10px;
   padding: 5px;
   border: 0.5px dotted var(--grey-color);
@@ -167,34 +175,114 @@ footer > div {
   color: var(--black-color);
   text-decoration: none;
 }
-
 #disclaimers:hover {
   border: 0.5px solid var(--black-color);
 }
 
 #disclaimers .disTop {
-  margin: 0;
+  font-size: x-large;
+  margin: 5px;
 }
 #disclaimers .disText {
-  font-size: small;
+  font-size: large;
+  margin: 5px;
 }
 
 #navButtons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 40px;
-  grid-column-gap: 5px;
-  grid-auto-flow: row;
-  justify-content: center;
-  align-self: center;
-  margin: 5px 5% 5px 3px;
+  display: flex;
+  justify-content: space-between;
+  margin: 1% auto;
 }
 
+@media (max-width: 768px) {
+  #disclaimers {
+    width: 55%;
+    margin: 5px;
+    padding: 5px;
+    border: 0.5px dotted var(--grey-color);
+    padding-bottom: 5px;
+  }
+  #disclaimers .disTop {
+    font-size: small;
+    margin: 0;
+  }
+  #disclaimers .disText {
+    font-size: x-small;
+  }
+
+  #navButtons {
+    flex-direction: column;
+  }
+  #navButtons .btnStyled {
+    font-size: 0.5rem;
+    line-height: 1.2;
+    min-width: 100px;
+  }
+}
+
+/*=============================*/
+/*== Site-wide Template Page ==*/
+/*=============================*/
+main {
+  position: fixed;
+  top: 20%;
+  height: 60%;
+  width: 100%;
+  display: flex;
+}
+
+main > div {
+  margin: 5px;
+  padding: 5px;
+}
+
+.addOrImage {
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px dotted var(--black-color);
+  text-align: center;
+}
+
+#imgFMAfighters {
+  width: 100%;
+  height: auto;
+}
+
+.mainBody {
+  overflow-y: auto;
+}
+
+.pageIntro {
+  text-align: center;
+  margin: 0;
+}
+
+.secHead {
+  font-weight: bold;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column-reverse;
+  }
+  .addOrImage {
+    display: none;
+  }
+}
+
+/*===================*/
+/*== Button Styles ==*/
+/*===================*/
 .btnStyled {
-  border: 0;
+  border: 3px;
   line-height: 1.8;
-  padding: 0 5px;
-  font-size: 0.8rem;
+  width: auto;
+  height: auto;
+  min-width: 120px;
+  margin: auto 3%;
+  padding: 5px;
+  font-size: 1.2rem;
   text-align: center;
   color: var(--white-color);
   text-shadow: 1px 1px 1px var(--grey-color);
@@ -226,64 +314,19 @@ footer > div {
 
 .btnStyled:active {
   box-shadow: inset -2px -2px 3px var(--white-color),
-    inset 2px 2px 3px var(--black-color);
+    inset 2px 2px 3px var(--grey-color);
 }
 
-/*=============================*/
-/*== Site-wide Template Page ==*/
-/*=============================*/
-main {
-  position: fixed;
-  top: 20%;
-  height: 60%;
-  width: 100%;
-  display: grid;
-  grid-template-columns: minmax(100px, 1fr) minmax(200px, 3fr);
-  /* grid-template-rows: 20% 80%; */
-  grid-template-areas: "spacer content"; 
-}
-
-main > div {
-  /* border: 1px dotted var(--black-color); */
-  margin: 5px;
-  padding: 5px;
-}
-
-.addOrImage {
-  grid-area: spacer;
-  overflow-y: auto;
-  overflow-x: hidden;
-  border: 1px dotted var(--black-color);
-  text-align: center;
-}
-
-#imgFMAfighters {
-  width: 100%;
-}
-
-.mainBody {
-  grid-area: content;
-  overflow-y: auto;
-}
-
-.pageIntro {
-  text-align: center;
-  margin: 0;
-}
-
-.secHead {
-  font-size: 1.5em;
-  font-weight: bold;
-  text-align: center;
+.btnStyled:focus {
+  outline: -webkit-focus-ring-color auto 0;
 }
 
 /*=====================================*/
 /* === Add More Info Button Styles === */
 /*=====================================*/
-
 .addInfo {
-  text-align: center;
   font-size: large;
+  text-align: center;
   margin: 10px auto;
   position: relative;
   bottom: 0;
@@ -303,18 +346,24 @@ main > div {
   width: 50%;
 }
 
-/*=====================================*/
-/*=== FORM STYLES  ====================*/
-/*=====================================*/
+@media (max-width: 768px) {
+  .addInfo {
+    font-size: medium;
+  }
+}
 
+/*====================*/
+/*=== FORM STYLES  ===*/
+/*====================*/
 form {
   margin: 10px auto;
   background-color: lightblue;
   border-radius: 10px;
-  min-width: 200px;
+  min-width: 220px;
   width: 60%;
   max-width: 560px;
   padding: 20px;
+  font-size: large;
 }
 
 .form-group {
@@ -324,7 +373,6 @@ form {
 }
 
 .form-control {
-  font-size: large;
   color: var(--black-color);
   padding: 10px;
   background-color: #fff;
@@ -332,7 +380,7 @@ form {
   border-radius: 10px;
   width: 60%;
   max-width: 300px;
-  min-width: 100px;
+  min-width: 10px;
 }
 
 .form-control:hover {
@@ -347,12 +395,10 @@ form {
 .hint {
   color: var(--black-color);
   font-style: italic;
-  font-size: large;
 }
 
 label {
   text-align: right;
-  font-size: larger;
   font-weight: 700;
   color: var(--blue-color);
   margin-bottom: 0.5rem;
@@ -361,7 +407,6 @@ label {
 
 .labelText {
   text-align: center;
-  font-size: larger;
   font-weight: 700;
   color: var(--blue-color);
   margin-bottom: 0.5rem;
@@ -383,7 +428,6 @@ label {
   min-width: 100px;
   resize: vertical;
   color: var(--black-color);
-  font-size: larger;
   padding: 10px;
   background-color: #fff;
   border: 2px solid var(--yellow-color);
@@ -399,6 +443,24 @@ label {
   padding: 0.5rem 2.5rem;
   font-size: medium;
   border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+  form {
+    font-size: medium;
+  }
+  .form-control {
+    width: 90%;
+  }
+  .input-textarea {
+    width: 90%;
+    margin: auto;
+  }
+  .submit-button {
+    font-size: medium;
+    border-radius: 15px;
+    margin: 5px;
+  }
 }
 
 /*========================*/
@@ -424,44 +486,120 @@ label {
 }
 
 /*====================================*/
-/* Search Results Page and Search Bar */
+/*== FMA Search Page and Search Bar ==*/
 /*====================================*/
+#fmaSearchPage {
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+/* content container */
 .container {
-  position: fixed;
-  top: 35%;
-  max-height: 40%;
+  margin: 0 auto;
   width: 98%;
-  overflow-y: scroll;
+  min-width: 290px;
   color: var(--black-color);
   z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(200px, 1fr));
-  grid-auto-rows: minmax(150px,max-content);
-  grid-column-gap: 5px;
-  grid-row-gap: 5px;
-  justify-content: center;
-  /*grid-template-rows: repeat(auto-fit, 200px);*/
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
 .container > div {
   border: 1px dotted var(--black-color);
-  padding: 20px;
+  margin: 10px;
+  padding: 10px;
+  min-width: 200px;
+  max-width: 300px;
+  min-height: 200px;
+}
+
+/* search bar stylings */
+#fmaSearchPage > form {
+  border: 1px solid var(--blue-color);
+  margin: 0 auto;
+  padding: 0.5px;
 }
 
 .searchbar {
-  position: fixed;
-  top: 28%;
-  left: 1%;
-  width: 95%;
+  width: 98%;
+  font-size: larger;
   color: var(--black-color);
-  display: grid;
-  grid-gap: 0;
-  grid-template-columns: repeat(6, minmax(20px, 1fr));
+  display: flex;
+  justify-content: center;
 }
 .searchbar > div {
-  border: 1px solid var(--black-color);
+  margin: 5px 2px;
   padding: 5px;
   text-align: center;
+}
+
+.sbField {
+  border: 1px solid var(--yellow-color);
+  border-radius: 5px;
+  font-size: medium;
+  padding: 5px;
+  width: 60px;
+}
+
+#btnSearch.btnStyled {
+  height: 2rem;
+  width: auto;
+  border: 2px;
+  border-radius: 10px;
+  line-height: 1.8;
+  min-width: 100px;
+  margin: auto 1%;
+  padding: 2px;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  #fmaSearchPage {
+    flex-direction: column;
+  }
+  /* content container */
+  .container > div {
+    margin: 2px;
+    padding: 2px;
+    min-width: 120px;
+    max-width: 160px;
+    min-height: 100px;
+  }
+
+  #fmaSearchPage > form {
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 1px 0.5px;
+  }
+  
+  /* search bar stylings */
+  .searchbar > div {
+    font-size: medium;
+    line-height: 1rem;
+    margin: 1px 0;
+    padding: 0;
+    text-align: center;
+  }
+  .sbField {
+    font-size: small;
+    width: 40px;
+    padding: 2px;
+  }
+
+  #btnSearch.btnStyled {
+    height: 1.5rem;
+    width: auto;
+    border: 1px;
+    border-radius: 5px;
+    line-height: 1.4;
+    min-width: 60px;
+    margin: auto 1%;
+    padding: 2px;
+    font-size: small;
+  }
 }
 
 /*=================*/
@@ -480,7 +618,7 @@ label {
 /*== Contact Page ==*/
 /*==================*/
 #ddRole.form-control {
-  width: 60%;
+  width: 90%;
   max-width: 324px;
   min-width: 100px;
 }
@@ -505,7 +643,8 @@ label {
 /*=======================*/
 /*== Add New Info Page ==*/
 /*=======================*/
-#ddRole, #ddType {
+#ddRole,
+#ddType {
   width: 60%;
   max-width: 324px;
   min-width: 100px;
@@ -519,4 +658,3 @@ label {
   background-color: var(--red-color);
   color: var(--white-color);
 }
-

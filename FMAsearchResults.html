@@ -19,46 +19,60 @@
       <span class="appname2">FMA Fun Finder</span></div></header></a>
   </header>
 
-  <main>
-    <div class="mainBody">
-      <p>Refine your search results by choosing options from the search bar and then clicking the search button.</p>
-    </div>
+  <main id="fmaSearchPage">
 
-    <div class="searchbar">
-      <div id="zipSearch">zip</div>
-      <div id="stateSearch">state</div>
-      <div id="radiusSearch">radius</div>
-      <div id="typeSearch">type</div>
-      <div id="styleSearch">style</div>
-      <div id="btnSearch">search</div>
-    </div>
+      <div class="pageIntro">
+        <p>Refine your search results by entering options from the search bar and then clicking the search button.</p>
+      </div>
 
-    <div class="container">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
-      <div>7</div>
-      <div>8</div>
-      <div>9</div>
-      <div>10</div>
-      <div>11</div>
-      <div>12</div>
-      <div>13</div>
-      <div>14</div>
-      <div>15</div>
-      <div>16</div>
-      <div>17</div>
-    </div>
+      <form class="searchbar">
+        <div>
+          <input type="text" name="Zip" id="zipSearch" class="sbField" placeholder="Zip" required>
+        </div>
+        <div>
+          <input type="text" name="state" id="stateSearch" class="sbField" placeholder="State">
+        </div>
+        <div>
+          <input type="text" name="radius" id="radiusSearch" class="sbField" placeholder="Radius">
+        </div>
+        <div>
+          <input type="text" name="type" id="typeSearch" class="sbField" placeholder="Type">
+        </div>
+        <div>
+          <input type="text" name="style" id="styleSearch" class="sbField" placeholder="style">
+        </div>
+        <div >
+          <button type="submit" id="btnSearch" class="btnStyled" onclick="">Search</button>
+        </div>
+      </form>
+  
+      <div class="container">
+        <div>1 -- These blocks of data will be dynamically assigned from the JavaScript.</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+      </div>
+
   </main>
 
   <footer class="fixed-footer">
     <div id="disclaimers">
       <a href="disclaimers.html">
         <h6 class="disTop">Disclaimer:</h6>
-        <p class="disText">FMA info is a free of charge service. This site offers no guarantees or warranty of efficacy or results regarding content. Caution is advised as techniques described in these pages could lead to physical trauma, severe bodily harm, catastrophic injuries, and possible death. Practice strictly at own risk. Copyright © Fun Finder Applications, Illinois, USA. 2020. All Rights Reserved.</p>
+        <p class="disText">Click here to read the FMA disclaimers. Copyright © Fun Finder Applications, Illinois, USA. 2020. All Rights Reserved.</p>
       </a>
     </div>
     <div id="navButtons">
