@@ -380,11 +380,17 @@ form {
   border-radius: 10px;
   width: 60%;
   max-width: 300px;
-  min-width: 10px;
+  min-width: 100px;
 }
 
 .form-control:hover {
   border: 2px solid var(--red-color);
+}
+
+.ddDropdown {
+  width: 80%;
+  max-width: 306px;
+  min-width: 100px;
 }
 
 .required {
@@ -423,7 +429,7 @@ label {
 
 .input-textarea {
   min-height: 80px;
-  width: 95%;
+  width: 90%;
   max-width: 500px;
   min-width: 100px;
   resize: vertical;
@@ -451,6 +457,9 @@ label {
   }
   .form-control {
     width: 90%;
+  }
+  .ddDropdown {
+    width: 98%;
   }
   .input-textarea {
     width: 90%;
@@ -574,7 +583,7 @@ label {
     margin: 0 auto;
     padding: 1px 0.5px;
   }
-  
+
   /* search bar stylings */
   .searchbar > div {
     font-size: medium;
@@ -617,12 +626,6 @@ label {
 /*==================*/
 /*== Contact Page ==*/
 /*==================*/
-#ddRole.form-control {
-  width: 90%;
-  max-width: 324px;
-  min-width: 100px;
-}
-
 #clear.btnStyled {
   background-color: var(--blue-color);
 }
@@ -643,13 +646,6 @@ label {
 /*=======================*/
 /*== Add New Info Page ==*/
 /*=======================*/
-#ddRole,
-#ddType {
-  width: 60%;
-  max-width: 324px;
-  min-width: 100px;
-}
-
 #sendInfo.btnStyled {
   background-color: var(--yellow-color);
   color: var(--black-color);
