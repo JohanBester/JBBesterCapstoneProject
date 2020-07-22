@@ -1,21 +1,21 @@
 //***************************************
 // *** Build Reusable HTML Components ***
 //***************************************
-class Header extends HTMLElement {
-  connectedCallback() {
-  this.innerHTML = `
-    <a href="./index.html"><img class="logo" src="IMAGES/FMAlogo.jpg" /></a>
-    <div class="appname">
-      <a href="./index.html">
-      <span class="appname1">STIX </span>
-      <span class="appname2">FMA Fun Finder</span></div></header></a>
-    `;
-  };
-};
 
-class Footer extends HTMLElement {
-  connectedCallback() {
-  this.innerHTML = `
+document.querySelector('header').innerHTML = `
+<a href="./index.html"><img class="logo" src="IMAGES/FMAlogo.jpg" /></a>
+<div class="appname">
+  <a href="./index.html">
+  <span class="appname1">STIX </span>
+  <span class="appname2">FMA Fun Finder</span></div></header></a>
+`;
+
+document.querySelector('.addOrImage').innerHTML = `
+  <img id="imgFMAfighters" src="./IMAGES/filipino-martial-arts-arnis-escrima-kali-stick-fighting.png" alt="Silhouette of two Filipino martial Artists stick fighting"/>
+  <p> Place Add or Image here for wider screen layouts</p>
+`;
+
+document.querySelector('footer').innerHTML = `
     <div id="disclaimers">
     <a href="disclaimers.html">
       <h6 class="disTop">Disclaimer:</h6>
@@ -28,32 +28,47 @@ class Footer extends HTMLElement {
       <button id="btnContact" class="btnStyled" type="button"><a href="./contact.html">CONTACT</a></button>
     </div>
     `;
-  };
-};
-
-customElements.define('main-header', Header);
-customElements.define('main-footer', Footer);
-
-// Constant for Body to manipulate DOM
-const body = document.body;
 
 // Constant for Forms to clear form data
 const form = document.querySelector('form');
+
+//*********************************
+//***  Search filter options  *****
+//*********************************
+
+function homepageSelections() {
+  // get user zip code input
+  let zipCode = document.querySelector("#zipSearch").value;
+  // get user radio button selection on home page
+  let selectButton = document.querySelector('input[name="selectOptions"]:checked').value;
+};
+
+
+function searchFiltering() {
+  // get user zip code input
+  let zipCode = document.querySelector("#zipSearch").value;
+  // get user state selection
+  let stateDropdown = document.querySelector("#stateSearch");
+  let state = stateDropdown.options[stateDropdown.selectedIndex].value;
+  // get user search radius
+  let radiusDropdown = document.querySelector("#radiusSearch");
+  let radius = radiusDropdown.options[radiusDropdown.selectedIndex].value;
+  // get user type selection
+  let typeDropdown = document.querySelector("#typeSearch");
+  let type = typeDropdown.options[typeDropdown.selectedIndex].value;
+  // get user style selection
+  let styleDropdown = document.querySelector("#styleSearch");
+  let style = styleDropdown.options[styleDropdown.selectedIndex].value;
+};
 
 
 //****************************
 // GET Zip Code Data from API
 //****************************
-let myHeaders = new Headers();
-myHeaders.append("Cookie", "ARRAffinity=2b78f63868c3310f43dc867a531bd5c0bcce7ea205a41556404c7fa407b93447");
 let requestOptions = {
   method: 'GET',
-  headers: myHeaders,
   redirect: 'follow'
 };
-
-let zipCode = document.getElementById("zipSearch").textContent;
-let radius = document.getElementById("radiusSearch").textContent;
 
 function getZipCodeData(zipCode, radius = 50) {
     fetch(`"https://api.zip-codes.com/ZipCodesAPI.svc/1.0/FindZipCodesInRadius?zipcode=${zipCode}&minimumradius=0&maximumradius=${radius}&key=DEMOAPIKEY"`, requestOptions)
@@ -65,8 +80,8 @@ function getZipCodeData(zipCode, radius = 50) {
 //************************************
 // Datasets for the data collections
 //************************************
-// Example data from API
-let returnData = {
+// Example DEMO data from API
+let demoData = {
     "DataList": [
       {
         "Code": "62025",
@@ -2589,12 +2604,11 @@ let returnData = {
       }
     ]
 };
-// Example data from Database
-let dataBaseData = {
 
-};
+// ARI Return data
+let returnData = {};
+// Data from Database
+let dataBaseData = {};
 // Example comparison between API and database data
-let comparedData = {
-
-};
+let comparedData = {};
 

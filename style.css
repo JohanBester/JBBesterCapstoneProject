@@ -513,6 +513,10 @@ label {
   margin: 0 auto;
 }
 
+#searchPageAddOrImage {
+  display: none;
+}
+
 /* search bar stylings */
 #searchBar {
   width: auto;
@@ -526,26 +530,29 @@ label {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   align-content: stretch;
-  /* align-items: stretch; */
 }
 
 .sbField {
   height: 2rem;
   border: 1px solid var(--yellow-color);
   border-radius: 5px;
+  max-width: 100px;
 }
-
 #btnSearch.btnStyled {
   height: 2rem;
   width: auto;
   border: 2px;
   border-radius: 10px;
-  line-height: 1.8;
-  min-width: 100px;
-  margin: auto 1%;
-  padding: 2px;
+  line-height: 1.7;
+  max-width: 100px;
+  margin: auto 2.5%;
+  padding: 1px;
   font-size: 1rem;
+}
+#zipSearch {
+  max-height: 29px;
 }
 
 /* content container */
@@ -559,7 +566,7 @@ label {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .container > div {
@@ -571,28 +578,34 @@ label {
   min-height: 200px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 426px) {
   #searchBar {
-    width: 95%;
+    width: auto;
+    max-width: 98%;
     min-width: 300px;
     margin: 0 auto;
   }
   .sbField {
     font-size: x-small;
     width: auto;
+    max-width: 54px;
     height: 1.5rem;
   }
   #btnSearch.btnStyled {
     height: 1.5rem;
     width: auto;
-    border: 1px;
+    border: 0.5px;
     border-radius: 5px;
-    line-height: 1.4;
-    min-width: 60px;
-    margin: auto 1%;
-    padding: 2px;
+    min-width: 48px;
+    margin: 2% 1.75% 1% 1.75%;
+    padding: 1px;
     font-size: small;
   }
+  #zipSearch {
+    max-height: 20px;
+    max-width: 40px;
+  }
+
   /* content container */
   .container > div {
     margin: 2px;
