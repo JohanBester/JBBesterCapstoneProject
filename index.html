@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>STIX FMA Fun Finder - home of FMA fun searches</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400&family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
-
-  <link href="style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="style.css" type="text/css">
 </head>
+
 <body>
+
   <header class="fixed-header">
     <a href="./index.html"><img class="logo" src="IMAGES/FMAlogo.jpg" /></a>
     <div class="appname">
@@ -19,7 +21,6 @@
   </header>
 
   <main>
-
     <div class="addOrImage">
       <img id="imgFMAfighters" src="./IMAGES/filipino-martial-arts-arnis-escrima-kali-stick-fighting.png" alt="Silhouette of two Filipino martial Artists stick fighting"/>
       <p> Place Add or Image here for wider screen layouts</p>
@@ -35,7 +36,7 @@
       <form id="search-form">
         <div class="form-group">
           <label id="search-label" for="zipSearch">Zip Code <span class="required">*</span></label>
-          <input type="number" name="zipSearch" id="zipSearch" class="form-control" placeholder="Enter Zip Code Here" required>
+          <input type="number" name="zipSearch" id="zipSearchHome" class="form-control" placeholder="Enter Zip Code Here" required>
           <button type="submit" id="search" class="btnStyled submit-button" onclick="window.location = './FMAsearchResults.html'">Search</button>
         </div>
 

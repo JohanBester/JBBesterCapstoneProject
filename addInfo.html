@@ -6,7 +6,6 @@
   <title>STIX FMA Fun Finder - Add New Info</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400&family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
-
   <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -21,7 +20,6 @@
   </header>
 
   <main>
-
     <div class="addOrImage">
       <img id="imgFMAfighters" src="./IMAGES/filipino-martial-arts-arnis-escrima-kali-stick-fighting.png" alt="Silhouette of two Filipino martial Artists stick fighting"/>
       <p> Place Add or Image here for wider screen layouts</p>
@@ -34,27 +32,28 @@
       </div>
   
       <form id="contact-form" action="https://formspree.io/mjvajbql" method="POST">
-        <div class="form-group right">
+        
+        <div class="form-group">
           <label id="name-label" for="name">Full Name <span class="required">*</span></label>
           <input type="text" name="name" id="name" class="form-control" placeholder="Enter your full name" required>
         </div>
         
-        <div class="form-group right">
+        <div class="form-group">
           <label id="email-label" for="email">Email <span class="required">*</span></label>
           <input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" placeholder="Enter your email address" required>
         </div>
         
-        <div class="form-group right">
+        <div class="form-group">
           <label id="phone-label" for="phone">Phone <span class="required">*</span></label>
           <input type="tel" name="phone" id="phone" pattern="\d{3}[\-]\d{3}[\-]\d{4}" class="form-control" placeholder="Enter number 123-465-7980" required>
         </div>
         
-        <div class="form-group right">
-          <label id="website-label" for="website">website (Optional)&nbsp;</label>
+        <div class="form-group">
+          <label id="website-label" for="website">Website <span>(Optional)</span></label>
           <input type="url" name="website" id="website" pattern="^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?" class="form-control" placeholder="Enter a website address">
         </div>
         
-        <div class="form-group right">
+        <div class="form-group">
           <p class="labelText" for="role">Which best describes your role? (Optional)</p>
           <select id="ddRole" name="role" class="form-control ddDropdown">
             <option disabled selected value>Select your current role</option>
@@ -65,7 +64,7 @@
           </select>
         </div>
 
-                <div class="form-group right">
+        <div class="form-group">
           <p class="labelText" for="type">What information would you like to add? <span class="required">*</span></p>
           <select id="ddType" name="type" class="form-control ddDropdown" required>
             <option disabled selected value>What to add...</option>
@@ -76,13 +75,13 @@
           </select>
         </div>
 
-        <div class="form-group right">
+        <div class="form-group">
           <p class="labelText" for="type">What is the name of the FMA venue or event to add? <span class="required">*</span></p>
           <label id="venueName-label" for="venueName">FMA Name <span class="required">*</span></label>
           <input type="text" name="venueName" id="venueName" class="form-control" placeholder="Enter the event or venue name" required>
         </div>
         
-        <div class="form-group right">
+        <div class="form-group">
           <p class="labelText" for="activityAddress">Please enter the address details for the new FMA venue <span class="required">*</span></p>
           <div id="activityAddress">
             <label id="address-label" for="address">Address <span class="required">*</span></label>
@@ -152,7 +151,7 @@
           <textarea id="comments" class="input-textarea" name="comment" placeholder="Enter all details here here..." required></textarea>
         </div>
 
-        <div class="form-group">
+        <div class="button-group">
           <button type="reset" id="clear" class="btnStyled submit-button" onclick="form.reset()">Clear</button>
           <button type="submit" id="sendInfo" class="btnStyled submit-button">Send Info</button>
         </div>

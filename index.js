@@ -1,12 +1,51 @@
-// Constant for form DOM manipulation
+//***************************************
+// *** Build Reusable HTML Components ***
+//***************************************
+class Header extends HTMLElement {
+  connectedCallback() {
+  this.innerHTML = `
+    <a href="./index.html"><img class="logo" src="IMAGES/FMAlogo.jpg" /></a>
+    <div class="appname">
+      <a href="./index.html">
+      <span class="appname1">STIX </span>
+      <span class="appname2">FMA Fun Finder</span></div></header></a>
+    `;
+  };
+};
+
+class Footer extends HTMLElement {
+  connectedCallback() {
+  this.innerHTML = `
+    <div id="disclaimers">
+    <a href="disclaimers.html">
+      <h6 class="disTop">Disclaimer:</h6>
+      <p class="disText">Click here to read the FMA disclaimers. Copyright © Fun Finder Applications, Illinois, USA. 2020. All Rights Reserved.</p>
+    </a>
+    </div>
+    <div id="navButtons">
+      <button id="btnAbout" class="btnStyled" type="button"><a href="./about.html">ABOUT</a></button>
+      <button id="btnHome" class="btnStyled" type="button"><a href="./index.html">HOME</a></button>
+      <button id="btnContact" class="btnStyled" type="button"><a href="./contact.html">CONTACT</a></button>
+    </div>
+    `;
+  };
+};
+
+customElements.define('main-header', Header);
+customElements.define('main-footer', Footer);
+
+// Constant for Body to manipulate DOM
+const body = document.body;
+
+// Constant for Forms to clear form data
 const form = document.querySelector('form');
+
 
 //****************************
 // GET Zip Code Data from API
 //****************************
 let myHeaders = new Headers();
 myHeaders.append("Cookie", "ARRAffinity=2b78f63868c3310f43dc867a531bd5c0bcce7ea205a41556404c7fa407b93447");
-
 let requestOptions = {
   method: 'GET',
   headers: myHeaders,
@@ -24,7 +63,7 @@ function getZipCodeData(zipCode, radius = 50) {
 };
 
 //************************************
-// Datasets with the data collections
+// Datasets for the data collections
 //************************************
 // Example data from API
 let returnData = {
