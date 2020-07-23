@@ -33,11 +33,12 @@
   
       <h1 class="secHead">Please enter your zip code to search</h1>
 
-      <form id="search-form">
+      <form id="searchForm">
         <div class="form-group">
           <label id="search-label" for="zipSearch">Zip Code <span class="required">*</span></label>
-          <input type="number" name="zipSearch" id="zipSearchHome" class="form-control" placeholder="Enter Zip Code Here" required>
-          <button type="submit" id="search" class="btnStyled submit-button" onclick="window.location = './FMAsearchResults.html'">Search</button>
+          <input type="text" name="zipSearch" id="zipSearch" class="form-control" placeholder="Enter Zip Code Here" required>
+          <button type="submit" id="search" class="btnStyled submit-button" >Search</button>
+          <!-- <button type="submit" id="search" class="btnStyled submit-button" onclick="window.location = './FMAsearchResults.html'">Search</button> -->
         </div>
 
         <div id="options" class="form-group">
@@ -56,6 +57,9 @@
 
       <div id="hpAddInfoButton" class="addInfo">
     	  <a href="AddInfo.html">Click here to ADD a club, group, school or event</a> 
+      </div>
+      <div class="center">
+        <a href="FMAsearchResults.html"  style="color: white">Search Results Page</a>
       </div>
       <br/>
     </div>
