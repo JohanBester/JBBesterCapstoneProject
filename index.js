@@ -42,46 +42,42 @@ let radius = "";
 let type = "";
 let style = "";
 
-// Listener for form submit click
-form.addEventListener("submit", event => {
-  event.preventDefault();
+// function for home page form
+function zipcodeSearch() { 
+  // get user zip code input
+  zipCode = document.getElementById("zipSearch").value;
+  // get user radio button selection on home page
+  selectButton = form.querySelector('input[name="selectOptions"]:checked').value;
+  console.log(`Zip Code = ${zipCode}, and selectButton = ${selectButton}`);
 
+  // return getZipCodeData(zipCode, radius);
+};
+
+// function for search bar filtering on results page
+function searchBarSubmit() { 
   // get user zip code input
   zipCode = document.getElementById("zipSearch").value;
 
-  // if form id="searchForm"
-  if (document.querySelector('#searchForm')) {
-    // get user radio button selection on home page
-    selectButton = form.querySelector('input[name="selectOptions"]:checked').value;
-    console.log(`Zip Code = ${zipCode}, and selectButton = ${selectButton}`);
+  // get user state selection
+  let stateDropdown = document.querySelector("#stateSearch");
+  state = stateDropdown.options[stateDropdown.selectedIndex].value;
 
-    return getZipCodeData(zipCode, radius);
+  // get user search radius
+  let radiusDropdown = document.querySelector("#radiusSearch");
+  radius = radiusDropdown.options[radiusDropdown.selectedIndex].value;
 
-  } else {
-    // if form id="searchBar"
+  // get user type selection
+  let typeDropdown = document.querySelector("#typeSearch");
+  type = typeDropdown.options[typeDropdown.selectedIndex].value;
+  
+  // get user style selection
+  let styleDropdown = document.querySelector("#styleSearch");
+  style = styleDropdown.options[styleDropdown.selectedIndex].value;
 
-    // get user state selection
-    let stateDropdown = document.querySelector("#stateSearch");
-    state = stateDropdown.options[stateDropdown.selectedIndex].value;
+  console.log(zipCode, state, radius, type, style);
 
-    // get user search radius
-    let radiusDropdown = document.querySelector("#radiusSearch");
-    radius = radiusDropdown.options[radiusDropdown.selectedIndex].value;
-
-    // get user type selection
-    let typeDropdown = document.querySelector("#typeSearch");
-    type = typeDropdown.options[typeDropdown.selectedIndex].value;
-    
-    // get user style selection
-    let styleDropdown = document.querySelector("#styleSearch");
-    style = styleDropdown.options[styleDropdown.selectedIndex].value;
-
-    console.log(zipCode, state, radius, type, style);
-
-    return getZipCodeData(zipCode, radius);
-
-  };
-});
+  // return getZipCodeData(zipCode, radius);
+ };
 
 
 //****************************
