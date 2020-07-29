@@ -106,7 +106,7 @@ function getZipCodeData(zipCode, radius = 5) {
 //************************************
 // Get FMA JSON Data from file
 //************************************
-let databaseData = {};  // FMA DB data
+let databaseData = [];  // for the FMA DB data
 
 // To import the JSON data from a file
 function importJSON() {
@@ -116,7 +116,11 @@ function importJSON() {
     }).then(
       data => {
         // Work with your JSON data here..
-        dataBaseData = data;
+        // databaseData = data;
+        console.log(data);
+
+        return comparedata(data, demoAPIdata);
+
       }).catch(
         err => {
           // What to do when the request fails
@@ -125,11 +129,13 @@ function importJSON() {
         });
 };
 
+importJSON();
+
 
 //*******************************
 // Manipulate and sort the Data
 //*******************************
-let comparedData = {};  // Comparison - API and DB data
+let comparedData = [];  // To comparison - API and DB data
 
 // Interim Example DEMO data from API
   // {
@@ -346,7 +352,7 @@ let demoAPIdata = [
   //   "Address": "1324 Essec Drive, Edwardsville",
   //   "ZipCode": 62025,
   //   "State": "Illinois",
-  //   "Phone": "[602] 679-9713",
+  //   "Phone": "[618] 679-9713",
   //   "Email": "Email",
   //   "Web URL": "www.edwardsvilleymca.com",
   //   "Type": "Club",
@@ -369,7 +375,7 @@ let tempDBdata = [
       "Address": "1324 Essec Drive, Edwardsville",
       "ZipCode": 62025,
       "State": "Illinois",
-      "Phone": "[602] 679-9713",
+      "Phone": "[618] 679-9713",
       "Email": "Email",
       "Web URL": "www.edwardsvilleymca.com",
       "Type": "Club",
@@ -5019,13 +5025,14 @@ let tempDBdata = [
     }
   ];
 
+// function to Comparison - API and DB data  
 function comparedata(tempDBdata, demoAPIdata) {
   for(i=0; i <= tempDBdata.length-1; i++) {
     if (tempDBdata.includes(demoAPIdata[i].ZipCode)) {
       comparedData.push(demoAPIdata[i]);
     };
-    console.log(demoAPIdata[i].ZipCode);
+  console.log(demoAPIdata[i]);
   };
-};
 
-console.log(comparedData);
+  console.log(comparedData);
+};
