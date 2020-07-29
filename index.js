@@ -88,7 +88,7 @@ function searchBarSubmit() {
 //***************************************
 // Steps to GET Zip Code Data from API
 //***************************************
-let returnData = {};  // API Return data
+let returnData = [];  // API Return data
 
 // Get the API data with a API call
 function getZipCodeData(zipCode, radius = 5) {
@@ -98,13 +98,17 @@ function getZipCodeData(zipCode, radius = 5) {
   };
   fetch(`"https://api.zip-codes.com/ZipCodesAPI.svc/1.0/FindZipCodesInRadius?zipcode=${zipCode}&minimumradius=0&maximumradius=${radius}&key=DEMOAPIKEY"`, requestOptions)
     .then(response => response.json())
-    .then(result => console.log(result))
+    .then(result => {
+      console.log(result);
+      returnData = results;
+      }
+    )
     .catch(error => console.log('error', error));
 };
 
 
 //************************************
-// Get FMA JSON Data from file
+// Get the FMA JSON Data from file
 //************************************
 let databaseData = [];  // for the FMA DB data
 
@@ -115,11 +119,11 @@ function importJSON() {
       return response.json();
     }).then(
       data => {
-        // Work with your JSON data here..
-        // databaseData = data;
+        // Work with JSON data here..
+        databaseData = data;
         console.log(data);
 
-        return comparedata(data, demoAPIdata);
+        return compareTheData(data, demoAPIdata);
 
       }).catch(
         err => {
@@ -132,29 +136,11 @@ function importJSON() {
 importJSON();
 
 
-//*******************************
-// Manipulate and sort the Data
-//*******************************
-let comparedData = [];  // To comparison - API and DB data
+//**************************************************
+// Functions to Manipulate and sort the Datasets
+//**************************************************
 
 // Interim Example DEMO data from API
-  // {
-  //   "ZipCode": "62025",
-  //   "City": "EDWARDSVILLE",
-  //   "State": "IL",
-  //   "Latitude": 38.855130000000,
-  //   "Longitude": -89.948168000000,
-  //   "County": "MADISON"
-  // },
-  // {
-  //   "ZipCode": "62026",
-  //   "City": "EDWARDSVILLE",
-  //   "State": "IL",
-  //   "Latitude": 38.793699000000,
-  //   "Longitude": -89.998742000000,
-  //   "County": "MADISON",
-  //   "Distance": 5.04
-  // },
 let demoAPIdata = [
     {
       "ZipCode": "62025",
@@ -345,30 +331,26 @@ let demoAPIdata = [
       "Distance": 12.05
     }
   ];
+  // {
+  //   "ZipCode": "62025",
+  //   "City": "EDWARDSVILLE",
+  //   "State": "IL",
+  //   "Latitude": 38.855130000000,
+  //   "Longitude": -89.948168000000,
+  //   "County": "MADISON"
+  // },
+  // {
+  //   "ZipCode": "62026",
+  //   "City": "EDWARDSVILLE",
+  //   "State": "IL",
+  //   "Latitude": 38.793699000000,
+  //   "Longitude": -89.998742000000,
+  //   "County": "MADISON",
+  //   "Distance": 5.04
+  // },
 
+  
 // Interim Example FMA data from DB
-  // {
-  //   "Name": "Dynamic Mixed martial Arts - Mr. Brendan Neal",
-  //   "Address": "1324 Essec Drive, Edwardsville",
-  //   "ZipCode": 62025,
-  //   "State": "Illinois",
-  //   "Phone": "[618] 679-9713",
-  //   "Email": "Email",
-  //   "Web URL": "www.edwardsvilleymca.com",
-  //   "Type": "Club",
-  //   "Style": "Escrima"
-  // },
-  // {
-  // "Name": "Arizona Filipino Martial Arts",
-  // "Address": "318 North 5th Avenue, Phoenix ",
-  // "ZipCode": 85003,
-  // "State": "Arizona",
-  // "Phone": "[602] 6799713",
-  // "Email": "Email",
-  // "Web URL": "Web URL",
-  // "Type": "school",
-  // "Style": ""
-  // },
 let tempDBdata = [
     {
       "Name": "Dynamic Mixed martial Arts - Mr. Brendan Neal",
@@ -5024,15 +5006,43 @@ let tempDBdata = [
       "Style": ""
     }
   ];
+  // {
+  //   "Name": "Dynamic Mixed martial Arts - Mr. Brendan Neal",
+  //   "Address": "1324 Essec Drive, Edwardsville",
+  //   "ZipCode": 62025,
+  //   "State": "Illinois",
+  //   "Phone": "[618] 679-9713",
+  //   "Email": "Email",
+  //   "Web URL": "www.edwardsvilleymca.com",
+  //   "Type": "Club",
+  //   "Style": "Escrima"
+  // },
+  // {
+  // "Name": "Arizona Filipino Martial Arts",
+  // "Address": "318 North 5th Avenue, Phoenix ",
+  // "ZipCode": 85003,
+  // "State": "Arizona",
+  // "Phone": "[602] 6799713",
+  // "Email": "Email",
+  // "Web URL": "Web URL",
+  // "Type": "school",
+  // "Style": ""
+  // },
 
-// function to Comparison - API and DB data  
-function comparedata(tempDBdata, demoAPIdata) {
-  for(i=0; i <= tempDBdata.length-1; i++) {
-    if (tempDBdata.includes(demoAPIdata[i].ZipCode)) {
-      comparedData.push(demoAPIdata[i]);
+
+let comparedData = [];  // To comparison - API and DB data
+
+// function to Compare API and DB data  
+function compareTheData(dbData, apiData) {
+  for(i=0; i <= dbData.length-1; i++) {
+    if (apiData.includes(dbData[i].ZipCode)) {
+      comparedData.push(dbData[i]);
     };
-  console.log(demoAPIdata[i]);
+  console.log(dbData[i]);
   };
 
-  console.log(comparedData);
 };
+
+// compareTheData(tempDBdata, demoAPIdata);
+
+console.log(comparedData);
