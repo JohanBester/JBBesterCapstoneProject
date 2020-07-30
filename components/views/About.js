@@ -20,9 +20,7 @@ export default () => `
         <p>Despite the growing popularity of all the Filipino martial Arts, it can often still be hard to find a club, group, school, or events where one can meet other practitioners. <br/>We hope that through this application it would become easier for FMA practitioners to find each other, and list their club, school, or event for others to find. <br/>If you know of a club, school, or event that does not appear on our lists, please take a moment to click the link to add that information. It is by sharing that our community and our sport will grow.</p>
         <br/>
 
-        <div id="hpAddInfoButton" class="addInfo">
-            <a href="AddInfo.html">Click here to ADD a club, group, school or event</a> 
-        </div>
+        <div id="hpAddInfoButton" class="addInfo"></div>
         <br/>
     </div>
 </main>

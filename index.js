@@ -15,9 +15,31 @@ render();
 // *** Build Reusable HTML Components ***
 //***************************************
 
+// generat a Random Image for the side panel
+let imageNames = [
+  "FMAimages1.jpg", "FMAimages2.jpg", "FMAimages3.jpg", "FMAimages4.jpg", "FMAimages5.jpg", "FMAimages6.jpg", "FMAimages7.jpg", "FMAimages8.jpg", "FMAimages9.jpg", "FMAimages10.jpg", "FMAimages11.jpg", "FMAimages12.jpg", "FMAimages13.jpg", "FMAimages14.jpg", "FMAimages15.jpg", "FMAimages16.jpg", "FMAimages17.jpg", "FMAimages18.jpg", "FMAimages19.jpg", "FMAimages20.jpg", "FMAimages21.jpg", "FMAimages22.jpg", "FMAimages23.jpg", "FMAimages24.jpg", "FMAimages25.jpg", "FMAimages26.jpg", "FMAimages27.jpg", "FMAimages28.jpg", "FMAimages29.jpg"
+];
+Let imageURL = "https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/FMAimages/";
+let randomURL = "";
+
+const randomNumber = function (min, max) {
+	return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+function buildRandomURL(imageNames, imageURL) {
+  let rand = randomNumber(1, imageNames.length);
+  randomName = imageNames[rand];
+  randomURL = imageURL + randomName;
+  return randomURL;
+};
+
 document.querySelector('.addOrImage').innerHTML = `
-  <img id="imgFMAfighters" src="https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/IMAGES/filipino-martial-arts-arnis-escrima-kali-stick-fighting.png?raw=true" alt="Silhouette of two Filipino martial Artists stick fighting"/>
+  <img id="imgFMAfighters" src="https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/IMAGES/${randomURL}?raw=true" alt="General Filipino martial Artists images about Arnis, Escrima, and Kali."/>
   <p> Place Add or Image here for wider screen layouts</p>
+`;
+
+document.querySelector('#hpAddInfoButton').innerHTML = `
+  <a href="AddInfo.html">Click here to ADD a club, group, school or event</a>
 `;
 
 
