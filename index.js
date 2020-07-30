@@ -1,33 +1,25 @@
+import { Header, Main, Footer } from "./components";
+
+function render() {
+  document.querySelector("#root").innerHTML = `
+  ${Header()}
+  ${Main()}
+  ${Footer()}
+  `;
+};
+
+render();
+
+
 //***************************************
 // *** Build Reusable HTML Components ***
 //***************************************
 
-document.querySelector('header').innerHTML = `
-<a href="./index.html"><img class="logo" src="IMAGES/FMAlogo.jpg" /></a>
-<div class="appname">
-  <a href="./index.html">
-  <span class="appname1">STIX </span>
-  <span class="appname2">FMA Fun Finder</span></div></header></a>
-`;
-
 document.querySelector('.addOrImage').innerHTML = `
-  <img id="imgFMAfighters" src="./IMAGES/filipino-martial-arts-arnis-escrima-kali-stick-fighting.png" alt="Silhouette of two Filipino martial Artists stick fighting"/>
+  <img id="imgFMAfighters" src="https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/IMAGES/filipino-martial-arts-arnis-escrima-kali-stick-fighting.png?raw=true" alt="Silhouette of two Filipino martial Artists stick fighting"/>
   <p> Place Add or Image here for wider screen layouts</p>
 `;
 
-document.querySelector('footer').innerHTML = `
-    <div id="disclaimers">
-    <a href="disclaimers.html">
-      <h6 class="disTop">Disclaimer:</h6>
-      <p class="disText">Click here to read the FMA disclaimers. Copyright © Fun Finder Applications, Illinois, USA. 2020. All Rights Reserved.</p>
-    </a>
-    </div>
-    <div id="navButtons">
-      <button id="btnAbout" class="btnStyled" type="button"><a href="./about.html">ABOUT</a></button>
-      <button id="btnHome" class="btnStyled" type="button"><a href="./index.html">HOME</a></button>
-      <button id="btnContact" class="btnStyled" type="button"><a href="./contact.html">CONTACT</a></button>
-    </div>
-    `;
 
 // Constant for Forms to clear form data
 const form = document.querySelector('form');
