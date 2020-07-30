@@ -21,20 +21,20 @@ let imageNames = [
 ];
 Let imageURL = "https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/FMAimages/";
 let randomURL = "";
-
+// Function to generate a random number
 const randomNumber = function (min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 };
-
+// Function to build random image URL
 function buildRandomURL(imageNames, imageURL) {
   let rand = randomNumber(1, imageNames.length);
   randomName = imageNames[rand];
-  randomURL = imageURL + randomName;
+  randomURL = imageURL + randomName + "?raw=true";
   return randomURL;
 };
 
 document.querySelector('.addOrImage').innerHTML = `
-  <img id="imgFMAfighters" src="https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/IMAGES/${randomURL}?raw=true" alt="General Filipino martial Artists images about Arnis, Escrima, and Kali."/>
+  <img id="imgFMAfighters" src="${randomURL}" alt="General Filipino martial Artists images about Arnis, Escrima, and Kali."/>
   <p> Place Add or Image here for wider screen layouts</p>
 `;
 
