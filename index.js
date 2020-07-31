@@ -610,7 +610,7 @@ let tempDBdata = [
 // },
 
 
-let comparedData = [];  // To comparison - API and DB data
+let comparedData = [];  // To hold comparison API and DB data
 
 // function to Compare API and DB data  
 function compareTheData(dbData, apiData) {
