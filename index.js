@@ -120,8 +120,8 @@ function importJSON() {
     }).then(data => {
         // Work with JSON data here...
         databaseData = data;
-        console.log(Array.isArray(databaseData));
-        console.log("databaseData holds... " + databaseData);
+        // console.log(Array.isArray(databaseData));
+        // console.log("databaseData holds... " + databaseData);
       }
     )
     .catch(err => {
@@ -144,13 +144,13 @@ function getZipCodeData(zipCode = 62025, radius = 50) {
     method: 'GET',
     redirect: 'follow'
   };
-  fetch(`https://api.zip-codes.com/ZipCodesAPI.svc/1.0/FindZipCodesInRadius?zipcode=${zipCode}&minimumradius=0&maximumradius=${radius}&key=DEMOAPIKEY`, requestOptions)
+  fetch(`https://api.zip-codes.com/ZipCodesAPI.svc/1.0/FindZipCodesInRadius?zipcode=${zipCode}&minimumradius=0&maximumradius=${radius}&key=XGSIV5GV93YJPD7VVM8G`, requestOptions)
     .then(response => response.json())
     .then(results => {
       console.log("API results... " + results);
       returnedAPIdata = results;
-      console.log(Array.isArray(returnedAPIdata));
-      console.log("returnedAPIdata holds... " + returnedAPIdata);
+      console.log(results);
+      // console.log("returnedAPIdata holds... " + returnedAPIdata);
 
       return compareTheData(databaseData, returnedAPIdata);
       }
