@@ -57,7 +57,7 @@ importJSON();
 let zipCode = "62025";
 let selectButton = "";
 let state = "";
-let radius = "10";
+let radius = "50";
 let type = "";
 let style = "";
 
@@ -120,6 +120,7 @@ function importJSON() {
     }).then(data => {
         // Work with JSON data here...
         databaseData = data;
+        console.log(Array.isArray(databaseData));
         console.log("databaseData holds... " + databaseData);
       }
     )
@@ -138,7 +139,7 @@ let returnedAPIdata = [];  // API Return data
 
 // Get the API data with a API call with TEST VALUE of 5 miles
 // Remeber to change raduis default value to 50 miles
-function getZipCodeData(zipCode = 62025, radius = 10) {
+function getZipCodeData(zipCode = 62025, radius = 50) {
   let requestOptions = {
     method: 'GET',
     redirect: 'follow'
@@ -146,7 +147,9 @@ function getZipCodeData(zipCode = 62025, radius = 10) {
   fetch(`https://api.zip-codes.com/ZipCodesAPI.svc/1.0/FindZipCodesInRadius?zipcode=${zipCode}&minimumradius=0&maximumradius=${radius}&key=DEMOAPIKEY`, requestOptions)
     .then(response => response.json())
     .then(results => {
+      console.log("API results... " + results);
       returnedAPIdata = results;
+      console.log(Array.isArray(returnedAPIdata));
       console.log("returnedAPIdata holds... " + returnedAPIdata);
 
       return compareTheData(databaseData, returnedAPIdata);
