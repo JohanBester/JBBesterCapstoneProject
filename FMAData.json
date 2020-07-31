@@ -2,7 +2,7 @@
  {
    "Name": "K-Bay Martial Arts Warrior Training Center & Gym",
    "Address": "601 E Pioneer Ave, Suite 117, Homer",
-   "Zip Code": "99603",
+   "ZipCode": "99603",
    "State": "Alaska",
    "Phone": null,
    "Web URL": "https://www.facebook.com/KBayWarriorTrainingCenter",
@@ -13,7 +13,7 @@
  {
    "Name": "Arizona Filipino Martial Arts",
    "Address": "318 North 5th Avenue, Phoenix ",
-   "Zip Code": "85003",
+   "ZipCode": "85003",
    "State": "Arizona",
    "Phone": "[602] 6799713",
    "Web URL": null,
@@ -24,7 +24,7 @@
  {
    "Name": "Arnis Balite",
    "Address": "Peoria ",
-   "Zip Code": "85345",
+   "ZipCode": "85345",
    "State": "Arizona",
    "Phone": null,
    "Web URL": null,
@@ -35,7 +35,7 @@
  {
    "Name": "Comprehensive Fighting Systems",
    "Address": "Sahuarita ",
-   "Zip Code": "85629",
+   "ZipCode": "85629",
    "State": "Arizona",
    "Phone": "[575] 3084632",
    "Web URL": null,
@@ -46,7 +46,7 @@
  {
    "Name": "Direct Torres Eskrima International",
    "Address": "Mesa ",
-   "Zip Code": "85213",
+   "ZipCode": "85213",
    "State": "Arizona",
    "Phone": null,
    "Web URL": null,
@@ -57,7 +57,7 @@
  {
    "Name": "DTE Eskrima",
    "Address": "1409 W. Indian School Rd., Phoenix ",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Arizona",
    "Phone": "[480] 3319885",
    "Web URL": null,
@@ -68,7 +68,7 @@
  {
    "Name": "ESAELD Panuntukan/JKD",
    "Address": "Val Vista Dr & Guadalupe Rd., Gilbert ",
-   "Zip Code": "85234",
+   "ZipCode": "85234",
    "State": "Arizona",
    "Phone": null,
    "Web URL": null,
@@ -79,7 +79,7 @@
  {
    "Name": "FTMA Arizona Chapter",
    "Address": "Phoenix ",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Arizona",
    "Phone": "[480] 3433362",
    "Web URL": null,
@@ -90,7 +90,7 @@
  {
    "Name": "Full Circle Martial Arts",
    "Address": "Glendale ",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Arizona",
    "Phone": "[623] 7556720",
    "Web URL": null,
@@ -101,7 +101,7 @@
  {
    "Name": "Gerald Toki School of Kali",
    "Address": "7171 W Discovery Dr, Glendale ",
-   "Zip Code": "85303",
+   "ZipCode": "85303",
    "State": "Arizona",
    "Phone": "[623] 3329367",
    "Web URL": null,
@@ -112,7 +112,7 @@
  {
    "Name": "NavaSticks FMA",
    "Address": "North Central Phoenix ",
-   "Zip Code": "85032",
+   "ZipCode": "85032",
    "State": "Arizona",
    "Phone": "[480] 7071141 ",
    "Web URL": null,
@@ -123,7 +123,7 @@
  {
    "Name": "Phoenix Combat Escrima ",
    "Address": "Phoenix AZ",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Arizona",
    "Phone": "[602] 3589520 ",
    "Web URL": null,
@@ -134,7 +134,7 @@
  {
    "Name": "Progressive Arnis Tucson Arizona",
    "Address": "7320 N. La Cholla Blvd. #164, Tucson ",
-   "Zip Code": "85741",
+   "ZipCode": "85741",
    "State": "Arizona",
    "Phone": null,
    "Web URL": null,
@@ -145,7 +145,7 @@
  {
    "Name": "Southwest Martial Arts",
    "Address": "2356 W. Jasper Butte Dr., Queen Creek ",
-   "Zip Code": "85242",
+   "ZipCode": "85242",
    "State": "Arizona",
    "Phone": "[480] 9875116",
    "Web URL": null,
@@ -156,7 +156,7 @@
  {
    "Name": "Stick Fighter Training Center",
    "Address": "Tucson ",
-   "Zip Code": "85745",
+   "ZipCode": "85745",
    "State": "Arizona",
    "Phone": "[520] 9559243",
    "Web URL": null,
@@ -167,7 +167,7 @@
  {
    "Name": "Conway Karate Jujitsu Escrima",
    "Address": "Conway ",
-   "Zip Code": "72127",
+   "ZipCode": "72127",
    "State": "Arkansas",
    "Phone": "[501] 3545843",
    "Web URL": null,
@@ -178,7 +178,7 @@
  {
    "Name": "HAMA/Sanano Arnis Trecehampas",
    "Address": "1002 E. Main St., Cabot ",
-   "Zip Code": "72023",
+   "ZipCode": "72023",
    "State": "Arkansas",
    "Phone": "[501] 6061722",
    "Web URL": null,
@@ -189,7 +189,7 @@
  {
    "Name": "Malmo Martial Arts",
    "Address": "P.O. Box 654, Bentonville ",
-   "Zip Code": "72712",
+   "ZipCode": "72712",
    "State": "Arkansas",
    "Phone": "[479] 6404455",
    "Web URL": null,
@@ -200,7 +200,7 @@
  {
    "Name": "PTK Arkansas",
    "Address": "Fort Smith ",
-   "Zip Code": "72903",
+   "ZipCode": "72903",
    "State": "Arkansas",
    "Phone": null,
    "Web URL": null,
@@ -211,7 +211,7 @@
  {
    "Name": "(UDT) Urban Defense Tactics",
    "Address": "San Jose",
-   "Zip Code": "95148",
+   "ZipCode": "95148",
    "State": "California",
    "Phone": "(408) 753-7539",
    "Web URL": "www.udtkali.weebly.com",
@@ -222,7 +222,7 @@
  {
    "Name": "729 Matoza Ln.",
    "Address": "San Leandro ",
-   "Zip Code": "94577",
+   "ZipCode": "94577",
    "State": "California",
    "Phone": " [510] 2067156",
    "Web URL": null,
@@ -233,7 +233,7 @@
  {
    "Name": "American Karate",
    "Address": "2440 Sand Creek Rd.  E-10, Brentwood,",
-   "Zip Code": "94513",
+   "ZipCode": "94513",
    "State": "California",
    "Phone": "(925)240-8384",
    "Web URL": "www.americankarate1.com",
@@ -244,7 +244,7 @@
  {
    "Name": "American Karate Academy (Latosa Escrima)",
    "Address": "424 Moore Lane, Healdsburg ",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": "[707] 4334717",
    "Web URL": null,
@@ -255,7 +255,7 @@
  {
    "Name": "Atillo Balintawak",
    "Address": "38550 Florence St., Beaumont ",
-   "Zip Code": "92223",
+   "ZipCode": "92223",
    "State": "California",
    "Phone": "[909] 3636435",
    "Web URL": null,
@@ -266,7 +266,7 @@
  {
    "Name": "B.A.S.H. Combatives Fitmess",
    "Address": "2934 N. Beverly Glen Circle #270, Los Angeles ",
-   "Zip Code": "90077",
+   "ZipCode": "90077",
    "State": "California",
    "Phone": "[310] 8502515",
    "Web URL": null,
@@ -277,7 +277,7 @@
  {
    "Name": "BabaoArnis Academy",
    "Address": "1143 Antoine Dr., San Diego ",
-   "Zip Code": "92139",
+   "ZipCode": "92139",
    "State": "California",
    "Phone": null,
    "Web URL": null,
@@ -288,7 +288,7 @@
  {
    "Name": "Backyard BrotherhoodUna Sa Laban",
    "Address": "Salinas ",
-   "Zip Code": "93906",
+   "ZipCode": "93906",
    "State": "California",
    "Phone": "[417] 2523441",
    "Web URL": null,
@@ -299,7 +299,7 @@
  {
    "Name": "Bahala Na Filipino Martial Arts Association / Giron Escrima Arnis",
    "Address": "World Headquarters, 203 East Hazelton Street, Stockton",
-   "Zip Code": "95203",
+   "ZipCode": "95203",
    "State": "California",
    "Phone": null,
    "Web URL": "BahalaNa.org",
@@ -310,7 +310,7 @@
  {
    "Name": "Bahala Na Filipino Martial Arts Association San Francisco Bay Area",
    "Address": "1739 Wallace Ave., San Francisco",
-   "Zip Code": "94124",
+   "ZipCode": "94124",
    "State": "California",
    "Phone": null,
    "Web URL": "BahalaNa.org",
@@ -321,7 +321,7 @@
  {
    "Name": "Bahala Na Multi-Style Escrima ",
    "Address": "Filipino Plaza 6 West Main St., Stockton",
-   "Zip Code": "95201",
+   "ZipCode": "95201",
    "State": "California",
    "Phone": "[209] 9818084",
    "Web URL": "www.bahalanamulti-style.com",
@@ -332,7 +332,7 @@
  {
    "Name": "Bais Tres Manos (KalisSilatKuntaw) ",
    "Address": "12 Panaroma Dr. AptD, Vallejo ",
-   "Zip Code": "94589",
+   "ZipCode": "94589",
    "State": "California",
    "Phone": "[925] 4516728",
    "Web URL": null,
@@ -343,7 +343,7 @@
  {
    "Name": "Balintawak Arnis Academy",
    "Address": "Bayanihan Center, Seafood Plaza, 3495 Sonoma `Blvd, Vallejo ",
-   "Zip Code": "94589",
+   "ZipCode": "94589",
    "State": "California",
    "Phone": "[707] 3424448",
    "Web URL": null,
@@ -354,7 +354,7 @@
  {
    "Name": "Bandalan Doce Pares",
    "Address": "6081 Killarney Ave., Garden Grove ",
-   "Zip Code": "92845",
+   "ZipCode": "92845",
    "State": "California",
    "Phone": "[714] 8925271 / [714] 8988497",
    "Web URL": null,
@@ -365,7 +365,7 @@
  {
    "Name": "Bay Area Serrada Escrima",
    "Address": "P.O. Box 21716, El Sobrante ",
-   "Zip Code": "94820",
+   "ZipCode": "94820",
    "State": "California",
    "Phone": "[510] 2220332",
    "Web URL": null,
@@ -376,7 +376,7 @@
  {
    "Name": "BlaysHalla Battle Academy",
    "Address": "Orange",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": null,
    "Web URL": null,
@@ -387,7 +387,7 @@
  {
    "Name": "Cabales Serrada Escrima",
    "Address": "136 E Harding Way, Stockton ",
-   "Zip Code": "95207",
+   "ZipCode": "95207",
    "State": "California",
    "Phone": "[209] 5982384",
    "Web URL": null,
@@ -398,7 +398,7 @@
  {
    "Name": "Capital Doce Pares",
    "Address": "2197 Chase Drive Bldg. #2, Rancho Cordova ",
-   "Zip Code": "95670",
+   "ZipCode": "95670",
    "State": "California",
    "Phone": "[916] 8635278",
    "Web URL": null,
@@ -409,7 +409,7 @@
  {
    "Name": "Cardenas School of Modern Arnis/Arnis de Mano",
    "Address": "2605 Hoover Ave., National City ",
-   "Zip Code": "91950",
+   "ZipCode": "91950",
    "State": "California",
    "Phone": "[619] 3391418",
    "Web URL": null,
@@ -420,7 +420,7 @@
  {
    "Name": "Center for Practical Self Defense (Combat Jujutsu and Filipino Fighting Methodology)",
    "Address": "Riverside, California",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": "[909] 2343015",
    "Web URL": null,
@@ -431,7 +431,7 @@
  {
    "Name": "Classic Escrima, Ronald A. Harris, Ph.D. Chief Instructor",
    "Address": "1 Birdsnest Court, Mill Valley",
-   "Zip Code": "94941",
+   "ZipCode": "94941",
    "State": "California",
    "Phone": "985-249-0801",
    "Web URL": null,
@@ -442,7 +442,7 @@
  {
    "Name": "Combative Martial Arts Systems",
    "Address": "1670 West 162nd St., Gardena ",
-   "Zip Code": "90247",
+   "ZipCode": "90247",
    "State": "California",
    "Phone": null,
    "Web URL": null,
@@ -453,7 +453,7 @@
  {
    "Name": "Dakip Diwa Martial Arts",
    "Address": "Antioch 94509",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": "[925] 8487389",
    "Web URL": null,
@@ -464,7 +464,7 @@
  {
    "Name": "Decuerdas Self Defense Organization",
    "Address": "960 Shortland Circle, Manteca ",
-   "Zip Code": "95337",
+   "ZipCode": "95337",
    "State": "California",
    "Phone": "[209] 6087826",
    "Web URL": null,
@@ -475,7 +475,7 @@
  {
    "Name": "Delta One Martial Arts (Senkotiros)",
    "Address": "3385 Deer Valley Road, Antioch ",
-   "Zip Code": "94531",
+   "ZipCode": "94531",
    "State": "California",
    "Phone": "[925] 7531167",
    "Web URL": null,
@@ -486,7 +486,7 @@
  {
    "Name": "Doce Pares",
    "Address": "2391 Cashaw Way, Sacramento ",
-   "Zip Code": "95834",
+   "ZipCode": "95834",
    "State": "California",
    "Phone": "[916] 2481802 ",
    "Web URL": null,
@@ -497,7 +497,7 @@
  {
    "Name": "Doce Pares Multi-Style",
    "Address": "Los Angeles",
-   "Zip Code": "90027",
+   "ZipCode": "90027",
    "State": "California",
    "Phone": null,
    "Web URL": "LADocePares.Com",
@@ -508,7 +508,7 @@
  {
    "Name": "Doce Pares Multi-Style",
    "Address": "Redondo Beach",
-   "Zip Code": "90277",
+   "ZipCode": "90277",
    "State": "California",
    "Phone": "555-55-5555",
    "Web URL": "QuestTKD.Com",
@@ -519,7 +519,7 @@
  {
    "Name": "Doce Pares Multi-Style",
    "Address": "Sacramento",
-   "Zip Code": "95838",
+   "ZipCode": "95838",
    "State": "California",
    "Phone": null,
    "Web URL": "FMAADocePares.Com",
@@ -530,7 +530,7 @@
  {
    "Name": "Doce Pares Multi-Style",
    "Address": "Sacramento",
-   "Zip Code": "95828",
+   "ZipCode": "95828",
    "State": "California",
    "Phone": null,
    "Web URL": "DocePares.Net",
@@ -541,7 +541,7 @@
  {
    "Name": "Doce Pares Multi-Style",
    "Address": "Saratoga,",
-   "Zip Code": "95070",
+   "ZipCode": "95070",
    "State": "California",
    "Phone": null,
    "Web URL": "Bandalan.Com",
@@ -552,7 +552,7 @@
  {
    "Name": "Doce Pares Sacramento",
    "Address": "65 Quint Ct. Suite J, Sacramento ",
-   "Zip Code": "95823",
+   "ZipCode": "95823",
    "State": "California",
    "Phone": "[916] 3750745",
    "Web URL": null,
@@ -563,7 +563,7 @@
  {
    "Name": "Dublin Martial Arts Academy",
    "Address": "Dublin ",
-   "Zip Code": "94568",
+   "ZipCode": "94568",
    "State": "California",
    "Phone": "[925] 2360076",
    "Web URL": null,
@@ -574,7 +574,7 @@
  {
    "Name": "Dublin Martial Arts Academy",
    "Address": "Dublin",
-   "Zip Code": "94568",
+   "ZipCode": "94568",
    "State": "California",
    "Phone": null,
    "Web URL": "www.dublinma.com",
@@ -585,7 +585,7 @@
  {
    "Name": "East Wind Martial Arts",
    "Address": "1635 G. Street, Merced",
-   "Zip Code": "95340",
+   "ZipCode": "95340",
    "State": "California",
    "Phone": "(209) 723 1358",
    "Web URL": null,
@@ -596,7 +596,7 @@
  {
    "Name": "ESKABO Da'an",
    "Address": "1475 Polk St #11, San Francisco ",
-   "Zip Code": "94109",
+   "ZipCode": "94109",
    "State": "California",
    "Phone": "[415] 6744388",
    "Web URL": null,
@@ -607,7 +607,7 @@
  {
    "Name": "Filipino Martial Arts Academy",
    "Address": "3901 A Pell Circle, Sacramento ",
-   "Zip Code": "95834",
+   "ZipCode": "95834",
    "State": "California",
    "Phone": null,
    "Web URL": null,
@@ -618,7 +618,7 @@
  {
    "Name": "Filipino Martial Arts Academy (Doce Pares)",
    "Address": "120 Main Ave. Suite C., Sacramento ",
-   "Zip Code": "95838",
+   "ZipCode": "95838",
    "State": "California",
    "Phone": "[916] 8038157",
    "Web URL": null,
@@ -629,7 +629,7 @@
  {
    "Name": "Filipino Martial Arts Academy (Doce Pares)",
    "Address": "120 Main Ave. Suite C., Sacramento ",
-   "Zip Code": "95838",
+   "ZipCode": "95838",
    "State": "California",
    "Phone": "[916] 8038157",
    "Web URL": null,
@@ -640,7 +640,7 @@
  {
    "Name": "Filipino Tactical Systems",
    "Address": "Mente Linda Loop Park, Milpitas ",
-   "Zip Code": "95035",
+   "ZipCode": "95035",
    "State": "California",
    "Phone": "[909] 4388045",
    "Web URL": null,
@@ -651,7 +651,7 @@
  {
    "Name": "FILKOMA (Filipino Kombat Martial Arts) ",
    "Address": "833 Brisbane St., Hemet ",
-   "Zip Code": "92545",
+   "ZipCode": "92545",
    "State": "California",
    "Phone": "[858] 4515425",
    "Web URL": null,
@@ -662,7 +662,7 @@
  {
    "Name": "Gajo Martial Arts",
    "Address": "10890B Thornmint Rd., San Diego ",
-   "Zip Code": "92127",
+   "ZipCode": "92127",
    "State": "California",
    "Phone": "[805] 3768292",
    "Web URL": null,
@@ -673,7 +673,7 @@
  {
    "Name": "Gonzalez Martial Arts Academy",
    "Address": "1143 W. Fremont St, Stockton ",
-   "Zip Code": "95203",
+   "ZipCode": "95203",
    "State": "California",
    "Phone": "[209] 369 2747",
    "Web URL": null,
@@ -684,7 +684,7 @@
  {
    "Name": "ILMA/Sanano Arnis Trecehampas",
    "Address": "4681 Mission St., San Frnacisco ",
-   "Zip Code": "94112",
+   "ZipCode": "94112",
    "State": "California",
    "Phone": null,
    "Web URL": null,
@@ -695,7 +695,7 @@
  {
    "Name": "IMB Academy Inc.",
    "Address": "22109 South Vermont Ave., Torrance ",
-   "Zip Code": "90502",
+   "ZipCode": "90502",
    "State": "California",
    "Phone": "[310] 7878793",
    "Web URL": null,
@@ -706,7 +706,7 @@
  {
    "Name": "Inayan Eskrima Academy",
    "Address": "1350 South Park Victoria, Milpitas/San Jose ",
-   "Zip Code": "95132",
+   "ZipCode": "95132",
    "State": "California",
    "Phone": "[408] 7124244",
    "Web URL": null,
@@ -717,7 +717,7 @@
  {
    "Name": "Inayan Systems International",
    "Address": "PO Box 2112, Paradise, CA. ",
-   "Zip Code": "95967",
+   "ZipCode": "95967",
    "State": "California",
    "Phone": null,
    "Web URL": null,
@@ -728,7 +728,7 @@
  {
    "Name": "International Eskrima Serrada Association",
    "Address": "San Francisco, Oakland, Los Angeles ",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": "[888] 2215462",
    "Web URL": null,
@@ -739,7 +739,7 @@
  {
    "Name": "Island Warriors Balintawak Arnis",
    "Address": "4380 Sonoma Blvd., Vallejo ",
-   "Zip Code": "94589",
+   "ZipCode": "94589",
    "State": "California",
    "Phone": "[707] 4771159",
    "Web URL": null,
@@ -750,7 +750,7 @@
  {
    "Name": "Jedokan Martial Arts",
    "Address": "9412 Irondale Ave., Chatsworth ",
-   "Zip Code": "91311",
+   "ZipCode": "91311",
    "State": "California",
    "Phone": "[818] 6455240",
    "Web URL": null,
@@ -761,7 +761,7 @@
  {
    "Name": "JEDOKAN Martial Arts Academy",
    "Address": "9412 Irondale Avenue, Chatsworth",
-   "Zip Code": "91311",
+   "ZipCode": "91311",
    "State": "California",
    "Phone": null,
    "Web URL": "www.jedokan.org",
@@ -772,7 +772,7 @@
  {
    "Name": "Jeet Kune Do Athletics Association, Sifu Harinder Singh Sabharwal",
    "Address": "Sunnyvale",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": null,
    "Web URL": "www.jkdathletics.com",
@@ -783,7 +783,7 @@
  {
    "Name": "JKD Self Defense Academy",
    "Address": "1931 Old Middlefield Way, Mountain View ",
-   "Zip Code": "94043",
+   "ZipCode": "94043",
    "State": "California",
    "Phone": "[408] 3730204",
    "Web URL": null,
@@ -794,7 +794,7 @@
  {
    "Name": "KaJuKenBo Self Defense Institute of Vallejo",
    "Address": "974 Benicia Rd, Vallejo ",
-   "Zip Code": "94591",
+   "ZipCode": "94591",
    "State": "California",
    "Phone": null,
    "Web URL": null,
@@ -805,7 +805,7 @@
  {
    "Name": "Kali Method ",
    "Address": "1330 N. Monte Vista Ave #2 ",
-   "Zip Code": "91786",
+   "ZipCode": "91786",
    "State": "California",
    "Phone": "[909] 5758809",
    "Web URL": null,
@@ -816,7 +816,7 @@
  {
    "Name": "KATA Tapado Filipino Long Stick Fighting",
    "Address": "Curtis Park, Sacramento ",
-   "Zip Code": "95864",
+   "ZipCode": "95864",
    "State": "California",
    "Phone": "[916] 718 7639",
    "Web URL": null,
@@ -827,7 +827,7 @@
  {
    "Name": "Kenshin Kai",
    "Address": "6070 Livingston Ln., Placerville ",
-   "Zip Code": "95667",
+   "ZipCode": "95667",
    "State": "California",
    "Phone": "[808] 5545445",
    "Web URL": null,
@@ -838,7 +838,7 @@
  {
    "Name": "K-S-E-A Monterey Bay Kali-Silat / Escrima / Arnis Guro David Hines",
    "Address": "P.O. Box 662, Pacific Grove",
-   "Zip Code": "93950",
+   "ZipCode": "93950",
    "State": "California",
    "Phone": null,
    "Web URL": "Defondo@aol.com",
@@ -849,7 +849,7 @@
  {
    "Name": "Lameco Eskrima",
    "Address": "",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": "[818] 3570440",
    "Web URL": null,
@@ -860,7 +860,7 @@
  {
    "Name": "Latosa - Escrima",
    "Address": "PO Box 651, Winidsor",
-   "Zip Code": "95492",
+   "ZipCode": "95492",
    "State": "California",
    "Phone": "707 843-0640",
    "Web URL": "www.escrima-concepts.com",
@@ -871,7 +871,7 @@
  {
    "Name": "Latosa Weapons System (Latosa Escrima)",
    "Address": "PO Box 651, Windsor ",
-   "Zip Code": "95492",
+   "ZipCode": "95492",
    "State": "California",
    "Phone": "[707] 8430640",
    "Web URL": null,
@@ -882,7 +882,7 @@
  {
    "Name": "Liahona Warrior Arts International",
    "Address": "6100 Tremain Dr, Citrus Heights ",
-   "Zip Code": "95621",
+   "ZipCode": "95621",
    "State": "California",
    "Phone": "[916] 7473694 ",
    "Web URL": null,
@@ -893,7 +893,7 @@
  {
    "Name": "Los Angeles Doce Pares ",
    "Address": "Los Angeles ",
-   "Zip Code": "90031",
+   "ZipCode": "90031",
    "State": "California",
    "Phone": null,
    "Web URL": null,
@@ -904,7 +904,7 @@
  {
    "Name": "Magda Institute of Martial Arts",
    "Address": "7255 Canby Ave., Reseda ",
-   "Zip Code": "91335",
+   "ZipCode": "91335",
    "State": "California",
    "Phone": "[818] 3422455",
    "Web URL": null,
@@ -915,7 +915,7 @@
  {
    "Name": "Manglinong Martial Arts",
    "Address": "PO Box 8251, South Lake Tahoe ",
-   "Zip Code": "96158",
+   "ZipCode": "96158",
    "State": "California",
    "Phone": "",
    "Web URL": null,
@@ -926,7 +926,7 @@
  {
    "Name": "Manglinong Martial Arts",
    "Address": "PO Box 8251, South Lake Tahoe",
-   "Zip Code": "96158",
+   "ZipCode": "96158",
    "State": "California",
    "Phone": null,
    "Web URL": null,
@@ -937,7 +937,7 @@
  {
    "Name": "Marin Self Defense Solutions",
    "Address": "555 Francisco Blvd E, Unit 12, San Rafael ",
-   "Zip Code": "94901",
+   "ZipCode": "94901",
    "State": "California",
    "Phone": "[415] 7554318",
    "Web URL": null,
@@ -948,7 +948,7 @@
  {
    "Name": "MARPPIO at Solis Martial Arts",
    "Address": "1169 23rd St., San Pablo",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": "(415)624-3094 \n/ (415)889-9249",
    "Web URL": "http://www.modernarnis.com",
@@ -959,7 +959,7 @@
  {
    "Name": "Martial Arts Development Rogue Eskrima",
    "Address": "108 Old County Rd, Brisbane",
-   "Zip Code": "94005",
+   "ZipCode": "94005",
    "State": "California",
    "Phone": null,
    "Web URL": "www.martialartsdev.com",
@@ -970,7 +970,7 @@
  {
    "Name": "Martial Arts Training Club",
    "Address": "Sacramento ",
-   "Zip Code": "95824",
+   "ZipCode": "95824",
    "State": "California",
    "Phone": "[916] 4219428",
    "Web URL": null,
@@ -981,7 +981,7 @@
  {
    "Name": "Mata sa Bagyo",
    "Address": "Stockton",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": "[209] 9920832",
    "Web URL": null,
@@ -992,7 +992,7 @@
  {
    "Name": "Mikita School of Martial Art",
    "Address": "12908 West Washington Blvd., Los Angeles ",
-   "Zip Code": "90066",
+   "ZipCode": "90066",
    "State": "California",
    "Phone": "[310] 7545517",
    "Web URL": null,
@@ -1003,7 +1003,7 @@
  {
    "Name": "MiraRada Escrima",
    "Address": "1163 East March Lane, Suite D363, Stockton ",
-   "Zip Code": "95210",
+   "ZipCode": "95210",
    "State": "California",
    "Phone": "[209] 4053189",
    "Web URL": null,
@@ -1014,7 +1014,7 @@
  {
    "Name": "Modern Arnis Remy Presas International Organization (MARPIO)",
    "Address": "1169 Market St. Suite 249, San Francisco ",
-   "Zip Code": "94103",
+   "ZipCode": "94103",
    "State": "California",
    "Phone": "[415] 7030434",
    "Web URL": null,
@@ -1025,7 +1025,7 @@
  {
    "Name": "Mt. Diablo Hwa Rang Kwan Tae Kwon Do/Hapkido/Kumdo",
    "Address": "3105 Willow Pass Road, Baypoint, (San Francisco Bay Area)",
-   "Zip Code": "94565",
+   "ZipCode": "94565",
    "State": "California",
    "Phone": "925-458-1254 \n/ 925-980-3018",
    "Web URL": "www.mtdiablohrk.net",
@@ -1036,7 +1036,7 @@
  {
    "Name": "Mt. Diablo Hwa Rang Kwan/Isidro Modern Arnis",
    "Address": "3105 Willow Pass Rd., Baypoint ",
-   "Zip Code": "94565",
+   "ZipCode": "94565",
    "State": "California",
    "Phone": "[925] 4581254",
    "Web URL": null,
@@ -1047,7 +1047,7 @@
  {
    "Name": "Nor Cal Kabaroan (W.O.R. Ministries)",
    "Address": "4383 Oxwood Dr., Sacramento ",
-   "Zip Code": "95826",
+   "ZipCode": "95826",
    "State": "California",
    "Phone": "[916] 8027096",
    "Web URL": null,
@@ -1058,7 +1058,7 @@
  {
    "Name": "Oakland Eskrima Club",
    "Address": "4770 San Pablo Ave., Emeryville ",
-   "Zip Code": "94608",
+   "ZipCode": "94608",
    "State": "California",
    "Phone": "[510] 3938928",
    "Web URL": null,
@@ -1069,7 +1069,7 @@
  {
    "Name": "OC Kickboxing & Mixed Martial Arts",
    "Address": "18241 W McDurmott, Irvine",
-   "Zip Code": "92614",
+   "ZipCode": "92614",
    "State": "California",
    "Phone": "949-833-8339",
    "Web URL": "ockickboxing.com",
@@ -1080,7 +1080,7 @@
  {
    "Name": "Ohana Kenpo Karate & Bandalan Doce Pares (Bandalan Doce Pares Headquarters)",
    "Address": "402 3rd St., San Juan Bautista ",
-   "Zip Code": "95045",
+   "ZipCode": "95045",
    "State": "California",
    "Phone": "[408] 3100101",
    "Web URL": null,
@@ -1091,7 +1091,7 @@
  {
    "Name": "Original Giron Escrima Federation",
    "Address": "Vallejo ",
-   "Zip Code": "94591",
+   "ZipCode": "94591",
    "State": "California",
    "Phone": "[707] 8532477",
    "Web URL": null,
@@ -1102,7 +1102,7 @@
  {
    "Name": "Original Giron Escrima Federation",
    "Address": "974 Benicia Rd., Vallejo",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": null,
    "Web URL": "www.originalgironescrima.com",
@@ -1113,7 +1113,7 @@
  {
    "Name": "P.A.M.A.",
    "Address": "P.O. Box 610277, San Jose ",
-   "Zip Code": "95161",
+   "ZipCode": "95161",
    "State": "California",
    "Phone": "[408] 9463200",
    "Web URL": null,
@@ -1124,7 +1124,7 @@
  {
    "Name": "Pakamut Eagle Rock Los Angeles",
    "Address": "1840 Yosemite Dr, Los Angeles ",
-   "Zip Code": "90041",
+   "ZipCode": "90041",
    "State": "California",
    "Phone": null,
    "Web URL": null,
@@ -1135,7 +1135,7 @@
  {
    "Name": "Pakamut Flex Services Inc.",
    "Address": "PO Box 65552, Los Angeles ",
-   "Zip Code": "90065",
+   "ZipCode": "90065",
    "State": "California",
    "Phone": "[323] 3508500",
    "Web URL": null,
@@ -1146,7 +1146,7 @@
  {
    "Name": "Pekiti Tirsia Kali",
    "Address": "2295 Lincoln Ave, San Jose ",
-   "Zip Code": "95125",
+   "ZipCode": "95125",
    "State": "California",
    "Phone": "[949] 922 � 5583",
    "Web URL": null,
@@ -1157,7 +1157,7 @@
  {
    "Name": "Phelan Self Defense",
    "Address": "4647 Jackson Ln, Phelan ",
-   "Zip Code": "93372",
+   "ZipCode": "93372",
    "State": "California",
    "Phone": "[760] 8690840",
    "Web URL": null,
@@ -1168,7 +1168,7 @@
  {
    "Name": "PMAA (Hayward Martial Arts)",
    "Address": "1024 B St. Suite 1, Hayward ",
-   "Zip Code": "94541",
+   "ZipCode": "94541",
    "State": "California",
    "Phone": "[925] 8647477",
    "Web URL": null,
@@ -1179,7 +1179,7 @@
  {
    "Name": "PTKSMF Los Angeles",
    "Address": "Los Angeles",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": "[323] 4128556",
    "Web URL": null,
@@ -1190,7 +1190,7 @@
  {
    "Name": "PTK-SMF Los Angeles",
    "Address": "Los Angeles",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": null,
    "Web URL": "ptksmfla.com",
@@ -1201,7 +1201,7 @@
  {
    "Name": "PTKSMF Peninsula",
    "Address": "230 De Anza Blvd., San Mateo ",
-   "Zip Code": "94402",
+   "ZipCode": "94402",
    "State": "California",
    "Phone": "[415] 9396346",
    "Web URL": null,
@@ -1212,7 +1212,7 @@
  {
    "Name": "Pulahan Derobio Eskrima",
    "Address": "821 Kuhn Drive, Suite 106, Chula Vista ",
-   "Zip Code": "91914",
+   "ZipCode": "91914",
    "State": "California",
    "Phone": "[619] 8851571",
    "Web URL": null,
@@ -1223,7 +1223,7 @@
  {
    "Name": "San Diego Doce Pares",
    "Address": "San Diego",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": null,
    "Web URL": null,
@@ -1234,7 +1234,7 @@
  {
    "Name": "Senkotiros",
    "Address": "13752 Doolittle Drive, San Leandro ",
-   "Zip Code": "94578",
+   "ZipCode": "94578",
    "State": "California",
    "Phone": "[510] 4836560",
    "Web URL": null,
@@ -1245,7 +1245,7 @@
  {
    "Name": "Senkotiros Arnis FMA",
    "Address": "P.O. Box 3124, San Leandro",
-   "Zip Code": "94578",
+   "ZipCode": "94578",
    "State": "California",
    "Phone": "(510) 351-6776",
    "Web URL": null,
@@ -1256,7 +1256,7 @@
  {
    "Name": "Serrada Escrima ",
    "Address": "P.O. Box 268, French Camp ",
-   "Zip Code": "95231",
+   "ZipCode": "95231",
    "State": "California",
    "Phone": "[209] 2342188",
    "Web URL": null,
@@ -1267,7 +1267,7 @@
  {
    "Name": "SikaranArnis Academy",
    "Address": "Sikaran Bldg. 1122 High St., Delano ",
-   "Zip Code": "93215",
+   "ZipCode": "93215",
    "State": "California",
    "Phone": "[661] 7209175",
    "Web URL": null,
@@ -1278,7 +1278,7 @@
  {
    "Name": "Solve et Coagula",
    "Address": "13428 Maxella Ave # 192, Marina Del Rey ",
-   "Zip Code": "90292",
+   "ZipCode": "90292",
    "State": "California",
    "Phone": "[310] 9029673",
    "Web URL": null,
@@ -1289,7 +1289,7 @@
  {
    "Name": "South Bay Filipino",
    "Address": "19751 South Figuroa Ave., Carson ",
-   "Zip Code": "90745",
+   "ZipCode": "90745",
    "State": "California",
    "Phone": "[310] 9611266",
    "Web URL": null,
@@ -1300,7 +1300,7 @@
  {
    "Name": "South Bay Filipino Martial Arts Club",
    "Address": "15205 Crenshaw, Gardena",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": "(310) 961-1266",
    "Web URL": "www.website.co",
@@ -1311,7 +1311,7 @@
  {
    "Name": "Spirit of Filipino Martial Arts",
    "Address": "833 Brisbane St., Hemet ",
-   "Zip Code": "92545",
+   "ZipCode": "92545",
    "State": "California",
    "Phone": "[909] 4388045",
    "Web URL": null,
@@ -1322,7 +1322,7 @@
  {
    "Name": "Sudlud Eskrima",
    "Address": "San Jose ",
-   "Zip Code": "95117",
+   "ZipCode": "95117",
    "State": "California",
    "Phone": "[408] 8665127",
    "Web URL": null,
@@ -1333,7 +1333,7 @@
  {
    "Name": "Tae Kali Do",
    "Address": "1661 Pacific Ave. #18, Oxnard ",
-   "Zip Code": "93033",
+   "ZipCode": "93033",
    "State": "California",
    "Phone": "[805] 2562032",
    "Web URL": null,
@@ -1344,7 +1344,7 @@
  {
    "Name": "Tandez Academy of Martial Arts",
    "Address": "1931 Old Middlefield Way, Unit C, Mountain View",
-   "Zip Code": "94043",
+   "ZipCode": "94043",
    "State": "California",
    "Phone": null,
    "Web URL": "www.jkdkickboxing.com",
@@ -1355,7 +1355,7 @@
  {
    "Name": "The Mikita School of Martial Art",
    "Address": "12908 West Washington Blvd., Los Angeles",
-   "Zip Code": "90066",
+   "ZipCode": "90066",
    "State": "California",
    "Phone": "(310) 754-5517",
    "Web URL": "www.fightology.com",
@@ -1366,7 +1366,7 @@
  {
    "Name": "Toma's Modern Arnis",
    "Address": "4404 West Victory Blvd., Burbank ",
-   "Zip Code": "91505",
+   "ZipCode": "91505",
    "State": "California",
    "Phone": "[818] 8434984",
    "Web URL": null,
@@ -1377,7 +1377,7 @@
  {
    "Name": "Trampilla Arnis",
    "Address": "1551 W. 13th St. Upland",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": "[909] 2648136",
    "Web URL": null,
@@ -1388,7 +1388,7 @@
  {
    "Name": "Trampilla Arnis",
    "Address": "1551 W. 13th St., Upland",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": "909-264-8136",
    "Web URL": null,
@@ -1399,7 +1399,7 @@
  {
    "Name": "Trampilla Arnis",
    "Address": "Grand Terrace (Inland Empire)",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": null,
    "Web URL": null,
@@ -1410,7 +1410,7 @@
  {
    "Name": "Typhoon Martial Arts",
    "Address": "4120 Franklin Blvd, Sacramento ",
-   "Zip Code": "95820",
+   "ZipCode": "95820",
    "State": "California",
    "Phone": "[916] 4555155",
    "Web URL": null,
@@ -1421,7 +1421,7 @@
  {
    "Name": "Upakan BaraBara Martial Arts Academy",
    "Address": "Fremont, ",
-   "Zip Code": "94536",
+   "ZipCode": "94536",
    "State": "California",
    "Phone": "[510] 8285108",
    "Web URL": null,
@@ -1432,7 +1432,7 @@
  {
    "Name": "Urban Defense Tactics",
    "Address": "San Jose, San Jose ",
-   "Zip Code": "95148",
+   "ZipCode": "95148",
    "State": "California",
    "Phone": "[408] 7537539",
    "Web URL": null,
@@ -1443,7 +1443,7 @@
  {
    "Name": "VEA Martial Arts Academy",
    "Address": "17978 Ideal Parkway, Manteca",
-   "Zip Code": "95336",
+   "ZipCode": "95336",
    "State": "California",
    "Phone": "209-608-7826",
    "Web URL": "www.veamartialarts.com",
@@ -1454,7 +1454,7 @@
  {
    "Name": "Wan Chuan Do Kali Association",
    "Address": "PO Box 1293, Magalia ",
-   "Zip Code": "95954",
+   "ZipCode": "95954",
    "State": "California",
    "Phone": null,
    "Web URL": null,
@@ -1465,7 +1465,7 @@
  {
    "Name": "Warriors of Righteousness, Kabaroan Eskrima, Serrada Eskrima, Lua O Kaihewalu, Karakenpo Eskrima",
    "Address": "Sacramento",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "California",
    "Phone": null,
    "Web URL": "kabaroan.com",
@@ -1476,7 +1476,7 @@
  {
    "Name": "Warriors of Visayas Ordiniza Filipino Martial Arts",
    "Address": "2910 Southside Rd., Hollister ",
-   "Zip Code": "95023",
+   "ZipCode": "95023",
    "State": "California",
    "Phone": "[831] 524295",
    "Web URL": null,
@@ -1487,7 +1487,7 @@
  {
    "Name": "Waterford Martial Arts Center",
    "Address": "304 F St. Suite C., Waterford ",
-   "Zip Code": "95386",
+   "ZipCode": "95386",
    "State": "California",
    "Phone": "[209] 4092462",
    "Web URL": null,
@@ -1498,7 +1498,7 @@
  {
    "Name": "White Tiger Martial Arts Academy",
    "Address": "9525 N. Sommerville Dr. #111, Fresno ",
-   "Zip Code": "93720",
+   "ZipCode": "93720",
    "State": "California",
    "Phone": "[559] 4331200",
    "Web URL": null,
@@ -1509,7 +1509,7 @@
  {
    "Name": "Williams Home of Escrima",
    "Address": "Tracy ",
-   "Zip Code": "95304",
+   "ZipCode": "95304",
    "State": "California",
    "Phone": "[209] 8352546",
    "Web URL": null,
@@ -1520,7 +1520,7 @@
  {
    "Name": "World Eskrido Federation",
    "Address": "5917 Los Molinos Dr., Buena Park ",
-   "Zip Code": "90620",
+   "ZipCode": "90620",
    "State": "California",
    "Phone": "[714] 9283371",
    "Web URL": null,
@@ -1531,7 +1531,7 @@
  {
    "Name": "Colorado Bahad Zu'bu Eskrima/Kali/Arnis",
    "Address": "14401 E.Bayaud Ave Unit E., Aurora",
-   "Zip Code": "80011",
+   "ZipCode": "80011",
    "State": "Colorado",
    "Phone": "[303] 5478665",
    "Web URL": null,
@@ -1542,7 +1542,7 @@
  {
    "Name": "Colorado Chinese & Filipino Martial Arts",
    "Address": "21235 E. Grand Dr., Centennial ",
-   "Zip Code": "80015",
+   "ZipCode": "80015",
    "State": "Colorado",
    "Phone": "[303] 2047008",
    "Web URL": null,
@@ -1553,7 +1553,7 @@
  {
    "Name": "Defense Institute School of SelfDefense",
    "Address": "845 South Circle Dr., Colorado Springs ",
-   "Zip Code": "80910",
+   "ZipCode": "80910",
    "State": "Colorado",
    "Phone": "[719] 6308373",
    "Web URL": null,
@@ -1564,7 +1564,7 @@
  {
    "Name": "Denver Academy of Martial Arts",
    "Address": "4401 S. Tamarac Pkwy, Denver ",
-   "Zip Code": "80247",
+   "ZipCode": "80247",
    "State": "Colorado",
    "Phone": "[303] 7589383 ",
    "Web URL": null,
@@ -1575,7 +1575,7 @@
  {
    "Name": "Kapatiran Mandirigma Colorado, Kombatan Arnis, Kadena Kruzada Eskrima",
    "Address": "4103 S. Mason, Ft. Collins, Longmont, Denver",
-   "Zip Code": "80525",
+   "ZipCode": "80525",
    "State": "Colorado",
    "Phone": null,
    "Web URL": "http://kapatiran-mandirigma.com/",
@@ -1586,7 +1586,7 @@
  {
    "Name": "Martial works",
    "Address": "Boulder ",
-   "Zip Code": "80304",
+   "ZipCode": "80304",
    "State": "Colorado",
    "Phone": "[720] 933 6011",
    "Web URL": null,
@@ -1597,7 +1597,7 @@
  {
    "Name": "Nubreed Kali Silat",
    "Address": "935 Sheridan Blvd. #34, Lakewood ",
-   "Zip Code": "80214",
+   "ZipCode": "80214",
    "State": "Colorado",
    "Phone": "[720] 6286803",
    "Web URL": null,
@@ -1608,7 +1608,7 @@
  {
    "Name": "Rocky Mountain Kali Group",
    "Address": "Colorado Springs ",
-   "Zip Code": "80903",
+   "ZipCode": "80903",
    "State": "Colorado",
    "Phone": "[719] 3046764",
    "Web URL": null,
@@ -1619,7 +1619,7 @@
  {
    "Name": "Tabimina Balintawak Central US Chapter",
    "Address": "Denver",
-   "Zip Code": "80121",
+   "ZipCode": "80121",
    "State": "Colorado",
    "Phone": "(850) 635-5334",
    "Web URL": "www.TabiminaSystem.com",
@@ -1630,7 +1630,7 @@
  {
    "Name": "Tabimina Balintawak Denver/Central US Chapter",
    "Address": "Central Park, Stapleton,Denver ",
-   "Zip Code": "80238",
+   "ZipCode": "80238",
    "State": "Colorado",
    "Phone": "[850] 6355334",
    "Web URL": null,
@@ -1641,7 +1641,7 @@
  {
    "Name": "Becker Wing Chun Kune Tao (Kali Silat Sina Tirsia Wali)",
    "Address": "346 Main St.,Danbury ",
-   "Zip Code": "06810",
+   "ZipCode": "06810",
    "State": "Connecticut",
    "Phone": "[203] 7912116",
    "Web URL": null,
@@ -1652,7 +1652,7 @@
  {
    "Name": "Cinco Teros Baguio Arnis/Silat (Stamford Center for Martial Arts)",
    "Address": "100 Research Drive, 2nd Floor, Stamford",
-   "Zip Code": "09606",
+   "ZipCode": "09606",
    "State": "Connecticut",
    "Phone": null,
    "Web URL": "www.cincoteros.com",
@@ -1663,7 +1663,7 @@
  {
    "Name": "Connecticut Modern Arnis Jujitsu",
    "Address": "871F Newfield St., Middletown ",
-   "Zip Code": "06457",
+   "ZipCode": "06457",
    "State": "Connecticut",
    "Phone": "[860] 6328188",
    "Web URL": null,
@@ -1674,7 +1674,7 @@
  {
    "Name": "Cromwell Martial Arts",
    "Address": "871F Newfield St., Middletown ",
-   "Zip Code": "06457",
+   "ZipCode": "06457",
    "State": "Connecticut",
    "Phone": "[860] 6328188",
    "Web URL": null,
@@ -1685,7 +1685,7 @@
  {
    "Name": "Karate America",
    "Address": "268 Greenwood Ave., Bethel",
-   "Zip Code": "06801",
+   "ZipCode": "06801",
    "State": "Connecticut",
    "Phone": "203-792-1050",
    "Web URL": "http://www.karateamericabethel.com",
@@ -1696,7 +1696,7 @@
  {
    "Name": "Lion Survival Defense System",
    "Address": "194 Bridgeport Ave., Milford ",
-   "Zip Code": "06460",
+   "ZipCode": "06460",
    "State": "Connecticut",
    "Phone": "[203] 5573312",
    "Web URL": null,
@@ -1707,7 +1707,7 @@
  {
    "Name": "Practical Self Defense Training Center",
    "Address": "2148 South Main St., Waterbury ",
-   "Zip Code": "05706",
+   "ZipCode": "05706",
    "State": "Connecticut",
    "Phone": "[203] 5969073",
    "Web URL": null,
@@ -1718,7 +1718,7 @@
  {
    "Name": "Practical Self Defense Training Center",
    "Address": "847 Hamilton Ave (Rt 69)., Waterbury",
-   "Zip Code": "06706",
+   "ZipCode": "06706",
    "State": "Connecticut",
    "Phone": "203-596-9073",
    "Web URL": "http://www.psdtc.com or http://www.TraditionalFilipinoWeapons.com",
@@ -1729,7 +1729,7 @@
  {
    "Name": "Stamford Center for Martial Arts",
    "Address": "100 Research Dr., Stamford ",
-   "Zip Code": "06906",
+   "ZipCode": "06906",
    "State": "Connecticut",
    "Phone": "[203] 5709040",
    "Web URL": null,
@@ -1740,7 +1740,7 @@
  {
    "Name": "Swift Waters MMA",
    "Address": "25 Meadow St., Willimantic ",
-   "Zip Code": "06226",
+   "ZipCode": "06226",
    "State": "Connecticut",
    "Phone": "[860] 3197238",
    "Web URL": null,
@@ -1751,7 +1751,7 @@
  {
    "Name": "Dauntless Practical Martial Arts",
    "Address": "250 Stadium Street, Suite 100, Smyrna 19977644 Plaza Drive, Newark ",
-   "Zip Code": "19702",
+   "ZipCode": "19702",
    "State": "Delaware",
    "Phone": "[302] 7433115",
    "Web URL": null,
@@ -1762,7 +1762,7 @@
  {
    "Name": "Sachetti's Martial Arts",
    "Address": " Four Seasons Plaza, Rt. 896, Newark 19702",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Delaware",
    "Phone": "[302] 2243057",
    "Web URL": null,
@@ -1773,7 +1773,7 @@
  {
    "Name": "Amelia Island Derobio Escrima",
    "Address": "330st 8th St., Fernandina Beach,",
-   "Zip Code": "32034",
+   "ZipCode": "32034",
    "State": "Florida",
    "Phone": "904-556-9397",
    "Web URL": null,
@@ -1784,7 +1784,7 @@
  {
    "Name": "American TKA Martial Arts",
    "Address": "8604 State Rd. 84, Davie",
-   "Zip Code": "33324",
+   "ZipCode": "33324",
    "State": "Florida",
    "Phone": null,
    "Web URL": null,
@@ -1795,7 +1795,7 @@
  {
    "Name": "Arnis Karate",
    "Address": "1479 Belcher Rd. S, Largo, Florida",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Florida",
    "Phone": "[727] 5353574",
    "Web URL": null,
@@ -1806,7 +1806,7 @@
  {
    "Name": "Authentic Jeet Kune Do Academy",
    "Address": "6635 M.L.K. st. N., Saint Petersburg ",
-   "Zip Code": "33702",
+   "ZipCode": "33702",
    "State": "Florida",
    "Phone": "[727] 5772108",
    "Web URL": null,
@@ -1817,7 +1817,7 @@
  {
    "Name": "Authentic Jeet Kune Do Academy - Kali/JKD/Silat/PFS/Grappling",
    "Address": "Largo",
-   "Zip Code": "33773",
+   "ZipCode": "33773",
    "State": "Florida",
    "Phone": "(727)692-9628",
    "Web URL": "www.AuthenticJKD.net",
@@ -1828,7 +1828,7 @@
  {
    "Name": "Central Florida Martial Art Academy",
    "Address": "8319 SW 61st Place, Gainesville ",
-   "Zip Code": "32608",
+   "ZipCode": "32608",
    "State": "Florida",
    "Phone": "[352] 3288526",
    "Web URL": null,
@@ -1839,7 +1839,7 @@
  {
    "Name": "Cross Martial Arts Training",
    "Address": "12780 51st Court North, West Palm Beach ",
-   "Zip Code": "33411",
+   "ZipCode": "33411",
    "State": "Florida",
    "Phone": "[561] 5129707",
    "Web URL": null,
@@ -1850,7 +1850,7 @@
  {
    "Name": "Cross Martial Arts training",
    "Address": "West Palm Beach",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Florida",
    "Phone": "561 512-9707",
    "Web URL": null,
@@ -1861,7 +1861,7 @@
  {
    "Name": "CSSD Conceptual Tactical Arnis Presas Arnis",
    "Address": "3665 East Bay Dr. Suite 204233, Largo ",
-   "Zip Code": "33771",
+   "ZipCode": "33771",
    "State": "Florida",
    "Phone": "[727] 3190550",
    "Web URL": null,
@@ -1872,7 +1872,7 @@
  {
    "Name": "East Coast School of Self Defense",
    "Address": "21000 Boca Rio Rd., A20, Boca Raton ",
-   "Zip Code": "33433",
+   "ZipCode": "33433",
    "State": "Florida",
    "Phone": "[561] 2185755",
    "Web URL": null,
@@ -1883,7 +1883,7 @@
  {
    "Name": "Filipine Triad Arts Synthesis",
    "Address": "2129 N.E. 4th Ave., Cape Coral ",
-   "Zip Code": "33909",
+   "ZipCode": "33909",
    "State": "Florida",
    "Phone": "[239] 6991993",
    "Web URL": null,
@@ -1894,7 +1894,7 @@
  {
    "Name": "Filipino Combat Systems Headquarters",
    "Address": "812 N. Howard Ave., Tampa ",
-   "Zip Code": "33606",
+   "ZipCode": "33606",
    "State": "Florida",
    "Phone": null,
    "Web URL": null,
@@ -1905,7 +1905,7 @@
  {
    "Name": "Filipino Kali Academy",
    "Address": "7352 West Atlantic Blvd., Margate ",
-   "Zip Code": "33063",
+   "ZipCode": "33063",
    "State": "Florida",
    "Phone": "[954] 9730222",
    "Web URL": null,
@@ -1916,7 +1916,7 @@
  {
    "Name": "Filipino Kali Academy",
    "Address": "2293 NE 164th St. North Miami Beach ",
-   "Zip Code": "33160",
+   "ZipCode": "33160",
    "State": "Florida",
    "Phone": "[305] 9441114",
    "Web URL": null,
@@ -1927,7 +1927,7 @@
  {
    "Name": "Garimot Arnis Training (G.A.T )",
    "Address": "852 Saxon Blvd Suite 30, Orange City",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Florida",
    "Phone": "[352] 3018229",
    "Web URL": null,
@@ -1938,7 +1938,7 @@
  {
    "Name": "Haastyle Martial Arts Academy",
    "Address": "21000 Boca Rio Rd. Suite A20, Boca Raton ",
-   "Zip Code": "33433",
+   "ZipCode": "33433",
    "State": "Florida",
    "Phone": "[561] 2185755",
    "Web URL": null,
@@ -1949,7 +1949,7 @@
  {
    "Name": "Hybrid Martial Arts Academy",
    "Address": "12105 SW 129th Court #103, Miami .",
-   "Zip Code": "33186",
+   "ZipCode": "33186",
    "State": "Florida",
    "Phone": "[786] 3856424",
    "Web URL": null,
@@ -1960,7 +1960,7 @@
  {
    "Name": "Jeet Kune Do Institute",
    "Address": "1155 Charles Street, Unit 135, Longwood",
-   "Zip Code": "32750",
+   "ZipCode": "32750",
    "State": "Florida",
    "Phone": "407-831-4243",
    "Web URL": "jkdinstitute.com",
@@ -1971,7 +1971,7 @@
  {
    "Name": "K.M.A. Martial Arts",
    "Address": "1013 Se Hollobrook Ct., Port St. Lucie",
-   "Zip Code": "34952",
+   "ZipCode": "34952",
    "State": "Florida",
    "Phone": null,
    "Web URL": "www.KalayaanMartialArts.com",
@@ -1982,7 +1982,7 @@
  {
    "Name": "Kombat Arts Institute ",
    "Address": "133 Flagship Dr., Lutz ",
-   "Zip Code": "33549",
+   "ZipCode": "33549",
    "State": "Florida",
    "Phone": "[813] 2791940",
    "Web URL": null,
@@ -1993,7 +1993,7 @@
  {
    "Name": "Luzviminda Arnis Kali Brotherhood",
    "Address": "5949 Caroline Dr., Wesley Chapel ",
-   "Zip Code": "33544",
+   "ZipCode": "33544",
    "State": "Florida",
    "Phone": "[813] 9731620",
    "Web URL": null,
@@ -2004,7 +2004,7 @@
  {
    "Name": "Majapai Derobio Arnis 63 Generals",
    "Address": "1897 Island Walk Way, Fernandina Beach ",
-   "Zip Code": "32034",
+   "ZipCode": "32034",
    "State": "Florida",
    "Phone": "[904] 4151733",
    "Web URL": null,
@@ -2015,7 +2015,7 @@
  {
    "Name": "Medina's Asian Fighting Arts",
    "Address": "1897 Island Walk Way, Fernandina Beach",
-   "Zip Code": "32034",
+   "ZipCode": "32034",
    "State": "Florida",
    "Phone": null,
    "Web URL": null,
@@ -2026,7 +2026,7 @@
  {
    "Name": "Miami Arnis Group",
    "Address": "909 Alton Rd., Miami Beach ",
-   "Zip Code": "33139",
+   "ZipCode": "33139",
    "State": "Florida",
    "Phone": "[305] 3010294",
    "Web URL": null,
@@ -2037,7 +2037,7 @@
  {
    "Name": "Miami Arnis Group",
    "Address": "Miami",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Florida",
    "Phone": "(305)301-0294",
    "Web URL": "www.miamiarnisgroup.com",
@@ -2048,7 +2048,7 @@
  {
    "Name": "Miami STICKFIGHTER Club",
    "Address": "Varied Public Parks, Cutler Bay and Homestead (SW MiamiDade)",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Florida",
    "Phone": null,
    "Web URL": null,
@@ -2059,7 +2059,7 @@
  {
    "Name": "Modern American Combatives Academy (LLC)",
    "Address": "P.O. Box 653, Jupiter",
-   "Zip Code": "33468",
+   "ZipCode": "33468",
    "State": "Florida",
    "Phone": "561-310-9994",
    "Web URL": "www.modernamericancombatives.com",
@@ -2070,7 +2070,7 @@
  {
    "Name": "NATO'S Martial Arts",
    "Address": "14447 Miramar Parkway, Miramar",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Florida",
    "Phone": null,
    "Web URL": null,
@@ -2081,7 +2081,7 @@
  {
    "Name": "Orlando",
    "Address": "4609 W. Ponkan Rd., Apopka ",
-   "Zip Code": "32712",
+   "ZipCode": "32712",
    "State": "Florida",
    "Phone": null,
    "Web URL": null,
@@ -2092,7 +2092,7 @@
  {
    "Name": "Orlando Balintawak Club",
    "Address": "317 E Washington St Unit D., Minneola ",
-   "Zip Code": "34715",
+   "ZipCode": "34715",
    "State": "Florida",
    "Phone": "[850] 3251111",
    "Web URL": null,
@@ -2103,7 +2103,7 @@
  {
    "Name": "P. A. E. T. E. (Garimot System USA)",
    "Address": "1240 NW 92 Ave., Pembroke Pines ",
-   "Zip Code": "33024",
+   "ZipCode": "33024",
    "State": "Florida",
    "Phone": "[954] 4324433",
    "Web URL": null,
@@ -2114,7 +2114,7 @@
  {
    "Name": "Pambuan Arnis of Sarasota",
    "Address": "2203 Pinehurst St., Sarasota ",
-   "Zip Code": "34231",
+   "ZipCode": "34231",
    "State": "Florida",
    "Phone": "[941] 7806013",
    "Web URL": null,
@@ -2125,7 +2125,7 @@
  {
    "Name": "Pambuan Arnis of Sarasota",
    "Address": "2203 Pinehurst St., Sarasota",
-   "Zip Code": "34231",
+   "ZipCode": "34231",
    "State": "Florida",
    "Phone": "(941) 780-6013",
    "Web URL": "http://pambuanarnis.com",
@@ -2136,7 +2136,7 @@
  {
    "Name": "Philippine Martial Art Society",
    "Address": "Box 210642, Royal Palm Beach ",
-   "Zip Code": "33421",
+   "ZipCode": "33421",
    "State": "Florida",
    "Phone": "[561] 6979162",
    "Web URL": null,
@@ -2147,7 +2147,7 @@
  {
    "Name": "Shin Wellness",
    "Address": "4500 Biscayne Blvd., Suite 202, Miami ",
-   "Zip Code": "33137",
+   "ZipCode": "33137",
    "State": "Florida",
    "Phone": "[305] 5719090",
    "Web URL": null,
@@ -2158,7 +2158,7 @@
  {
    "Name": "Smileys Combat Athletix",
    "Address": "3600 Peoria Road #202/203, Orange Park ",
-   "Zip Code": "32065",
+   "ZipCode": "32065",
    "State": "Florida",
    "Phone": "[904] 6447571",
    "Web URL": null,
@@ -2169,7 +2169,7 @@
  {
    "Name": "Tabimina Balintawak",
    "Address": "South East, Santa Rosa Beach ",
-   "Zip Code": "32459",
+   "ZipCode": "32459",
    "State": "Florida",
    "Phone": "[850] 6355334",
    "Web URL": null,
@@ -2180,7 +2180,7 @@
  {
    "Name": "Tampa 33606",
    "Address": "",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Florida",
    "Phone": null,
    "Web URL": null,
@@ -2191,7 +2191,7 @@
  {
    "Name": "Tampa Kali",
    "Address": "5705 N. Nebraska Ave., Tampa and St. Petersburg ",
-   "Zip Code": "33604",
+   "ZipCode": "33604",
    "State": "Florida",
    "Phone": "[813] 4548743",
    "Web URL": null,
@@ -2202,7 +2202,7 @@
  {
    "Name": "Traditional Martial Arts",
    "Address": "2220 Hempel Ave., Gotha ",
-   "Zip Code": "34734",
+   "ZipCode": "34734",
    "State": "Florida",
    "Phone": "[407] 2908049",
    "Web URL": null,
@@ -2213,7 +2213,7 @@
  {
    "Name": "Train4Combat, LLC",
    "Address": "7029-11 Commonwealth Ave., Jacksonville",
-   "Zip Code": "32220",
+   "ZipCode": "32220",
    "State": "Florida",
    "Phone": null,
    "Web URL": "train4combat.com",
@@ -2224,7 +2224,7 @@
  {
    "Name": "Unified Martial Art Academy",
    "Address": "12580 SW 88th St., Miami ",
-   "Zip Code": "33186",
+   "ZipCode": "33186",
    "State": "Florida",
    "Phone": "[305] 5952892",
    "Web URL": null,
@@ -2235,7 +2235,7 @@
  {
    "Name": "Warrior Arts",
    "Address": "11764 Marco Beach Drive Suite #2, Jacksonville",
-   "Zip Code": "32224",
+   "ZipCode": "32224",
    "State": "Florida",
    "Phone": "904.645.7000",
    "Web URL": "www.WarriorArtsAcademy.com",
@@ -2246,7 +2246,7 @@
  {
    "Name": "Warrior Arts Academy",
    "Address": "11764 Marco Beach Drive # 2, Jacksonville ",
-   "Zip Code": "32224",
+   "ZipCode": "32224",
    "State": "Florida",
    "Phone": "[904] 6457000",
    "Web URL": null,
@@ -2257,7 +2257,7 @@
  {
    "Name": "World Kali Silat Society",
    "Address": "3950 Ironwood Cr., Bradenton ",
-   "Zip Code": "34209",
+   "ZipCode": "34209",
    "State": "Florida",
    "Phone": "[917] 5355254",
    "Web URL": null,
@@ -2268,7 +2268,7 @@
  {
    "Name": "Yaro's Arnis Karate",
    "Address": "1240 S.Highland Ave., Clearwater ",
-   "Zip Code": "33756",
+   "ZipCode": "33756",
    "State": "Florida",
    "Phone": "[727] 6413843",
    "Web URL": null,
@@ -2279,7 +2279,7 @@
  {
    "Name": "AKJ Karate",
    "Address": "3565 GA HWY 20 South, Suite B, Conyers ",
-   "Zip Code": "30013",
+   "ZipCode": "30013",
    "State": "Georgia",
    "Phone": "[770] 8609304",
    "Web URL": null,
@@ -2290,7 +2290,7 @@
  {
    "Name": "American Karate Productions",
    "Address": "2241 Idlewood Road, Tucker ",
-   "Zip Code": "30084",
+   "ZipCode": "30084",
    "State": "Georgia",
    "Phone": "[770] 4938970",
    "Web URL": null,
@@ -2301,7 +2301,7 @@
  {
    "Name": "Atlanta Filipino Martial Arts",
    "Address": "1284 West Spring Street, Smyrna ",
-   "Zip Code": "30080",
+   "ZipCode": "30080",
    "State": "Georgia",
    "Phone": "[770] 3198662",
    "Web URL": null,
@@ -2312,7 +2312,7 @@
  {
    "Name": "Atlanta Martial Arts Club",
    "Address": "Roswell ",
-   "Zip Code": "30076",
+   "ZipCode": "30076",
    "State": "Georgia",
    "Phone": "[770] 873 2234",
    "Web URL": null,
@@ -2323,7 +2323,7 @@
  {
    "Name": "Battlefield Kali",
    "Address": "4348 Waialae Avenue # 128, Honolulu ",
-   "Zip Code": "96816",
+   "ZipCode": "96816",
    "State": "Georgia",
    "Phone": null,
    "Web URL": null,
@@ -2334,7 +2334,7 @@
  {
    "Name": "DUNGEON BOXING",
    "Address": "11505 Brown Bridge Rd., Covington",
-   "Zip Code": "30016",
+   "ZipCode": "30016",
    "State": "Georgia",
    "Phone": "770-788-0680",
    "Web URL": "www.galiusmartialarts.com",
@@ -2345,7 +2345,7 @@
  {
    "Name": "Fayette Academy of Martial Arts",
    "Address": "931 Glynn St., Fayetteville ",
-   "Zip Code": "30214",
+   "ZipCode": "30214",
    "State": "Georgia",
    "Phone": null,
    "Web URL": null,
@@ -2356,7 +2356,7 @@
  {
    "Name": "Garimot Arnis Training of Georgia",
    "Address": "39 Smith St Suite B, Fairburn",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Georgia",
    "Phone": "(770) 284-1428",
    "Web URL": "http://garimot.com/",
@@ -2367,7 +2367,7 @@
  {
    "Name": "INDEPENDENT MMA",
    "Address": "235 McDonough Pkwy, McDonough",
-   "Zip Code": "30253",
+   "ZipCode": "30253",
    "State": "Georgia",
    "Phone": "(678) 432-9005",
    "Web URL": "www.galiusmartialarts.com",
@@ -2378,7 +2378,7 @@
  {
    "Name": "J.P. Moseley Recreation Center",
    "Address": "1041 Millers Mill Road, Stockbridge",
-   "Zip Code": "30281",
+   "ZipCode": "30281",
    "State": "Georgia",
    "Phone": "(770) 288-7311",
    "Web URL": "www.galiusmartialarts.com",
@@ -2389,7 +2389,7 @@
  {
    "Name": "Living Waters Martial Arts",
    "Address": "4075 Macland Road, Powder Springs",
-   "Zip Code": "30127",
+   "ZipCode": "30127",
    "State": "Georgia",
    "Phone": "770.314.0840",
    "Web URL": "www.livingwatersma.com",
@@ -2400,7 +2400,7 @@
  {
    "Name": "Locust Grove Karate",
    "Address": "91 Pine Grove Rd, Locust Grove",
-   "Zip Code": "30248",
+   "ZipCode": "30248",
    "State": "Georgia",
    "Phone": "(678) 561-4099",
    "Web URL": "www.galiusmartialarts.com",
@@ -2411,7 +2411,7 @@
  {
    "Name": "Medina's Asian Fighting Arts",
    "Address": "100 W Church St, St. Mary's",
-   "Zip Code": "31558",
+   "ZipCode": "31558",
    "State": "Georgia",
    "Phone": null,
    "Web URL": null,
@@ -2422,7 +2422,7 @@
  {
    "Name": "VAGABOND MARTIAL ARTS SOCIETY, Georgia-USA (@ DUNGEON BOXING gym)",
    "Address": "11505 Brown Bridge Rd., Covington",
-   "Zip Code": "30016",
+   "ZipCode": "30016",
    "State": "Georgia",
    "Phone": "770-788-0680",
    "Web URL": "http://www.freewebs.com/vagabondarts/",
@@ -2433,7 +2433,7 @@
  {
    "Name": "VAGABOND MARTIAL ARTS SOCIETY, Georgia-USA (@ J.P. Moseley Recreation Center)",
    "Address": "1041 Millers Mill Road, Stockbridge",
-   "Zip Code": "30281",
+   "ZipCode": "30281",
    "State": "Georgia",
    "Phone": "(770) 288-7311",
    "Web URL": "http://www.freewebs.com/vagabondarts/",
@@ -2444,7 +2444,7 @@
  {
    "Name": "Bandalan Doce Pares",
    "Address": "Honolulu",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Hawaii",
    "Phone": "[808] 8641620 ",
    "Web URL": null,
@@ -2455,7 +2455,7 @@
  {
    "Name": "Battlefield Kali",
    "Address": "4348 Waialae Avenue # 128, Honolulu ",
-   "Zip Code": "96816",
+   "ZipCode": "96816",
    "State": "Hawaii",
    "Phone": "[808] 8641620",
    "Web URL": null,
@@ -2466,7 +2466,7 @@
  {
    "Name": "Delmar School Fil/Mar/Arts",
    "Address": "87126 Kulahanai PL., Waianae ",
-   "Zip Code": "96792",
+   "ZipCode": "96792",
    "State": "Hawaii",
    "Phone": "[808] 2242551",
    "Web URL": null,
@@ -2477,7 +2477,7 @@
  {
    "Name": "Fonseca KenpoJujitsu",
    "Address": "911081 Kahalepouli St., Kapolei ",
-   "Zip Code": "96707",
+   "ZipCode": "96707",
    "State": "Hawaii",
    "Phone": "[808] 7232792",
    "Web URL": null,
@@ -2488,7 +2488,7 @@
  {
    "Name": "General Ablen's School of Derobio Escrima",
    "Address": "1519 Kalaepa'a Dr., Honolulu ",
-   "Zip Code": "96817",
+   "ZipCode": "96817",
    "State": "Hawaii",
    "Phone": "[808] 6209056",
    "Web URL": null,
@@ -2499,7 +2499,7 @@
  {
    "Name": "Integrated Training Concepts",
    "Address": "P.O. Box 12104, Lahaina ",
-   "Zip Code": "96761",
+   "ZipCode": "96761",
    "State": "Hawaii",
    "Phone": "[808] 7813302",
    "Web URL": null,
@@ -2510,7 +2510,7 @@
  {
    "Name": "Molokai Martial Arts",
    "Address": "PO Box 1715, Kaunakakai ",
-   "Zip Code": "96748",
+   "ZipCode": "96748",
    "State": "Hawaii",
    "Phone": "[808] 2163211",
    "Web URL": null,
@@ -2521,7 +2521,7 @@
  {
    "Name": "Ola'aNalo Eskrima",
    "Address": "Old Stadium Park, Honolulu",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Hawaii",
    "Phone": "[808] 2645212",
    "Web URL": null,
@@ -2532,7 +2532,7 @@
  {
    "Name": "Ola'a-nalo Eskrima Jungle Style",
    "Address": "Waimanalo",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Hawaii",
    "Phone": null,
    "Web URL": "www.olaa-naloeskrima.com",
@@ -2543,7 +2543,7 @@
  {
    "Name": "Pacific Eskrima Academy (Tacosa Cadena Eskrima)",
    "Address": "P.O. Box 2212 Kea'au, Hilo ",
-   "Zip Code": "96749",
+   "ZipCode": "96749",
    "State": "Hawaii",
    "Phone": null,
    "Web URL": null,
@@ -2554,7 +2554,7 @@
  {
    "Name": "Pedoy's School of Escrima",
    "Address": "94529 Uke`e St. #103, Waipahu ",
-   "Zip Code": "96797",
+   "ZipCode": "96797",
    "State": "Hawaii",
    "Phone": "[209] 3213586",
    "Web URL": null,
@@ -2565,7 +2565,7 @@
  {
    "Name": "Protect Yourself Academy Martial Arts",
    "Address": "Honolulu,",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Hawaii",
    "Phone": "(702) 340-3308",
    "Web URL": "http://ProtectYourselfAcademy.com / http://facebook.com/protectyourselfacademy",
@@ -2576,7 +2576,7 @@
  {
    "Name": "The Fighting Edge",
    "Address": "Honolulu ",
-   "Zip Code": "96818",
+   "ZipCode": "96818",
    "State": "Hawaii",
    "Phone": "[808] 3360936",
    "Web URL": null,
@@ -2587,7 +2587,7 @@
  {
    "Name": "Idaho Heartland School of Eskrima & Self Defense",
    "Address": "31149 N. Hayden Dr., Spirit Lake ",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Idaho",
    "Phone": null,
    "Web URL": null,
@@ -2598,7 +2598,7 @@
  {
    "Name": "Amalgam Martial Academy",
    "Address": "456 W. 75th St., Downers Grove ",
-   "Zip Code": "60516",
+   "ZipCode": "60516",
    "State": "Illinois",
    "Phone": "[331] 7775236",
    "Web URL": null,
@@ -2609,7 +2609,7 @@
  {
    "Name": "Armas De Mano Filipino Arts Academy",
    "Address": "9227 Gulfstream rd, Unit A, Frankfort",
-   "Zip Code": "60423",
+   "ZipCode": "60423",
    "State": "Illinois",
    "Phone": "(708) 646-1006",
    "Web URL": null,
@@ -2620,7 +2620,7 @@
  {
    "Name": "Balanced Dynamics Academy",
    "Address": "1300 East B St., #2, Belleville ",
-   "Zip Code": "62221",
+   "ZipCode": "62221",
    "State": "Illinois",
    "Phone": "[618] 5308761",
    "Web URL": null,
@@ -2631,7 +2631,7 @@
  {
    "Name": "Bandalan Doce Pares",
    "Address": " 331 Tiverton Lane, Steger ",
-   "Zip Code": "60475",
+   "ZipCode": "60475",
    "State": "Illinois",
    "Phone": "[708] 7567240",
    "Web URL": null,
@@ -2642,7 +2642,7 @@
  {
    "Name": "DBFMA Modern Arnis",
    "Address": "605 E. Ogden Ave., Naperville ",
-   "Zip Code": "60563",
+   "ZipCode": "60563",
    "State": "Illinois",
    "Phone": "[630] 4478286",
    "Web URL": null,
@@ -2653,7 +2653,7 @@
  {
    "Name": "Defensive Combat Initiatives",
    "Address": "PO Box 29, Millstadt ",
-   "Zip Code": "62260",
+   "ZipCode": "62260",
    "State": "Illinois",
    "Phone": "[618] 9793558",
    "Web URL": null,
@@ -2664,7 +2664,7 @@
  {
    "Name": "Defensive Combat Initiatives",
    "Address": "PO Box 29, Millstadt",
-   "Zip Code": "62260",
+   "ZipCode": "62260",
    "State": "Illinois",
    "Phone": "618-979-3558",
    "Web URL": "www.defensivecombat.com",
@@ -2675,7 +2675,7 @@
  {
    "Name": "Defensor Method Elgin",
    "Address": "1080 E, Chicago St., Elgin ",
-   "Zip Code": "60120",
+   "ZipCode": "60120",
    "State": "Illinois",
    "Phone": "[847] 8737907",
    "Web URL": null,
@@ -2686,7 +2686,7 @@
  {
    "Name": "Eagle & Dragon Martial Arts Academy",
    "Address": "2331a Old Collinsville Rd., Belleville ",
-   "Zip Code": "62221",
+   "ZipCode": "62221",
    "State": "Illinois",
    "Phone": "[618] 2222888",
    "Web URL": null,
@@ -2697,7 +2697,7 @@
  {
    "Name": "Elite Martial Arts & Fitness",
    "Address": " 4001 Golf Rd., Skokie ",
-   "Zip Code": "60076",
+   "ZipCode": "60076",
    "State": "Illinois",
    "Phone": "[847] 3290291",
    "Web URL": null,
@@ -2708,7 +2708,7 @@
  {
    "Name": "Extreme Kung Fu/Wu Shu Training Center",
    "Address": "6525 N. Clark St., Chicago ",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Illinois",
    "Phone": "[773] 7196488",
    "Web URL": null,
@@ -2719,7 +2719,7 @@
  {
    "Name": "Filipino Kali / Eskrima Academy of Chicago",
    "Address": "4357 N. Lincoln Ave., Chicago ",
-   "Zip Code": "60618",
+   "ZipCode": "60618",
    "State": "Illinois",
    "Phone": "[847] 2393990",
    "Web URL": null,
@@ -2730,7 +2730,7 @@
  {
    "Name": "JKDConcepts/Kali/Silat of Bloomington",
    "Address": "602 S Main St, Bloomington ",
-   "Zip Code": "61701",
+   "ZipCode": "61701",
    "State": "Illinois",
    "Phone": "[309] 3107626",
    "Web URL": null,
@@ -2741,7 +2741,7 @@
  {
    "Name": "Kali Combat Academy",
    "Address": " Chicago ",
-   "Zip Code": "60088",
+   "ZipCode": "60088",
    "State": "Illinois",
    "Phone": "[847] 9897847",
    "Web URL": null,
@@ -2752,7 +2752,7 @@
  {
    "Name": "Kennedy's Martial Arts Academy",
    "Address": "1199 Biesterfield Road, Elk Grove Village ",
-   "Zip Code": "60007",
+   "ZipCode": "60007",
    "State": "Illinois",
    "Phone": "[847] 8918731",
    "Web URL": null,
@@ -2763,7 +2763,7 @@
  {
    "Name": "Midway Kodenkan",
    "Address": "5159 Archer Ave., Chicago ",
-   "Zip Code": "60632",
+   "ZipCode": "60632",
    "State": "Illinois",
    "Phone": "[773] 2848818",
    "Web URL": null,
@@ -2774,7 +2774,7 @@
  {
    "Name": "RFA Martial Academy",
    "Address": "1212 Capitol Dr., Addison ",
-   "Zip Code": "60101",
+   "ZipCode": "60101",
    "State": "Illinois",
    "Phone": "[224] 6596984",
    "Web URL": null,
@@ -2785,7 +2785,7 @@
  {
    "Name": "Temujin 2 (Lucaylucay Kali/JKD Association)",
    "Address": "611 N Orchard, West Frankfort ",
-   "Zip Code": "62896",
+   "ZipCode": "62896",
    "State": "Illinois",
    "Phone": "[618] 8890647",
    "Web URL": null,
@@ -2796,7 +2796,7 @@
  {
    "Name": "The Defensor Method, Filipino Kali-Eskrima Academy of Chicago",
    "Address": "Address Chicago",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Illinois",
    "Phone": "847-239-3990",
    "Web URL": "http://www.defensormethod.com/",
@@ -2807,7 +2807,7 @@
  {
    "Name": "Windy City Pekiti-Tirsia Kali (3 Locations)",
    "Address": " 1214-3 Capitol Dr., Addison",
-   "Zip Code": "60101",
+   "ZipCode": "60101",
    "State": "Illinois",
    "Phone": "224-659-6984",
    "Web URL": "http://www.windycityptk.com/",
@@ -2818,7 +2818,7 @@
  {
    "Name": "Windy City Pekiti-Tirsia Kali (3 Locations)",
    "Address": "7004 Huntley Rd., Carpentersville",
-   "Zip Code": "60110",
+   "ZipCode": "60110",
    "State": "Illinois",
    "Phone": "224-659-6984",
    "Web URL": "http://www.windycityptk.com/",
@@ -2829,7 +2829,7 @@
  {
    "Name": "Windy City Pekiti-Tirsia Kali (3 Locations)",
    "Address": " 823 Emerson, Evanston",
-   "Zip Code": "60201",
+   "ZipCode": "60201",
    "State": "Illinois",
    "Phone": "224-659-6984",
    "Web URL": "http://www.windycityptk.com/",
@@ -2840,7 +2840,7 @@
  {
    "Name": "World Martial Arts Academy USA",
    "Address": "316 Anderson Blvd., Geneva ",
-   "Zip Code": "60134",
+   "ZipCode": "60134",
    "State": "Illinois",
    "Phone": "[630] 4020033",
    "Web URL": null,
@@ -2851,7 +2851,7 @@
  {
    "Name": "World Martial Arts Academy USA",
    "Address": "316 Anderson Blvd, Geneva",
-   "Zip Code": "60134",
+   "ZipCode": "60134",
    "State": "Illinois",
    "Phone": "630-402-0033",
    "Web URL": "www.WorldMartialArtsUSA.com / www.facebook.com/WorldMartialArtsUSA",
@@ -2862,7 +2862,7 @@
  {
    "Name": "World Serrada Escrima Federation, Headhunter Sports, Forteza Fitness and Martial Arts",
    "Address": "4437 North Ravenswood Ave., Chicago",
-   "Zip Code": "60640",
+   "ZipCode": "60640",
    "State": "Illinois",
    "Phone": null,
    "Web URL": "www.meetup.com/Headhunter-Sports-Filipino-Martial-Arts",
@@ -2873,7 +2873,7 @@
  {
    "Name": "Xtreme Training Academy",
    "Address": "1292 Humbracht Circle Unit E.. Bartlett ",
-   "Zip Code": "60103",
+   "ZipCode": "60103",
    "State": "Illinois",
    "Phone": "[630] 7800054",
    "Web URL": null,
@@ -2884,7 +2884,7 @@
  {
    "Name": "Indy Arnis Club",
    "Address": "7141 Southeastern Ave., Indianapolis ",
-   "Zip Code": "46239",
+   "ZipCode": "46239",
    "State": "Indiana",
    "Phone": null,
    "Web URL": null,
@@ -2895,7 +2895,7 @@
  {
    "Name": "Parris Martial Arts Academy",
    "Address": "Fort Wayne,",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Indiana",
    "Phone": null,
    "Web URL": null,
@@ -2906,7 +2906,7 @@
  {
    "Name": "Wetoskey Academy of Martial Arts",
    "Address": "4127-U.S. Hwy. 6, Waterloo",
-   "Zip Code": "46793",
+   "ZipCode": "46793",
    "State": "Indiana",
    "Phone": "260-837-7454",
    "Web URL": "www.wetoskey.com",
@@ -2917,7 +2917,7 @@
  {
    "Name": "Midwest Martial Arts Group",
    "Address": "3104 Eads St., Davenport ",
-   "Zip Code": "52802",
+   "ZipCode": "52802",
    "State": "Iowa",
    "Phone": "[563] 4997561",
    "Web URL": null,
@@ -2928,7 +2928,7 @@
  {
    "Name": "Academy of Martial Arts",
    "Address": "401 N. Madison St., Spring Hill ",
-   "Zip Code": "66083",
+   "ZipCode": "66083",
    "State": "Kansas",
    "Phone": "[913] 6081515",
    "Web URL": "www.theacademyofma.com",
@@ -2939,7 +2939,7 @@
  {
    "Name": "Malay Fighting Arts Academy",
    "Address": "856 East 167th Court, Gardner ",
-   "Zip Code": "66030",
+   "ZipCode": "66030",
    "State": "Kansas",
    "Phone": "[913] 6264372",
    "Web URL": null,
@@ -2950,7 +2950,7 @@
  {
    "Name": "Malay Fighting Arts Academy",
    "Address": "Gardner,",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Kansas ",
    "Phone": "913-626-4372",
    "Web URL": "www.pukulan.net",
@@ -2961,7 +2961,7 @@
  {
    "Name": "AFS Academy of Martial Arts",
    "Address": " 427 Big Hill Ave., Richmond ",
-   "Zip Code": "40475",
+   "ZipCode": "40475",
    "State": "Kentucky",
    "Phone": "[859] 6238023",
    "Web URL": null,
@@ -2972,7 +2972,7 @@
  {
    "Name": "Roninkan",
    "Address": "Highgrove ",
-   "Zip Code": "40013",
+   "ZipCode": "40013",
    "State": "Kentucky",
    "Phone": null,
    "Web URL": null,
@@ -2983,7 +2983,7 @@
  {
    "Name": "Smith Martial Arts Center, Hock Hochheim's Pacific Archipelago Combatives System, Mr. Duran Sheets",
    "Address": "2987 North Bend Road Hebron",
-   "Zip Code": "41048",
+   "ZipCode": "41048",
    "State": "Kentucky",
    "Phone": null,
    "Web URL": "www.smacfit365.com",
@@ -2994,7 +2994,7 @@
  {
    "Name": "Tactical Combative Kali",
    "Address": "",
-   "Zip Code": "40475",
+   "ZipCode": "40475",
    "State": "Kentucky",
    "Phone": "[859] 6262476",
    "Web URL": null,
@@ -3005,7 +3005,7 @@
  {
    "Name": "USA Philippine Jendo Association",
    "Address": " 702 Hickory Ridge Circle, Hopkinsville ",
-   "Zip Code": "42240",
+   "ZipCode": "42240",
    "State": "Kentucky",
    "Phone": "[270] 3051869",
    "Web URL": null,
@@ -3016,7 +3016,7 @@
  {
    "Name": "Element of Surprise FMA",
    "Address": "22 Alvin Dr., Pineville ",
-   "Zip Code": "71360",
+   "ZipCode": "71360",
    "State": "Louisiana",
    "Phone": "[318] 7304636",
    "Web URL": null,
@@ -3027,7 +3027,7 @@
  {
    "Name": "Progressive Martial Arts Training Center",
    "Address": "910 E. Main St., Suite 31, New Iberia ",
-   "Zip Code": "70560",
+   "ZipCode": "70560",
    "State": "Louisiana",
    "Phone": "[337] 2011791",
    "Web URL": null,
@@ -3038,7 +3038,7 @@
  {
    "Name": "Classic Escrima, Ronald A. Harris, Ph.D., Chief Instructor",
    "Address": "244 Arian Lane, Covington, ",
-   "Zip Code": "70433",
+   "ZipCode": "70433",
    "State": "Louisiana ",
    "Phone": "985-249-0801",
    "Web URL": null,
@@ -3049,7 +3049,7 @@
  {
    "Name": "Apolo's Karate (Pekiti Tirisa Kali System)",
    "Address": "750 Maryland Route 3South, Gambrills ",
-   "Zip Code": "21054",
+   "ZipCode": "21054",
    "State": "Maryland",
    "Phone": "[410] 9235222",
    "Web URL": null,
@@ -3060,7 +3060,7 @@
  {
    "Name": "Black Tiger Martial Arts Academy",
    "Address": "6901 Security Blvd. # 2038, Windsor Mill ",
-   "Zip Code": "21244",
+   "ZipCode": "21244",
    "State": "Maryland",
    "Phone": "[443] 5403672",
    "Web URL": null,
@@ -3071,7 +3071,7 @@
  {
    "Name": "DC Kali",
    "Address": "916 G Street, NW., Washington",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Maryland",
    "Phone": null,
    "Web URL": null,
@@ -3082,7 +3082,7 @@
  {
    "Name": "Gentle East Martial Arts",
    "Address": "8749 Flower Ave, Takoma , Silver Spring ",
-   "Zip Code": "20910",
+   "ZipCode": "20910",
    "State": "Maryland",
    "Phone": "(301) 7688401",
    "Web URL": null,
@@ -3093,7 +3093,7 @@
  {
    "Name": "Hebb Institute of Martial Arts",
    "Address": "Park Rd., Williamsport ",
-   "Zip Code": "21795",
+   "ZipCode": "21795",
    "State": "Maryland",
    "Phone": "[301] 2237719",
    "Web URL": null,
@@ -3104,7 +3104,7 @@
  {
    "Name": "Pekiti Tirsia Kali DC/MD/VA",
    "Address": "Benfield Sportscenter, 1031 Benfield Blvd., Millersville ",
-   "Zip Code": "21108",
+   "ZipCode": "21108",
    "State": "Maryland",
    "Phone": "[443] 3029613",
    "Web URL": null,
@@ -3115,7 +3115,7 @@
  {
    "Name": "Pinakatay Arnis Sigidas",
    "Address": "949 Bonifant Ave., Silver Spring ",
-   "Zip Code": "20910",
+   "ZipCode": "20910",
    "State": "Maryland",
    "Phone": "[301] 7688401",
    "Web URL": null,
@@ -3126,7 +3126,7 @@
  {
    "Name": "School Of Ahati",
    "Address": "11225 Oak Leaf Dr., Silver Spring ",
-   "Zip Code": "20901",
+   "ZipCode": "20901",
    "State": "Maryland",
    "Phone": "[301] 5370028",
    "Web URL": null,
@@ -3137,7 +3137,7 @@
  {
    "Name": "World Nickelstick Balintawak Escrima Maryland",
    "Address": " Towson ",
-   "Zip Code": "21286",
+   "ZipCode": "21286",
    "State": "Maryland",
    "Phone": "[443] 7630420",
    "Web URL": null,
@@ -3148,7 +3148,7 @@
  {
    "Name": "YawYan Fervilleon Martial Arts US HQ",
    "Address": "601 Dover Rd, Suite 12, Rockville ",
-   "Zip Code": "20850",
+   "ZipCode": "20850",
    "State": "Maryland",
    "Phone": "[855] 8929926",
    "Web URL": null,
@@ -3159,7 +3159,7 @@
  {
    "Name": "Lumad Sigbin Kali � FMA, Cebu-Visayan Wedo Corto-Close Quarter Combat",
    "Address": "HoneyGo Run Regional Recreation Center, 9033 Honeygo Blvd, Perry Hall",
-   "Zip Code": "21128",
+   "ZipCode": "21128",
    "State": "Maryland ",
    "Phone": "443-825-0259",
    "Web URL": null,
@@ -3170,7 +3170,7 @@
  {
    "Name": "Nickelstick Balintawak Eskrima",
    "Address": "Baltimore,",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Maryland ",
    "Phone": "443-763-0420",
    "Web URL": null,
@@ -3181,7 +3181,7 @@
  {
    "Name": "Pekiti Tirsia Kali DC/MD/VA",
    "Address": "Benfield Sports center, 1031 Benfield Blvd., Millersville",
-   "Zip Code": "21108",
+   "ZipCode": "21108",
    "State": "Maryland ",
    "Phone": "443-302-9613",
    "Web URL": "ptk-kdp.com",
@@ -3192,7 +3192,7 @@
  {
    "Name": "Pekiti Tirsia Kali DC/MD/VA",
    "Address": "7408 Livingston Rd., Suite 2D (2nd flr), Oxon Hill",
-   "Zip Code": "20745",
+   "ZipCode": "20745",
    "State": "Maryland ",
    "Phone": "443-302-9613",
    "Web URL": "ptk-kdp.com",
@@ -3203,7 +3203,7 @@
  {
    "Name": "Pekiti Tirsia Kali, Tiger Paw",
    "Address": "113 Beacon Road, Middle River",
-   "Zip Code": "21220",
+   "ZipCode": "21220",
    "State": "Maryland ",
    "Phone": null,
    "Web URL": null,
@@ -3214,7 +3214,7 @@
  {
    "Name": "Pekiti Tirsia Kali, Victory Martial Arts",
    "Address": "6590-5A Old Waterloo Road, Lark Brown Shopping Center, Elkridge",
-   "Zip Code": "21075",
+   "ZipCode": "21075",
    "State": "Maryland ",
    "Phone": "410.799.5566",
    "Web URL": null,
@@ -3225,7 +3225,7 @@
  {
    "Name": "Anderson Kali",
    "Address": "44 South St. (American Legion, Post217), Plainville ",
-   "Zip Code": "02761",
+   "ZipCode": "02761",
    "State": "Massachusetts",
    "Phone": "508-838-0056",
    "Web URL": "www.Anderson-Kali.com",
@@ -3236,7 +3236,7 @@
  {
    "Name": "Boston Arnis Club",
    "Address": "Boston ",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Massachusetts",
    "Phone": "[603] 5293564",
    "Web URL": null,
@@ -3247,7 +3247,7 @@
  {
    "Name": "Catanese Kajukenbo ETS method",
    "Address": "950 East Falmouth Highway, Falmouth ",
-   "Zip Code": "02563",
+   "ZipCode": "02563",
    "State": "Massachusetts",
    "Phone": "[617] 7022220 ",
    "Web URL": null,
@@ -3258,7 +3258,7 @@
  {
    "Name": "CSE Boston (Combat Serrada Escrima) ",
    "Address": "600 Columbia Rd., #26, Dorchester ",
-   "Zip Code": "02125",
+   "ZipCode": "02125",
    "State": "Massachusetts",
    "Phone": "[617] 8690516",
    "Web URL": null,
@@ -3269,7 +3269,7 @@
  {
    "Name": "Dragon Within Martial Arts",
    "Address": "26 Howley St., Peabody ",
-   "Zip Code": "01970",
+   "ZipCode": "01970",
    "State": "Massachusetts",
    "Phone": "[978] 5318511",
    "Web URL": null,
@@ -3280,7 +3280,7 @@
  {
    "Name": "Jou Fang Chuan Nine Anle Fist",
    "Address": "50 North Beacon St., Boston ",
-   "Zip Code": "02134",
+   "ZipCode": "02134",
    "State": "Massachusetts",
    "Phone": "[617] 6809981 ",
    "Web URL": null,
@@ -3291,7 +3291,7 @@
  {
    "Name": "Martial Arts Research Institute",
    "Address": "53 Mason St. Suite 201, Salem ",
-   "Zip Code": "01970",
+   "ZipCode": "01970",
    "State": "Massachusetts",
    "Phone": "[978] 7770586",
    "Web URL": null,
@@ -3302,7 +3302,7 @@
  {
    "Name": "Methuen",
    "Address": "",
-   "Zip Code": "01844",
+   "ZipCode": "01844",
    "State": "Massachusetts",
    "Phone": "[978] 7716653",
    "Web URL": null,
@@ -3313,7 +3313,7 @@
  {
    "Name": "Pence Self Defense",
    "Address": "226 Cambridge St., Burlington ",
-   "Zip Code": "01803",
+   "ZipCode": "01803",
    "State": "Massachusetts",
    "Phone": "[877] 527 2838",
    "Web URL": null,
@@ -3324,7 +3324,7 @@
  {
    "Name": "Phoenix Martial Arts of Massachusetts",
    "Address": "54 Sumner St., Milford ",
-   "Zip Code": "01757",
+   "ZipCode": "01757",
    "State": "Massachusetts",
    "Phone": "[516] 3534923",
    "Web URL": null,
@@ -3335,7 +3335,7 @@
  {
    "Name": "SEAFA",
    "Address": " 375 Foundry St., Easton",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Massachusetts",
    "Phone": "[508] 8898414",
    "Web URL": null,
@@ -3346,7 +3346,7 @@
  {
    "Name": "Universal Grapping Arts",
    "Address": "Malden ",
-   "Zip Code": "02148",
+   "ZipCode": "02148",
    "State": "Massachusetts",
    "Phone": null,
    "Web URL": null,
@@ -3357,7 +3357,7 @@
  {
    "Name": "White Leopard Sikaran",
    "Address": "540 Main St., Athol ",
-   "Zip Code": "01331",
+   "ZipCode": "01331",
    "State": "Massachusetts",
    "Phone": "[978] 2496328",
    "Web URL": null,
@@ -3368,7 +3368,7 @@
  {
    "Name": "Attributive Martial Arts Inc.",
    "Address": "697 Princess Dr., Canton ",
-   "Zip Code": "48188",
+   "ZipCode": "48188",
    "State": "Michigan",
    "Phone": "[734] 9811774",
    "Web URL": null,
@@ -3379,7 +3379,7 @@
  {
    "Name": "Attributive Martial Arts, Inc.",
    "Address": "697 Princess Dr., Canton",
-   "Zip Code": "48188",
+   "ZipCode": "48188",
    "State": "Michigan",
    "Phone": "(734) 981-1774",
    "Web URL": "www.AttributiveMartialArts.com",
@@ -3390,7 +3390,7 @@
  {
    "Name": "Grand Rapids Kali Club",
    "Address": "401 Hall St. #59 Suite B-148, Grand Rapids",
-   "Zip Code": "49503",
+   "ZipCode": "49503",
    "State": "Michigan",
    "Phone": "616-272-2556",
    "Web URL": "www.grkali.com",
@@ -3401,7 +3401,7 @@
  {
    "Name": "Instinctive Response Training",
    "Address": "200 West Center, Alma ",
-   "Zip Code": "48801",
+   "ZipCode": "48801",
    "State": "Michigan",
    "Phone": "[989] 5608004",
    "Web URL": null,
@@ -3412,7 +3412,7 @@
  {
    "Name": "K.S.K. Martial Arts",
    "Address": "3712 Homewood, Lansing ",
-   "Zip Code": "48910",
+   "ZipCode": "48910",
    "State": "Michigan",
    "Phone": "[517] 8539856",
    "Web URL": null,
@@ -3423,7 +3423,7 @@
  {
    "Name": "K.S.K. Martial Arts",
    "Address": "Lansing",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Michigan",
    "Phone": "(517) 853-9856",
    "Web URL": "www.TKENTNELSON.com",
@@ -3434,7 +3434,7 @@
  {
    "Name": "King Tiger Martial Arts School (Sina Tirsia Wali Kali/Silat)",
    "Address": " Detroit ",
-   "Zip Code": "48030",
+   "ZipCode": "48030",
    "State": "Michigan",
    "Phone": "[248] 5445657",
    "Web URL": null,
@@ -3445,7 +3445,7 @@
  {
    "Name": "Martial Arts Unlimited",
    "Address": "1060 West 14 Mile , Clawson, MI ",
-   "Zip Code": "48017",
+   "ZipCode": "48017",
    "State": "Michigan",
    "Phone": "[248] 4354030",
    "Web URL": null,
@@ -3456,7 +3456,7 @@
  {
    "Name": "Masters and Champions (Concepts in Motion)",
    "Address": "6072 S. Saginaw St., Grand Blanc ",
-   "Zip Code": "48439",
+   "ZipCode": "48439",
    "State": "Michigan",
    "Phone": "[810] 3483421",
    "Web URL": null,
@@ -3467,7 +3467,7 @@
  {
    "Name": "Michigan Modern Arnis (A MARPPIO School)",
    "Address": "11860 Wheaton Dr., Sterling Heights ",
-   "Zip Code": "48313",
+   "ZipCode": "48313",
    "State": "Michigan",
    "Phone": "[586] 7390497",
    "Web URL": null,
@@ -3478,7 +3478,7 @@
  {
    "Name": "Michigan Pekiti Tirsia Pitbulls",
    "Address": "Detroit",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Michigan",
    "Phone": "[248] 9817495",
    "Web URL": null,
@@ -3489,7 +3489,7 @@
  {
    "Name": "Modern Arnis Connection",
    "Address": "Lansing/East Lansing",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Michigan",
    "Phone": "517-321-4638",
    "Web URL": "www.modernarnisconnection.com",
@@ -3500,7 +3500,7 @@
  {
    "Name": "Northern Martial Arts Academy",
    "Address": "6403 Cedar Run Rd, Traverse City",
-   "Zip Code": "49684",
+   "ZipCode": "49684",
    "State": "Michigan",
    "Phone": "(231) 929-3795",
    "Web URL": null,
@@ -3511,7 +3511,7 @@
  {
    "Name": "Progressive Kali Silat",
    "Address": "315 Larry Ln., Charlotte ",
-   "Zip Code": "48813",
+   "ZipCode": "48813",
    "State": "Michigan",
    "Phone": "[517] 5412864",
    "Web URL": null,
@@ -3522,7 +3522,7 @@
  {
    "Name": "Pukulan Power Self Defense",
    "Address": "3330 W. Water St, Port Huron ",
-   "Zip Code": "48060",
+   "ZipCode": "48060",
    "State": "Michigan",
    "Phone": "[810] 8410682",
    "Web URL": null,
@@ -3533,7 +3533,7 @@
  {
    "Name": "Straight Lead Gym",
    "Address": "Grand Rapids",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Michigan",
    "Phone": " (616) 589-2288",
    "Web URL": null,
@@ -3544,7 +3544,7 @@
  {
    "Name": "The Academy Martial Arts and Fitness",
    "Address": "700 S. Poseyville Road, Midland",
-   "Zip Code": "48640",
+   "ZipCode": "48640",
    "State": "Michigan",
    "Phone": "989-631-5960",
    "Web URL": "theacademymartialartsandfitness.webs.com",
@@ -3555,7 +3555,7 @@
  {
    "Name": "Zen Modern Arnis",
    "Address": "Warren ",
-   "Zip Code": "48091",
+   "ZipCode": "48091",
    "State": "Michigan",
    "Phone": "[586] 4848407",
    "Web URL": null,
@@ -3566,7 +3566,7 @@
  {
    "Name": "Bahad Zubu Midwest Chapter",
    "Address": "2913 Lyndale Ave. S., Minneapolis ",
-   "Zip Code": "55408",
+   "ZipCode": "55408",
    "State": "Minnesota",
    "Phone": "[612] 5677727",
    "Web URL": null,
@@ -3577,7 +3577,7 @@
  {
    "Name": "Bahad Zubu Midwest Chapter",
    "Address": "655 Fairview Ave N, St Paul",
-   "Zip Code": "55104",
+   "ZipCode": "55104",
    "State": "Minnesota",
    "Phone": "612-567-7727",
    "Web URL": "www.bahadzubu.org / www.vikingcombat.com",
@@ -3588,7 +3588,7 @@
  {
    "Name": "Innovative Fighting Arts",
    "Address": " 87212 Oak Lake Rd South, Kerrick ",
-   "Zip Code": "55756",
+   "ZipCode": "55756",
    "State": "Minnesota",
    "Phone": "[218] 4965890",
    "Web URL": null,
@@ -3599,7 +3599,7 @@
  {
    "Name": "Minneapolis Kali Group",
    "Address": "532 Chicago Ave. S., Minneapolis ",
-   "Zip Code": "55407",
+   "ZipCode": "55407",
    "State": "Minnesota",
    "Phone": "[612] 8216800",
    "Web URL": null,
@@ -3610,7 +3610,7 @@
  {
    "Name": "Minnesota Kali Group",
    "Address": "4532 Chicago Ave. S., Minneapolis",
-   "Zip Code": "55407",
+   "ZipCode": "55407",
    "State": "Minnesota",
    "Phone": "612-821-6100",
    "Web URL": "http://www.mnkali.com",
@@ -3621,7 +3621,7 @@
  {
    "Name": "Minnesota Martial Arts Academy",
    "Address": "1916 57th Avenue North, Brooklyn Center ",
-   "Zip Code": "55430",
+   "ZipCode": "55430",
    "State": "Minnesota",
    "Phone": "[763] 5605696",
    "Web URL": null,
@@ -3632,7 +3632,7 @@
  {
    "Name": "Philippine Combat Arts",
    "Address": "4930 MN169, New Hope ",
-   "Zip Code": "55428",
+   "ZipCode": "55428",
    "State": "Minnesota",
    "Phone": "[612] 3274002",
    "Web URL": null,
@@ -3643,7 +3643,7 @@
  {
    "Name": "Warrior's Cove",
    "Address": "3004 Texas Ave., Saint Louis Park ",
-   "Zip Code": "55426",
+   "ZipCode": "55426",
    "State": "Minnesota",
    "Phone": "[612] 9788959",
    "Web URL": null,
@@ -3654,7 +3654,7 @@
  {
    "Name": "Backyard Brotherhood Una Sa Laban",
    "Address": "4044 state route DD, Willow Springs ",
-   "Zip Code": "65793",
+   "ZipCode": "65793",
    "State": "Missouri",
    "Phone": "[417] 2523441",
    "Web URL": null,
@@ -3665,7 +3665,7 @@
  {
    "Name": "Combat Zone ",
    "Address": "2331 N. Pierce, Springfield ",
-   "Zip Code": "65803",
+   "ZipCode": "65803",
    "State": "Missouri",
    "Phone": "[417] 8316840",
    "Web URL": null,
@@ -3676,7 +3676,7 @@
  {
    "Name": "Dexter's Martial Arts Training Center",
    "Address": " 1310 Grand Ave., Columbia ",
-   "Zip Code": "65203",
+   "ZipCode": "65203",
    "State": "Missouri",
    "Phone": "[573] 6900041",
    "Web URL": null,
@@ -3687,7 +3687,7 @@
  {
    "Name": "Garimot Arnis Saint Louis ",
    "Address": "Willmore Park, Hampton and Jamieson Ave., St. Louis ",
-   "Zip Code": "63109",
+   "ZipCode": "63109",
    "State": "Missouri",
    "Phone": null,
    "Web URL": null,
@@ -3698,7 +3698,7 @@
  {
    "Name": "Saint Louis Counterpoint Martial Arts",
    "Address": "1072 Wolfrum Rd., St Charles ",
-   "Zip Code": "63304",
+   "ZipCode": "63304",
    "State": "Missouri",
    "Phone": null,
    "Web URL": null,
@@ -3709,7 +3709,7 @@
  {
    "Name": "The Warrior Academy, Agila Arnis",
    "Address": "2213 west st, Excelsior Springs",
-   "Zip Code": "64024",
+   "ZipCode": "64024",
    "State": "Missouri",
    "Phone": "816-630-9816",
    "Web URL": null,
@@ -3720,7 +3720,7 @@
  {
    "Name": "Billings Chi Tu Do",
    "Address": "1807 Grand Ave., Billings ",
-   "Zip Code": "59102",
+   "ZipCode": "59102",
    "State": "Montana",
    "Phone": null,
    "Web URL": null,
@@ -3731,7 +3731,7 @@
  {
    "Name": "7th Direction School of Martial Arts / Treceham",
    "Address": "Box 216, Macy ",
-   "Zip Code": "68039",
+   "ZipCode": "68039",
    "State": "Nevada",
    "Phone": "[402] 8465554",
    "Web URL": null,
@@ -3742,7 +3742,7 @@
  {
    "Name": "CDF Academies of Martial Arts, Kali/JKD Las Vegas Headquarters",
    "Address": "Las Vegas",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Nevada",
    "Phone": "1-855 KALIJKD",
    "Web URL": "www.Richardlamoureaux.com",
@@ -3753,7 +3753,7 @@
  {
    "Name": "CKI Jeet Kune Do & Filipino Combat Escrima International",
    "Address": "730 W. Sunset Blvd., Las Vegas",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Nevada",
    "Phone": "[702] 2343189",
    "Web URL": null,
@@ -3764,7 +3764,7 @@
  {
    "Name": "Creative Warrior Academy of Las Vegas",
    "Address": "Las Vegas",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Nevada",
    "Phone": "702-302-3926",
    "Web URL": null,
@@ -3775,7 +3775,7 @@
  {
    "Name": "Filipino Mixed Martial Arts",
    "Address": "4331 W. Charleston Blvd, Las Vegas ",
-   "Zip Code": "89131",
+   "ZipCode": "89131",
    "State": "Nevada",
    "Phone": "[702] 8718883",
    "Web URL": null,
@@ -3786,7 +3786,7 @@
  {
    "Name": "Integrating Kali Combative Concepts (IKCC)",
    "Address": "Carson River Dr., Dayton ",
-   "Zip Code": "89403",
+   "ZipCode": "89403",
    "State": "Nevada",
    "Phone": "[419] 9134522",
    "Web URL": null,
@@ -3797,7 +3797,7 @@
  {
    "Name": "Las Vegas Kung Fu Academy",
    "Address": "11165 S. Eastern Ave. Ste. 110, Henderson ",
-   "Zip Code": "89052",
+   "ZipCode": "89052",
    "State": "Nevada",
    "Phone": "[702] 3361095",
    "Web URL": null,
@@ -3808,7 +3808,7 @@
  {
    "Name": "Tribal Advantage Systems International",
    "Address": "3155 W. Post Rd., Las Vegas 89118",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Nevada",
    "Phone": "[702] 7853111",
    "Web URL": null,
@@ -3819,7 +3819,7 @@
  {
    "Name": "Boston Arnis Club",
    "Address": "PO Box 171, Weare ",
-   "Zip Code": "03281",
+   "ZipCode": "03281",
    "State": "New Hampshire",
    "Phone": "[603] 7593163",
    "Web URL": null,
@@ -3830,7 +3830,7 @@
  {
    "Name": "Bujinkan Dojo",
    "Address": "Manchester ",
-   "Zip Code": "03101",
+   "ZipCode": "03101",
    "State": "New Hampshire",
    "Phone": "[603] 6683181",
    "Web URL": null,
@@ -3841,7 +3841,7 @@
  {
    "Name": "Green Mountain Martial Arts (Latosa Escrima Dai Si Hing Dan Palow)",
    "Address": "PO Box 806, Hanover",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "New Hampshire",
    "Phone": "[802] 3339104",
    "Web URL": null,
@@ -3852,7 +3852,7 @@
  {
    "Name": "Guy Chase Academy",
    "Address": "1660 Greenland Rd., Greenland ",
-   "Zip Code": "03060",
+   "ZipCode": "03060",
    "State": "New Hampshire",
    "Phone": "[978] 8538513",
    "Web URL": null,
@@ -3863,7 +3863,7 @@
  {
    "Name": "SEAFA",
    "Address": "11 Tallwood Dr., Bow ",
-   "Zip Code": "03303",
+   "ZipCode": "03303",
    "State": "New Hampshire",
    "Phone": "[603] 4960504",
    "Web URL": null,
@@ -3874,7 +3874,7 @@
  {
    "Name": "Terry Dow's Academy of Martial Arts",
    "Address": "18 South Commercial St., Manchester ",
-   "Zip Code": "03101",
+   "ZipCode": "03101",
    "State": "New Hampshire",
    "Phone": "[603] 5916546",
    "Web URL": null,
@@ -3885,7 +3885,7 @@
  {
    "Name": "97 Main St.",
    "Address": "97 Main St., Woodbridge ",
-   "Zip Code": "07095",
+   "ZipCode": "07095",
    "State": "New Jersey",
    "Phone": null,
    "Web URL": null,
@@ -3896,7 +3896,7 @@
  {
    "Name": "Alex Wilkie's Martial Arts Academy",
    "Address": "783 E. Main St., Bldg. 30E, Bridgewater ",
-   "Zip Code": "08807",
+   "ZipCode": "08807",
    "State": "New Jersey",
    "Phone": "[732] 7481580",
    "Web URL": null,
@@ -3907,7 +3907,7 @@
  {
    "Name": "Amara Arkanis Filipino Martial Arts Education",
    "Address": "#5 Scott St., Riverside ",
-   "Zip Code": "08075",
+   "ZipCode": "08075",
    "State": "New Jersey",
    "Phone": "[609] 4563589",
    "Web URL": null,
@@ -3918,7 +3918,7 @@
  {
    "Name": "Amerasian Defensive Arts Inc.",
    "Address": "2512 Elmwood Ave., Buffalo ",
-   "Zip Code": "14217",
+   "ZipCode": "14217",
    "State": "New Jersey",
    "Phone": "[716] 4912716",
    "Web URL": "http://www.amerasiandefensivearts.com/",
@@ -3929,7 +3929,7 @@
  {
    "Name": "American Karate and Arnis Academy",
    "Address": "1703A Industrial Hwy., Cinnaminson ",
-   "Zip Code": "08077",
+   "ZipCode": "08077",
    "State": "New Jersey",
    "Phone": "[856] 8294800",
    "Web URL": null,
@@ -3940,7 +3940,7 @@
  {
    "Name": "Americas Finest Self Defense Academy",
    "Address": "976 Leggett Ave suite 1B, Bronx ",
-   "Zip Code": "10455",
+   "ZipCode": "10455",
    "State": "New Jersey",
    "Phone": "[718] 7878699 ",
    "Web URL": null,
@@ -3951,7 +3951,7 @@
  {
    "Name": "Anderson's Martial Arts",
    "Address": "394 Broadway, 3rd Floor, New York ",
-   "Zip Code": "10013",
+   "ZipCode": "10013",
    "State": "New Jersey",
    "Phone": "[212] 766 � 6622",
    "Web URL": null,
@@ -3962,7 +3962,7 @@
  {
    "Name": "Atienza Kali",
    "Address": "Belleville",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "New Jersey",
    "Phone": "[201] 4635151",
    "Web URL": null,
@@ -3973,7 +3973,7 @@
  {
    "Name": "Atienza Kali",
    "Address": "New York",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "New Jersey",
    "Phone": "[917] 5510603",
    "Web URL": null,
@@ -3984,7 +3984,7 @@
  {
    "Name": "Brentwood Self Defense Academy",
    "Address": "115 South 2nd Street, Suite #10, Brentwood ",
-   "Zip Code": "11701",
+   "ZipCode": "11701",
    "State": "New Jersey",
    "Phone": "[631] 3989525",
    "Web URL": null,
@@ -3995,7 +3995,7 @@
  {
    "Name": "Calla Karate and JuJutsu",
    "Address": "1293 Castleton Ave. (corner of clove rd.), Staten Islands ",
-   "Zip Code": "10310",
+   "ZipCode": "10310",
    "State": "New Jersey",
    "Phone": "[718] 7202509 / [917] 4394969",
    "Web URL": null,
@@ -4006,7 +4006,7 @@
  {
    "Name": "Doce Pares Multi-Style",
    "Address": "Jersey City",
-   "Zip Code": "07306",
+   "ZipCode": "07306",
    "State": "New Jersey",
    "Phone": null,
    "Web URL": "www.Eskrimador.Org",
@@ -4017,7 +4017,7 @@
  {
    "Name": "Doce Pares Multi-Style",
    "Address": "Livingston",
-   "Zip Code": "07039",
+   "ZipCode": "07039",
    "State": "New Jersey",
    "Phone": null,
    "Web URL": "www.IMAFit.Com",
@@ -4028,7 +4028,7 @@
  {
    "Name": "EBMAS NYC Latosa Escrima",
    "Address": "316 East 63rd St., New York ",
-   "Zip Code": "10065",
+   "ZipCode": "10065",
    "State": "New Jersey",
    "Phone": "[855] 5532627",
    "Web URL": null,
@@ -4039,7 +4039,7 @@
  {
    "Name": "Erie Community College (South Campus)",
    "Address": "Principal Instructor/Adjunct Professor, 4041, Southwestern Blvd, Orchard Park ",
-   "Zip Code": "14127",
+   "ZipCode": "14127",
    "State": "New Jersey",
    "Phone": "[716] 2702679",
    "Web URL": null,
@@ -4050,7 +4050,7 @@
  {
    "Name": "Fil Am Kali and Silat of New Mexico",
    "Address": "Rio Rancho ",
-   "Zip Code": "87124",
+   "ZipCode": "87124",
    "State": "New Jersey",
    "Phone": null,
    "Web URL": null,
@@ -4061,7 +4061,7 @@
  {
    "Name": "FMA Academy",
    "Address": "2792 Erie Blvd E., Syracuse ",
-   "Zip Code": "13224",
+   "ZipCode": "13224",
    "State": "New Jersey",
    "Phone": "[315] 313KALI (5254)",
    "Web URL": null,
@@ -4072,7 +4072,7 @@
  {
    "Name": "FMA Kali Arnis Eskrima International",
    "Address": "475 Onderdonk Ave., Ridgewood, New York ",
-   "Zip Code": "11385",
+   "ZipCode": "11385",
    "State": "New Jersey",
    "Phone": "[347] 3856771",
    "Web URL": null,
@@ -4083,7 +4083,7 @@
  {
    "Name": "Horizon Martial Arts",
    "Address": " 252 Center Rd., West Seneca ",
-   "Zip Code": "14224",
+   "ZipCode": "14224",
    "State": "New Jersey",
    "Phone": "[716] 6750899",
    "Web URL": null,
@@ -4094,7 +4094,7 @@
  {
    "Name": "Institute of Defensive Methods",
    "Address": "451 1st St., Hoboken ",
-   "Zip Code": "07030",
+   "ZipCode": "07030",
    "State": "New Jersey",
    "Phone": "[201] 6830104",
    "Web URL": null,
@@ -4105,7 +4105,7 @@
  {
    "Name": "Kapatid Martial Arts Academy",
    "Address": "175 Tompkins Ave., Pleasantville ",
-   "Zip Code": "10570",
+   "ZipCode": "10570",
    "State": "New Jersey",
    "Phone": "[914] 7415550",
    "Web URL": null,
@@ -4116,7 +4116,7 @@
  {
    "Name": "Kapatiran Mandirigma NYC",
    "Address": "New York ",
-   "Zip Code": "10003",
+   "ZipCode": "10003",
    "State": "New Jersey",
    "Phone": null,
    "Web URL": null,
@@ -4127,7 +4127,7 @@
  {
    "Name": "Klasi Kali 306 Gold St",
    "Address": "New York ",
-   "Zip Code": "10003",
+   "ZipCode": "10003",
    "State": "New Jersey",
    "Phone": null,
    "Web URL": null,
@@ -4138,7 +4138,7 @@
  {
    "Name": "Klose Kombat Arts ",
    "Address": "10500 La Paz NW, Albuquerque ",
-   "Zip Code": "87114",
+   "ZipCode": "87114",
    "State": "New Jersey",
    "Phone": "[505] 3794615",
    "Web URL": null,
@@ -4149,7 +4149,7 @@
  {
    "Name": "Kuntaw Kali Kruzada",
    "Address": "65 Chestnut St., Red Bank ",
-   "Zip Code": "07701",
+   "ZipCode": "07701",
    "State": "New Jersey",
    "Phone": "[201] 6746609",
    "Web URL": null,
@@ -4160,7 +4160,7 @@
  {
    "Name": "Kuntaw Kali Kruzada",
    "Address": "122 West 27th St. (2nd Flr.) (Between 6th & 7th Ave.), New York ",
-   "Zip Code": "10001",
+   "ZipCode": "10001",
    "State": "New Jersey",
    "Phone": "[201] 6746609",
    "Web URL": null,
@@ -4171,7 +4171,7 @@
  {
    "Name": "Kuntaw Martial Arts (Kuntaw New York)",
    "Address": "753 Flatbush Ave 2nd FL, Brooklyn ",
-   "Zip Code": "11226",
+   "ZipCode": "11226",
    "State": "New Jersey",
    "Phone": "[347] 5850088",
    "Web URL": null,
@@ -4182,7 +4182,7 @@
  {
    "Name": "Kwikstik Martial Arts",
    "Address": "Jamaica ",
-   "Zip Code": "11432",
+   "ZipCode": "11432",
    "State": "New Jersey",
    "Phone": "[718] 7393266",
    "Web URL": null,
@@ -4193,7 +4193,7 @@
  {
    "Name": "Latosa Escrima at Fighthouse",
    "Address": "122 West 27 St. 2nd Floor , New York",
-   "Zip Code": "10001",
+   "ZipCode": "10001",
    "State": "New Jersey",
    "Phone": "[646] 3697704",
    "Web URL": null,
@@ -4204,7 +4204,7 @@
  {
    "Name": "Latosa Escrima NY",
    "Address": "316 7th St. (Corner of 5th Avenue 2nd Fl.), Brooklyn, (Park Slope) ",
-   "Zip Code": "11215",
+   "ZipCode": "11215",
    "State": "New Jersey",
    "Phone": "[646] 3697704",
    "Web URL": null,
@@ -4215,7 +4215,7 @@
  {
    "Name": "MFA Method of Modern Arnis",
    "Address": "Neshanic Station",
-   "Zip Code": "8852",
+   "ZipCode": "8852",
    "State": "New Jersey",
    "Phone": "732-735-6742",
    "Web URL": "arnisfighter@verizon.net",
@@ -4226,7 +4226,7 @@
  {
    "Name": "Modern Arnis Domog",
    "Address": "188 East 3rd. St. (Between Ave. A & B), New York ",
-   "Zip Code": "10009",
+   "ZipCode": "10009",
    "State": "New Jersey",
    "Phone": "[212] 6143250",
    "Web URL": null,
@@ -4237,7 +4237,7 @@
  {
    "Name": "Modern Fighting Arts Academy",
    "Address": "509 Hicksville Rd., Massapequa ",
-   "Zip Code": "11758",
+   "ZipCode": "11758",
    "State": "New Jersey",
    "Phone": "[516] 8174374",
    "Web URL": null,
@@ -4248,7 +4248,7 @@
  {
    "Name": "Modern Fighting Concepts",
    "Address": "307 White Horse Pike, Absecon",
-   "Zip Code": "08201",
+   "ZipCode": "08201",
    "State": "New Jersey",
    "Phone": "(609) 646-2113",
    "Web URL": "www.modernfightingconcepts.com",
@@ -4259,7 +4259,7 @@
  {
    "Name": "Modern Fighting Concepts Academy",
    "Address": "307 White Horse Pike, Absecon ",
-   "Zip Code": "08201",
+   "ZipCode": "08201",
    "State": "New Jersey",
    "Phone": "[609] 6462113",
    "Web URL": null,
@@ -4270,7 +4270,7 @@
  {
    "Name": "Neo Tribe Kali",
    "Address": "122 West 27th Street, 2nd Floor, New York ",
-   "Zip Code": "10001",
+   "ZipCode": "10001",
    "State": "New Jersey",
    "Phone": "[347] 2569291",
    "Web URL": null,
@@ -4281,7 +4281,7 @@
  {
    "Name": "New York Eskrima LLC",
    "Address": "New York",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "New Jersey",
    "Phone": "[646] 2101542",
    "Web URL": null,
@@ -4292,7 +4292,7 @@
  {
    "Name": "Northeastern Martial Arts Institute",
    "Address": "Chili Paul Plaza, 3240 Chili Ave., Rochester ",
-   "Zip Code": "14624",
+   "ZipCode": "14624",
    "State": "New Jersey",
    "Phone": "[585] 8897330",
    "Web URL": null,
@@ -4303,7 +4303,7 @@
  {
    "Name": "Nubreed Martial Arts Academy",
    "Address": "1248 Clintonville St., Whitestone ",
-   "Zip Code": "11357",
+   "ZipCode": "11357",
    "State": "New Jersey",
    "Phone": "[718] 7472550",
    "Web URL": null,
@@ -4314,7 +4314,7 @@
  {
    "Name": "Olaanalo Eskrima New York",
    "Address": "3 Elm St,, Walden ",
-   "Zip Code": "12586",
+   "ZipCode": "12586",
    "State": "New Jersey",
    "Phone": "[845] 7784402",
    "Web URL": null,
@@ -4325,7 +4325,7 @@
  {
    "Name": "Pami Kol Street Survival Self Defense",
    "Address": "2234 West Bangs Avenue, Neptune ",
-   "Zip Code": "07753",
+   "ZipCode": "07753",
    "State": "New Jersey",
    "Phone": "[848] 2182646",
    "Web URL": null,
@@ -4336,7 +4336,7 @@
  {
    "Name": "Pananandata Marinas 2 Worlds Dance + Fitness",
    "Address": "340 Wheatley Plaza, Greenvale ",
-   "Zip Code": "11548",
+   "ZipCode": "11548",
    "State": "New Jersey",
    "Phone": "[516] 4846604",
    "Web URL": null,
@@ -4347,7 +4347,7 @@
  {
    "Name": "Phoenix Martial Arts",
    "Address": "344 Jericho Turnpike, Floral Park ",
-   "Zip Code": "11001",
+   "ZipCode": "11001",
    "State": "New Jersey",
    "Phone": null,
    "Web URL": null,
@@ -4358,7 +4358,7 @@
  {
    "Name": "PIMA Academy",
    "Address": "779 Bergen Avenue (Rm 111, 2nd Fl.) , Jersey City ",
-   "Zip Code": "07306",
+   "ZipCode": "07306",
    "State": "New Jersey",
    "Phone": "[201] 4326441 / [201] 7925792",
    "Web URL": null,
@@ -4369,7 +4369,7 @@
  {
    "Name": "Piscataway",
    "Address": "",
-   "Zip Code": "08854",
+   "ZipCode": "08854",
    "State": "New Jersey",
    "Phone": "[201] 8928015",
    "Web URL": null,
@@ -4380,7 +4380,7 @@
  {
    "Name": "Progressive Martial Arts",
    "Address": "17525 Horace Harding Expy, Fresh Meadows ",
-   "Zip Code": "11365",
+   "ZipCode": "11365",
    "State": "New Jersey",
    "Phone": "[718] 4610700",
    "Web URL": null,
@@ -4391,7 +4391,7 @@
  {
    "Name": "Red Dragon Martial Arts Academy",
    "Address": "10 N.Arlington St., Manville ",
-   "Zip Code": "08835",
+   "ZipCode": "08835",
    "State": "New Jersey",
    "Phone": "[908] 2530022",
    "Web URL": null,
@@ -4402,7 +4402,7 @@
  {
    "Name": "Rising Phoenix Martial Arts",
    "Address": "Temple Hill Rd., New Windsor ",
-   "Zip Code": "12553",
+   "ZipCode": "12553",
    "State": "New Jersey",
    "Phone": "[845] 7844359",
    "Web URL": null,
@@ -4413,7 +4413,7 @@
  {
    "Name": "Rochester kali",
    "Address": "Rochester ",
-   "Zip Code": "14617",
+   "ZipCode": "14617",
    "State": "New Jersey",
    "Phone": "[585] 752 7827",
    "Web URL": null,
@@ -4424,7 +4424,7 @@
  {
    "Name": "Rochester Kali",
    "Address": "Rochester ",
-   "Zip Code": "14617",
+   "ZipCode": "14617",
    "State": "New Jersey",
    "Phone": "[585] 752 7827",
    "Web URL": null,
@@ -4435,7 +4435,7 @@
  {
    "Name": "San Miguel Eskrima",
    "Address": "226 Laurel Road, East Northport ",
-   "Zip Code": "11731",
+   "ZipCode": "11731",
    "State": "New Jersey",
    "Phone": "[631] 7487671",
    "Web URL": null,
@@ -4446,7 +4446,7 @@
  {
    "Name": "Sirat As Sayf MMA/FMA & Fitness Center",
    "Address": "13501 Liberty Ave., Richmond Hill ",
-   "Zip Code": "11419",
+   "ZipCode": "11419",
    "State": "New Jersey",
    "Phone": "[646] 3977417",
    "Web URL": null,
@@ -4457,7 +4457,7 @@
  {
    "Name": "South Jersey Tactical Fighting Arts",
    "Address": "1438 Backline Road, Folsom ",
-   "Zip Code": "08037",
+   "ZipCode": "08037",
    "State": "New Jersey",
    "Phone": "[609] 2045733",
    "Web URL": null,
@@ -4468,7 +4468,7 @@
  {
    "Name": "Tactics Martial Arts Studio",
    "Address": "1315 Hempstead Turnpike, Elmont ",
-   "Zip Code": "11003",
+   "ZipCode": "11003",
    "State": "New Jersey",
    "Phone": "[559] 6975633",
    "Web URL": null,
@@ -4479,7 +4479,7 @@
  {
    "Name": "Takai Mine Karate ",
    "Address": "1027 Juan Tabo NE, Albuquerque ",
-   "Zip Code": "87111",
+   "ZipCode": "87111",
    "State": "New Jersey",
    "Phone": "[505] 2946302",
    "Web URL": null,
@@ -4490,7 +4490,7 @@
  {
    "Name": "Tom Gallo Tactics Life Health & Fitness Club",
    "Address": "3711 35 Ave., Astoria ",
-   "Zip Code": "11101",
+   "ZipCode": "11101",
    "State": "New Jersey",
    "Phone": "[559] 6975633",
    "Web URL": null,
@@ -4501,7 +4501,7 @@
  {
    "Name": "Vee Arnis Jitsu School of Self Defense",
    "Address": "25 Park Place, 2nd Floor, New York ",
-   "Zip Code": "10007",
+   "ZipCode": "10007",
    "State": "New Jersey",
    "Phone": null,
    "Web URL": null,
@@ -4512,7 +4512,7 @@
  {
    "Name": "Vee Do Kwan U.S.A.",
    "Address": "3944 24 St., Long Island City ",
-   "Zip Code": "11101",
+   "ZipCode": "11101",
    "State": "New Jersey",
    "Phone": "[718] 3619569",
    "Web URL": null,
@@ -4523,7 +4523,7 @@
  {
    "Name": "W.S.B.P. Eastern U.S. Chapter",
    "Address": " 5291 Seneca Point Rd., Canandaigua ",
-   "Zip Code": "14424",
+   "ZipCode": "14424",
    "State": "New Jersey",
    "Phone": "[585] 8203172",
    "Web URL": null,
@@ -4534,7 +4534,7 @@
  {
    "Name": "Westchester Martial Arts Academy",
    "Address": "3 Sunnyside Terrace, Eastchester ",
-   "Zip Code": "10709",
+   "ZipCode": "10709",
    "State": "New Jersey",
    "Phone": "[914] 9611800",
    "Web URL": null,
@@ -4545,7 +4545,7 @@
  {
    "Name": "Westchester School of Arnis",
    "Address": "White Plains",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "New Jersey",
    "Phone": null,
    "Web URL": null,
@@ -4556,7 +4556,7 @@
  {
    "Name": "Wing Chun Kali",
    "Address": "Westchester County ",
-   "Zip Code": "10710",
+   "ZipCode": "10710",
    "State": "New Jersey",
    "Phone": "[646] 6451141",
    "Web URL": null,
@@ -4567,7 +4567,7 @@
  {
    "Name": "World Kali Silat Society",
    "Address": "432 East 14 St. Box 638, New York ",
-   "Zip Code": "10009",
+   "ZipCode": "10009",
    "State": "New Jersey",
    "Phone": "[212] 9791646",
    "Web URL": null,
@@ -4578,7 +4578,7 @@
  {
    "Name": "GENERAL FITNESS",
    "Address": "607 B OSUNA, NE, Albuquqerque, ",
-   "Zip Code": "87113",
+   "ZipCode": "87113",
    "State": "New Mexico",
    "Phone": null,
    "Web URL": null,
@@ -4589,7 +4589,7 @@
  {
    "Name": "Takaimine Karate",
    "Address": "1027 Juan Tabo NE, Albuquerque",
-   "Zip Code": "87111",
+   "ZipCode": "87111",
    "State": "New Mexico",
    "Phone": "(505) 294-6302",
    "Web URL": "Takaiminekarate.com",
@@ -4600,7 +4600,7 @@
  {
    "Name": "Amerasian Defensive Arts, Palisutan Arnis",
    "Address": "2512 Elmwood Ave., Kenmore",
-   "Zip Code": "14217",
+   "ZipCode": "14217",
    "State": "New York",
    "Phone": "(716) 491-2716",
    "Web URL": "http://www.amerasiandefensivearts.com/",
@@ -4611,7 +4611,7 @@
  {
    "Name": "Cabales Serrada Escrima New York, Westchester, Long Island and the 5 boros of NYC",
    "Address": "Address New York",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "New York",
    "Phone": null,
    "Web URL": null,
@@ -4622,7 +4622,7 @@
  {
    "Name": "Kapatiran Mandirigma NYC",
    "Address": "Address New York",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "New York",
    "Phone": null,
    "Web URL": "www.kapatiran-mandirigma-NYC.com",
@@ -4633,7 +4633,7 @@
  {
    "Name": "Modern Fighting Arts Academy",
    "Address": "509 Hicksville Rd., Massapequa",
-   "Zip Code": "11758",
+   "ZipCode": "11758",
    "State": "New York",
    "Phone": "(516) 817-4374",
    "Web URL": "www.modernfightingartsacademy.com",
@@ -4644,7 +4644,7 @@
  {
    "Name": "New York Fight Club school of JKD and Kali",
    "Address": "60 Welcher Ave, Peekskill",
-   "Zip Code": "10566",
+   "ZipCode": "10566",
    "State": "New York",
    "Phone": null,
    "Web URL": "www.balancema.com",
@@ -4655,7 +4655,7 @@
  {
    "Name": "Progressive American Combatives",
    "Address": "150 North Main Street, Fairport",
-   "Zip Code": "14450",
+   "ZipCode": "14450",
    "State": "New York",
    "Phone": "(585) 905-4488",
    "Web URL": "www.pacejj.com",
@@ -4666,7 +4666,7 @@
  {
    "Name": "Rising Phoenix Martial Arts",
    "Address": "153 Temple Hill Rd., New Windsor",
-   "Zip Code": "12553",
+   "ZipCode": "12553",
    "State": "New York",
    "Phone": "845-784-4359",
    "Web URL": "www.risingphoenixma.org",
@@ -4677,7 +4677,7 @@
  {
    "Name": "SIRAT AS-SAYF MORO KALI SYSTEM, Chief Instructor: NAJEE HASSAN",
    "Address": "153-01 Jamaica Ave, Suite 501, Jamaica",
-   "Zip Code": "11432",
+   "ZipCode": "11432",
    "State": "New York",
    "Phone": null,
    "Web URL": "www.siratulsaifinternational.com",
@@ -4688,7 +4688,7 @@
  {
    "Name": "Vital Point Martial Arts Academy",
    "Address": "5222 Transit Road, Depew",
-   "Zip Code": "14043",
+   "ZipCode": "14043",
    "State": "New York",
    "Phone": "716.903.6704",
    "Web URL": "http://vitalpointmartialarts.net/",
@@ -4699,7 +4699,7 @@
  {
    "Name": "Westchester Martial Arts Academy",
    "Address": "3 Sunnyside Terrace, Eastchester",
-   "Zip Code": "10709",
+   "ZipCode": "10709",
    "State": "New York",
    "Phone": "914-961-1800",
    "Web URL": "www.westchestermartialartsclasses.com",
@@ -4710,7 +4710,7 @@
  {
    "Name": "Counterpoint Tactical System",
    "Address": "182 Broadview Circle, Mooresville ",
-   "Zip Code": "28117",
+   "ZipCode": "28117",
    "State": "North Carolina",
    "Phone": "[650] 2699726",
    "Web URL": null,
@@ -4721,7 +4721,7 @@
  {
    "Name": "Fighting Edge",
    "Address": "Fort Bragg ",
-   "Zip Code": "28310",
+   "ZipCode": "28310",
    "State": "North Carolina",
    "Phone": null,
    "Web URL": null,
@@ -4732,7 +4732,7 @@
  {
    "Name": "Kuntaw Palace",
    "Address": "122 S. Goldsboro St., Wilson ",
-   "Zip Code": "27893",
+   "ZipCode": "27893",
    "State": "North Carolina",
    "Phone": "[252] 2067900",
    "Web URL": null,
@@ -4743,7 +4743,7 @@
  {
    "Name": "Pami Kol Street Survival Self Defense",
    "Address": "1612 Camden Rd. [Massey Hill Rec. Ctr], Fayetteville ",
-   "Zip Code": "28306",
+   "ZipCode": "28306",
    "State": "North Carolina",
    "Phone": "[910] 4331569",
    "Web URL": null,
@@ -4754,7 +4754,7 @@
  {
    "Name": "Stover's Martial Arts Academy",
    "Address": "3722 Carolina Beach Rd., Wilmington ",
-   "Zip Code": "28412",
+   "ZipCode": "28412",
    "State": "North Carolina",
    "Phone": "[910] 7921762",
    "Web URL": null,
@@ -4765,7 +4765,7 @@
  {
    "Name": "Sanano Karate Club / Trecehampas",
    "Address": "Box 386, North Dakota ",
-   "Zip Code": "58530",
+   "ZipCode": "58530",
    "State": "North Dakota",
    "Phone": "[701] 7943399",
    "Web URL": null,
@@ -4776,7 +4776,7 @@
  {
    "Name": "38131 Airport Parkway",
    "Address": "Unit 203, Willoughby, OH. ",
-   "Zip Code": "44094",
+   "ZipCode": "44094",
    "State": "Ohio",
    "Phone": "[440] 2417450",
    "Web URL": null,
@@ -4787,7 +4787,7 @@
  {
    "Name": "Academy of Filipino Martial Arts",
    "Address": "90 North Diamond St., Mansfield ",
-   "Zip Code": "44906",
+   "ZipCode": "44906",
    "State": "Ohio",
    "Phone": "[419] 5572416",
    "Web URL": null,
@@ -4798,7 +4798,7 @@
  {
    "Name": "Bob Yoder's Kung Fu and Kickboxing Academy",
    "Address": "2048 Sondra Ln., Grove City ",
-   "Zip Code": "43123",
+   "ZipCode": "43123",
    "State": "Ohio",
    "Phone": "[614] 6495971",
    "Web URL": null,
@@ -4809,7 +4809,7 @@
  {
    "Name": "Cincinnati Jeet Kune Do",
    "Address": "5116 CrookShank Rd., Cincinnati ",
-   "Zip Code": "45238",
+   "ZipCode": "45238",
    "State": "Ohio",
    "Phone": "[513] 3647300",
    "Web URL": null,
@@ -4820,7 +4820,7 @@
  {
    "Name": "Diversified Combat Arts and Sciences [Hikazelearningcorner]",
    "Address": "Wooster",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Ohio",
    "Phone": null,
    "Web URL": null,
@@ -4831,7 +4831,7 @@
  {
    "Name": "HAMA Martial Arts",
    "Address": "Parma",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Ohio",
    "Phone": "[440] 6223684",
    "Web URL": null,
@@ -4842,7 +4842,7 @@
  {
    "Name": "MAKTAN Filipino Martial Arts",
    "Address": "6875 Fountain Blvd. Suite K, Cincinnati ",
-   "Zip Code": "45069",
+   "ZipCode": "45069",
    "State": "Ohio",
    "Phone": "[513] 2189042",
    "Web URL": null,
@@ -4853,7 +4853,7 @@
  {
    "Name": "MAKTAN Martial Arts",
    "Address": "Cincinnati",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Ohio",
    "Phone": null,
    "Web URL": "www.MAKTAN.com",
@@ -4864,7 +4864,7 @@
  {
    "Name": "Philippine Martial Arts Institute",
    "Address": "12613 State Rd, North Royalton ",
-   "Zip Code": "44133",
+   "ZipCode": "44133",
    "State": "Ohio",
    "Phone": "[440] 2374138",
    "Web URL": null,
@@ -4875,7 +4875,7 @@
  {
    "Name": "Serrada Eskrido Academy",
    "Address": "315 Kendal Ct. East, Amherst ",
-   "Zip Code": "44001",
+   "ZipCode": "44001",
    "State": "Ohio",
    "Phone": "[440] 6106600",
    "Web URL": null,
@@ -4886,7 +4886,7 @@
  {
    "Name": "TAMA Martial Arts",
    "Address": "1753 Woodman Dr., Kettering ",
-   "Zip Code": "45420",
+   "ZipCode": "45420",
    "State": "Ohio",
    "Phone": "[937] 2547035",
    "Web URL": null,
@@ -4897,7 +4897,7 @@
  {
    "Name": "Adams Muay Thai Kali Academy",
    "Address": "6703 E. 81st. ST. Unit H, Tulsa ",
-   "Zip Code": "74133",
+   "ZipCode": "74133",
    "State": "Oklahoma",
    "Phone": "[918] 4880707",
    "Web URL": null,
@@ -4908,7 +4908,7 @@
  {
    "Name": "MDT Martial Arts",
    "Address": "Oklahoma City",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Oklahoma",
    "Phone": "[405] 4208135",
    "Web URL": null,
@@ -4919,7 +4919,7 @@
  {
    "Name": "Silent Warrior Arts",
    "Address": "8300 Glade Ave., Oklahoma City ",
-   "Zip Code": "73132",
+   "ZipCode": "73132",
    "State": "Oklahoma",
    "Phone": "[405] 6265171",
    "Web URL": null,
@@ -4930,7 +4930,7 @@
  {
    "Name": "Silent Warrior Arts",
    "Address": "Oklahoma City/ Edmond",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Oklahoma",
    "Phone": "405-367-9320",
    "Web URL": "www.silentwarriorartsfederation.com",
@@ -4941,7 +4941,7 @@
  {
    "Name": "Tulsa Martial Arts",
    "Address": "5123 S. 110th East Ave., Tulsa ",
-   "Zip Code": "74146",
+   "ZipCode": "74146",
    "State": "Oklahoma",
    "Phone": "[918] 2610160",
    "Web URL": null,
@@ -4952,7 +4952,7 @@
  {
    "Name": "A.P.I. International Combat Arts ",
    "Address": "12239 SE Stark St., Portland ",
-   "Zip Code": "97233",
+   "ZipCode": "97233",
    "State": "Oregon",
    "Phone": "[503] 2874265",
    "Web URL": null,
@@ -4963,7 +4963,7 @@
  {
    "Name": "Dan Anderson Karate School and Modern Arnis",
    "Address": "311 NE Roberts St., Gresham ",
-   "Zip Code": "97030",
+   "ZipCode": "97030",
    "State": "Oregon",
    "Phone": "[503] 6658596",
    "Web URL": null,
@@ -4974,7 +4974,7 @@
  {
    "Name": "Ernie Reyes' World Martial Arts",
    "Address": " 3075 SW 234th Ave Suite 103, Hillsboro ",
-   "Zip Code": "97123",
+   "ZipCode": "97123",
    "State": "Oregon",
    "Phone": "[503] 6421500",
    "Web URL": null,
@@ -4985,7 +4985,7 @@
  {
    "Name": "Escrima Arnis Kali San Soo Oregon",
    "Address": "P.O. Box 3412, Ashland ",
-   "Zip Code": "97520",
+   "ZipCode": "97520",
    "State": "Oregon",
    "Phone": null,
    "Web URL": null,
@@ -4996,7 +4996,7 @@
  {
    "Name": "Eskabo Da�an",
    "Address": "5040 SE Milwaukie Ave., Portland ",
-   "Zip Code": "97215",
+   "ZipCode": "97215",
    "State": "Oregon",
    "Phone": "[503] 3819145",
    "Web URL": null,
@@ -5007,7 +5007,7 @@
  {
    "Name": "Kombatan Martial Arts Academy",
    "Address": "15875 SE 114 Ave. Suite O, Clackamas ",
-   "Zip Code": "97015",
+   "ZipCode": "97015",
    "State": "Oregon",
    "Phone": "[503] 6573408",
    "Web URL": null,
@@ -5018,7 +5018,7 @@
  {
    "Name": "Makoa Combatives Group",
    "Address": "3137 SW Primrose street #8, Portland ",
-   "Zip Code": "97219",
+   "ZipCode": "97219",
    "State": "Oregon",
    "Phone": "[971] 5064610",
    "Web URL": null,
@@ -5029,7 +5029,7 @@
  {
    "Name": "Northwest Fighting Arts",
    "Address": "1200 SE Morrison, Portland ",
-   "Zip Code": "97214",
+   "ZipCode": "97214",
    "State": "Oregon",
    "Phone": "[503] 7402666",
    "Web URL": null,
@@ -5040,7 +5040,7 @@
  {
    "Name": "Taodragon Martial Arts",
    "Address": "PO Box 11157, Eugene ",
-   "Zip Code": "97440",
+   "ZipCode": "97440",
    "State": "Oregon",
    "Phone": "[541] 6831271",
    "Web URL": null,
@@ -5051,7 +5051,7 @@
  {
    "Name": "Cebu West",
    "Address": "Unity and Sutton Ave., Folsom ",
-   "Zip Code": "19033",
+   "ZipCode": "19033",
    "State": "Pennsylvania",
    "Phone": "[610] 3069308",
    "Web URL": null,
@@ -5062,7 +5062,7 @@
  {
    "Name": "Kiski Martial Arts",
    "Address": "1155 Wildlife Lodge Rd, Lower Burrell ",
-   "Zip Code": "15068",
+   "ZipCode": "15068",
    "State": "Pennsylvania",
    "Phone": "[724] 3345868",
    "Web URL": null,
@@ -5073,7 +5073,7 @@
  {
    "Name": "Kuntao Martial Arts Club",
    "Address": "Franklin Commons, 400 Franklin Ave. Suite 245, Phoenixville ",
-   "Zip Code": "19460",
+   "ZipCode": "19460",
    "State": "Pennsylvania",
    "Phone": "[610] 2373902 ext. 803",
    "Web URL": null,
@@ -5084,7 +5084,7 @@
  {
    "Name": "Lathen Martial Arts",
    "Address": " 257 West Riverview Ave., Pittsburgh ",
-   "Zip Code": "15202",
+   "ZipCode": "15202",
    "State": "Pennsylvania",
    "Phone": "[412] 7345254 (kali)",
    "Web URL": null,
@@ -5095,7 +5095,7 @@
  {
    "Name": "Pennsylvania Pinakatay Arnis",
    "Address": "Forest Hills, Pittsburgh ",
-   "Zip Code": "15221",
+   "ZipCode": "15221",
    "State": "Pennsylvania",
    "Phone": "[412]7797738",
    "Web URL": null,
@@ -5106,7 +5106,7 @@
  {
    "Name": "PTKPA 342 Pottstown Pike",
    "Address": "Exton ",
-   "Zip Code": "19341",
+   "ZipCode": "19341",
    "State": "Pennsylvania",
    "Phone": "[610] 6399041",
    "Web URL": null,
@@ -5117,7 +5117,7 @@
  {
    "Name": "Ryer Martial Arts Academy",
    "Address": "5440 Centre Ave., Pittsburgh ",
-   "Zip Code": "15232",
+   "ZipCode": "15232",
    "State": "Pennsylvania",
    "Phone": "[412] 6217937",
    "Web URL": null,
@@ -5128,7 +5128,7 @@
  {
    "Name": "Senkotiros",
    "Address": "499 Spruce St., St Marys, PA ",
-   "Zip Code": "15857",
+   "ZipCode": "15857",
    "State": "Pennsylvania",
    "Phone": "(814) 5125001",
    "Web URL": null,
@@ -5139,7 +5139,7 @@
  {
    "Name": "State College Martial Arts Academy",
    "Address": "412 W. College Ave., State College ",
-   "Zip Code": "16801",
+   "ZipCode": "16801",
    "State": "Pennsylvania",
    "Phone": "[814] 2351015",
    "Web URL": null,
@@ -5150,7 +5150,7 @@
  {
    "Name": "Three Rivers Eskrima Concepts",
    "Address": "529 8th St., Ambridge ",
-   "Zip Code": "15003",
+   "ZipCode": "15003",
    "State": "Pennsylvania",
    "Phone": "[724] 6501019",
    "Web URL": null,
@@ -5161,7 +5161,7 @@
  {
    "Name": "TriState Martial Arts Academy",
    "Address": "670 Woodbourne, Rd. Suite 300, Langhorne ",
-   "Zip Code": "19047",
+   "ZipCode": "19047",
    "State": "Pennsylvania",
    "Phone": "[215] 7417041",
    "Web URL": null,
@@ -5172,7 +5172,7 @@
  {
    "Name": "Warren School of Self Defense",
    "Address": "200 Liberty St., Warren ",
-   "Zip Code": "16365",
+   "ZipCode": "16365",
    "State": "Pennsylvania",
    "Phone": "[814] 6889707",
    "Web URL": null,
@@ -5183,7 +5183,7 @@
  {
    "Name": "Ryer Martial Arts Academy",
    "Address": "5440 Centre Avenue, Pittsburgh,",
-   "Zip Code": "15232",
+   "ZipCode": "15232",
    "State": "Pensilvania",
    "Phone": "412-621-7937",
    "Web URL": "www.ryeracademy.com",
@@ -5194,7 +5194,7 @@
  {
    "Name": "Three Rivers Eskrima Concepts",
    "Address": "Pittsburgh",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Pensilvania",
    "Phone": "(724)650-1019",
    "Web URL": "www.inayanpgh.com",
@@ -5205,7 +5205,7 @@
  {
    "Name": "Filipino Combative Arts Academy",
    "Address": "33 Shadey lea Rd., North Kingston ",
-   "Zip Code": "02852",
+   "ZipCode": "02852",
    "State": "Rhode Island",
    "Phone": null,
    "Web URL": null,
@@ -5216,7 +5216,7 @@
  {
    "Name": "Filipino Combative Arts Academy",
    "Address": "33 Shady Lea Rd, North Kingstown",
-   "Zip Code": "02852",
+   "ZipCode": "02852",
    "State": "Rhode Island",
    "Phone": null,
    "Web URL": null,
@@ -5227,7 +5227,7 @@
  {
    "Name": "Petronelli's Te Combat Kuntao Ju Jitsu (tm), Soke Richard Petronelli",
    "Address": "1117 Douglas Ave, North Providence",
-   "Zip Code": "02904",
+   "ZipCode": "02904",
    "State": "Rhode Island",
    "Phone": "401-474-1155",
    "Web URL": "www.PetronellisJuJitsu.com",
@@ -5238,7 +5238,7 @@
  {
    "Name": "Petronelli's Te Combat Kuntao Ju Jitsu (tm), Soke Richard Petronelli",
    "Address": " 970 Douglas Pike, Smithfield",
-   "Zip Code": "02917",
+   "ZipCode": "02917",
    "State": "Rhode Island",
    "Phone": " 401-474-1155",
    "Web URL": "www.PetronellisJuJitsu.com",
@@ -5249,7 +5249,7 @@
  {
    "Name": "Filipino Combative Arts Academy",
    "Address": "33 Shadey lea Rd., North Kingston ",
-   "Zip Code": "02852",
+   "ZipCode": "02852",
    "State": "South Carolina",
    "Phone": "[843] 4973691",
    "Web URL": null,
@@ -5260,7 +5260,7 @@
  {
    "Name": "Ocean Martial Arts Academy",
    "Address": "407 79th Ave, N., Myrtle Beach ",
-   "Zip Code": "29572",
+   "ZipCode": "29572",
    "State": "South Dakota",
    "Phone": "[605] 3482639",
    "Web URL": null,
@@ -5271,7 +5271,7 @@
  {
    "Name": "Makilas Pekiti Tersia Kali, Gurus Rich and Eddie",
    "Address": "Address",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "state",
    "Phone": "(561) 342-1327",
    "Web URL": null,
@@ -5282,7 +5282,7 @@
  {
    "Name": "Midwest United Martial Arts",
    "Address": "Address",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "State",
    "Phone": null,
    "Web URL": "www.MidwestUnitedMartialArts.com",
@@ -5293,7 +5293,7 @@
  {
    "Name": "TAMA Warrior Arts",
    "Address": "Address",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "State",
    "Phone": null,
    "Web URL": "http://tamawarriorarts.com/",
@@ -5304,7 +5304,7 @@
  {
    "Name": "Inayan Martial Arts Academy",
    "Address": "30050 Axley Chapel, Greenback ",
-   "Zip Code": "37742",
+   "ZipCode": "37742",
    "State": "Tennessee",
    "Phone": null,
    "Web URL": null,
@@ -5315,7 +5315,7 @@
  {
    "Name": "Malmo Martial Arts",
    "Address": "Northwest Arkansas & Memphis",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Tennessee",
    "Phone": "(479) 640-4455",
    "Web URL": "http://malmomartialarts.com",
@@ -5326,7 +5326,7 @@
  {
    "Name": "Sanano Karate Club",
    "Address": "1019 Farlow Ave., Rapid City ",
-   "Zip Code": "57701",
+   "ZipCode": "57701",
    "State": "Tennessee",
    "Phone": "[423] 3336132",
    "Web URL": null,
@@ -5337,7 +5337,7 @@
  {
    "Name": "Academy of Modern Martial Arts",
    "Address": "2501 Texas Ave., College Station",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Texas",
    "Phone": "[979] 2554311",
    "Web URL": null,
@@ -5348,7 +5348,7 @@
  {
    "Name": "Carrollton Martial Arts",
    "Address": "3733 N. Josey Ln., #108B, Carrollton ",
-   "Zip Code": "75007",
+   "ZipCode": "75007",
    "State": "Texas",
    "Phone": "[972] 3952589",
    "Web URL": null,
@@ -5359,7 +5359,7 @@
  {
    "Name": "Cedar Hill Martial Arts Center",
    "Address": "310 E. Parkerville Rd., Cedar Hill ",
-   "Zip Code": "75104",
+   "ZipCode": "75104",
    "State": "Texas",
    "Phone": "[972] 2932504",
    "Web URL": null,
@@ -5370,7 +5370,7 @@
  {
    "Name": "Central Texas Academy of Martial Arts",
    "Address": " 1304 West Hopkings, San Marcos ",
-   "Zip Code": "78666",
+   "ZipCode": "78666",
    "State": "Texas",
    "Phone": "[512] 3931360",
    "Web URL": null,
@@ -5381,7 +5381,7 @@
  {
    "Name": "Crows Martial Arts Academy",
    "Address": "2132 College Ave. Suite 600, Carrollton ",
-   "Zip Code": "75006",
+   "ZipCode": "75006",
    "State": "Texas",
    "Phone": "[972] 4460024",
    "Web URL": null,
@@ -5392,7 +5392,7 @@
  {
    "Name": "DAMAGINC Kali Combatives",
    "Address": "Houston ",
-   "Zip Code": "77377",
+   "ZipCode": "77377",
    "State": "Texas",
    "Phone": null,
    "Web URL": null,
@@ -5403,7 +5403,7 @@
  {
    "Name": "Dragon Flower Boxing",
    "Address": "Midland,",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Texas",
    "Phone": "(432) 425-7217",
    "Web URL": null,
@@ -5414,7 +5414,7 @@
  {
    "Name": "Fighting Method University",
    "Address": "4840 Hwy 377 South, Fort Worth ",
-   "Zip Code": "76108",
+   "ZipCode": "76108",
    "State": "Texas",
    "Phone": "[817] 9388888",
    "Web URL": null,
@@ -5425,7 +5425,7 @@
  {
    "Name": "Fighting Method University",
    "Address": "3502 Williams Road, Fort Worth",
-   "Zip Code": "76116",
+   "ZipCode": "76116",
    "State": "Texas",
    "Phone": "817-938-8888",
    "Web URL": "http://fightingmethod.com",
@@ -5436,7 +5436,7 @@
  {
    "Name": "Filipino American School of Combat Arts",
    "Address": "10304 Dyer St., El Paso ",
-   "Zip Code": "79924",
+   "ZipCode": "79924",
    "State": "Texas",
    "Phone": "[915] 8219310",
    "Web URL": null,
@@ -5447,7 +5447,7 @@
  {
    "Name": "Garland Martial Arts Center ",
    "Address": "2510 Crosslands Dr., Garland ",
-   "Zip Code": "75040",
+   "ZipCode": "75040",
    "State": "Texas",
    "Phone": "(214) 7976202",
    "Web URL": null,
@@ -5458,7 +5458,7 @@
  {
    "Name": "Hidden Sword Martial Arts",
    "Address": "501 Roanoke Rd (Roanoke Recreation Center), Roanoke ",
-   "Zip Code": "76262",
+   "ZipCode": "76262",
    "State": "Texas",
    "Phone": "[682] 5647078",
    "Web URL": null,
@@ -5469,7 +5469,7 @@
  {
    "Name": "Hidden Sword Martial Arts",
    "Address": "Roanoke Recreation Center, Roanoke",
-   "Zip Code": "76262",
+   "ZipCode": "76262",
    "State": "Texas",
    "Phone": null,
    "Web URL": null,
@@ -5480,7 +5480,7 @@
  {
    "Name": "Houston Martial Arts Academy",
    "Address": "(inside the Downtown Club at Houston Center), Houston ",
-   "Zip Code": "77010",
+   "ZipCode": "77010",
    "State": "Texas",
    "Phone": "[713] 5506575",
    "Web URL": null,
@@ -5491,7 +5491,7 @@
  {
    "Name": "Imua Tamaraw Escrima Kuntaw",
    "Address": "2324 Goilad Rd., San Antonio ",
-   "Zip Code": "78223",
+   "ZipCode": "78223",
    "State": "Texas",
    "Phone": "[210] 3179463",
    "Web URL": null,
@@ -5502,7 +5502,7 @@
  {
    "Name": "K3Lightning' (LSAI/LESKAS)",
    "Address": "Richmond ",
-   "Zip Code": "77469",
+   "ZipCode": "77469",
    "State": "Texas",
    "Phone": null,
    "Web URL": null,
@@ -5513,7 +5513,7 @@
  {
    "Name": "Kali San Antonio",
    "Address": "San Antonio",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Texas",
    "Phone": "[210] 7970149 ",
    "Web URL": null,
@@ -5524,7 +5524,7 @@
  {
    "Name": "Kali San Antonio",
    "Address": "Address",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Texas",
    "Phone": "210-797-0179",
    "Web URL": null,
@@ -5535,7 +5535,7 @@
  {
    "Name": "Kali Silat Combat Science ",
    "Address": "104 Eagle Ave., Sheppard AFB ",
-   "Zip Code": "76311",
+   "ZipCode": "76311",
    "State": "Texas",
    "Phone": "[940] 6424112 ",
    "Web URL": null,
@@ -5546,7 +5546,7 @@
  {
    "Name": "Katipunan Kali Arts, Moro Silat, and Kamay-Hilot",
    "Address": "Denton & Garland",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Texas",
    "Phone": "940-453-0030 \n/ 469-471-8286",
    "Web URL": "cebukali.com",
@@ -5557,7 +5557,7 @@
  {
    "Name": "Mano De Guerra Escrima ",
    "Address": "1150 D. Richardine, Austin ",
-   "Zip Code": "78721",
+   "ZipCode": "78721",
    "State": "Texas",
    "Phone": "[512] 902 1228 / [512] 926 7 050",
    "Web URL": null,
@@ -5568,7 +5568,7 @@
  {
    "Name": "Mid Cities Arnis",
    "Address": "NRH Centre, 6000 Hawk Ave., North Richland Hills ",
-   "Zip Code": "76182",
+   "ZipCode": "76182",
    "State": "Texas",
    "Phone": "[682] 2077523",
    "Web URL": null,
@@ -5579,7 +5579,7 @@
  {
    "Name": "Mousel's Self Defense Academy",
    "Address": " 747 N. Shepherd, Suite 400, Houston ",
-   "Zip Code": "77007",
+   "ZipCode": "77007",
    "State": "Texas",
    "Phone": null,
    "Web URL": null,
@@ -5590,7 +5590,7 @@
  {
    "Name": "PKA: Philippine Kali Association (Katipunan)",
    "Address": "642 W. University Ave 152, Denton ",
-   "Zip Code": "76201",
+   "ZipCode": "76201",
    "State": "Texas",
    "Phone": "[940] 4530030",
    "Web URL": null,
@@ -5601,7 +5601,7 @@
  {
    "Name": "Plano Self Defense",
    "Address": "1947 Ave K. Suite 200, Plano ",
-   "Zip Code": "75075",
+   "ZipCode": "75075",
    "State": "Texas",
    "Phone": "[972] 6333773 ",
    "Web URL": null,
@@ -5612,7 +5612,7 @@
  {
    "Name": "Practical Defense Tactics (PDT), Guro  Mike Keller",
    "Address": "P.O.Box 88, Sweetwater",
-   "Zip Code": "79556",
+   "ZipCode": "79556",
    "State": "Texas",
    "Phone": null,
    "Web URL": null,
@@ -5623,7 +5623,7 @@
  {
    "Name": "Practical Defensive Tactics",
    "Address": "512 W. Broadway, Sweetwater ",
-   "Zip Code": "79556",
+   "ZipCode": "79556",
    "State": "Texas",
    "Phone": "[325] 7253188 ",
    "Web URL": null,
@@ -5634,7 +5634,7 @@
  {
    "Name": "Reid's Martial Arts Academy",
    "Address": "1434 N. Central Expressway Suite 109, McKinney ",
-   "Zip Code": "75070",
+   "ZipCode": "75070",
    "State": "Texas",
    "Phone": "[972] 5482467",
    "Web URL": null,
@@ -5645,7 +5645,7 @@
  {
    "Name": "Rister International Martial arts",
    "Address": "1119 Luke St. #113, Irving",
-   "Zip Code": "75061",
+   "ZipCode": "75061",
    "State": "Texas",
    "Phone": "(972)-768-2721",
    "Web URL": "www.ristermartialarts.com",
@@ -5656,7 +5656,7 @@
  {
    "Name": "San Angelo Siete Pares",
    "Address": "San Angelo",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Texas",
    "Phone": "325-276-1329",
    "Web URL": "Wnull",
@@ -5667,7 +5667,7 @@
  {
    "Name": "Serrada Escrima of San Antonio",
    "Address": "San Pedro Park, San Antonio ",
-   "Zip Code": "78201",
+   "ZipCode": "78201",
    "State": "Texas",
    "Phone": null,
    "Web URL": null,
@@ -5678,7 +5678,7 @@
  {
    "Name": "Siete Pares Escrima",
    "Address": "San Antonio",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Texas",
    "Phone": "[210] 3671877",
    "Web URL": null,
@@ -5689,7 +5689,7 @@
  {
    "Name": "Siete Pares Escrima, The Dojo Martial Arte School",
    "Address": "6151 Nw Loop 410, Ste 100, San Antonio",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Texas",
    "Phone": "210-367-1877",
    "Web URL": null,
@@ -5700,7 +5700,7 @@
  {
    "Name": "Street Smart Self-Defense Systems, Austin *Kyle/Buda*",
    "Address": "New Braunfels",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Texas",
    "Phone": null,
    "Web URL": "http://www.garimottx.com/",
@@ -5711,7 +5711,7 @@
  {
    "Name": "U.S. Karate Systems",
    "Address": "505 W University Ave, Suite E, Georgetown ",
-   "Zip Code": "78626",
+   "ZipCode": "78626",
    "State": "Texas",
    "Phone": "[512] 8692615",
    "Web URL": null,
@@ -5722,7 +5722,7 @@
  {
    "Name": "Warrior's Way",
    "Address": "4020 Rhea Rd Ste 7C, Wichita Falls",
-   "Zip Code": "76308",
+   "ZipCode": "76308",
    "State": "Texas",
    "Phone": "(940) 696-1254",
    "Web URL": "http://warriorswaytx.com",
@@ -5733,7 +5733,7 @@
  {
    "Name": "Warrior's Way Martial Arts Academy",
    "Address": "4020 Rhea Rd Ste 7c, Wichita Falls ",
-   "Zip Code": "76308",
+   "ZipCode": "76308",
    "State": "Texas",
    "Phone": "[940] 6961254",
    "Web URL": null,
@@ -5744,7 +5744,7 @@
  {
    "Name": "Wing Chun Kali System",
    "Address": "6982 Farm to Market 1960, Suite F Houston",
-   "Zip Code": "77096",
+   "ZipCode": "77096",
    "State": "Texas",
    "Phone": "281-796-5296",
    "Web URL": "http://wingchunkalisystem.com/",
@@ -5755,7 +5755,7 @@
  {
    "Name": "Wu Hsin Kuen Academy of Martial Arts",
    "Address": "3909 W. Airport Freeway #200, Irving",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Texas",
    "Phone": "[972] 7682721",
    "Web URL": null,
@@ -5766,7 +5766,7 @@
  {
    "Name": "Hawaiian Kali Kempo (Concrete Kali System)",
    "Address": "Cedar City",
-   "Zip Code": "84721",
+   "ZipCode": "84721",
    "State": "Utah",
    "Phone": "(435) 559-2425",
    "Web URL": null,
@@ -5777,7 +5777,7 @@
  {
    "Name": "Cielo y Tierra Arnis de Mano ",
    "Address": "2023 Candlelight Dr., Chesapeake ",
-   "Zip Code": "23325",
+   "ZipCode": "23325",
    "State": "Virginia",
    "Phone": "[757] 424 7634",
    "Web URL": null,
@@ -5788,7 +5788,7 @@
  {
    "Name": "Complete Fitness Concepts",
    "Address": "4425 Brookfiled Corp. Dr., Chantilly ",
-   "Zip Code": "20151",
+   "ZipCode": "20151",
    "State": "Virginia",
    "Phone": "[703] 2838826",
    "Web URL": null,
@@ -5799,7 +5799,7 @@
  {
    "Name": "Eastern Academy of Mixed Martial Arts",
    "Address": "3900 Bonney Road Suite 213, Virginia Beach ",
-   "Zip Code": "23452",
+   "ZipCode": "23452",
    "State": "Virginia",
    "Phone": "[757] 4865200",
    "Web URL": null,
@@ -5810,7 +5810,7 @@
  {
    "Name": "Filipino Fighting Arts Academy",
    "Address": "5347 Lila Lane, Suite 110, Virginia Beach ",
-   "Zip Code": "23464",
+   "ZipCode": "23464",
    "State": "Virginia",
    "Phone": "[757] 4247005",
    "Web URL": null,
@@ -5821,7 +5821,7 @@
  {
    "Name": "Impact Athletes Martial Arts Academy",
    "Address": "2421 Bowland Parkway, Suite 103, Virginia Beach ",
-   "Zip Code": "23454",
+   "ZipCode": "23454",
    "State": "Virginia",
    "Phone": "[757] 6311003",
    "Web URL": null,
@@ -5832,7 +5832,7 @@
  {
    "Name": "Muhammad's Boxing and Martial Arts",
    "Address": " 10208/Kings Highway, King George ",
-   "Zip Code": "22485",
+   "ZipCode": "22485",
    "State": "Virginia",
    "Phone": "[540] 7757555",
    "Web URL": null,
@@ -5843,7 +5843,7 @@
  {
    "Name": "NoVa Modern Arnis",
    "Address": "8717 Trafalgar Ct., Springfield ",
-   "Zip Code": "22151",
+   "ZipCode": "22151",
    "State": "Virginia",
    "Phone": "[571] 2399930",
    "Web URL": null,
@@ -5854,7 +5854,7 @@
  {
    "Name": "World Kali Silat Society",
    "Address": "2400 Atlantic Ave. # 121, Virginia Beach ",
-   "Zip Code": "23458",
+   "ZipCode": "23458",
    "State": "Virginia",
    "Phone": "[757] 3735060",
    "Web URL": null,
@@ -5865,7 +5865,7 @@
  {
    "Name": "Bellingham Modern Arnis",
    "Address": "1420 Pacific Place, Suite B, Ferndale,",
-   "Zip Code": "98248",
+   "ZipCode": "98248",
    "State": "Washington",
    "Phone": "[360] 2240232",
    "Web URL": null,
@@ -5876,7 +5876,7 @@
  {
    "Name": "Bird's Martial Arts",
    "Address": " 5775 Soundview Dr,, Suite 101 A., Gig Harbor ",
-   "Zip Code": "98335",
+   "ZipCode": "98335",
    "State": "Washington",
    "Phone": "[253] 8847914",
    "Web URL": null,
@@ -5887,7 +5887,7 @@
  {
    "Name": "Blackbird Training Group",
    "Address": "Kennewick",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Washington",
    "Phone": "[206] 6123044",
    "Web URL": null,
@@ -5898,7 +5898,7 @@
  {
    "Name": "Edmonds Martial Arts Academy",
    "Address": "Renton ",
-   "Zip Code": "98059",
+   "ZipCode": "98059",
    "State": "Washington",
    "Phone": "[425] 4304269",
    "Web URL": null,
@@ -5909,7 +5909,7 @@
  {
    "Name": "FMS Alliance / Pinto Martial Arts",
    "Address": "Spokane",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Washington",
    "Phone": "[646] 5939650",
    "Web URL": null,
@@ -5920,7 +5920,7 @@
  {
    "Name": "Hufana Traditional Arnis International",
    "Address": "14510 NE 20th Street, Suite 100, Bellevue ",
-   "Zip Code": "98007",
+   "ZipCode": "98007",
    "State": "Washington",
    "Phone": "[425] 6438488",
    "Web URL": null,
@@ -5931,7 +5931,7 @@
  {
    "Name": "International Serrada Eskrima Society",
    "Address": "2850 SW Yancy #116, Seattle ",
-   "Zip Code": "98126",
+   "ZipCode": "98126",
    "State": "Washington",
    "Phone": "[206] 9358218",
    "Web URL": null,
@@ -5942,7 +5942,7 @@
  {
    "Name": "Kalahi Martial Arts Academy",
    "Address": " Cascade Mall Dr., Burlington ",
-   "Zip Code": "98233",
+   "ZipCode": "98233",
    "State": "Washington",
    "Phone": "[360] 7204313",
    "Web URL": null,
@@ -5953,7 +5953,7 @@
  {
    "Name": "LESKAS (Ballard / Crown Hill neighborhood)",
    "Address": "1475 NW 85th St., [in Ballard], Seattle ",
-   "Zip Code": "98155",
+   "ZipCode": "98155",
    "State": "Washington",
    "Phone": null,
    "Web URL": null,
@@ -5964,7 +5964,7 @@
  {
    "Name": "Little Dojo",
    "Address": "1726 East Isaacs, Walla Walla ",
-   "Zip Code": "99362",
+   "ZipCode": "99362",
    "State": "Washington",
    "Phone": "[509] 5273385",
    "Web URL": null,
@@ -5975,7 +5975,7 @@
  {
    "Name": "Manaois Systems International Martial Arts Academy",
    "Address": " 216 W. Broadway, Moses Lake ",
-   "Zip Code": "98837",
+   "ZipCode": "98837",
    "State": "Washington",
    "Phone": "[509] 7710922",
    "Web URL": null,
@@ -5986,7 +5986,7 @@
  {
    "Name": "Seattle Escrima Club",
    "Address": "917 E Yesler Way, Seattle ",
-   "Zip Code": "98122",
+   "ZipCode": "98122",
    "State": "Washington",
    "Phone": "[234] 2060488",
    "Web URL": null,
@@ -5997,7 +5997,7 @@
  {
    "Name": "Seattle Filipino Martial Arts Academy",
    "Address": "5659 California Ave. SW, Seattle ",
-   "Zip Code": "98136",
+   "ZipCode": "98136",
    "State": "Washington",
    "Phone": "[206] 6183992",
    "Web URL": null,
@@ -6008,7 +6008,7 @@
  {
    "Name": "Seattle Modern Arnis Academy",
    "Address": "5740 Martin Luther King Jr. Way, Seattle ",
-   "Zip Code": "98122",
+   "ZipCode": "98122",
    "State": "Washington",
    "Phone": "[206] 8598363",
    "Web URL": null,
@@ -6019,7 +6019,7 @@
  {
    "Name": "Lussier Family East YMCA, Inayan System III, Dave Swoboda",
    "Address": "711 Cottage Grove Road, Madison",
-   "Zip Code": null,
+   "ZipCode": null,
    "State": "Wisconsin",
    "Phone": "608-609-8826",
    "Web URL": "eskrimamadison.wordpress.com / www.ymcadanecounty.org/branches/eastymca.asp",
@@ -6030,7 +6030,7 @@
  {
    "Name": "Nubreed Martial Arts Systems",
    "Address": "Rock Springs ",
-   "Zip Code": "82901",
+   "ZipCode": "82901",
    "State": "Wyoming",
    "Phone": "[307] 3890339",
    "Web URL": null,
@@ -6041,7 +6041,7 @@
  {
    "Name": "Wyoming Combatives Group",
    "Address": "2145 W. Teton, Green River ",
-   "Zip Code": "82935",
+   "ZipCode": "82935",
    "State": "Wyoming",
    "Phone": "[307] 8710907",
    "Web URL": null,

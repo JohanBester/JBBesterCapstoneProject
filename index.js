@@ -128,14 +128,13 @@ let databaseData = [];  // for the FMA DB data
 
 // To import the JSON data from a file
 function importJSON() {
-  fetch('./FMAdata.json').then(
+  fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/FMAData.json').then(
     response => {
       return response.json();
     }).then(
       data => {
         // Work with JSON data here..
         databaseData = data;
-        console.log(data);
 
         return compareTheData(data, demoAPIdata);
 
@@ -608,7 +607,6 @@ function compareTheData(dbData, apiData) {
     if (apiData.includes(dbData[i].ZipCode)) {
       comparedData.push(dbData[i]);
     };
-  console.log(dbData[i]);
   };
 
 };
