@@ -27,7 +27,7 @@ const randomNumber = function (min, max) {
 // Function to build random image URL
 function buildRandomURL(imageNames, imageURL) {
   let rand = randomNumber(1, imageNames.length);
-  randomName = imageNames[rand];
+  let randomName = imageNames[rand];
   randomURL = imageURL + randomName + "?raw=true";
   return randomURL;
 };
