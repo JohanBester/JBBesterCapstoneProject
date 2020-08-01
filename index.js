@@ -15,7 +15,7 @@ render();
 // *** Build Reusable HTML Components ***
 //***************************************
 
-// generat a Random Image for the side panel
+// generate a Random Image for the side panel
 //-------------------------------------------
 let imageNames = ["FMAimages1.jpg", "FMAimages2.jpg", "FMAimages3.jpg", "FMAimages4.jpg", "FMAimages5.jpg", "FMAimages6.jpg", "FMAimages7.jpg", "FMAimages8.jpg", "FMAimages9.jpg", "FMAimages10.jpg", "FMAimages11.jpg", "FMAimages12.jpg", "FMAimages13.jpg", "FMAimages14.jpg", "FMAimages15.jpg", "FMAimages16.jpg", "FMAimages17.jpg", "FMAimages18.jpg", "FMAimages19.jpg", "FMAimages20.jpg", "FMAimages21.jpg", "FMAimages22.jpg", "FMAimages23.jpg", "FMAimages24.jpg", "FMAimages25.jpg", "FMAimages26.jpg", "FMAimages27.jpg", "FMAimages28.jpg", "FMAimages29.jpg"];
 let imageURL = "https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/FMAimages/";
@@ -69,6 +69,7 @@ function zipcodeSearch() {
   zipCode = document.getElementById("zipSearch").value;
   // get user radio button selection on home page
   selectButton = form.querySelector('input[name="selectOptions"]:checked').value;
+  
   // console.log(`Zip Code = ${zipCode}, and selectButton = ${selectButton}`);
 
   // return getZipCodeData(zipCode, radius);
@@ -97,14 +98,14 @@ function searchBarSubmit() {
   let styleDropdown = document.querySelector("#styleSearch");
   style = styleDropdown.options[styleDropdown.selectedIndex].value;
 
-  console.log(zipCode, state, radius, type, style);
+  // console.log(zipCode, state, radius, type, style);
 
   // Get the zip code search data from the API
   // return getZipCodeData(zipCode, radius);
 };
 
 
-getZipCodeData(zipCode, radius);  // this is temp for testing
+// getZipCodeData(zipCode, radius);  // this is temp for testing
 
 
 //*************************************************
@@ -120,7 +121,6 @@ function importJSON() {
     }).then(data => {
         // Work with JSON data here...
         databaseData = data;
-        // console.log(Array.isArray(databaseData));
         // console.log("databaseData holds... " + databaseData);
       }
     )
@@ -147,10 +147,8 @@ function getZipCodeData(zipCode = 62025, radius = 50) {
   fetch(`https://api.zip-codes.com/ZipCodesAPI.svc/1.0/FindZipCodesInRadius?zipcode=${zipCode}&minimumradius=0&maximumradius=${radius}&key=XGSIV5GV93YJPD7VVM8G`, requestOptions)
     .then(response => response.json())
     .then(results => {
-      console.log("API results... " + results);
-      returnedAPIdata = results;
-      console.log(results);
-      // console.log("returnedAPIdata holds... " + returnedAPIdata);
+      returnedAPIdata = results.DataList;
+      console.log("returnedAPIdata holds... " + returnedAPIdata);
 
       return compareTheData(databaseData, returnedAPIdata);
       }
@@ -176,6 +174,21 @@ let demoAPIdata = [
     "Latitude": 38.855130000000,
     "Longitude": -89.948168000000,
     "County": "MADISON"
+  },
+  {
+    "ZipCode": "99603",
+    "City": "Homer",
+    "State": "Alaska",
+  },
+  {
+    "ZipCode": "85345",
+    "City": "Peoria",
+    "State": "Arizona",
+  },
+  {
+    "ZipCode": "85629",
+    "City": "Sahuarita",
+    "State": "Arizona",
   },
   {
     "ZipCode": "62026",
@@ -358,14 +371,7 @@ let demoAPIdata = [
     "Distance": 12.05
   }
 ];
-// {
-//   "ZipCode": "62025",
-//   "City": "EDWARDSVILLE",
-//   "State": "IL",
-//   "Latitude": 38.855130000000,
-//   "Longitude": -89.948168000000,
-//   "County": "MADISON"
-// },
+
 // {
 //   "ZipCode": "62026",
 //   "City": "EDWARDSVILLE",
@@ -383,6 +389,17 @@ let tempDBdata = [
     "Name": "Dynamic Mixed martial Arts - Mr. Brendan Neal",
     "Address": "1324 Essec Drive, Edwardsville",
     "ZipCode": "62025",
+    "State": "Illinois",
+    "Phone": "[618] 679-9713",
+    "Email": "Email",
+    "Web URL": "www.edwardsvilleymca.com",
+    "Type": "Club",
+    "Style": "Escrima"
+  },
+  {
+    "Name": "Dynamic Mixed martial Arts - Mr. Brendan Neal",
+    "Address": "1324 Essec Drive, Edwardsville",
+    "ZipCode": "62026",
     "State": "Illinois",
     "Phone": "[618] 679-9713",
     "Email": "Email",
@@ -589,6 +606,7 @@ let tempDBdata = [
     "Style": ""
   }
 ];
+
 // {
 //   "Name": "Dynamic Mixed martial Arts - Mr. Brendan Neal",
 //   "Address": "1324 Essec Drive, Edwardsville",
@@ -600,17 +618,6 @@ let tempDBdata = [
 //   "Type": "Club",
 //   "Style": "Escrima"
 // },
-// {
-// "Name": "Arizona Filipino Martial Arts",
-// "Address": "318 North 5th Avenue, Phoenix ",
-// "ZipCode": "85003",
-// "State": "Arizona",
-// "Phone": "[602] 6799713",
-// "Email": "Email",
-// "Web URL": "Web URL",
-// "Type": "school",
-// "Style": ""
-// },
 
 
 let comparedData = [];  // To hold comparison API and DB data
@@ -618,19 +625,54 @@ let comparedData = [];  // To hold comparison API and DB data
 // function to Compare API and DB data  
 function compareTheData(dbData, apiData) {
   apiData.forEach((apiItem) => {
-    for(i=0; i <= dbData.length-1; i++) {
+    for(let i=0; i <= dbData.length-1; i++) {
       if (apiItem.ZipCode === dbData[i].ZipCode) {
-        comparedData.push(dbData[i]);
+        let tempItem = (dbData[i]);
+
+        if (!apiItem.Distance) {
+          tempItem.Distance = "Only a mile or so";
+        } else {
+          tempItem.Distance = (apiItem.Distance)
+        };
+    
+        comparedData.push(tempItem);
       }
     }
   });
+
+  console.log(comparedData);	// for testing
+
+  return writeResults(comparedData);
 };
 
-// compareTheData(tempDBdata, demoAPIdata);
-console.log(comparedData);
+compareTheData(tempDBdata, demoAPIdata);  // for testing
 
 
 //*****************************************************
 // Functions to Publish Data to search result pages ***
 //*****************************************************
 
+function writeResults (comparedData) {
+	const container = document.querySelector('#container');
+
+	if (comparedData.length >= 1) {
+		let i = 0;
+		comparedData.forEach((element) => {
+			i++;
+			let elementdiv = document.createElement("div");
+			elementdiv.innerHTML = `
+        <b>#${i} ${element.Name}</b><br/>
+        &nbsp; ${element.Address},<br />
+        &nbsp; ${element.State}, ${element.ZipCode}<br />
+        &nbsp; Phone : ${element.Phone}<br />
+        &nbsp; Email : ${element.Email}<br />
+        &nbsp; Type : ${element.Type} &nbsp; &nbsp; Style : ${element.Style}<br />
+        &nbsp; Distance : ${element.Distance}<br />
+			`;
+			container.appendChild(elementdiv);
+		});
+
+	} else {
+		container.innerHTML = `There seems to be no data for this search. We are very sorry. Please try again. <br />`;
+	};
+};
