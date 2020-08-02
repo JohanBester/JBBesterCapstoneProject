@@ -55,53 +55,82 @@ importJSON();
 //***  Zip-Search search filter options  *****
 //********************************************
 let zipCode = "62025";
-let selectButton = "";
-let state = "";
+let stateCode = "";
+let stateText = "";
 let radius = "50";
 let type = "";
 let style = "";
-
+let filter = false
+let newZipSearch = true;
 
 // function for home page form
 //=============================
 function zipcodeSearch() {
   // get user zip code input
   zipCode = document.getElementById("zipSearch").value;
-  // get user radio button selection on home page
-  selectButton = form.querySelector('input[name="selectOptions"]:checked').value;
-  
-  // console.log(`Zip Code = ${zipCode}, and selectButton = ${selectButton}`);
 
-  // return getZipCodeData(zipCode, radius);
+  // get user radio button selection on home page
+  type = form.querySelector('input[name="selectOptions"]:checked').value;
+  if (type != "All") {
+    filter = true;
+  };
+  // Test what variables are captured
+  // console.log(`Zip Code = ${zipCode}, and type = ${type}`);
+
+  // return getZipCodeData(zipCode, radius);  // default radius value
 };
 
 
 // function for search bar filtering on results page
 //====================================================
 function searchBarSubmit() {
-  // get user zip code input
-  zipCode = document.getElementById("zipSearch").value;
+  // check user zip code input
+  let newZipCode = document.getElementById("zipSearch").value;
+  (zipCode == newZipCode ? newZipSearch = false : zipCode = newZipCode);
 
-  // get user state selection
-  let stateDropdown = document.querySelector("#stateSearch");
-  state = stateDropdown.options[stateDropdown.selectedIndex].value;
-
-  // get user search radius
+  // check user search radius
   let radiusDropdown = document.querySelector("#radiusSearch");
-  radius = radiusDropdown.options[radiusDropdown.selectedIndex].value;
+  newRadius = radiusDropdown.options[radiusDropdown.selectedIndex].value;
+  if (radius != newRadius) {
+    if (radius > newRadius) {
+      let smallerRadius = reducedRadius(newRadius, comparedData);
+    } else {
+      newZipSearch = true;
+    };
+  };
 
-  // get user type selection
+  
+  // check user state selection
+  let stateDropdown = document.querySelector("#stateSearch");
+  stateCode = stateDropdown.options[stateDropdown.selectedIndex].value;
+  stateText = stateDropdown.options[stateDropdown.selectedIndex].selectedIndex;
+
+  // check user type selection
   let typeDropdown = document.querySelector("#typeSearch");
   type = typeDropdown.options[typeDropdown.selectedIndex].value;
 
-  // get user style selection
+  // check user style selection
   let styleDropdown = document.querySelector("#styleSearch");
   style = styleDropdown.options[styleDropdown.selectedIndex].value;
 
-  // console.log(zipCode, state, radius, type, style);
+  if (stateCode || type || style) {
+    filter = true;
+  };
+  // Test what variables are captured
+  // console.log(zipCode, stateCode, stateText, radius, type, style);
 
-  // Get the zip code search data from the API
-  // return getZipCodeData(zipCode, radius);
+
+  if (newZipSearch) {
+    // Get new zip code search data from the API
+    // return getZipCodeData(zipCode, radius);    
+  } else {
+    if (smallerRadius.length >= 1) {
+      (filter ? filterData(smallerRadius) : writeResults(smallerRadius));
+    } else if (comparedData.length >= 1) {
+      (filter ? filterData(comparedData) : writeResults(comparedData));
+    };
+  };
+
 };
 
 
@@ -126,8 +155,10 @@ function importJSON() {
     )
     .catch(err => {
         // What to do when the request fails
+        alert("We are sorry, something seems to have gone wrong. please try your search again.");
         console.log('The data load request failed!');
         console.log('error', err);
+        return location.reload();
       });
 };
 
@@ -137,7 +168,7 @@ function importJSON() {
 //***************************************
 let returnedAPIdata = [];  // API Return data
 
-// Get the API data with a API call with TEST VALUE of 5 miles
+// Get the API data with a API call
 // Remeber to change raduis default value to 50 miles
 function getZipCodeData(zipCode = 62025, radius = 50) {
   let requestOptions = {
@@ -148,15 +179,17 @@ function getZipCodeData(zipCode = 62025, radius = 50) {
     .then(response => response.json())
     .then(results => {
       returnedAPIdata = results.DataList;
-      console.log("returnedAPIdata holds... " + returnedAPIdata);
+      // console.log("returnedAPIdata holds... " + returnedAPIdata);
 
       return compareTheData(databaseData, returnedAPIdata);
       }
     )
     .catch(err => {
         // What to do when the request fails
+        alert ("There seems to have been a problem with this search. Kindly please try that again.");
         console.log('The API request failed!');
-        console.log('error', err);}
+        console.log('error', err);
+        return location.reload();}
       );
 };
 
@@ -640,24 +673,117 @@ function compareTheData(dbData, apiData) {
     }
   });
 
-  console.log(comparedData);	// for testing
+  // console.log(comparedData);	// for testing
 
-  return writeResults(comparedData);
+  if (comparedData.length >= 1) {
+    if (filter) {
+      return filterData(comparedData);
+    } else {
+      return writeResults(comparedData);
+    };
+  } else {
+    alert("There seems to have been a problem with this search. Kindly please try that again.");
+    return location.reload();
+  };
 };
 
 compareTheData(tempDBdata, demoAPIdata);  // for testing
+
+
+//**********************************************************
+// Functions to FILTER Data according to search criteria ***
+//**********************************************************
+// ZipCode and radius already taken care of at this point
+// stateCode -- 2 alpha character code
+// stateText -- full state name
+// style -- arnis, escrima, kali, or all
+// type -- club, group, school, event, or all
+
+let filteredData = [];
+
+// function to filter compared data to user preferences
+function filterData(zipAndRadiusData) {
+  let stateData = [];
+  let styleData = [];
+
+  // check for state filter
+  if (stateCode || stateText) {
+    zipAndRadiusData.forEach((dataItem1) => {
+      if (dataItem1.State === stateCode || dataItem1.State === stateText) {
+        stateData.push(dataItem1);
+      };
+    });
+  };
+
+  // check for style filter
+  if (style && style !== "All") {
+    if (stateData.length >= 1) {
+      stateData.forEach((dataItem2) => {
+        if (dataItem2.Style === style) {
+          styleData.push(dataItem2);
+        };
+      });
+    } else {
+      zipAndRadiusData.forEach((dataItem2) => {
+        if (dataItem2.Style === style) {
+          styleData.push(dataItem2);
+        };      });
+    };
+  };
+
+  // check type of venue filter
+  if (type && type !== "All") {
+    if (styleData.length >= 1) {
+      styleData.forEach((dataItem3) => {
+        if (dataItem3.Type === type) {
+          filteredData.push(dataItem3);
+        };
+      });
+    } else if (stateData.length >= 1) {
+      stateData.forEach((dataItem3) => {
+        if (dataItem3.Type === type) {
+          filteredData.push(dataItem3);
+        };
+      });
+    } else {
+      zipAndRadiusData.forEach((dataItem3) => {
+        if (dataItem3.Type === type) {
+          filteredData.push(dataItem3);
+        };
+      });
+    };
+  };
+
+  return writeResults(filteredData);
+};
+
+// for a reduces radius search
+let newRadiusData = [];
+function reducedRadius(newRadius, dataSet) {
+  if (dataSet.length >= 1) {
+    dataSet.forEach((item) => {
+      if (item.Distance <= newRadius) {
+        newRadiusData.push(item);
+      };
+    });
+    return newRadiusData;
+  } else {
+    alert("There seems to have been a problem with this search. Kindly please try that again.");
+    return location.reload();
+  };
+};
 
 
 //*****************************************************
 // Functions to Publish Data to search result pages ***
 //*****************************************************
 
-function writeResults (comparedData) {
+function writeResults(printData) {
 	const container = document.querySelector('#container');
 
-	if (comparedData.length >= 1) {
+	if (printData.length >= 1) {
 		let i = 0;
-		comparedData.forEach((element) => {
+		printData.forEach((element) => {
 			i++;
 			let elementdiv = document.createElement("div");
 			elementdiv.innerHTML = `
@@ -673,6 +799,10 @@ function writeResults (comparedData) {
 		});
 
 	} else {
-		container.innerHTML = `There seems to be no data for this search. We are very sorry. Please try again. <br />`;
+    container.innerHTML = `
+      <div>
+        There seems to be no data for this search. We are very sorry. Please try again. <br />
+      </div>
+    `;
 	};
 };
