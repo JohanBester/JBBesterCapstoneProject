@@ -1,4 +1,10 @@
+//**********************
+// ***SPA Components ***
+//**********************
+
 import { Header, Main, Footer } from "./components";
+
+import * as state from "./store"
 
 function render() {
   document.querySelector("#root").innerHTML = `
@@ -6,17 +12,53 @@ function render() {
   ${Main()}
   ${Footer()}
   `;
+
+  addBannerEventListener();
+  addFooterEventListener();
 };
 
-render();
+render(state.Home);
 
 
-//***************************************
-// *** Build Reusable HTML Components ***
-//***************************************
+//**************************************
+//**************************************
+//*** Build Reusable HTML Components ***
+//**************************************
+//**************************************
+
+// build Header  (no longer needed for SPA)
+//=================
+// document.querySelector('.fixed-header').innerHTML = `
+// <header class="fixed-header">
+//     <a href="./index.html"><img class="logo" src="https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/IMAGES/FMAlogo.jpg?raw=true" /></a>
+//     <div class="appname">
+//         <a href="./index.html">
+//             <span class="appname1">STIX </span>
+//             <span class="appname2">FMA Fun Finder</span>
+//         </a>
+//     </div>
+// </header>
+// `;
+
+// build the footer  (no longer needed for SPA)
+//====================
+// document.querySelector('.fixed-footer').innerHTML = `
+// 	<div id="disclaimers">
+//       <a href="disclaimers.html">
+//         <h6 class="disTop">Disclaimer:</h6>
+//         <p class="disText">Click here to read the FMA disclaimers. Copyright © Fun Finder Applications, Illinois, USA. 2020. All Rights Reserved.</p>
+//       </a>
+//     </div>
+//     <div id="navButtons">
+//         <button id="btnAbout" class="btnStyled" type="button"><a href="./about.html">ABOUT</a></button>
+//         <button id="btnHome" class="btnStyled" type="button"><a href="./index.html">HOME</a></button>
+//         <button id="btnContact" class="btnStyled" type="button"><a href="./contact.html">CONTACT</a></button>
+//     </div>
+// `;
+
 
 // generate a Random Image for the side panel
-//-------------------------------------------
+//=============================================
 let imageNames = ["FMAimages1.jpg", "FMAimages2.jpg", "FMAimages3.jpg", "FMAimages4.jpg", "FMAimages5.jpg", "FMAimages6.jpg", "FMAimages7.jpg", "FMAimages8.jpg", "FMAimages9.jpg", "FMAimages10.jpg", "FMAimages11.jpg", "FMAimages12.jpg", "FMAimages13.jpg", "FMAimages14.jpg", "FMAimages15.jpg", "FMAimages16.jpg", "FMAimages17.jpg", "FMAimages18.jpg", "FMAimages19.jpg", "FMAimages20.jpg", "FMAimages21.jpg", "FMAimages22.jpg", "FMAimages23.jpg", "FMAimages24.jpg", "FMAimages25.jpg", "FMAimages26.jpg", "FMAimages27.jpg", "FMAimages28.jpg", "FMAimages29.jpg"];
 let imageURL = "https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/FMAimages/";
 let randomURL = "";
@@ -31,7 +73,6 @@ function buildRandomURL(imageNames, imageURL) {
   randomURL = imageURL + randomName + "?raw=true";
   return randomURL;
 };
-
 buildRandomURL(imageNames, imageURL)
 
 document.querySelector('.addOrImage').innerHTML = `
@@ -44,105 +85,57 @@ document.querySelector('#hpAddInfoButton').innerHTML = `
 
 
 // Constant for Forms to clear form data
+//=========================================
 const form = document.querySelector('form');
 
 
-// Import JSON data from data source
-importJSON();
+//====================
+// Header navigation
+//====================
+function addBannerEventListener() {
+  document.querySelectorAll("header > a").forEach(link =>
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      render(state.Home);
+    })
+  );
+}
 
 
-//********************************************
-//***  Zip-Search search filter options  *****
-//********************************************
-let zipCode = "62025";
-let stateCode = "";
-let stateText = "";
-let radius = "50";
-let type = "";
-let style = "";
-let filter = false
-let newZipSearch = true;
+//====================
+// Footer navigation
+//====================
+let disclaimers = document.querySelectorAll(".fixed-footer #disclaimers a");
+let button = document.querySelectorAll(".fixed-footer #navButtons a");
 
-// function for home page form
-//=============================
-function zipcodeSearch() {
-  // get user zip code input
-  zipCode = document.getElementById("zipSearch").value;
-
-  // get user radio button selection on home page
-  type = form.querySelector('input[name="selectOptions"]:checked').value;
-  if (type != "All") {
-    filter = true;
-  };
-  // Test what variables are captured
-  // console.log(`Zip Code = ${zipCode}, and type = ${type}`);
-
-  // return getZipCodeData(zipCode, radius);  // default radius value
+function addFooterEventListener() {
+  disclaimers.addEventListener("click", event => {
+      event.preventDefault();
+      render(state.Disclaimers);
+    });
+    
+  button.forEach(link =>
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      let linkText = event.target.link;
+      let pieceOfState = state[linkText];
+      render(pieceOfState);
+    })
+  );
 };
 
 
-// function for search bar filtering on results page
-//====================================================
-function searchBarSubmit() {
-  // check user zip code input
-  let newZipCode = document.getElementById("zipSearch").value;
-  (zipCode == newZipCode ? newZipSearch = false : zipCode = newZipCode);
+//********************************************************
+//********************************************************
+//**  Get the FMA JSON Data from the data source file  ***
+//********************************************************
+//********************************************************
 
-  // check user search radius
-  let radiusDropdown = document.querySelector("#radiusSearch");
-  newRadius = radiusDropdown.options[radiusDropdown.selectedIndex].value;
-  if (radius != newRadius) {
-    if (radius > newRadius) {
-      let smallerRadius = reducedRadius(newRadius, comparedData);
-    } else {
-      newZipSearch = true;
-    };
-  };
-
-  
-  // check user state selection
-  let stateDropdown = document.querySelector("#stateSearch");
-  stateCode = stateDropdown.options[stateDropdown.selectedIndex].value;
-  stateText = stateDropdown.options[stateDropdown.selectedIndex].selectedIndex;
-
-  // check user type selection
-  let typeDropdown = document.querySelector("#typeSearch");
-  type = typeDropdown.options[typeDropdown.selectedIndex].value;
-
-  // check user style selection
-  let styleDropdown = document.querySelector("#styleSearch");
-  style = styleDropdown.options[styleDropdown.selectedIndex].value;
-
-  if (stateCode || type || style) {
-    filter = true;
-  };
-  // Test what variables are captured
-  // console.log(zipCode, stateCode, stateText, radius, type, style);
-
-
-  if (newZipSearch) {
-    // Get new zip code search data from the API
-    // return getZipCodeData(zipCode, radius);    
-  } else {
-    if (smallerRadius.length >= 1) {
-      (filter ? filterData(smallerRadius) : writeResults(smallerRadius));
-    } else if (comparedData.length >= 1) {
-      (filter ? filterData(comparedData) : writeResults(comparedData));
-    };
-  };
-
-};
-
-
-// getZipCodeData(zipCode, radius);  // this is temp for testing
-
-
-//*************************************************
-// Get the FMA JSON Data from the data source file
-//*************************************************
 let databaseData = [];  // for the FMA DB data
+importJSON();	// import JSON data
 
-// To import the JSON data from a file
+// Function To import the JSON data from a file
+//=============================================
 function importJSON() {
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/FMAData.json').then(
     response => {
@@ -163,13 +156,121 @@ function importJSON() {
 };
 
 
+//********************************************
+//********************************************
+//***  Search and Search filter options  *****
+//********************************************
+//********************************************
+
+let zipCode = "62025";
+let stateCode = "";
+let stateText = "";
+let radius = "50";
+let type = "";
+let style = "";
+
+let newZipSearch = true;
+let newRadiusSearch = false;
+let filter = false
+
+// function for home page form
+//=============================
+function zipcodeSearch() {
+  // get user zip code input
+  zipCode = document.getElementById("zipSearch").value;
+
+  // get user radio button selection on home page
+  type = form.querySelector('input[name="selectOptions"]:checked').value;
+  if (type !== "all") {
+    filter = true;
+  };
+
+  // Test what variables are captured
+  // alert(`Zip Code = ${zipCode}, type = ${type}, and filter = ${filter}`);
+
+  compareTheData(tempDBdata, demoAPIdata);  // for testing only
+
+  // return getZipCodeData(zipCode, radius);  // with default radius value
+};
+
+
+// function for search bar filtering on results page
+//====================================================
+function searchBarSubmit() {
+  // check user zip code input
+  let newZipCode = document.getElementById("zipSearch").value;
+  // Compare zipcodes - is a new API call needed?
+  (zipCode == newZipCode ? newZipSearch = false : zipCode = newZipCode);
+  alert("the value of newZipCode = " + newZipCode);	// for testing
+
+  // check user search radius
+  let radiusDropdown = document.querySelector("#radiusSearch");
+  let newRadius = radiusDropdown.options[radiusDropdown.selectedIndex].value;
+
+  //compare raduises - is new API call needed?
+  if (!newRadius == "") {
+    if (radius < newRadius) {
+    	newZipSearch = true;	// new API call needed
+    } else {
+      radius = newRadius;
+    	newRadiusSearch = true;	// filter for new radius
+    };
+  };
+  alert("radius = " + radius + " newRadius = " + newRadius);	// for testing
+
+  // check user State selection
+  let stateDropdown = document.querySelector("#stateSearch");
+  stateCode = stateDropdown.options[stateDropdown.selectedIndex].value;
+  stateText = stateDropdown.options[stateDropdown.selectedIndex].text;
+
+  // check user type selection
+  let typeDropdown = document.querySelector("#typeSearch");
+  type = typeDropdown.options[typeDropdown.selectedIndex].value;
+
+  // check user style selection
+  let styleDropdown = document.querySelector("#styleSearch");
+  style = styleDropdown.options[styleDropdown.selectedIndex].value;
+
+  // Is data filtering neede?
+  if (stateCode || type || style) {
+    filter = true;
+  };
+
+  // Test what variables are captured from form
+  alert(`variables ... ${zipCode} -  ${stateCode} - ${stateText} - ${radius} - ${type} - ${style} - ${filter}`);
+
+  if (newZipSearch == true) {
+    alert("New API search needed");  // for testing only
+    // Get new zip code search data from the API
+    // return getZipCodeData(zipCode, radius);
+
+  } else if (newRadiusSearch == true) {
+	alert("Smaller radius needed");  // for testing only
+	// if smaller radius data is needed
+	return smallerRadius(comparedData);
+
+  } else if (filter == true) {
+	alert("Filtering needed - Filter = " + filter);  // for testing only
+	// only data filtering is needed
+	return filterData(comparedData);
+
+  } else {
+	  // nothing needed only print data
+    return writeResults(comparedData);
+  };
+};
+
+//***************************************
 //***************************************
 // Steps to GET Zip Code Data from API
 //***************************************
+//***************************************
+// getZipCodeData(zipCode, radius);  // this is temp for testing
+
 let returnedAPIdata = [];  // API Return data
 
 // Get the API data with a API call
-// Remeber to change raduis default value to 50 miles
+// Radius default value set to 50 miles
 function getZipCodeData(zipCode = 62025, radius = 50) {
   let requestOptions = {
     method: 'GET',
@@ -180,7 +281,6 @@ function getZipCodeData(zipCode = 62025, radius = 50) {
     .then(results => {
       returnedAPIdata = results.DataList;
       // console.log("returnedAPIdata holds... " + returnedAPIdata);
-
       return compareTheData(databaseData, returnedAPIdata);
       }
     )
@@ -195,7 +295,9 @@ function getZipCodeData(zipCode = 62025, radius = 50) {
 
 
 //**************************************************
-// Functions to Manipulate and sort the Datasets
+//**************************************************
+//**  functions to COMPARE Data in the Datasets  ***
+//**************************************************
 //**************************************************
 
 // Interim Example DEMO data from API
@@ -226,11 +328,11 @@ let demoAPIdata = [
   {
     "ZipCode": "62026",
     "City": "EDWARDSVILLE",
-    "State": "IL",
+    "State": "Alabama",
     "Latitude": 38.793699000000,
     "Longitude": -89.998742000000,
     "County": "MADISON",
-    "Distance": 5.04
+    "Distance": 3.04
   },
   {
     "ZipCode": "62067",
@@ -239,7 +341,7 @@ let demoAPIdata = [
     "Latitude": 38.932644000000,
     "Longitude": -89.990069000000,
     "County": "MADISON",
-    "Distance": 5.80
+    "Distance": 4.80
   },
   {
     "ZipCode": "62084",
@@ -356,7 +458,7 @@ let demoAPIdata = [
     "Latitude": 38.786202000000,
     "Longitude": -89.794306000000,
     "County": "MADISON",
-    "Distance": 9.57
+    "Distance": 39.57
   },
   {
     "ZipCode": "62294",
@@ -374,7 +476,7 @@ let demoAPIdata = [
     "Latitude": 38.691315000000,
     "Longitude": -89.970639000000,
     "County": "MADISON",
-    "Distance": 11.36
+    "Distance": 111.36
   },
   {
     "ZipCode": "62001",
@@ -383,7 +485,7 @@ let demoAPIdata = [
     "Latitude": 38.881021000000,
     "Longitude": -89.739585000000,
     "County": "MADISON",
-    "Distance": 11.39
+    "Distance": 12.39
   },
   {
     "ZipCode": "62002",
@@ -401,10 +503,9 @@ let demoAPIdata = [
     "Latitude": 38.732317000000,
     "Longitude": -90.106957000000,
     "County": "MADISON",
-    "Distance": 12.05
+    "Distance": 22.05
   }
 ];
-
 // {
 //   "ZipCode": "62026",
 //   "City": "EDWARDSVILLE",
@@ -414,7 +515,6 @@ let demoAPIdata = [
 //   "County": "MADISON",
 //   "Distance": 5.04
 // },
-
 
 // Interim Example FMA data from DB
 let tempDBdata = [
@@ -639,7 +739,6 @@ let tempDBdata = [
     "Style": ""
   }
 ];
-
 // {
 //   "Name": "Dynamic Mixed martial Arts - Mr. Brendan Neal",
 //   "Address": "1324 Essec Drive, Edwardsville",
@@ -652,16 +751,17 @@ let tempDBdata = [
 //   "Style": "Escrima"
 // },
 
-
 let comparedData = [];  // To hold comparison API and DB data
 
-// function to Compare API and DB data  
+// function to Compare API and DB data
+//=====================================
 function compareTheData(dbData, apiData) {
   apiData.forEach((apiItem) => {
     for(let i=0; i <= dbData.length-1; i++) {
       if (apiItem.ZipCode === dbData[i].ZipCode) {
         let tempItem = (dbData[i]);
 
+        // Pull in the distance from target item into data collection
         if (!apiItem.Distance) {
           tempItem.Distance = "Only a mile or so";
         } else {
@@ -676,23 +776,52 @@ function compareTheData(dbData, apiData) {
   // console.log(comparedData);	// for testing
 
   if (comparedData.length >= 1) {
-    if (filter) {
-      return filterData(comparedData);
-    } else {
-      return writeResults(comparedData);
-    };
+  	// check if filtering is needed?
+    (filter ? filterData(comparedData) : writeResults(comparedData));
   } else {
     alert("There seems to have been a problem with this search. Kindly please try that again.");
-    return location.reload();
+    // return location.reload();
   };
 };
 
-compareTheData(tempDBdata, demoAPIdata);  // for testing
+// compareTheData(tempDBdata, demoAPIdata);  // for testing only
+
+//**********************************************
+//**********************************************
+//***  Smaller Radius Search from search bar ***
+//**********************************************
+//**********************************************
+
+let newRadiusData = [];
+
+function smallerRadius(dataSet) {
+  if (dataSet.length >= 1) {
+    dataSet.forEach((item) => {
+      if (item.Distance <= newRadius) {
+        newRadiusData.push(item);
+      };
+    });
+  };
+
+  // for testing only
+  console.log(newRadiusData);
+  alert("Reduced radius calculated");
+
+  if (newRadiusData.length >= 1) {
+  	// check if filtering is needed?
+    (filter ? filterData(newRadiusData) : writeResults(newRadiusData));
+  } else {
+    alert("There seems to have been a problem with this search. Kindly please try that again.");
+    // return location.reload();
+  };
+};
 
 
-//**********************************************************
-// Functions to FILTER Data according to search criteria ***
-//**********************************************************
+//****************************************************************
+//****************************************************************
+//** Functions to FILTER New Data according to search criteria ***
+//****************************************************************
+//****************************************************************
 // ZipCode and radius already taken care of at this point
 // stateCode -- 2 alpha character code
 // stateText -- full state name
@@ -701,22 +830,30 @@ compareTheData(tempDBdata, demoAPIdata);  // for testing
 
 let filteredData = [];
 
-// function to filter compared data to user preferences
+// function to filter data to user preferences
+//=============================================
 function filterData(zipAndRadiusData) {
+  alert("Filtering the data ...");	// for testing only
+  
   let stateData = [];
   let styleData = [];
 
-  // check for state filter
+  // check for STATE filter
   if (stateCode || stateText) {
     zipAndRadiusData.forEach((dataItem1) => {
       if (dataItem1.State === stateCode || dataItem1.State === stateText) {
         stateData.push(dataItem1);
       };
     });
+
+    // for testing 
+    console.log(stateData);
+    alert("There was a state filter");
   };
 
-  // check for style filter
-  if (style && style !== "All") {
+  // check for STYLE filter
+  if (style && (style !== "all")) {
+  	// if there are previous state filter results
     if (stateData.length >= 1) {
       stateData.forEach((dataItem2) => {
         if (dataItem2.Style === style) {
@@ -724,15 +861,23 @@ function filterData(zipAndRadiusData) {
         };
       });
     } else {
+    	// if not state filter results
       zipAndRadiusData.forEach((dataItem2) => {
         if (dataItem2.Style === style) {
           styleData.push(dataItem2);
-        };      });
+        };
+      });
     };
+
+    // for testing 
+    console.log(styleData);
+    alert("There was a style filter");
+
   };
 
-  // check type of venue filter
-  if (type && type !== "All") {
+  // check TYPE of venue filter
+  if (type && (type !== "all")) {
+  	// if there are previous style filter results
     if (styleData.length >= 1) {
       styleData.forEach((dataItem3) => {
         if (dataItem3.Type === type) {
@@ -740,53 +885,46 @@ function filterData(zipAndRadiusData) {
         };
       });
     } else if (stateData.length >= 1) {
-      stateData.forEach((dataItem3) => {
+  		// if no style but there are previous state filter results    	
+        stateData.forEach((dataItem3) => {
         if (dataItem3.Type === type) {
           filteredData.push(dataItem3);
         };
       });
     } else {
-      zipAndRadiusData.forEach((dataItem3) => {
+  		// if no style nore state filter results    	  	
+        zipAndRadiusData.forEach((dataItem3) => {
         if (dataItem3.Type === type) {
           filteredData.push(dataItem3);
         };
       });
     };
+
+    // for testing 
+    console.log(filteredData);
+    alert("There was a type filter");
   };
 
   return writeResults(filteredData);
 };
 
-// for a reduces radius search
-let newRadiusData = [];
-function reducedRadius(newRadius, dataSet) {
-  if (dataSet.length >= 1) {
-    dataSet.forEach((item) => {
-      if (item.Distance <= newRadius) {
-        newRadiusData.push(item);
-      };
-    });
-    return newRadiusData;
-  } else {
-    alert("There seems to have been a problem with this search. Kindly please try that again.");
-    return location.reload();
-  };
-};
 
+//*******************************************************
+//*******************************************************
+//** Functions to Publish Search Data to result page ***
+//*******************************************************
+//*******************************************************
+function writeResults(printableData) {
 
-//*****************************************************
-// Functions to Publish Data to search result pages ***
-//*****************************************************
-
-function writeResults(printData) {
 	const container = document.querySelector('#container');
+	alert("About to print...");	// for testing
 
-	if (printData.length >= 1) {
+	if (printableData.length >= 1) {
 		let i = 0;
-		printData.forEach((element) => {
+		printableData.forEach((element) => {
 			i++;
 			let elementdiv = document.createElement("div");
-			elementdiv.innerHTML = `
+      elementdiv.innerHTML = `
         <b>#${i} ${element.Name}</b><br/>
         &nbsp; ${element.Address},<br />
         &nbsp; ${element.State}, ${element.ZipCode}<br />
@@ -795,14 +933,17 @@ function writeResults(printData) {
         &nbsp; Type : ${element.Type} &nbsp; &nbsp; Style : ${element.Style}<br />
         &nbsp; Distance : ${element.Distance}<br />
 			`;
+
 			container.appendChild(elementdiv);
 		});
 
 	} else {
-    container.innerHTML = `
-      <div>
-        There seems to be no data for this search. We are very sorry. Please try again. <br />
-      </div>
-    `;
+		alert("Nothing to print");
+	    // container.innerHTML = `
+	    //   <div>
+	    //     There seems to be no data for this search. We are very sorry. Please try a different search combination. <br />
+	    //   </div>
+	    // `;
 	};
 };
+
