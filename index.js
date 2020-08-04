@@ -7,7 +7,17 @@ import * as state from "./store"
 // ADD NAVIGO AND LODASH
 import Navigo from "navigo";
 import { capitalize } from "lodash";
+
 const router = new Navigo(location.origin);
+router.on({
+  "/": () => render(state.Home),
+  ":page": params => {
+    let routEntered = params.page;
+    let formattedRoute = capitalize(routEntered);
+    let pieceOfState = state[formattedRoute];
+    render(pieceOfState);
+  }
+}).resolve();
 
 
 function render(st = state.Home) {
@@ -16,6 +26,7 @@ function render(st = state.Home) {
   ${Main(st)}
   ${Footer()}
   `;
+  router.updatePageLinks();
 
   addBannerEventListener();
   addDisclaimerEventListener();
@@ -67,6 +78,7 @@ render(state.Home);
 let imageNames = ["FMAimages1.jpg", "FMAimages2.jpg", "FMAimages3.jpg", "FMAimages4.jpg", "FMAimages5.jpg", "FMAimages6.jpg", "FMAimages7.jpg", "FMAimages8.jpg", "FMAimages9.jpg", "FMAimages10.jpg", "FMAimages11.jpg", "FMAimages12.jpg", "FMAimages13.jpg", "FMAimages14.jpg", "FMAimages15.jpg", "FMAimages16.jpg", "FMAimages17.jpg", "FMAimages18.jpg", "FMAimages19.jpg", "FMAimages20.jpg", "FMAimages21.jpg", "FMAimages22.jpg", "FMAimages23.jpg", "FMAimages24.jpg", "FMAimages25.jpg", "FMAimages26.jpg", "FMAimages27.jpg", "FMAimages28.jpg", "FMAimages29.jpg"];
 let imageURL = "https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/FMAimages/";
 let randomURL = "";
+
 // Function to generate a random number
 const randomNumber = function (min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
@@ -80,7 +92,7 @@ function buildRandomURL(imageNames, imageURL) {
   return randomURL;
 };
 
-buildRandomURL(imageNames, imageURL)
+buildRandomURL(imageNames, imageURL);
 
 document.querySelector('.addOrImage').innerHTML = `
   <img id="imgFMAfighters" src="${randomURL}" alt="General Filipino martial Artists images about Arnis, Escrima, and Kali."/>
@@ -125,10 +137,10 @@ function addButtonsEventListener() {
   buttons.forEach(link =>
     link.addEventListener("click", event => {
       event.preventDefault();
-      let linkText = event.target.text;
-      console.log(linkText);  // testing only
+      let linkText = capitalize(event.target.text);
       let pieceOfState = state[linkText];
-      render(state.About);
+      console.log(pieceOfState);  // testing only
+      render(pieceOfState);
     })
   );
 };
