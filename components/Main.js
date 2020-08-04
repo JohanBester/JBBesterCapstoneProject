@@ -1,5 +1,5 @@
-import * as Views from "./views";
+import * as views from "./views";
 
-export default () => `
-    ${Views.Home()}
+export default st => `
+    ${views[st.page](st)}
 `;

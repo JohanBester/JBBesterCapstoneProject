@@ -1,20 +1,25 @@
 //**********************
 // ***SPA Components ***
 //**********************
-
 import { Header, Main, Footer } from "./components";
-
 import * as state from "./store"
 
-function render() {
+// ADD NAVIGO AND LODASH
+import Navigo from "navigo";
+import { capitalize } from "lodash";
+const router = new Navigo(location.origin);
+
+
+function render(st = state.Home) {
   document.querySelector("#root").innerHTML = `
   ${Header()}
-  ${Main()}
+  ${Main(st)}
   ${Footer()}
   `;
 
   addBannerEventListener();
-  addFooterEventListener();
+  addDisclaimerEventListener();
+  addButtonsEventListener()
 };
 
 render(state.Home);
@@ -66,6 +71,7 @@ let randomURL = "";
 const randomNumber = function (min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 };
+
 // Function to build random image URL
 function buildRandomURL(imageNames, imageURL) {
   let rand = randomNumber(1, imageNames.length);
@@ -73,6 +79,7 @@ function buildRandomURL(imageNames, imageURL) {
   randomURL = imageURL + randomName + "?raw=true";
   return randomURL;
 };
+
 buildRandomURL(imageNames, imageURL)
 
 document.querySelector('.addOrImage').innerHTML = `
@@ -93,33 +100,35 @@ const form = document.querySelector('form');
 // Header navigation
 //====================
 function addBannerEventListener() {
-  document.querySelectorAll("header > a").forEach(link =>
+  let banner = document.querySelectorAll("header.a")
+  banner.forEach(link =>
     link.addEventListener("click", event => {
       event.preventDefault();
       render(state.Home);
     })
   );
-}
+};
 
 
 //====================
 // Footer navigation
-//====================
-let disclaimers = document.querySelectorAll(".fixed-footer #disclaimers a");
-let button = document.querySelectorAll(".fixed-footer #navButtons a");
+//====================  #disclaimers > a
+function addDisclaimerEventListener() {
+  document.querySelector("#disclaimers > a").addEventListener("click", event => {
+    event.preventDefault();
+    render(state.Disclaimers);
+  });
+};
 
-function addFooterEventListener() {
-  disclaimers.addEventListener("click", event => {
-      event.preventDefault();
-      render(state.Disclaimers);
-    });
-    
-  button.forEach(link =>
+function addButtonsEventListener() {
+  let buttons = document.querySelectorAll(".fixed-footer #navButtons a");
+  buttons.forEach(link =>
     link.addEventListener("click", event => {
       event.preventDefault();
-      let linkText = event.target.link;
+      let linkText = event.target.text;
+      console.log(linkText);  // testing only
       let pieceOfState = state[linkText];
-      render(pieceOfState);
+      render(state.About);
     })
   );
 };
@@ -299,6 +308,202 @@ function getZipCodeData(zipCode = 62025, radius = 50) {
 //**  functions to COMPARE Data in the Datasets  ***
 //**************************************************
 //**************************************************
+
+let comparedData = [];  // To hold comparison API and DB data
+
+// function to Compare API and DB data
+//=====================================
+function compareTheData(dbData, apiData) {
+  apiData.forEach((apiItem) => {
+    for(let i=0; i <= dbData.length-1; i++) {
+      if (apiItem.ZipCode === dbData[i].ZipCode) {
+        let tempItem = (dbData[i]);
+
+        // Pull in the distance from target item into data collection
+        if (!apiItem.Distance) {
+          tempItem.Distance = "Only a mile or so";
+        } else {
+          tempItem.Distance = (apiItem.Distance)
+        };
+    
+        comparedData.push(tempItem);
+      }
+    }
+  });
+
+  // console.log(comparedData);	// for testing
+
+  if (comparedData.length >= 1) {
+  	// check if filtering is needed?
+    (filter ? filterData(comparedData) : writeResults(comparedData));
+  } else {
+    alert("There seems to have been a problem with this search. Kindly please try that again.");
+    // return location.reload();
+  };
+};
+
+// compareTheData(tempDBdata, demoAPIdata);  // for testing only
+
+//**********************************************
+//**********************************************
+//***  Smaller Radius Search from search bar ***
+//**********************************************
+//**********************************************
+
+let newRadiusData = [];
+
+function smallerRadius(dataSet) {
+  if (dataSet.length >= 1) {
+    dataSet.forEach((item) => {
+      if (item.Distance <= newRadius) {
+        newRadiusData.push(item);
+      };
+    });
+  };
+
+  // for testing only
+  console.log(newRadiusData);
+  alert("Reduced radius calculated");
+
+  if (newRadiusData.length >= 1) {
+  	// check if filtering is needed?
+    (filter ? filterData(newRadiusData) : writeResults(newRadiusData));
+  } else {
+    alert("There seems to have been a problem with this search. Kindly please try that again.");
+    // return location.reload();
+  };
+};
+
+
+//****************************************************************
+//****************************************************************
+//** Functions to FILTER New Data according to search criteria ***
+//****************************************************************
+//****************************************************************
+// ZipCode and radius already taken care of at this point
+// stateCode -- 2 alpha character code
+// stateText -- full state name
+// style -- arnis, escrima, kali, or all
+// type -- club, group, school, event, or all
+
+let filteredData = [];
+
+// function to filter data to user preferences
+//=============================================
+function filterData(zipAndRadiusData) {
+  alert("Filtering the data ...");	// for testing only
+  
+  let stateData = [];
+  let styleData = [];
+
+  // check for STATE filter
+  if (stateCode || stateText) {
+    zipAndRadiusData.forEach((dataItem1) => {
+      if (dataItem1.State === stateCode || dataItem1.State === stateText) {
+        stateData.push(dataItem1);
+      };
+    });
+
+    // for testing 
+    console.log(stateData);
+    alert("There was a state filter");
+  };
+
+  // check for STYLE filter
+  if (style && (style !== "all")) {
+  	// if there are previous state filter results
+    if (stateData.length >= 1) {
+      stateData.forEach((dataItem2) => {
+        if (dataItem2.Style === style) {
+          styleData.push(dataItem2);
+        };
+      });
+    } else {
+    	// if not state filter results
+      zipAndRadiusData.forEach((dataItem2) => {
+        if (dataItem2.Style === style) {
+          styleData.push(dataItem2);
+        };
+      });
+    };
+
+    // for testing 
+    console.log(styleData);
+    alert("There was a style filter");
+
+  };
+
+  // check TYPE of venue filter
+  if (type && (type !== "all")) {
+  	// if there are previous style filter results
+    if (styleData.length >= 1) {
+      styleData.forEach((dataItem3) => {
+        if (dataItem3.Type === type) {
+          filteredData.push(dataItem3);
+        };
+      });
+    } else if (stateData.length >= 1) {
+  		// if no style but there are previous state filter results    	
+        stateData.forEach((dataItem3) => {
+        if (dataItem3.Type === type) {
+          filteredData.push(dataItem3);
+        };
+      });
+    } else {
+  		// if no style nore state filter results    	  	
+        zipAndRadiusData.forEach((dataItem3) => {
+        if (dataItem3.Type === type) {
+          filteredData.push(dataItem3);
+        };
+      });
+    };
+
+    // for testing 
+    console.log(filteredData);
+    alert("There was a type filter");
+  };
+
+  return writeResults(filteredData);
+};
+
+
+//*******************************************************
+//*******************************************************
+//** Functions to Publish Search Data to result page ***
+//*******************************************************
+//*******************************************************
+function writeResults(printableData) {
+
+	const container = document.querySelector('#container');
+	alert("About to print...");	// for testing
+
+	if (printableData.length >= 1) {
+		let i = 0;
+		printableData.forEach((element) => {
+			i++;
+			let elementdiv = document.createElement("div");
+      elementdiv.innerHTML = `
+        <b>#${i} ${element.Name}</b><br/>
+        &nbsp; ${element.Address},<br />
+        &nbsp; ${element.State}, ${element.ZipCode}<br />
+        &nbsp; Phone : ${element.Phone}<br />
+        &nbsp; Email : ${element.Email}<br />
+        &nbsp; Type : ${element.Type} &nbsp; &nbsp; Style : ${element.Style}<br />
+        &nbsp; Distance : ${element.Distance}<br />
+			`;
+
+			container.appendChild(elementdiv);
+		});
+
+	} else {
+		alert("Nothing to print");
+	    // container.innerHTML = `
+	    //   <div>
+	    //     There seems to be no data for this search. We are very sorry. Please try a different search combination. <br />
+	    //   </div>
+	    // `;
+	};
+};
 
 // Interim Example DEMO data from API
 let demoAPIdata = [
@@ -750,200 +955,3 @@ let tempDBdata = [
 //   "Type": "Club",
 //   "Style": "Escrima"
 // },
-
-let comparedData = [];  // To hold comparison API and DB data
-
-// function to Compare API and DB data
-//=====================================
-function compareTheData(dbData, apiData) {
-  apiData.forEach((apiItem) => {
-    for(let i=0; i <= dbData.length-1; i++) {
-      if (apiItem.ZipCode === dbData[i].ZipCode) {
-        let tempItem = (dbData[i]);
-
-        // Pull in the distance from target item into data collection
-        if (!apiItem.Distance) {
-          tempItem.Distance = "Only a mile or so";
-        } else {
-          tempItem.Distance = (apiItem.Distance)
-        };
-    
-        comparedData.push(tempItem);
-      }
-    }
-  });
-
-  // console.log(comparedData);	// for testing
-
-  if (comparedData.length >= 1) {
-  	// check if filtering is needed?
-    (filter ? filterData(comparedData) : writeResults(comparedData));
-  } else {
-    alert("There seems to have been a problem with this search. Kindly please try that again.");
-    // return location.reload();
-  };
-};
-
-// compareTheData(tempDBdata, demoAPIdata);  // for testing only
-
-//**********************************************
-//**********************************************
-//***  Smaller Radius Search from search bar ***
-//**********************************************
-//**********************************************
-
-let newRadiusData = [];
-
-function smallerRadius(dataSet) {
-  if (dataSet.length >= 1) {
-    dataSet.forEach((item) => {
-      if (item.Distance <= newRadius) {
-        newRadiusData.push(item);
-      };
-    });
-  };
-
-  // for testing only
-  console.log(newRadiusData);
-  alert("Reduced radius calculated");
-
-  if (newRadiusData.length >= 1) {
-  	// check if filtering is needed?
-    (filter ? filterData(newRadiusData) : writeResults(newRadiusData));
-  } else {
-    alert("There seems to have been a problem with this search. Kindly please try that again.");
-    // return location.reload();
-  };
-};
-
-
-//****************************************************************
-//****************************************************************
-//** Functions to FILTER New Data according to search criteria ***
-//****************************************************************
-//****************************************************************
-// ZipCode and radius already taken care of at this point
-// stateCode -- 2 alpha character code
-// stateText -- full state name
-// style -- arnis, escrima, kali, or all
-// type -- club, group, school, event, or all
-
-let filteredData = [];
-
-// function to filter data to user preferences
-//=============================================
-function filterData(zipAndRadiusData) {
-  alert("Filtering the data ...");	// for testing only
-  
-  let stateData = [];
-  let styleData = [];
-
-  // check for STATE filter
-  if (stateCode || stateText) {
-    zipAndRadiusData.forEach((dataItem1) => {
-      if (dataItem1.State === stateCode || dataItem1.State === stateText) {
-        stateData.push(dataItem1);
-      };
-    });
-
-    // for testing 
-    console.log(stateData);
-    alert("There was a state filter");
-  };
-
-  // check for STYLE filter
-  if (style && (style !== "all")) {
-  	// if there are previous state filter results
-    if (stateData.length >= 1) {
-      stateData.forEach((dataItem2) => {
-        if (dataItem2.Style === style) {
-          styleData.push(dataItem2);
-        };
-      });
-    } else {
-    	// if not state filter results
-      zipAndRadiusData.forEach((dataItem2) => {
-        if (dataItem2.Style === style) {
-          styleData.push(dataItem2);
-        };
-      });
-    };
-
-    // for testing 
-    console.log(styleData);
-    alert("There was a style filter");
-
-  };
-
-  // check TYPE of venue filter
-  if (type && (type !== "all")) {
-  	// if there are previous style filter results
-    if (styleData.length >= 1) {
-      styleData.forEach((dataItem3) => {
-        if (dataItem3.Type === type) {
-          filteredData.push(dataItem3);
-        };
-      });
-    } else if (stateData.length >= 1) {
-  		// if no style but there are previous state filter results    	
-        stateData.forEach((dataItem3) => {
-        if (dataItem3.Type === type) {
-          filteredData.push(dataItem3);
-        };
-      });
-    } else {
-  		// if no style nore state filter results    	  	
-        zipAndRadiusData.forEach((dataItem3) => {
-        if (dataItem3.Type === type) {
-          filteredData.push(dataItem3);
-        };
-      });
-    };
-
-    // for testing 
-    console.log(filteredData);
-    alert("There was a type filter");
-  };
-
-  return writeResults(filteredData);
-};
-
-
-//*******************************************************
-//*******************************************************
-//** Functions to Publish Search Data to result page ***
-//*******************************************************
-//*******************************************************
-function writeResults(printableData) {
-
-	const container = document.querySelector('#container');
-	alert("About to print...");	// for testing
-
-	if (printableData.length >= 1) {
-		let i = 0;
-		printableData.forEach((element) => {
-			i++;
-			let elementdiv = document.createElement("div");
-      elementdiv.innerHTML = `
-        <b>#${i} ${element.Name}</b><br/>
-        &nbsp; ${element.Address},<br />
-        &nbsp; ${element.State}, ${element.ZipCode}<br />
-        &nbsp; Phone : ${element.Phone}<br />
-        &nbsp; Email : ${element.Email}<br />
-        &nbsp; Type : ${element.Type} &nbsp; &nbsp; Style : ${element.Style}<br />
-        &nbsp; Distance : ${element.Distance}<br />
-			`;
-
-			container.appendChild(elementdiv);
-		});
-
-	} else {
-		alert("Nothing to print");
-	    // container.innerHTML = `
-	    //   <div>
-	    //     There seems to be no data for this search. We are very sorry. Please try a different search combination. <br />
-	    //   </div>
-	    // `;
-	};
-};
-

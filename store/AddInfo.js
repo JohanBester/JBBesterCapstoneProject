@@ -1,3 +1,3 @@
 export default {
-    view: "AddInfo"
+    page: "AddInfo"
 };
