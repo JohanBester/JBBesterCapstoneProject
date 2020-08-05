@@ -121,26 +121,56 @@ function addButtonsEventListener() {
 //**  Get the FMA JSON Data from the data source file  ***
 //********************************************************
 //********************************************************
-
 let databaseData = [];  // for the FMA DB data
-importJSON();	// import JSON data
+importDBJSON();	// import JSON data
 
 // Function To import the JSON data from a file
 //=============================================
-function importJSON() {
+function importDBJSON() {
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/FMAData.json').then(
     response => {
       return response.json();
     }).then(data => {
         // Work with JSON data here...
         databaseData = data;
+        console.log("dbData holds... " + data);
         // console.log("databaseData holds... " + databaseData);
       }
     )
     .catch(err => {
         // What to do when the request fails
-        alert("We are sorry, something seems to have gone wrong. please try your search again.");
-        console.log('The data load request failed!');
+        alert("We are sorry, something went wrong with the DBdata import. please try your search again.");
+        console.log('The DBdata load request failed!');
+        console.log('error', err);
+        return location.reload();
+      });
+};
+
+//********************************************************
+//********************************************************
+//**  Get the ZIP JSON Data from the data source file  ***
+//********************************************************
+//********************************************************
+let zipData = [];  // for the FMA DB data
+importZIPJSON();	// import JSON data
+
+// Function To import the JSON data from a file
+//=============================================
+function importZIPJSON() {
+  fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/ZIPdata.json').then(
+    response => {
+      return response.json();
+    }).then(data => {
+        // Work with JSON data here...
+        zipData = data;
+        console.log("zipData holds... " + data);
+        // console.log("zipData holds... " + zipData);
+      }
+    )
+    .catch(err => {
+        // What to do when the request fails
+        alert("We are sorry, something went wrong with the ZIPdata import. please try your search again.");
+        console.log('The ZIPdata load request failed!');
         console.log('error', err);
         return location.reload();
       });
@@ -152,7 +182,6 @@ function importJSON() {
 //***  Search and Search filter options  *****
 //********************************************
 //********************************************
-
 let zipCode = "62025";
 let stateCode = "";
 let stateText = "";
@@ -179,7 +208,8 @@ function zipcodeSearch() {
   // Test what variables are captured
   // alert(`Zip Code = ${zipCode}, type = ${type}, and filter = ${filter}`);
 
-  compareTheData(tempDBdata, demoAPIdata);  // for testing only
+  compareTheData(databaseData, zipData);  // for testing only
+  // compareTheData(tempDBdata, demoAPIdata);  // for testing only
 
   // return getZipCodeData(zipCode, radius);  // with default radius value
 };
@@ -290,7 +320,7 @@ function getZipCodeData(zipCode = 62025, radius = 50) {
 
 let comparedData = [];  // To hold comparison API and DB data
 
-// function to Compare API and DB data
+// function to Compare ZIPcode and DB data
 //=====================================
 function compareTheData(dbData, apiData) {
   apiData.forEach((apiItem) => {
@@ -310,7 +340,7 @@ function compareTheData(dbData, apiData) {
     }
   });
 
-  // console.log(comparedData);	// for testing
+  console.log(comparedData);	// for testing
 
   if (comparedData.length >= 1) {
   	// check if filtering is needed?
@@ -321,6 +351,7 @@ function compareTheData(dbData, apiData) {
   };
 };
 
+compareTheData(databaseData, zipData);  // for testing only
 // compareTheData(tempDBdata, demoAPIdata);  // for testing only
 
 //**********************************************
@@ -484,223 +515,230 @@ function writeResults(printableData) {
 	};
 };
 
+
 // Interim Example DEMO data from API
-let demoAPIdata = [
-  {
-    "ZipCode": "62025",
-    "City": "EDWARDSVILLE",
-    "State": "IL",
-    "Latitude": 38.855130000000,
-    "Longitude": -89.948168000000,
-    "County": "MADISON"
-  },
-  {
-    "ZipCode": "99603",
-    "City": "Homer",
-    "State": "Alaska",
-  },
-  {
-    "ZipCode": "85345",
-    "City": "Peoria",
-    "State": "Arizona",
-  },
-  {
-    "ZipCode": "85629",
-    "City": "Sahuarita",
-    "State": "Arizona",
-  },
-  {
-    "ZipCode": "62026",
-    "City": "EDWARDSVILLE",
-    "State": "Alabama",
-    "Latitude": 38.793699000000,
-    "Longitude": -89.998742000000,
-    "County": "MADISON",
-    "Distance": 3.04
-  },
-  {
-    "ZipCode": "62067",
-    "City": "MORO",
-    "State": "IL",
-    "Latitude": 38.932644000000,
-    "Longitude": -89.990069000000,
-    "County": "MADISON",
-    "Distance": 4.80
-  },
-  {
-    "ZipCode": "62084",
-    "City": "ROXANA",
-    "State": "IL",
-    "Latitude": 38.844700000000,
-    "Longitude": -90.062498000000,
-    "County": "MADISON",
-    "Distance": 6.21
-  },
-  {
-    "ZipCode": "62046",
-    "City": "HAMEL",
-    "State": "IL",
-    "Latitude": 38.894509000000,
-    "Longitude": -89.843514000000,
-    "County": "MADISON",
-    "Distance": 6.26
-  },
-  {
-    "ZipCode": "62087",
-    "City": "SOUTH ROXANA",
-    "State": "IL",
-    "Latitude": 38.819596000000,
-    "Longitude": -90.058492000000,
-    "County": "MADISON",
-    "Distance": 6.44
-  },
-  {
-    "ZipCode": "62097",
-    "City": "WORDEN",
-    "State": "IL",
-    "Latitude": 38.921846000000,
-    "Longitude": -89.863757000000,
-    "County": "MADISON",
-    "Distance": 6.47
-  },
-  {
-    "ZipCode": "62034",
-    "City": "GLEN CARBON",
-    "State": "IL",
-    "Latitude": 38.756532000000,
-    "Longitude": -89.957127000000,
-    "County": "MADISON",
-    "Distance": 6.82
-  },
-  {
-    "ZipCode": "62095",
-    "City": "WOOD RIVER",
-    "State": "IL",
-    "Latitude": 38.863044000000,
-    "Longitude": -90.079284000000,
-    "County": "MADISON",
-    "Distance": 7.09
-  },
-  {
-    "ZipCode": "62024",
-    "City": "EAST ALTON",
-    "State": "IL",
-    "Latitude": 38.843500000000,
-    "Longitude": -90.079158000000,
-    "County": "MADISON",
-    "Distance": 7.11
-  },
-  {
-    "ZipCode": "62048",
-    "City": "HARTFORD",
-    "State": "IL",
-    "Latitude": 38.825435000000,
-    "Longitude": -90.088177000000,
-    "County": "MADISON",
-    "Distance": 7.83
-  },
-  {
-    "ZipCode": "62010",
-    "City": "BETHALTO",
-    "State": "IL",
-    "Latitude": 38.933678000000,
-    "Longitude": -90.057447000000,
-    "County": "MADISON",
-    "Distance": 8.00
-  },
-  {
-    "ZipCode": "62018",
-    "City": "COTTAGE HILLS",
-    "State": "IL",
-    "Latitude": 38.909374000000,
-    "Longitude": -90.086380000000,
-    "County": "MADISON",
-    "Distance": 8.34
-  },
-  {
-    "ZipCode": "62021",
-    "City": "DORSEY",
-    "State": "IL",
-    "Latitude": 38.981897000000,
-    "Longitude": -89.977118000000,
-    "County": "MADISON",
-    "Distance": 8.88
-  },
-  {
-    "ZipCode": "62062",
-    "City": "MARYVILLE",
-    "State": "IL",
-    "Latitude": 38.725739000000,
-    "Longitude": -89.965984000000,
-    "County": "MADISON",
-    "Distance": 8.98
-  },
-  {
-    "ZipCode": "62061",
-    "City": "MARINE",
-    "State": "IL",
-    "Latitude": 38.786202000000,
-    "Longitude": -89.794306000000,
-    "County": "MADISON",
-    "Distance": 39.57
-  },
-  {
-    "ZipCode": "62294",
-    "City": "TROY",
-    "State": "IL",
-    "Latitude": 38.702961000000,
-    "Longitude": -89.878857000000,
-    "County": "MADISON",
-    "Distance": 11.14
-  },
-  {
-    "ZipCode": "62234",
-    "City": "COLLINSVILLE",
-    "State": "IL",
-    "Latitude": 38.691315000000,
-    "Longitude": -89.970639000000,
-    "County": "MADISON",
-    "Distance": 111.36
-  },
-  {
-    "ZipCode": "62001",
-    "City": "ALHAMBRA",
-    "State": "IL",
-    "Latitude": 38.881021000000,
-    "Longitude": -89.739585000000,
-    "County": "MADISON",
-    "Distance": 12.39
-  },
-  {
-    "ZipCode": "62002",
-    "City": "ALTON",
-    "State": "IL",
-    "Latitude": 38.939095000000,
-    "Longitude": -90.132125000000,
-    "County": "MADISON",
-    "Distance": 11.48
-  },
-  {
-    "ZipCode": "62040",
-    "City": "GRANITE CITY",
-    "State": "IL",
-    "Latitude": 38.732317000000,
-    "Longitude": -90.106957000000,
-    "County": "MADISON",
-    "Distance": 22.05
-  }
-];
-// {
-//   "ZipCode": "62026",
-//   "City": "EDWARDSVILLE",
-//   "State": "IL",
-//   "Latitude": 38.793699000000,
-//   "Longitude": -89.998742000000,
-//   "County": "MADISON",
-//   "Distance": 5.04
-// },
+//-------------------------------------
+// let demoAPIdata = [
+//   {
+//     "ZipCode": "62025",
+//     "City": "EDWARDSVILLE",
+//     "State": "IL",
+//     "Latitude": 38.855130000000,
+//     "Longitude": -89.948168000000,
+//     "County": "MADISON"
+//   },
+//   {
+//     "ZipCode": "99603",
+//     "City": "Homer",
+//     "State": "Alaska",
+//   },
+//   {
+//     "ZipCode": "85345",
+//     "City": "Peoria",
+//     "State": "Arizona",
+//   },
+//   {
+//     "ZipCode": "85629",
+//     "City": "Sahuarita",
+//     "State": "Arizona",
+//   },
+//   {
+//     "ZipCode": "62026",
+//     "City": "EDWARDSVILLE",
+//     "State": "Alabama",
+//     "Latitude": 38.793699000000,
+//     "Longitude": -89.998742000000,
+//     "County": "MADISON",
+//     "Distance": 3.04
+//   },
+//   {
+//     "ZipCode": "62067",
+//     "City": "MORO",
+//     "State": "IL",
+//     "Latitude": 38.932644000000,
+//     "Longitude": -89.990069000000,
+//     "County": "MADISON",
+//     "Distance": 4.80
+//   },
+//   {
+//     "ZipCode": "62084",
+//     "City": "ROXANA",
+//     "State": "IL",
+//     "Latitude": 38.844700000000,
+//     "Longitude": -90.062498000000,
+//     "County": "MADISON",
+//     "Distance": 6.21
+//   },
+//   {
+//     "ZipCode": "62046",
+//     "City": "HAMEL",
+//     "State": "IL",
+//     "Latitude": 38.894509000000,
+//     "Longitude": -89.843514000000,
+//     "County": "MADISON",
+//     "Distance": 6.26
+//   },
+//   {
+//     "ZipCode": "62087",
+//     "City": "SOUTH ROXANA",
+//     "State": "IL",
+//     "Latitude": 38.819596000000,
+//     "Longitude": -90.058492000000,
+//     "County": "MADISON",
+//     "Distance": 6.44
+//   },
+//   {
+//     "ZipCode": "62097",
+//     "City": "WORDEN",
+//     "State": "IL",
+//     "Latitude": 38.921846000000,
+//     "Longitude": -89.863757000000,
+//     "County": "MADISON",
+//     "Distance": 6.47
+//   },
+//   {
+//     "ZipCode": "62034",
+//     "City": "GLEN CARBON",
+//     "State": "IL",
+//     "Latitude": 38.756532000000,
+//     "Longitude": -89.957127000000,
+//     "County": "MADISON",
+//     "Distance": 6.82
+//   },
+//   {
+//     "ZipCode": "62095",
+//     "City": "WOOD RIVER",
+//     "State": "IL",
+//     "Latitude": 38.863044000000,
+//     "Longitude": -90.079284000000,
+//     "County": "MADISON",
+//     "Distance": 7.09
+//   },
+//   {
+//     "ZipCode": "62024",
+//     "City": "EAST ALTON",
+//     "State": "IL",
+//     "Latitude": 38.843500000000,
+//     "Longitude": -90.079158000000,
+//     "County": "MADISON",
+//     "Distance": 7.11
+//   },
+//   {
+//     "ZipCode": "62048",
+//     "City": "HARTFORD",
+//     "State": "IL",
+//     "Latitude": 38.825435000000,
+//     "Longitude": -90.088177000000,
+//     "County": "MADISON",
+//     "Distance": 7.83
+//   },
+//   {
+//     "ZipCode": "62010",
+//     "City": "BETHALTO",
+//     "State": "IL",
+//     "Latitude": 38.933678000000,
+//     "Longitude": -90.057447000000,
+//     "County": "MADISON",
+//     "Distance": 8.00
+//   },
+//   {
+//     "ZipCode": "62018",
+//     "City": "COTTAGE HILLS",
+//     "State": "IL",
+//     "Latitude": 38.909374000000,
+//     "Longitude": -90.086380000000,
+//     "County": "MADISON",
+//     "Distance": 8.34
+//   },
+//   {
+//     "ZipCode": "62021",
+//     "City": "DORSEY",
+//     "State": "IL",
+//     "Latitude": 38.981897000000,
+//     "Longitude": -89.977118000000,
+//     "County": "MADISON",
+//     "Distance": 8.88
+//   },
+//   {
+//     "ZipCode": "62062",
+//     "City": "MARYVILLE",
+//     "State": "IL",
+//     "Latitude": 38.725739000000,
+//     "Longitude": -89.965984000000,
+//     "County": "MADISON",
+//     "Distance": 8.98
+//   },
+//   {
+//     "ZipCode": "62061",
+//     "City": "MARINE",
+//     "State": "IL",
+//     "Latitude": 38.786202000000,
+//     "Longitude": -89.794306000000,
+//     "County": "MADISON",
+//     "Distance": 39.57
+//   },
+//   {
+//     "ZipCode": "62294",
+//     "City": "TROY",
+//     "State": "IL",
+//     "Latitude": 38.702961000000,
+//     "Longitude": -89.878857000000,
+//     "County": "MADISON",
+//     "Distance": 11.14
+//   },
+//   {
+//     "ZipCode": "62234",
+//     "City": "COLLINSVILLE",
+//     "State": "IL",
+//     "Latitude": 38.691315000000,
+//     "Longitude": -89.970639000000,
+//     "County": "MADISON",
+//     "Distance": 111.36
+//   },
+//   {
+//     "ZipCode": "62001",
+//     "City": "ALHAMBRA",
+//     "State": "IL",
+//     "Latitude": 38.881021000000,
+//     "Longitude": -89.739585000000,
+//     "County": "MADISON",
+//     "Distance": 12.39
+//   },
+//   {
+//     "ZipCode": "62002",
+//     "City": "ALTON",
+//     "State": "IL",
+//     "Latitude": 38.939095000000,
+//     "Longitude": -90.132125000000,
+//     "County": "MADISON",
+//     "Distance": 11.48
+//   },
+//   {
+//     "ZipCode": "62040",
+//     "City": "GRANITE CITY",
+//     "State": "IL",
+//     "Latitude": 38.732317000000,
+//     "Longitude": -90.106957000000,
+//     "County": "MADISON",
+//     "Distance": 22.05
+//   }
+// ];
+
 
 // Interim Example FMA data from DB
+//------------------------------------
+// {
+//   "Name": "Dynamic Mixed martial Arts - Mr. Brendan Neal",
+//   "Address": "1324 Essec Drive, Edwardsville",
+//   "ZipCode": "62025",
+//   "State": "Illinois",
+//   "Phone": "[618] 679-9713",
+//   "Email": "Email",
+//   "Web URL": "www.edwardsvilleymca.com",
+//   "Type": "Club",
+//   "Style": "Escrima"
+// },
+
 let tempDBdata = [
   {
     "Name": "Dynamic Mixed martial Arts - Mr. Brendan Neal",
@@ -923,14 +961,3 @@ let tempDBdata = [
     "Style": ""
   }
 ];
-// {
-//   "Name": "Dynamic Mixed martial Arts - Mr. Brendan Neal",
-//   "Address": "1324 Essec Drive, Edwardsville",
-//   "ZipCode": "62025",
-//   "State": "Illinois",
-//   "Phone": "[618] 679-9713",
-//   "Email": "Email",
-//   "Web URL": "www.edwardsvilleymca.com",
-//   "Type": "Club",
-//   "Style": "Escrima"
-// },
