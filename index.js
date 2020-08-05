@@ -4,9 +4,11 @@
 import { Header, Main, Footer } from "./components";
 import * as state from "./store"
 
-// NAVIGO AND LODASH
+// NAVIGO, LODASH, and AXIOS
 import Navigo from "navigo";
 import { capitalize } from "lodash";
+import axios from "axios";
+
 // Navigo Router
 const router = new Navigo(location.origin);
 router.on({
@@ -254,21 +256,17 @@ function searchBarSubmit() {
 // Steps to GET Zip Code Data from API
 //***************************************
 //***************************************
-// getZipCodeData(zipCode, radius);  // this is temp for testing
+//  getZipCodeData(zipCode, radius);  // this is temp for testing
 
 let returnedAPIdata = [];  // API Return data
 
 // Get the API data with a API call
 // Radius default value set to 50 miles
 function getZipCodeData(zipCode = 62025, radius = 50) {
-  let requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
-  fetch(`https://api.zip-codes.com/ZipCodesAPI.svc/1.0/FindZipCodesInRadius?zipcode=${zipCode}&minimumradius=0&maximumradius=${radius}&key=XGSIV5GV93YJPD7VVM8G`, requestOptions)
-    .then(response => response.json())
+  axios.get(`https://api.zip-codes.com/ZipCodesAPI.svc/1.0/FindZipCodesInRadius?zipcode=${zipCode}&minimumradius=0&maximumradius=${radius}&key=XGSIV5GV93YJPD7VVM8G`)
     .then(results => {
-      returnedAPIdata = results.DataList;
+      returnedAPIdata = results.data;
+      // console.log(results.data);
       // console.log("returnedAPIdata holds... " + returnedAPIdata);
       return compareTheData(databaseData, returnedAPIdata);
       }
@@ -277,8 +275,9 @@ function getZipCodeData(zipCode = 62025, radius = 50) {
         // What to do when the request fails
         alert ("There seems to have been a problem with this search. Kindly please try that again.");
         console.log('The API request failed!');
-        console.log('error', err);
-        return location.reload();}
+        console.log('Error', err);
+        // return location.reload();
+      }
       );
 };
 
