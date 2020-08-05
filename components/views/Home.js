@@ -31,7 +31,9 @@ export default () => `
             </div>
         </form>
 
-        <div id="hpAddInfoButton" class="addInfo"></div>
+        <div id="hpAddInfoButton" class="addInfo">
+    	  <a href="AddInfo.html">Click here to ADD a club, group, school or event</a> 
+        </div>
 
         <br/>
     </div>

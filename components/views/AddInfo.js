@@ -135,6 +135,8 @@ export default () => `
     </form>
     <br/>
 
+    <div id="hpAddInfoButton" class="addInfo" style="display: none;"></div>
+
     </div>
 </main>
 `;

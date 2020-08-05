@@ -21,6 +21,9 @@ export default () => `
             <p>Copyright © Fun Finder Applications, Illinois, USA. 2020. All Rights Reserved.</p>
             <br>  
         </div>
+
+        <div id="hpAddInfoButton" class="addInfo" style="display: none;"></div>
+        
     </div>
 </main>
 `;

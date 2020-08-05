@@ -31,6 +31,7 @@ function render(st = state.Home) {
   router.updatePageLinks();
 
   addBannerEventListener();
+  addInfoEventListener()
   addDisclaimerEventListener();
   addButtonsEventListener()
 };
@@ -61,15 +62,10 @@ function buildRandomURL(imageNames, imageURL) {
   randomURL = imageURL + randomName + "?raw=true";
   return randomURL;
 };
-
 buildRandomURL(imageNames, imageURL);
 
 document.querySelector('.addOrImage').innerHTML = `
   <img id="imgFMAfighters" src="${randomURL}" alt="General Filipino martial Artists images about Arnis, Escrima, and Kali."/>
-`;
-
-document.querySelector('#hpAddInfoButton').innerHTML = `
-  <a href="AddInfo.html">Click here to ADD a club, group, school or event</a>
 `;
 
 
@@ -91,10 +87,19 @@ function addBannerEventListener() {
   );
 };
 
+//====================
+// main area clicks
+//====================
+function addInfoEventListener() {
+  document.querySelector('#hpAddInfoButton').addEventListener("click", event => {
+    event.preventDefault();
+    render(state.AddInfo);
+  });
+};
 
 //====================
 // Footer navigation
-//====================  #disclaimers > a
+//====================
 function addDisclaimerEventListener() {
   document.querySelector("#disclaimers > a").addEventListener("click", event => {
     event.preventDefault();
@@ -109,7 +114,7 @@ function addButtonsEventListener() {
       event.preventDefault();
       let linkText = capitalize(event.target.text);
       let pieceOfState = state[linkText];
-      console.log(pieceOfState);  // testing only
+      // console.log(pieceOfState);  // testing only
       render(pieceOfState);
     })
   );
@@ -121,60 +126,52 @@ function addButtonsEventListener() {
 //**  Get the FMA JSON Data from the data source file  ***
 //********************************************************
 //********************************************************
-let databaseData = [];  // for the FMA DB data
-importDBJSON();	// import JSON data
-
-// Function To import the JSON data from a file
-//=============================================
-function importDBJSON() {
-  fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/FMAData.json').then(
-    response => {
-      return response.json();
-    }).then(data => {
-        // Work with JSON data here...
-        databaseData = data;
-        console.log("dbData holds... " + data);
-        // console.log("databaseData holds... " + databaseData);
+let fmadbData = [];  // for the FMA DB data
+(function importDBJSON() {
+  fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/FMAData.json')
+  .then(response => response.json())
+  .then(response => {
+    fmadbData = response; // save JSON data here...
+        // for testing only
+        // console.log(response);
+        // console.log(fmadbData);
       }
     )
     .catch(err => {
         // What to do when the request fails
-        alert("We are sorry, something went wrong with the DBdata import. please try your search again.");
+        alert("Error with the DBdata import. please try your search again.");
         console.log('The DBdata load request failed!');
         console.log('error', err);
-        return location.reload();
+        // return location.reload();
       });
-};
+}) ();
+// importDBJSON();
 
 //********************************************************
 //********************************************************
 //**  Get the ZIP JSON Data from the data source file  ***
 //********************************************************
 //********************************************************
-let zipData = [];  // for the FMA DB data
-importZIPJSON();	// import JSON data
-
-// Function To import the JSON data from a file
-//=============================================
-function importZIPJSON() {
-  fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/ZIPdata.json').then(
-    response => {
-      return response.json();
-    }).then(data => {
-        // Work with JSON data here...
-        zipData = data;
-        console.log("zipData holds... " + data);
-        // console.log("zipData holds... " + zipData);
+let tempzipData = [];  // for the ZIP Code data
+(function importZIPJSON() {
+  fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/ZIPdata.json')
+  .then(response => response.json())
+  .then(response => {
+    tempzipData = response;  // save JSON data here...
+        // For testing only
+        // console.log(response);
+        // console.log(tempzipData);
       }
     )
     .catch(err => {
         // What to do when the request fails
-        alert("We are sorry, something went wrong with the ZIPdata import. please try your search again.");
+        alert("Error with the ZIPdata import. please try your search again.");
         console.log('The ZIPdata load request failed!');
         console.log('error', err);
-        return location.reload();
+        // return location.reload();
       });
-};
+}) ();
+// importZIPJSON();
 
 
 //********************************************
@@ -206,9 +203,9 @@ function zipcodeSearch() {
   };
 
   // Test what variables are captured
-  // alert(`Zip Code = ${zipCode}, type = ${type}, and filter = ${filter}`);
+   alert(`Zip Code = ${zipCode}, type = ${type}, and filter = ${filter}`);
 
-  compareTheData(databaseData, zipData);  // for testing only
+  compareTheData(fmadbData, tempzipData);  // for testing only
   // compareTheData(tempDBdata, demoAPIdata);  // for testing only
 
   // return getZipCodeData(zipCode, radius);  // with default radius value
@@ -261,17 +258,17 @@ function searchBarSubmit() {
   alert(`variables ... ${zipCode} -  ${stateCode} - ${stateText} - ${radius} - ${type} - ${style} - ${filter}`);
 
   if (newZipSearch == true) {
-    alert("New API search needed");  // for testing only
+    console.log("New API search needed");  // for testing only
     // Get new zip code search data from the API
     // return getZipCodeData(zipCode, radius);
 
   } else if (newRadiusSearch == true) {
-	alert("Smaller radius needed");  // for testing only
+	console.log("Smaller radius needed");  // for testing only
 	// if smaller radius data is needed
 	return smallerRadius(comparedData);
 
   } else if (filter == true) {
-	alert("Filtering needed - Filter = " + filter);  // for testing only
+	console.log("Filtering needed - Filter = " + filter);  // for testing only
 	// only data filtering is needed
 	return filterData(comparedData);
 
@@ -281,16 +278,14 @@ function searchBarSubmit() {
   };
 };
 
+
 //***************************************
 //***************************************
 // Steps to GET Zip Code Data from API
 //***************************************
 //***************************************
-//  getZipCodeData(zipCode, radius);  // this is temp for testing
-
 let returnedAPIdata = [];  // API Return data
 
-// Get the API data with a API call
 // Radius default value set to 50 miles
 function getZipCodeData(zipCode = 62025, radius = 50) {
   axios.get(`https://api.zip-codes.com/ZipCodesAPI.svc/1.0/FindZipCodesInRadius?zipcode=${zipCode}&minimumradius=0&maximumradius=${radius}&key=XGSIV5GV93YJPD7VVM8G`)
@@ -298,13 +293,13 @@ function getZipCodeData(zipCode = 62025, radius = 50) {
       returnedAPIdata = results.data;
       // console.log(results.data);
       // console.log("returnedAPIdata holds... " + returnedAPIdata);
-      return compareTheData(databaseData, returnedAPIdata);
+      return compareTheData(dbData, returnedAPIdata);
       }
     )
     .catch(err => {
         // What to do when the request fails
-        alert ("There seems to have been a problem with this search. Kindly please try that again.");
-        console.log('The API request failed!');
+        alert ("There seems to been a problem with this search. Kindly please try that again.");
+        console.log('The Axios API request failed!');
         console.log('Error', err);
         // return location.reload();
       }
@@ -317,18 +312,18 @@ function getZipCodeData(zipCode = 62025, radius = 50) {
 //**  functions to COMPARE Data in the Datasets  ***
 //**************************************************
 //**************************************************
-
 let comparedData = [];  // To hold comparison API and DB data
 
-// function to Compare ZIPcode and DB data
-//=====================================
-function compareTheData(dbData, apiData) {
-  apiData.forEach((apiItem) => {
-    for(let i=0; i <= dbData.length-1; i++) {
-      if (apiItem.ZipCode === dbData[i].ZipCode) {
-        let tempItem = (dbData[i]);
+function compareTheData(dbData, zipData) {
+  console.log(dbData, zipData);
 
-        // Pull in the distance from target item into data collection
+  zipData.forEach((zipItem) => {
+
+    for(let i=0; i <= dbData.length-1; i++) {
+      if (zipItem.ZipCode === dbData[i].ZipCode) {
+        let tempItem = (dbData[i]);
+        console.log(dbData[i])
+        // Pull the distance from target into data collection
         if (!apiItem.Distance) {
           tempItem.Distance = "Only a mile or so";
         } else {
@@ -338,21 +333,25 @@ function compareTheData(dbData, apiData) {
         comparedData.push(tempItem);
       }
     }
+    return console.log("ComparedData = " + comparedData);	// for testing
   });
 
-  console.log(comparedData);	// for testing
+  console.log("ComparedData = " + comparedData);	// for testing
 
   if (comparedData.length >= 1) {
   	// check if filtering is needed?
     (filter ? filterData(comparedData) : writeResults(comparedData));
+
   } else {
-    alert("There seems to have been a problem with this search. Kindly please try that again.");
+    alert("Error with this search. Please try that again.");
+    console.log("Problem in compareTheData function - comparedData is empty");
     // return location.reload();
   };
 };
 
-compareTheData(databaseData, zipData);  // for testing only
+// compareTheData(fmadbData, tempzipData);  // for testing only
 // compareTheData(tempDBdata, demoAPIdata);  // for testing only
+
 
 //**********************************************
 //**********************************************
@@ -373,13 +372,14 @@ function smallerRadius(dataSet) {
 
   // for testing only
   console.log(newRadiusData);
-  alert("Reduced radius calculated");
+  console.log("Reduced radius calculated");
 
   if (newRadiusData.length >= 1) {
   	// check if filtering is needed?
     (filter ? filterData(newRadiusData) : writeResults(newRadiusData));
   } else {
     alert("There seems to have been a problem with this search. Kindly please try that again.");
+    console.log("Error in smallerRadius function");
     // return location.reload();
   };
 };
@@ -401,7 +401,7 @@ let filteredData = [];
 // function to filter data to user preferences
 //=============================================
 function filterData(zipAndRadiusData) {
-  alert("Filtering the data ...");	// for testing only
+  console.log("Filtering the data ...");	// for testing only
   
   let stateData = [];
   let styleData = [];
@@ -506,6 +506,7 @@ function writeResults(printableData) {
 		});
 
 	} else {
+    console.log("there was an error in writeResults function");
 		alert("Nothing to print");
 	    // container.innerHTML = `
 	    //   <div>
