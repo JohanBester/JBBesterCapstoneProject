@@ -4,10 +4,10 @@
 import { Header, Main, Footer } from "./components";
 import * as state from "./store"
 
-// ADD NAVIGO AND LODASH
+// NAVIGO AND LODASH
 import Navigo from "navigo";
 import { capitalize } from "lodash";
-
+// Navigo Router
 const router = new Navigo(location.origin);
 router.on({
   "/": () => render(state.Home),
@@ -19,7 +19,7 @@ router.on({
   }
 }).resolve();
 
-
+// Render SPA
 function render(st = state.Home) {
   document.querySelector("#root").innerHTML = `
   ${Header()}
@@ -32,7 +32,6 @@ function render(st = state.Home) {
   addDisclaimerEventListener();
   addButtonsEventListener()
 };
-
 render(state.Home);
 
 
@@ -41,37 +40,6 @@ render(state.Home);
 //*** Build Reusable HTML Components ***
 //**************************************
 //**************************************
-
-// build Header  (no longer needed for SPA)
-//=================
-// document.querySelector('.fixed-header').innerHTML = `
-// <header class="fixed-header">
-//     <a href="./index.html"><img class="logo" src="https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/IMAGES/FMAlogo.jpg?raw=true" /></a>
-//     <div class="appname">
-//         <a href="./index.html">
-//             <span class="appname1">STIX </span>
-//             <span class="appname2">FMA Fun Finder</span>
-//         </a>
-//     </div>
-// </header>
-// `;
-
-// build the footer  (no longer needed for SPA)
-//====================
-// document.querySelector('.fixed-footer').innerHTML = `
-// 	<div id="disclaimers">
-//       <a href="disclaimers.html">
-//         <h6 class="disTop">Disclaimer:</h6>
-//         <p class="disText">Click here to read the FMA disclaimers. Copyright © Fun Finder Applications, Illinois, USA. 2020. All Rights Reserved.</p>
-//       </a>
-//     </div>
-//     <div id="navButtons">
-//         <button id="btnAbout" class="btnStyled" type="button"><a href="./about.html">ABOUT</a></button>
-//         <button id="btnHome" class="btnStyled" type="button"><a href="./index.html">HOME</a></button>
-//         <button id="btnContact" class="btnStyled" type="button"><a href="./contact.html">CONTACT</a></button>
-//     </div>
-// `;
-
 
 // generate a Random Image for the side panel
 //=============================================
