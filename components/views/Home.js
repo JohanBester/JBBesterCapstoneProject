@@ -13,8 +13,7 @@ export default () => `
             <div class="form-group">
             <label id="search-label" for="zipSearch">Zip Code <span class="required">*</span></label>
             <input type="text" name="zipSearch" id="zipSearch" class="form-control" placeholder="Enter Zip Code Here" required>
-            <!-- <button type="submit" id="search" class="btnStyled submit-button" >Search</button> -->
-            <button type="submit" id="search" class="btnStyled submit-button" onclick="zipcodeSearch()">Search</button>
+            <button type="submit" id="hpSearchBtn" class="btnStyled submit-button">Search</button>
             </div>
 
             <div id="options" class="form-group">

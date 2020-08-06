@@ -16,12 +16,12 @@ export default () => `
             
             <div class="form-group right">
                 <label id="email-label" for="email">Email <span class="required">*</span></label>
-                <input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" placeholder="Enter your email address" required>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email address" required>
             </div>
             
             <div class="form-group right">
                 <label id="phone-label" for="phone">Phone (Optional)&nbsp;</label>
-                <input type="tel" name="phone" id="phone" pattern="\d{3}[\-]\d{3}[\-]\d{4}" class="form-control" placeholder="Enter number 123-465-7980">
+                <input type="tel" name="phone" id="phone" class="form-control" placeholder="Enter number 123-465-7980">
             </div>
             
             <div class="form-group right">

@@ -2,6 +2,7 @@
 // ***SPA Components ***
 //**********************
 import { Header, Main, Footer } from "./components";
+import { FMAdata, ZIPdata} from "./lib";
 import * as state from "./store"
 
 // NAVIGO, LODASH, and AXIOS
@@ -31,9 +32,11 @@ function render(st = state.Home) {
   router.updatePageLinks();
 
   addBannerEventListener();
-  addInfoEventListener()
+  addInfoEventListener();
   addDisclaimerEventListener();
-  addButtonsEventListener()
+  addButtonsEventListener();
+  addZipSearchBtnListener(st);
+    
 };
 render(state.Home);
 
@@ -90,6 +93,14 @@ function addBannerEventListener() {
 //====================
 // main area clicks
 //====================
+function addZipSearchBtnListener(st) {
+  if (st == state.Home) {
+    document.querySelector('#hpSearchBtn').addEventListener("click", event => {
+      zipCodeSearch();
+    });  
+  };
+};
+
 function addInfoEventListener() {
   document.querySelector('#hpAddInfoButton').addEventListener("click", event => {
     event.preventDefault();
@@ -127,6 +138,8 @@ function addButtonsEventListener() {
 //********************************************************
 //********************************************************
 let fmadbData = [];  // for the FMA DB data
+
+
 (function importDBJSON() {
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/FMAData.json')
   .then(response => response.json())
@@ -145,7 +158,6 @@ let fmadbData = [];  // for the FMA DB data
         // return location.reload();
       });
 }) ();
-// importDBJSON();
 
 //********************************************************
 //********************************************************
@@ -171,7 +183,6 @@ let tempzipData = [];  // for the ZIP Code data
         // return location.reload();
       });
 }) ();
-// importZIPJSON();
 
 
 //********************************************
@@ -179,7 +190,7 @@ let tempzipData = [];  // for the ZIP Code data
 //***  Search and Search filter options  *****
 //********************************************
 //********************************************
-let zipCode = "62025";
+let zipCode = "";
 let stateCode = "";
 let stateText = "";
 let radius = "50";
@@ -192,22 +203,29 @@ let filter = false
 
 // function for home page form
 //=============================
-function zipcodeSearch() {
-  // get user zip code input
-  zipCode = document.getElementById("zipSearch").value;
-
+function zipCodeSearch() {
+  
   // get user radio button selection on home page
   type = form.querySelector('input[name="selectOptions"]:checked').value;
   if (type !== "all") {
     filter = true;
   };
 
+  // get user zip code input
+  let userZipCode = document.getElementById("zipSearch").value;
+  if (userZipCode == "") {
+    // alert("A Zip Code Is required");
+    return
+  } else {
+    ZipCode = userZipCode;
+  };
+
   // Test what variables are captured
-   alert(`Zip Code = ${zipCode}, type = ${type}, and filter = ${filter}`);
+  alert(`Zip Code = ${zipCode}, type = ${type}, and filter = ${filter}`);
 
-  compareTheData(fmadbData, tempzipData);  // for testing only
-  // compareTheData(tempDBdata, demoAPIdata);  // for testing only
-
+  return compareTheData(fmadbData, tempzipData);  // for testing only
+  
+  // return compareTheData(tempDBdata, demoAPIdata);  // for testing only
   // return getZipCodeData(zipCode, radius);  // with default radius value
 };
 
