@@ -97,7 +97,7 @@ export default () => `
             </select>
         </div>
         <div >
-            <button type="submit" id="btnSearch" class="btnStyled" onclick="searchBarSubmit()">Search</button>
+            <button type="submit" id="btnFilterSearch" class="btnStyled" onclick="searchBarSubmit()">Search</button>
         </div>
     </form>
 
