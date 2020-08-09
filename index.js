@@ -12,7 +12,8 @@ import axios from "axios";
 // Navigo Router
 const router = new Navigo(window.location.origin);
 
-router.on({
+router
+.on({
   "/": () => render(state.Home),
   ":page": params => {
     let page = capitalize(params.page);
@@ -35,7 +36,6 @@ function render(st = state.Home) {
   addInfoEventListener();
   addDisclaimerEventListener();
   addButtonsEventListener();
-
   addZipSearchBtnListener();
   addSearchFilterBtnListener();
     
@@ -48,31 +48,30 @@ render(state.Home);
 //**************************************
 
 // Function to generate a random number
-const randomNumber = function (min, max) {
+const randomNumber = (min, max) => {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
 // Function to build random image URL
-let randomURL = "";
 (function buildRandomURL() {
   let imageNames = ["FMAimages1.jpg", "FMAimages2.jpg", "FMAimages3.jpg", "FMAimages4.jpg", "FMAimages5.jpg", "FMAimages6.jpg", "FMAimages7.jpg", "FMAimages8.jpg", "FMAimages9.jpg", "FMAimages10.jpg", "FMAimages11.jpg", "FMAimages12.jpg", "FMAimages13.jpg", "FMAimages14.jpg", "FMAimages15.jpg", "FMAimages16.jpg", "FMAimages17.jpg", "FMAimages18.jpg", "FMAimages19.jpg", "FMAimages20.jpg", "FMAimages21.jpg", "FMAimages22.jpg", "FMAimages23.jpg", "FMAimages24.jpg", "FMAimages25.jpg", "FMAimages26.jpg", "FMAimages27.jpg", "FMAimages28.jpg", "FMAimages29.jpg"];
   let imageURL = "https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/FMAimages/";
-  let rand = randomNumber(1, imageNames.length);
+  let rand = randomNumber(1, imageNames.length-1);
   let randomName = imageNames[rand];
-  randomURL = imageURL + randomName + "?raw=true";
-  return randomURL;
-}) ();
-
-document.querySelector('.addOrImage').innerHTML = `
+  let randomURL = imageURL + randomName + "?raw=true";
+  // add random image to page;
+  document.querySelector('.addOrImage').innerHTML = `
   <img id="imgFMAfighters" src="${randomURL}" alt="General Filipino martial Artists images about Arnis, Escrima, and Kali."/>
 `;
+}) ();
+
 
 // Constant for Forms submit and to clear form data
 const form = document.querySelector("form");
 let formDateCollection = [];
 
-// STill to finish - Form Submissions listeners
-//==============================================
+// Still need to finish - Form Submissions listeners ???
+//=======================================================
 // form.addEventListener("submit", event => {
 //   event.preventDefault();
 //   Array.from(event.target.elements).forEach(el => {
@@ -94,9 +93,8 @@ function addBannerEventListener() {
   );
 };
 
-
-// main area clicks listeners
-//=============================
+// main area click listener for HOMEPAGE
+//=======================================
 function addZipSearchBtnListener(st) {
   if (st == state.Home) {
     document.querySelector('#hpSearchBtn').addEventListener("click", event => {
@@ -106,6 +104,8 @@ function addZipSearchBtnListener(st) {
   };
 };
 
+// main area click listener for FMAresules Page
+//==============================================
 function addSearchFilterBtnListener(st) {
   if (st == state.FMAresults) {
     document.querySelector('#btnFilterSearch').addEventListener("click", event => {
@@ -150,21 +150,19 @@ function addButtonsEventListener() {
 //********************************************************
 //**  Get the FMA JSON Data from the data source file  ***
 //********************************************************
-let fmadbData = [];  // for the FMA DB data
-
+let fmaDBdata = [];  // for the FMA DB data
 (function importDBJSON() {
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/FMAData.json')
   .then(response => response.json())
   .then(response => {
-    fmadbData = response; // save JSON data here...
-        
+    fmaDBdata = response; // save JSON data here...
         // console.log(response); // for testing only
-        // console.log(fmadbData);  // for testing only
+        // console.log(fmaDBdata);  // for testing only
       }
     )
     .catch(err => {
         // What to do when the request fails
-        alert("Error with the DBdata import. please try your search again.");
+        alert("Error with the DBdata import LINE 150. please try your search again.");
         console.log('The DBdata load request failed!');
         console.log('error', err);
         // return location.reload();
@@ -175,23 +173,21 @@ let fmadbData = [];  // for the FMA DB data
 //********************************************************
 //**  Get the ZIP JSON Data from the data source file  ***
 //********************************************************
-let tempzipData = [];  // for the ZIP Code data
-
+let tempZipData = [];  // for the ZIP Code data
 (function importZIPJSON() {
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/ZIPdata.json')
   .then(response => response.json())
   .then(response => {
-    tempzipData = response;  // save JSON data here...
-        
+    tempZipData = response;  // save JSON data here...
         // console.log(response); // For testing only
-        // console.log(tempzipData);  // For testing only
+        // console.log(tempZipData);  // For testing only
       }
     )
     .catch(err => {
         // What to do when the request fails
-        alert("Error with the ZIPdata import. please try your search again.");
-        console.log('The ZIPdata load request failed!');
-        console.log('error', err);
+        alert("Error with the ZIPdata import LINE 180. please try your search again.");
+         console.log('The ZIPdata load request failed!');
+         console.log('error', err);
         // return location.reload();
       });
 }) ();
@@ -201,20 +197,17 @@ let tempzipData = [];  // for the ZIP Code data
 //***  Search and filter options  *****
 //*************************************
 
-// function for home page form
+// function for Home Page form
 //----------------------------
 function zipCodeSearch() {
   let zipCode = "";
   let radius = "50";
-  let type = "";
   let filter = false
-  
   // get user radio button selection on home page
-  type = form.querySelector('input[name="selectOptions"]:checked').value;
+  let type = form.querySelector('input[name="selectOptions"]:checked').value;
   if (type !== "all") {
     filter = true;
   };
-
   // get user zip code input
   let userZipCode = document.getElementById("zipSearch").value;
   if (userZipCode == "") {
@@ -223,11 +216,9 @@ function zipCodeSearch() {
   } else {
     ZipCode = userZipCode;
   };
-
-  // Test what variables are captured
+  // Testing only - what variables are captured
   alert(`Zip Code = ${zipCode}, type = ${type}, and filter = ${filter}`);
-
-  return compareTheData(fmadbData, tempzipData, zipCode, radius, type, filter);  // for testing only
+  return compareTheData(fmaDBdata, tempZipData, zipCode, radius, type, filter);  // for testing only
   // return compareTheData(tempDBdata, demoAPIdata, zipCode, radius, type, filter);  // for testing only
   // return getZipCodeData(zipCode, radius, type, filter);  // with default radius value
 };
@@ -248,6 +239,7 @@ function searchBarSubmit() {
 
   // check user zip code input
   let newZipCode = document.getElementById("zipSearch").value;
+
   // Compare zipcodes - is a new API call needed?
   (zipCode == newZipCode ? newZipSearch = false : zipCode = newZipCode);
   alert("the value of newZipCode = " + newZipCode);	// for testing
@@ -256,7 +248,7 @@ function searchBarSubmit() {
   let radiusDropdown = document.querySelector("#radiusSearch");
   let newRadius = radiusDropdown.options[radiusDropdown.selectedIndex].value;
 
-  //compare raduises - is new API call needed?
+  //compare radiuses - is new API call needed?
   if (!newRadius == "") {
     if (radius < newRadius) {
     	newZipSearch = true;	// new API call needed
@@ -265,6 +257,8 @@ function searchBarSubmit() {
     	newRadiusSearch = true;	// filter for new radius
     };
   };
+
+  // Test what variables are captured from form
   alert("radius = " + radius + " newRadius = " + newRadius);	// for testing
 
   // check user State selection
@@ -289,22 +283,22 @@ function searchBarSubmit() {
   alert(`variables ... ${zipCode} -  ${stateCode} - ${stateText} - ${radius} - ${type} - ${style} - ${filter}`);
 
   if (newZipSearch == true) {
-    console.log("New API search needed");  // for testing only
     // Get new zip code search data from the API
-    // return getZipCodeData(zipCode, radius, stateCode, type, style, filter);
+    console.log("New API search needed");  // for testing only
+    // return getZipCodeData(zipCode, radius, stateCode, stateText, type, style, filter);
 
   } else if (newRadiusSearch == true) {
-	console.log("Smaller radius needed");  // for testing only
-	// if smaller radius data is needed
-	return smallerRadius(comparedData, radius, stateCode, stateText, type, style, filter);
+    // get smaller radius data as needed
+    console.log("Smaller radius needed");  // for testing only
+    return smallerRadius(comparedData, radius, stateCode, stateText, type, style, filter);
 
   } else if (filter == true) {
-	console.log("Filtering needed - Filter = " + filter);  // for testing only
-	// only data filtering is needed
-	return filterData(comparedData, stateCode, type, style);
+    // if only data filtering is needed
+    console.log("Filtering needed - Filter = " + filter);  // for testing only
+    return filterData(comparedData, stateCode, type, style);
 
   } else {
-	  // nothing needed only print data
+	  // nothing needed - only print data to screen
     return writeResults(comparedData);
   };
 };
@@ -316,7 +310,7 @@ function searchBarSubmit() {
 let returnedAPIdata = [];  // API Return data
 
 // Radius default value set to 50 miles
-function getZipCodeData(zipCode, radius = 50, stateCode, type, style, filter) {
+function getZipCodeData(zipCode, radius = 50, filter) {
   axios.get(`https://api.zip-codes.com/ZipCodesAPI.svc/1.0/FindZipCodesInRadius?zipcode=${zipCode}&minimumradius=0&maximumradius=${radius}&key=xxxxxxxxxxxxxxxxxxxxxxxxxxx`)
     .then(results => {
       returnedAPIdata = results.data;
@@ -341,8 +335,8 @@ function getZipCodeData(zipCode, radius = 50, stateCode, type, style, filter) {
 //**************************************************
 let comparedData = [];  // To hold comparison API and DB data
 
-function compareTheData(dbData, zipData, stateCode, type, style, filter) {
-  console.log(dbData, zipData, zipCode, type, filter);
+function compareTheData(dbData, zipData, stateCode = "", stateText = "", type = "All", style = "All", filter = true) {
+  console.log(dbData, zipData, zipCode, stateCode, stateText, type, filter);
 
   zipData.forEach((zipItem) => {
 
@@ -360,7 +354,6 @@ function compareTheData(dbData, zipData, stateCode, type, style, filter) {
         comparedData.push(tempItem);
       }
     }
-
     return console.log(comparedData);	// for testing
   });
 
@@ -369,28 +362,26 @@ function compareTheData(dbData, zipData, stateCode, type, style, filter) {
   if (comparedData.length >= 1) {
   	// check if filtering is needed?
     if (filter == True) {
-      filterData(comparedData, stateCode, type, style);
+      filterData(comparedData, stateCode, stateText, type, style);
     } else {
       writeResults(comparedData);
   };
 
   } else {
-    alert("Error with this search. Please try that again.");
+    alert("Error with CompareTheData LINE 335. Please try that again.");
     console.log("Problem in compareTheData function - comparedData is empty");
     // return location.reload();
   };
 };
 
-// compareTheData(fmadbData, tempzipData);  // for testing only
+// compareTheData(fmaDBdata, tempzipData);  // for testing only
 // compareTheData(tempDBdata, demoAPIdata);  // for testing only
-
 
 //**********************************************
 //***  Smaller Radius Search from search bar ***
 //**********************************************
 let newRadiusData = [];
-
-function smallerRadius(dataSet, radius, stateCode, stateText, type, style, filter) {
+function smallerRadius(dataSet, radius, stateCode = "", stateText = "", type = "All", style = "All", filter = true) {
   if (dataSet.length >= 1) {
     dataSet.forEach((item) => {
       if (item.Distance <= radius) {
@@ -398,7 +389,6 @@ function smallerRadius(dataSet, radius, stateCode, stateText, type, style, filte
       };
     });
   };
-
   // for testing only
   console.log(newRadiusData);
   console.log("Reduced radius calculated");
@@ -408,7 +398,7 @@ function smallerRadius(dataSet, radius, stateCode, stateText, type, style, filte
     (filter ? filterData(newRadiusData, stateCode, stateText, type, style) : writeResults(newRadiusData));
 
   } else {
-    alert("There seems to have been a problem with this search. Kindly please try that again.");
+    alert("Problem with smallerRadius LINE 380. Kindly please try that again.");
     console.log("Error in smallerRadius function");
     // return location.reload();
   };
@@ -418,39 +408,33 @@ function smallerRadius(dataSet, radius, stateCode, stateText, type, style, filte
 //****************************************************************
 //** Functions to FILTER New Data according to search criteria ***
 //****************************************************************
+let filteredData = [];
 
 // ZipCode and radius already taken care of at this point
 // stateCode -- takes 2 alpha character code
 // stateText -- full state name
-// style -- arnis, escrima, kali, or all
+// style -- Arnis, Escrima, Kali, or All
 // type -- club, group, school, event, or all
 
-let filteredData = [];
-
-// function to filter data to user preferences
-//---------------------------------------------
-function filterData(zipAndRadiusData, stateCode, stateText, type, style) {
+function filterData(zipAndRadiusData, stateCode = "", stateText = "", type = "", style = "") {
   console.log("Filtering the data ...");	// for testing only
   
-  let stateData = [];
-  let styleData = [];
-
   // check for STATE filter
+  let stateData = [];
   if (stateCode || stateText) {
     zipAndRadiusData.forEach((dataItem1) => {
       if (dataItem1.State === stateCode || dataItem1.State === stateText) {
         stateData.push(dataItem1);
       };
     });
-
     // for testing 
     console.log(stateData);
     alert("There was a state filter");
   };
 
   // check for STYLE filter
+  let styleData = [];
   if (style && (style !== "all")) {
-
   	// if there are previous state filter results
     if (stateData.length >= 1) {
       stateData.forEach((dataItem2) => {
@@ -466,16 +450,13 @@ function filterData(zipAndRadiusData, stateCode, stateText, type, style) {
         };
       });
     };
-
     // for testing 
     console.log(styleData);
     alert("There was a style filter");
-
   };
 
   // check TYPE of venue filter
   if (type && (type !== "all")) {
-
   	// if there are previous style filter results
     if (styleData.length >= 1) {
       styleData.forEach((dataItem3) => {
@@ -491,31 +472,30 @@ function filterData(zipAndRadiusData, stateCode, stateText, type, style) {
         };
       });
     } else {
-  		// if no style nore any state filter results    	  	
+  		// if no style nor any state filter results    	  	
         zipAndRadiusData.forEach((dataItem3) => {
         if (dataItem3.Type === type) {
           filteredData.push(dataItem3);
         };
       });
     };
-
     // for testing 
     console.log(filteredData);
     alert("There was a type filter");
   };
 
+  // now print out the results to the screen
   return writeResults(filteredData);
 };
-
 
 
 //*******************************************************
 //** Functions to Publish Search Data to result page ***
 //*******************************************************
-
 function writeResults(printableData) {
+  render(state.FMAresults);
 
-  // search for container on FMAresults page
+  // get container on FMAresults page
 	const container = document.querySelector('#container');
 	alert("About to print...");	// for testing
 
@@ -547,6 +527,8 @@ function writeResults(printableData) {
 	    // `;
 	};
 };
+
+
 
 
 // Interim Example DEMO data from API
@@ -768,8 +750,8 @@ let demoAPIdata = [
 ];
 
 
-// Interim Example FMA data from DB
-//------------------------------------
+// Interim Example FMA data from Dataset
+//---------------------------------------
 // {
 //   "Name": "Dynamic Mixed martial Arts - Mr. Brendan Neal",
 //   "Address": "1324 Essec Drive, Edwardsville",

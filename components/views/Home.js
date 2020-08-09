@@ -18,15 +18,15 @@ export default () => `
 
             <div id="options" class="form-group">
             <label>
-                <input name="selectOptions" value="club" type="radio" class="input-radio">Club</label>
+                <input name="selectOptions" value="Club" type="radio" class="input-radio">Club</label>
             <label>
-                <input name="selectOptions" value="group" type="radio" class="input-radio">Group</label>
+                <input name="selectOptions" value="Group" type="radio" class="input-radio">Group</label>
             <label>
-                <input name="selectOptions" value="school" type="radio" class="input-radio">School</label>
+                <input name="selectOptions" value="School" type="radio" class="input-radio">School</label>
             <label>
-                <input name="selectOptions" value="event" type="radio" class="input-radio">Event</label>
+                <input name="selectOptions" value="Event" type="radio" class="input-radio">Event</label>
             <label>
-                <input name="selectOptions" value="all" type="radio" class="input-radio" checked="">All</label>
+                <input name="selectOptions" value="All" type="radio" class="input-radio" checked="">All</label>
             </div>
         </form>
 
