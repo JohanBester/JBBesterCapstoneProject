@@ -2,7 +2,6 @@
 // ***SPA Components ***
 //**********************
 import { Header, Main, Footer } from "./components";
-import { FMAdata, ZIPdata} from "./lib";  // not using this yet...
 import * as state from "./store"
 
 import Navigo from "navigo";
@@ -19,7 +18,6 @@ router.on({
     render(state[page]);
   },
 }).resolve();
-
 
 // Render SPA
 function render(st = state.Home) {
@@ -44,12 +42,12 @@ function render(st = state.Home) {
 render(state.Home);
 
 
-// Function to generate a random number
+// Generate a random number
 function randomNumber(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-// Function to build random image URL
+// Build random image URL
 function buildRandomURL() {
   let imageNames = ["FMAimages1.jpg", "FMAimages2.jpg", "FMAimages3.jpg", "FMAimages4.jpg", "FMAimages5.jpg", "FMAimages6.jpg", "FMAimages7.jpg", "FMAimages8.jpg", "FMAimages9.jpg", "FMAimages10.jpg", "FMAimages11.jpg", "FMAimages12.jpg", "FMAimages13.jpg", "FMAimages14.jpg", "FMAimages15.jpg", "FMAimages16.jpg", "FMAimages17.jpg", "FMAimages18.jpg", "FMAimages19.jpg", "FMAimages20.jpg", "FMAimages21.jpg", "FMAimages22.jpg", "FMAimages23.jpg", "FMAimages24.jpg", "FMAimages25.jpg", "FMAimages26.jpg", "FMAimages27.jpg", "FMAimages28.jpg", "FMAimages29.jpg"];
   let imageURL = "https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/FMAimages/";
@@ -91,16 +89,20 @@ function addBannerEventListener() {
 
 // main area click listener for HOMEPAGE
 //=======================================
+let zipCode = "";
+let radius = "50";
+
 function addZipSearchBtnListener() {
+    
     document.querySelector("button").addEventListener("click", event => {
       event.preventDefault();
-      let zipCode = "";
       let filter = false;
       // get user radio button selection on home page
       let type = form.querySelector('input[name="selectOptions"]:checked').value;
-      if (type !== "all") {
+      if (type !== "All") {
         filter = true;
       };         
+
       // get user zip code input
       let userZipCode = document.getElementById("zipSearch").value;
       if (userZipCode == "") {
@@ -109,19 +111,60 @@ function addZipSearchBtnListener() {
       } else {
         zipCode = userZipCode;
       };
-      alert("going to zipcodesearch");  // for testing only
-      zipCodeSearch(zipCode, type, filter);
+      zipCodeSearch(type, filter);
     });  
+
 };
 
 // main area click listener for FMAresules Page
 //==============================================
 function addSearchFilterBtnListener(st) {
-  if (st == state.FMAresults) {
-    document.querySelector('#btnFilterSearch').addEventListener("submit", event => {
+  if (st == state.FMAresules) {
+
+    let stateCode = "";
+    let stateText = "";
+    let type = "";
+    let style = "";
+    let filter = false;
+  
+    document.querySelector("button").addEventListener("click", event => {
       event.preventDefault();
-      searchBarSubmit();
-    });  
+  
+      // check user zip code input
+      let zipCode = document.getElementById("zipSearch").value;
+      
+      // check user search radius
+      let radiusDropdown = document.querySelector("#radiusSearch");
+      let radius = radiusDropdown.options[radiusDropdown.selectedIndex].value;
+      
+      // check user STATE selection
+      let stateDropdown = document.querySelector("#stateSearch");
+      stateCode = stateDropdown.options[stateDropdown.selectedIndex].value;
+      stateText = stateDropdown.options[stateDropdown.selectedIndex].text;
+       console.log(stateCode, stateText);  // for testing
+  
+      // check user TYPE selection
+      let typeDropdown = document.querySelector("#typeSearch");
+      type = typeDropdown.options[typeDropdown.selectedIndex].value;
+       console.log(type);  // for testing
+  
+      // check user STYLE selection
+      let styleDropdown = document.querySelector("#styleSearch");
+      style = styleDropdown.options[styleDropdown.selectedIndex].value;
+      console.log(style);  // for testing
+  
+      // Is data filtering needed?
+      if (stateCode != "" || type != "" || style != "") {
+        filter = true;
+      };
+  
+      // Test what variables are captured from form
+      console.log(`variables ... ${zipCode} -  ${stateCode} - ${stateText} - ${radius} - ${type} - ${style} - ${filter}`);
+  
+      alert("going to searchBarSubmit");  // for testing only
+      searchBarSubmit(stateCode, stateText, type, style, filter);
+      });  
+  
   };
 };
 
@@ -160,6 +203,7 @@ function addButtonsEventListener() {
 //**  Get the FMA JSON Data from the data source file  ***
 //********************************************************
 let fmaDBdata = [];  // for the FMA DB data
+
 (function importDBJSON() {
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/FMAData.json')
   .then(response => response.json())
@@ -182,7 +226,8 @@ let fmaDBdata = [];  // for the FMA DB data
 //********************************************************
 //**  Get the ZIP JSON Data from the data source file  ***
 //********************************************************
-let tempZipData = [];  // for the ZIP Code data
+let tempZipData =[];  // for the ZIP Code data
+
 (function importZIPJSON() {
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/ZIPdata.json')
   .then(response => response.json())
@@ -195,8 +240,8 @@ let tempZipData = [];  // for the ZIP Code data
     .catch(err => {
         // What to do when the request fails
         alert("Error with the ZIPdata import LINE 180. please try your search again.");
-         console.log('The ZIPdata load request failed!');
-         console.log('error', err);
+        console.log('The ZIPdata load request failed!');
+        console.log('error', err);
         // return location.reload();
       });
 }) ();
@@ -208,109 +253,41 @@ let tempZipData = [];  // for the ZIP Code data
 
 // function for Home Page form
 //----------------------------
-function zipCodeSearch(zipCode, type, filter) {
-  let radius = "50";
-  // Testing only - what variables are captured
-  alert(`Zip Code = ${zipCode}, type = ${type}, and filter = ${filter}`);
-  return compareTheData(fmaDBdata, tempZipData, zipCode, radius, type, filter);  // for testing only
-  // return compareTheData(tempDBdata, demoAPIdata, zipCode, radius, type, filter);  // for testing only
-  // return getZipCodeData(zipCode, radius, type, filter);  // with default radius value
+function zipCodeSearch(type, filter) {
+  //getZipCodeData();  // with default radius value
+  
+  alert("Going to compareTheData"); // for testing only
+  compareTheData(fmaDBdata, tempZipData, type, filter);  // for testing only
+  // compareTheData(tempDBdata, demoAPIdata, type, filter);  // for testing only
+
+  // compareTheData(fmaDBdata, returnedAPIdata, type, filter);
+  
 };
 
 
 // function for search bar filtering on results page
 //---------------------------------------------------
-function searchBarSubmit() {
-  let zipCode = "";
-  let type = "";
-  let filter = false
-  let stateCode = "";
-  let stateText = "";
-  let radius = "50";
-  let style = "";
-  let newZipSearch = true;
-  let newRadiusSearch = false;
+function searchBarSubmit(stateCode, stateText, type, style, filter) {
+  //getZipCodeData();  // with with new radius
+  
+  alert("Going to compareTheData"); // for testing only
+  compareTheData(fmaDBdata, tempZipData, stateCode, stateText, type, style, filter);  // for testing only
+  // compareTheData(tempDBdata, demoAPIdata,  stateCode, stateText, type, style, filter);  // for testing only
 
-  // check user zip code input
-  let newZipCode = document.getElementById("zipSearch").value;
-
-  // Compare zipcodes - is a new API call needed?
-  (zipCode == newZipCode ? newZipSearch = false : zipCode = newZipCode);
-  alert("the value of newZipCode = " + newZipCode);	// for testing
-
-  // check user search radius
-  let radiusDropdown = document.querySelector("#radiusSearch");
-  let newRadius = radiusDropdown.options[radiusDropdown.selectedIndex].value;
-
-  //compare radiuses - is new API call needed?
-  if (!newRadius == "") {
-    if (radius < newRadius) {
-    	newZipSearch = true;	// new API call needed
-    } else {
-      radius = newRadius;
-    	newRadiusSearch = true;	// filter for new radius
-    };
-  };
-
-  // Test what variables are captured from form
-  alert("radius = " + radius + " newRadius = " + newRadius);	// for testing
-
-  // check user State selection
-  let stateDropdown = document.querySelector("#stateSearch");
-  stateCode = stateDropdown.options[stateDropdown.selectedIndex].value;
-  stateText = stateDropdown.options[stateDropdown.selectedIndex].text;
-
-  // check user type selection
-  let typeDropdown = document.querySelector("#typeSearch");
-  type = typeDropdown.options[typeDropdown.selectedIndex].value;
-
-  // check user style selection
-  let styleDropdown = document.querySelector("#styleSearch");
-  style = styleDropdown.options[styleDropdown.selectedIndex].value;
-
-  // Is data filtering neede?
-  if (stateCode || type || style) {
-    filter = true;
-  };
-
-  // Test what variables are captured from form
-  alert(`variables ... ${zipCode} -  ${stateCode} - ${stateText} - ${radius} - ${type} - ${style} - ${filter}`);
-
-  if (newZipSearch == true) {
-    // Get new zip code search data from the API
-    console.log("New API search needed");  // for testing only
-    // return getZipCodeData(zipCode, radius, stateCode, stateText, type, style, filter);
-
-  } else if (newRadiusSearch == true) {
-    // get smaller radius data as needed
-    console.log("Smaller radius needed");  // for testing only
-    return smallerRadius(comparedData, radius, stateCode, stateText, type, style, filter);
-
-  } else if (filter == true) {
-    // if only data filtering is needed
-    console.log("Filtering needed - Filter = " + filter);  // for testing only
-    return filterData(comparedData, stateCode, type, style);
-
-  } else {
-	  // nothing needed - only print data to screen
-    return writeResults(comparedData);
-  };
+  // compareTheData(fmaDBdata, returnedAPIdata, stateCode, stateText, type, style, filter);
 };
 
 
 //***************************************
 // Steps to GET Zip Code Data from API
 //***************************************
-let returnedAPIdata = [];  // API Return data
-
-// Radius default value set to 50 miles
-function getZipCodeData(zipCode, radius = 50, filter) {
+let returnedAPIdata = [];
+function getZipCodeData() {
   axios.get(`https://api.zip-codes.com/ZipCodesAPI.svc/1.0/FindZipCodesInRadius?zipcode=${zipCode}&minimumradius=0&maximumradius=${radius}&key=xxxxxxxxxxxxxxxxxxxxxxxxxxx`)
     .then(results => {
       returnedAPIdata = results.data;
       // console.log(results.data);
-      // console.log("returnedAPIdata holds... " + returnedAPIdata);
-      return compareTheData(dbData, returnedAPIdata, stateCode, type, style, filter);
+      return returnedAPIdata;
       }
     )
     .catch(err => {
@@ -318,7 +295,7 @@ function getZipCodeData(zipCode, radius = 50, filter) {
         alert ("There seems to been a problem with this search. Kindly please try that again.");
         console.log('The Axios API request failed!');
         console.log('Error', err);
-        // return location.reload();
+        return location.reload();
       }
     );
 };
@@ -329,8 +306,8 @@ function getZipCodeData(zipCode, radius = 50, filter) {
 //**************************************************
 let comparedData = [];  // To hold comparison API and DB data
 
-function compareTheData(dbData, zipData, zipCode, radius = 50, stateCode = "", stateText = "", type = "All", style = "All", filter = true) {
-  console.log(zipCode, stateCode, stateText, type, style, filter);
+function compareTheData(dbData, zipData, stateCode = "", stateText = "", type = "All", style = "All", filter) {
+  // console.log(dbData, zipData, stateCode, stateText, type, style, filter);
 
   zipData.forEach((zipItem) => {
 
@@ -339,62 +316,22 @@ function compareTheData(dbData, zipData, zipCode, radius = 50, stateCode = "", s
         let tempItem = (dbData[i]);
         console.log(dbData[i])
         // Pull the distance from target into data collection
-        if (!apiItem.Distance) {
+        tempItem.Distance = (zipItem.Distance)
+        if (!tempItem.Distance || tempItem.Distance == "0") {
           tempItem.Distance = "Only a mile or so";
-        } else {
-          tempItem.Distance = (apiItem.Distance)
         };
-    
         comparedData.push(tempItem);
       }
-    }
-    return console.log(comparedData);	// for testing
+    };
   });
 
-  console.log("ComparedData = " + comparedData);	// for testing
-
-  if (comparedData.length >= 1) {
-  	// check if filtering is needed?
-    if (filter == True) {
-      filterData(comparedData, stateCode, stateText, type, style);
-    } else {
-      writeResults(comparedData);
-  };
-
+  // check if filtering is needed?
+  if (filter) {
+    alert("Going to filterData");
+    filterData(comparedData, stateCode, stateText, type, style);
   } else {
-    alert("Error with CompareTheData LINE 335. Please try that again.");
-    console.log("Problem in compareTheData function - comparedData is empty");
-    // return location.reload();
-  };
-};
-
-// compareTheData(fmaDBdata, tempzipData);  // for testing only
-// compareTheData(tempDBdata, demoAPIdata);  // for testing only
-
-//**********************************************
-//***  Smaller Radius Search from search bar ***
-//**********************************************
-let newRadiusData = [];
-function smallerRadius(dataSet, radius, stateCode = "", stateText = "", type = "All", style = "All", filter = true) {
-  if (dataSet.length >= 1) {
-    dataSet.forEach((item) => {
-      if (item.Distance <= radius) {
-        newRadiusData.push(item);
-      };
-    });
-  };
-  // for testing only
-  console.log(newRadiusData);
-  console.log("Reduced radius calculated");
-
-  if (newRadiusData.length >= 1) {
-  	// check if filtering is needed?
-    (filter ? filterData(newRadiusData, stateCode, stateText, type, style) : writeResults(newRadiusData));
-
-  } else {
-    alert("Problem with smallerRadius LINE 380. Kindly please try that again.");
-    console.log("Error in smallerRadius function");
-    // return location.reload();
+    alert("Going to writeResults");
+    writeResults(comparedData, stateCode, stateText, type, style);
   };
 };
 
@@ -408,14 +345,15 @@ let filteredData = [];
 // stateCode -- takes 2 alpha character code
 // stateText -- full state name
 // style -- Arnis, Escrima, Kali, or All
-// type -- club, group, school, event, or all
+// type -- club, group, school, event, or All
 
-function filterData(zipAndRadiusData, stateCode = "", stateText = "", type = "", style = "") {
-  console.log("Filtering the data ...");	// for testing only
+function filterData(zipAndRadiusData, stateCode, stateText, type, style) {
+  alert("Filtering the data ...");	// for testing only
   
   // check for STATE filter
   let stateData = [];
-  if (stateCode || stateText) {
+  if (stateCode != "" || stateText != "") {
+    console.log("stateCode = " + stateCode + " and stateText = " + stateText);
     zipAndRadiusData.forEach((dataItem1) => {
       if (dataItem1.State === stateCode || dataItem1.State === stateText) {
         stateData.push(dataItem1);
@@ -428,7 +366,7 @@ function filterData(zipAndRadiusData, stateCode = "", stateText = "", type = "",
 
   // check for STYLE filter
   let styleData = [];
-  if (style && (style !== "all")) {
+  if (style && (style != "All")) {
   	// if there are previous state filter results
     if (stateData.length >= 1) {
       stateData.forEach((dataItem2) => {
@@ -450,7 +388,7 @@ function filterData(zipAndRadiusData, stateCode = "", stateText = "", type = "",
   };
 
   // check TYPE of venue filter
-  if (type && (type !== "all")) {
+  if (type && (type !== "All")) {
   	// if there are previous style filter results
     if (styleData.length >= 1) {
       styleData.forEach((dataItem3) => {
@@ -479,20 +417,36 @@ function filterData(zipAndRadiusData, stateCode = "", stateText = "", type = "",
   };
 
   // now print out the results to the screen
-  return writeResults(filteredData);
+  writeResults(filteredData, stateCode, stateText, type, style);
 };
 
 
 //*******************************************************
 //** Functions to Publish Search Data to result page ***
 //*******************************************************
-function writeResults(printableData) {
+function writeResults(printableData, stateCode, stateText, type, style) {
   render(state.FMAresults);
+
+  // Pre-fill search field options
+  document.getElementById("zipSearch").value = zipCode;
+  document.querySelector("#radiusSearch").value = radius;
+   alert(type);  // for testing
+  document.querySelector("#typeSearch").value = type;
+   alert(style);  // for testing
+  document.querySelector("#styleSearch").value = style;
+   alert(stateCode, stateText);  // for testing
+  let stateField = document.querySelector("#stateSearch");
+  if ((stateCode = "All") || (stateText = "All")) {
+    stateField.text = "State";
+  } else {
+    stateField.value = stateCode;
+  };
 
   // get container on FMAresults page
 	const container = document.querySelector('#container');
-	alert("About to print...");	// for testing
+	 alert("About to print...");	// for testing
 
+  // build screen output
 	if (printableData.length >= 1) {
 		let i = 0;
 		printableData.forEach((element) => {
@@ -500,7 +454,7 @@ function writeResults(printableData) {
 			let elementdiv = document.createElement("div");
       elementdiv.innerHTML = `
         <b>#${i} ${element.Name}</b><br/>
-        &nbsp; ${element.Address},<br />
+        &nbsp; ${element.Address},
         &nbsp; ${element.State}, ${element.ZipCode}<br />
         &nbsp; Phone : ${element.Phone}<br />
         &nbsp; Email : ${element.Email}<br />
@@ -514,11 +468,11 @@ function writeResults(printableData) {
 	} else {
     console.log("Error in writeResults function");
 		alert("Nothing to print");
-	    // container.innerHTML = `
-	    //   <div>
-	    //     There seems to be no data for this search. We are very sorry. Please try a different search combination. <br />
-	    //   </div>
-	    // `;
+	  container.innerHTML = `
+	    <div>
+	        There seems to be no data for this search. We are very sorry. Please try a different search combination. <br />
+	      </div>
+	  `;
 	};
 };
 
