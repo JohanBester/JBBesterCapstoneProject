@@ -12,13 +12,12 @@ import axios from "axios";
 // Navigo Router
 const router = new Navigo(window.location.origin);
 
-router
-.on({
+router.on({
   "/": () => render(state.Home),
   ":page": params => {
     let page = capitalize(params.page);
     render(state[page]);
-  }
+  },
 }).resolve();
 
 
@@ -32,28 +31,26 @@ function render(st = state.Home) {
 
   router.updatePageLinks();
 
+  buildRandomURL();
   addBannerEventListener();
   addInfoEventListener();
   addDisclaimerEventListener();
   addButtonsEventListener();
+
   addZipSearchBtnListener();
-  addSearchFilterBtnListener();
+  addSearchFilterBtnListener(st);
     
 };
 render(state.Home);
 
 
-//**************************************
-//*** Build Reusable HTML Components ***
-//**************************************
-
 // Function to generate a random number
-const randomNumber = (min, max) => {
+function randomNumber(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
 // Function to build random image URL
-(function buildRandomURL() {
+function buildRandomURL() {
   let imageNames = ["FMAimages1.jpg", "FMAimages2.jpg", "FMAimages3.jpg", "FMAimages4.jpg", "FMAimages5.jpg", "FMAimages6.jpg", "FMAimages7.jpg", "FMAimages8.jpg", "FMAimages9.jpg", "FMAimages10.jpg", "FMAimages11.jpg", "FMAimages12.jpg", "FMAimages13.jpg", "FMAimages14.jpg", "FMAimages15.jpg", "FMAimages16.jpg", "FMAimages17.jpg", "FMAimages18.jpg", "FMAimages19.jpg", "FMAimages20.jpg", "FMAimages21.jpg", "FMAimages22.jpg", "FMAimages23.jpg", "FMAimages24.jpg", "FMAimages25.jpg", "FMAimages26.jpg", "FMAimages27.jpg", "FMAimages28.jpg", "FMAimages29.jpg"];
   let imageURL = "https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/FMAimages/";
   let rand = randomNumber(1, imageNames.length-1);
@@ -63,8 +60,7 @@ const randomNumber = (min, max) => {
   document.querySelector('.addOrImage').innerHTML = `
   <img id="imgFMAfighters" src="${randomURL}" alt="General Filipino martial Artists images about Arnis, Escrima, and Kali."/>
 `;
-}) ();
-
+};
 
 // Constant for Forms submit and to clear form data
 const form = document.querySelector("form");
@@ -95,33 +91,48 @@ function addBannerEventListener() {
 
 // main area click listener for HOMEPAGE
 //=======================================
-function addZipSearchBtnListener(st) {
-  if (st == state.Home) {
-    document.querySelector('#hpSearchBtn').addEventListener("click", event => {
+function addZipSearchBtnListener() {
+    document.querySelector("button").addEventListener("click", event => {
       event.preventDefault();
-      zipCodeSearch();
+      let zipCode = "";
+      let filter = false;
+      // get user radio button selection on home page
+      let type = form.querySelector('input[name="selectOptions"]:checked').value;
+      if (type !== "all") {
+        filter = true;
+      };         
+      // get user zip code input
+      let userZipCode = document.getElementById("zipSearch").value;
+      if (userZipCode == "") {
+        alert("A Zip Code Is required");
+        return
+      } else {
+        zipCode = userZipCode;
+      };
+      alert("going to zipcodesearch");  // for testing only
+      zipCodeSearch(zipCode, type, filter);
     });  
-  };
 };
 
 // main area click listener for FMAresules Page
 //==============================================
 function addSearchFilterBtnListener(st) {
   if (st == state.FMAresults) {
-    document.querySelector('#btnFilterSearch').addEventListener("click", event => {
+    document.querySelector('#btnFilterSearch').addEventListener("submit", event => {
       event.preventDefault();
       searchBarSubmit();
     });  
   };
 };
 
+// main area click listener for AddInfo Page
+//==============================================
 function addInfoEventListener() {
   document.querySelector('#hpAddInfoButton').addEventListener("click", event => {
     event.preventDefault();
     render(state.AddInfo);
   });
 };
-
 
 // Footer navigation
 //===================
@@ -133,14 +144,12 @@ function addDisclaimerEventListener() {
 };
 
 function addButtonsEventListener() {
-  let buttons = document.querySelectorAll(".fixed-footer #navButtons a");
+  let buttons = document.querySelectorAll(".fixed-footer a");
   buttons.forEach(link =>
     link.addEventListener("click", event => {
       event.preventDefault();
       let linkText = capitalize(event.target.text);
       let pieceOfState = state[linkText];
-      // console.log(pieceOfState);  // gor testing only
-
       render(pieceOfState);
     })
   );
@@ -199,23 +208,8 @@ let tempZipData = [];  // for the ZIP Code data
 
 // function for Home Page form
 //----------------------------
-function zipCodeSearch() {
-  let zipCode = "";
+function zipCodeSearch(zipCode, type, filter) {
   let radius = "50";
-  let filter = false
-  // get user radio button selection on home page
-  let type = form.querySelector('input[name="selectOptions"]:checked').value;
-  if (type !== "all") {
-    filter = true;
-  };
-  // get user zip code input
-  let userZipCode = document.getElementById("zipSearch").value;
-  if (userZipCode == "") {
-    alert("A Zip Code Is required"); // for testing only
-    return
-  } else {
-    ZipCode = userZipCode;
-  };
   // Testing only - what variables are captured
   alert(`Zip Code = ${zipCode}, type = ${type}, and filter = ${filter}`);
   return compareTheData(fmaDBdata, tempZipData, zipCode, radius, type, filter);  // for testing only
@@ -335,8 +329,8 @@ function getZipCodeData(zipCode, radius = 50, filter) {
 //**************************************************
 let comparedData = [];  // To hold comparison API and DB data
 
-function compareTheData(dbData, zipData, stateCode = "", stateText = "", type = "All", style = "All", filter = true) {
-  console.log(dbData, zipData, zipCode, stateCode, stateText, type, filter);
+function compareTheData(dbData, zipData, zipCode, radius = 50, stateCode = "", stateText = "", type = "All", style = "All", filter = true) {
+  console.log(zipCode, stateCode, stateText, type, style, filter);
 
   zipData.forEach((zipItem) => {
 

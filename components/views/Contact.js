@@ -48,7 +48,7 @@ export default () => `
         <br/>
 
         <div id="hpAddInfoButton" class="addInfo">
-    	  <a href="AddInfo.html">Click here to ADD a club, group, school or event</a> 
+            <a href="addInfo" data-navigo>Click here to ADD a club, group, school or event</a>
         </div>
         <br/>
     </div>
