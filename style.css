@@ -14,7 +14,7 @@ body {
   overflow: auto;
   padding: 0;
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
   font-family: "ZCOOL KuaiLe", "Times New Roman";
   font-family: "Roboto", "Open Sans", sans-serif;
 }
@@ -85,6 +85,30 @@ a:hover {
 
 .left {
   text-align: left !important;
+}
+
+@media (max-width: 426px) {
+  body {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1.65rem;
+  }
+  h3 {
+    font-size: 1.45rem;
+  }
+  h4 {
+    font-size: 1.2rem;
+  }
+  h5 {
+    font-size: 1.1rem;
+  }
+  h6 {
+    font-size: 1.05rem;
+  }
 }
 
 /*=================================*/
@@ -506,6 +530,12 @@ label {
   color: var(--white-color);
 }
 
+@media (max-width: 426px) {
+  .secHead {
+    font-size: x-large;
+  }
+}
+
 /*====================================*/
 /*== FMA Search Page and Search Bar ==*/
 /*====================================*/
@@ -593,7 +623,7 @@ label {
     max-width: 54px;
     height: 1.5rem;
   }
-  #btnSearch.btnStyled {
+  #btnFilterSearch {
     height: 1.5rem;
     width: auto;
     border: 0.5px;

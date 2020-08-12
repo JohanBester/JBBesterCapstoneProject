@@ -48,7 +48,7 @@ export default () => `
         <br/>
 
         <div id="hpAddInfoButton" class="addInfo">
-            <a href="addInfo" data-navigo>Click here to ADD a club, group, school or event</a>
+            <a href="addInfo" data-navigo>Click here to ADD FMA Info</a>
         </div>
         <br/>
     </div>

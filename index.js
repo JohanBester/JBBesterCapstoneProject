@@ -32,15 +32,13 @@ function render(st = state.Home) {
   buildRandomURL();
   addBannerEventListener();
   addInfoEventListener();
-  addDisclaimerEventListener();
   addButtonsEventListener();
+  addDisclaimerEventListener();
 
   addZipSearchBtnListener();
   addSearchFilterBtnListener(st);
     
 };
-render(state.Home);
-
 
 // Generate a random number
 function randomNumber(min, max) {
@@ -56,8 +54,8 @@ function buildRandomURL() {
   let randomURL = imageURL + randomName + "?raw=true";
   // add random image to page;
   document.querySelector('.addOrImage').innerHTML = `
-  <img id="imgFMAfighters" src="${randomURL}" alt="General Filipino martial Artists images about Arnis, Escrima, and Kali."/>
-`;
+    <img id="imgFMAfighters" src="${randomURL}" alt="General Filipino martial Artists images about Arnis, Escrima, and Kali."/>
+  `;
 };
 
 // Constant for Forms submit and to clear form data
@@ -75,8 +73,8 @@ let formDateCollection = [];
 //   });
 // });
 
-// Header navigation listeners
-//=============================
+// Header listeners
+//==================
 function addBannerEventListener() {
   let banner = document.querySelectorAll("header.a")
   banner.forEach(link =>
@@ -93,7 +91,6 @@ let zipCode = "";
 let radius = "50";
 
 function addZipSearchBtnListener() {
-    
     document.querySelector("button").addEventListener("click", event => {
       event.preventDefault();
       let filter = false;
@@ -112,15 +109,15 @@ function addZipSearchBtnListener() {
         zipCode = userZipCode;
       };
       zipCodeSearch(type, filter);
-    });  
-
+    });
 };
 
 // main area click listener for FMAresules Page
 //==============================================
 function addSearchFilterBtnListener(st) {
   if (st == state.FMAresules) {
-
+    alert(st);
+    
     let stateCode = "";
     let stateText = "";
     let type = "";
@@ -163,8 +160,7 @@ function addSearchFilterBtnListener(st) {
   
       alert("going to searchBarSubmit");  // for testing only
       searchBarSubmit(stateCode, stateText, type, style, filter);
-      });  
-  
+      });
   };
 };
 
