@@ -8,5 +8,15 @@ export default () => `
             <span class="appname2">FMA Fun Finder</span>
         </a>
     </div>
+    <nav>
+        <i class="fas fa-bars"></i>
+        <ul class="hidden nav-links">
+            <li><a href="About" data-navigo>About</a></li>
+            <li><a href="/" data-navigo>Home</a></li>
+            <li><a href="Contact" data-navigo>Contact</a></li>
+            <li><a href="AddInfo" data-navigo>Add Info</a></li>
+            <li><a href="Disclaimers" data-navigo>Disclaimers</a></li>
+        </ul>
+    </nav>
 </header>
 `;

@@ -31,6 +31,7 @@ function render(st = state.Home) {
 
   buildRandomURL();
   addBannerEventListener();
+  addHamburgerEventListener()
   addInfoEventListener();
   addButtonsEventListener();
   addDisclaimerEventListener();
@@ -63,7 +64,7 @@ const form = document.querySelector("form");
 let formDateCollection = [];
 
 // Still need to finish - Form Submissions listeners ???
-//=======================================================
+//------------------------------------------------------
 // form.addEventListener("submit", event => {
 //   event.preventDefault();
 //   Array.from(event.target.elements).forEach(el => {
@@ -75,6 +76,15 @@ let formDateCollection = [];
 
 // Header listeners
 //==================
+
+// add Nav toggle to bars icon in nav bar
+function addHamburgerEventListener() {
+  document.querySelector(".fa-bars").addEventListener("click", () => {
+    document.querySelector("nav > ul").classList.toggle("hidden");
+  });
+};
+
+// add banner click to go to home page
 function addBannerEventListener() {
   let banner = document.querySelectorAll("header.a")
   banner.forEach(link =>
@@ -84,6 +94,7 @@ function addBannerEventListener() {
     })
   );
 };
+
 
 // main area click listener for HOMEPAGE
 //=======================================
