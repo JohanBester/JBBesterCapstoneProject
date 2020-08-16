@@ -1,25 +1,25 @@
 
-// ***SPA Components ***
-//**********************
 import { Header, Main, Footer } from "./components";
 import * as state from "./store"
 
 import Navigo from "navigo";
 import { capitalize } from "lodash";
-import axios from "axios";
 
-// Navigo Router
+import randomImage from "./lib/randomImage"
+import getAPIData from "./lib/getAPIData"
+// import DBJSON from "./lib/DBJSON"  // not working
+// import ZIPJSON from "./lib/ZIPJSON"  // not working
+
 const router = new Navigo(window.location.origin);
-
 router.on({
   "/": () => render(state.Home),
   ":page": params => {
     let page = capitalize(params.page);
     render(state[page]);
   },
-}).resolve();
+})
+.resolve();
 
-// Render SPA
 function render(st = state.Home) {
   document.querySelector("#root").innerHTML = `
   ${Header()}
@@ -29,62 +29,35 @@ function render(st = state.Home) {
 
   router.updatePageLinks();
 
-  buildRandomURL();
+  randomImage();
   addBannerEventListener();
   addHamburgerEventListener()
   addInfoEventListener();
   addButtonsEventListener();
   addDisclaimerEventListener();
-
   addZipSearchBtnListener();
   addSearchFilterBtnListener(st);
-    
+  addSearchBarDropDownsListeners(st);
 };
 
-// Generate a random number
-function randomNumber(min, max) {
-	return Math.floor(Math.random() * (max - min + 1) + min);
-};
+// add random image to page (works)
+let randomURL = randomImage();
+document.querySelector('.addOrImage').innerHTML = `
+  <img id="imgFMAfighters" src="${randomURL}" alt="General Filipino martial Artists images about Arnis, Escrima, and Kali."/>
+`;
 
-// Build random image URL
-function buildRandomURL() {
-  let imageNames = ["FMAimages1.jpg", "FMAimages2.jpg", "FMAimages3.jpg", "FMAimages4.jpg", "FMAimages5.jpg", "FMAimages6.jpg", "FMAimages7.jpg", "FMAimages8.jpg", "FMAimages9.jpg", "FMAimages10.jpg", "FMAimages11.jpg", "FMAimages12.jpg", "FMAimages13.jpg", "FMAimages14.jpg", "FMAimages15.jpg", "FMAimages16.jpg", "FMAimages17.jpg", "FMAimages18.jpg", "FMAimages19.jpg", "FMAimages20.jpg", "FMAimages21.jpg", "FMAimages22.jpg", "FMAimages23.jpg", "FMAimages24.jpg", "FMAimages25.jpg", "FMAimages26.jpg", "FMAimages27.jpg", "FMAimages28.jpg", "FMAimages29.jpg"];
-  let imageURL = "https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/FMAimages/";
-  let rand = randomNumber(1, imageNames.length-1);
-  let randomName = imageNames[rand];
-  let randomURL = imageURL + randomName + "?raw=true";
-  // add random image to page;
-  document.querySelector('.addOrImage').innerHTML = `
-    <img id="imgFMAfighters" src="${randomURL}" alt="General Filipino martial Artists images about Arnis, Escrima, and Kali."/>
-  `;
-};
-
-// Constant for Forms submit and to clear form data
+// Constant for Forms submit and to clear form data (works)
 const form = document.querySelector("form");
-let formDateCollection = [];
 
-// Still need to finish - Form Submissions listeners ???
-//------------------------------------------------------
-// form.addEventListener("submit", event => {
-//   event.preventDefault();
-//   Array.from(event.target.elements).forEach(el => {
-//     console.log("Input Type: ", el.type);
-//     console.log("Name: ", el.name);
-//     console.log("Value: ", el.value);
-//   });
-// });
-
-// Header listeners
-//==================
-
-// add Nav toggle to bars icon in nav bar
+// Header listeners (works)
+//==========================
+// Nav toggle for bars icon in nav bar
 function addHamburgerEventListener() {
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden");
   });
 };
-
-// add banner click to go to home page
+// banner clicks to go to home page
 function addBannerEventListener() {
   let banner = document.querySelectorAll("header.a")
   banner.forEach(link =>
@@ -95,88 +68,8 @@ function addBannerEventListener() {
   );
 };
 
-
-// main area click listener for HOMEPAGE
-//=======================================
-let zipCode = "";
-let radius = "50";
-
-function addZipSearchBtnListener() {
-    document.querySelector("button").addEventListener("click", event => {
-      event.preventDefault();
-      let filter = false;
-      // get user radio button selection on home page
-      let type = form.querySelector('input[name="selectOptions"]:checked').value;
-      if (type !== "All") {
-        filter = true;
-      };         
-
-      // get user zip code input
-      let userZipCode = document.getElementById("zipSearch").value;
-      if (userZipCode == "") {
-        alert("A Zip Code Is required");
-        return
-      } else {
-        zipCode = userZipCode;
-      };
-      zipCodeSearch(type, filter);
-    });
-};
-
-// main area click listener for FMAresules Page
-//==============================================
-function addSearchFilterBtnListener(st) {
-  if (st == state.FMAresules) {
-    alert(st);
-    
-    let stateCode = "";
-    let stateText = "";
-    let type = "";
-    let style = "";
-    let filter = false;
-  
-    document.querySelector("button").addEventListener("click", event => {
-      event.preventDefault();
-  
-      // check user zip code input
-      let zipCode = document.getElementById("zipSearch").value;
-      
-      // check user search radius
-      let radiusDropdown = document.querySelector("#radiusSearch");
-      let radius = radiusDropdown.options[radiusDropdown.selectedIndex].value;
-      
-      // check user STATE selection
-      let stateDropdown = document.querySelector("#stateSearch");
-      stateCode = stateDropdown.options[stateDropdown.selectedIndex].value;
-      stateText = stateDropdown.options[stateDropdown.selectedIndex].text;
-       console.log(stateCode, stateText);  // for testing
-  
-      // check user TYPE selection
-      let typeDropdown = document.querySelector("#typeSearch");
-      type = typeDropdown.options[typeDropdown.selectedIndex].value;
-       console.log(type);  // for testing
-  
-      // check user STYLE selection
-      let styleDropdown = document.querySelector("#styleSearch");
-      style = styleDropdown.options[styleDropdown.selectedIndex].value;
-      console.log(style);  // for testing
-  
-      // Is data filtering needed?
-      if (stateCode != "" || type != "" || style != "") {
-        filter = true;
-      };
-  
-      // Test what variables are captured from form
-      console.log(`variables ... ${zipCode} -  ${stateCode} - ${stateText} - ${radius} - ${type} - ${style} - ${filter}`);
-  
-      alert("going to searchBarSubmit");  // for testing only
-      searchBarSubmit(stateCode, stateText, type, style, filter);
-      });
-  };
-};
-
-// main area click listener for AddInfo Page
-//==============================================
+// click listener for AddInfo button (works)
+//===========================================
 function addInfoEventListener() {
   document.querySelector('#hpAddInfoButton').addEventListener("click", event => {
     event.preventDefault();
@@ -184,15 +77,16 @@ function addInfoEventListener() {
   });
 };
 
-// Footer navigation
-//===================
+// click listeners for Footer (Works)
+//====================================
+// disclaimer area
 function addDisclaimerEventListener() {
   document.querySelector("#disclaimers > a").addEventListener("click", event => {
     event.preventDefault();
     render(state.Disclaimers);
   });
 };
-
+// nav buttons
 function addButtonsEventListener() {
   let buttons = document.querySelectorAll(".fixed-footer a");
   buttons.forEach(link =>
@@ -205,119 +99,186 @@ function addButtonsEventListener() {
   );
 };
 
+// click listener for HOMEPAGE (works)
+//=====================================
+function addZipSearchBtnListener() {
+    document.querySelector("button").addEventListener("click", event => {
+      event.preventDefault();
+      zipCodeSearch();
+    });
+};
 
-//********************************************************
-//**  Get the FMA JSON Data from the data source file  ***
-//********************************************************
-let fmaDBdata = [];  // for the FMA DB data
+// click listener for FMAresules Page (Not WORKING)
+//===================================================
+function addSearchFilterBtnListener(st) {
+  if (st == state.FMAresules) {
+    document.querySelector("button").addEventListener("click", event => {
+      event.preventDefault();
+      searchBarSubmit();
+    });
+  };
+};
 
+function addSearchBarDropDownsListeners(st) {
+  if (st == state.FMAresules) {
+    // check user zip code input
+    let zipField = document.querySelector("#zipSearch");
+    zipField.onChange = function() {
+      state.Params.zipCode = zipField.value;
+    };
+
+    // check user Drop-Down inputs
+    // const form = document.querySelector("form");
+    let sbFields = form.querySelectorAll("sbField");
+    sbFields.forEach(field =>
+      field.onChange = function() {
+        let value = field.options[field.selectedIndex].value;
+        const name = field.name;
+        switch (name) {
+          case 'radius':
+            alert("radius = " + value);
+            state.Params.radius = value;
+            break;
+          case 'type':
+            alert("type = " + value);
+            state.Params.type = value;
+            break;
+          case 'style':
+            alert("style = " + value);
+            state.Params.style = value;
+          case 'state':
+            alert("state = " + value);
+            state.Params.stateCode = value;
+          default:
+            console.log(`Sorry, we are out of ${name}.`);
+        };
+      });
+
+    // Is data filtering needed?
+    if (state.Params.stateCode != "" || state.Params.type != "" || state.Params.style != "") {
+      state.Params.filter = true;
+    };
+  };
+};
+
+
+// Still need to finish - Form Submissions listeners ???
+//------------------------------------------------------
+// state.Params.formDateCollection = [];
+// form.addEventListener("submit", event => {
+//   event.preventDefault();
+//   Array.from(event.target.elements).forEach(el => {
+//     console.log("Input Type: ", el.type);
+//     console.log("Name: ", el.name);
+//     console.log("Value: ", el.value);
+//   });
+// });
+
+
+//**  Get the FMA Data from the data JSON file (works)
+//*****************************************************
 (function importDBJSON() {
+  state.Params.fmaDBdata = [];
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/FMAData.json')
   .then(response => response.json())
   .then(response => {
-    fmaDBdata = response; // save JSON data here...
-        // console.log(response); // for testing only
-        // console.log(fmaDBdata);  // for testing only
-      }
-    )
-    .catch(err => {
-        // What to do when the request fails
-        alert("Error with the DBdata import LINE 150. please try your search again.");
-        console.log('The DBdata load request failed!');
-        console.log('error', err);
-        // return location.reload();
-      });
+    state.Params.fmaDBdata = response;
+  })
+  .catch(err => {
+      // What to do when the request fails
+      alert("Error with the DBdata import LINE 150. please try your search again.");
+      console.log('The DBdata load request failed!');
+      console.log('error', err);
+    });
 }) ();
 
-
-//********************************************************
-//**  Get the ZIP JSON Data from the data source file  ***
-//********************************************************
-let tempZipData =[];  // for the ZIP Code data
-
+//**  Get the ZIP Data from the data JSON file (works)
+//*****************************************************
 (function importZIPJSON() {
+  state.Params.tempZipData = [];
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/ZIPdata.json')
   .then(response => response.json())
   .then(response => {
-    tempZipData = response;  // save JSON data here...
-        // console.log(response); // For testing only
-        // console.log(tempZipData);  // For testing only
-      }
-    )
-    .catch(err => {
-        // What to do when the request fails
-        alert("Error with the ZIPdata import LINE 180. please try your search again.");
-        console.log('The ZIPdata load request failed!');
-        console.log('error', err);
-        // return location.reload();
-      });
+    state.Params.tempZipData = response;  // save JSON data here...
+    })
+  .catch(err => {
+      // What to do when the request fails
+      alert("Error with the ZIPdata import LINE 180. please try your search again.");
+      console.log('The ZIPdata load request failed!');
+      console.log('error', err);
+    });
 }) ();
 
 
-//*************************************
-//***  Search and filter options  *****
-//*************************************
+// Search from Home Page form (this works)
+//----------------------------------------
+function zipCodeSearch() {
+  // get user radio button selection on home page
+  state.Params.type = form.querySelector('input[name="selectOptions"]:checked').value;
+  if (state.Params.type !== "All") {
+    state.Params.filter = true;
+  };
+  // get user zip code input
+  let userZipCode = document.getElementById("zipSearch").value;
+  if (userZipCode == "") {
+    alert("A Zip Code Is required");
+    return
+  } else {
+    state.Params.zipCode = userZipCode;
+  };
 
-// function for Home Page form
-//----------------------------
-function zipCodeSearch(type, filter) {
-  //getZipCodeData();  // with default radius value
+  //*** Uncomment for demo day ***
+  // state.Params.returnedAPIdata = [];
+  // state.Params.returnedAPIdata = getAPIData();
+  // console.log(state.Params.returnedAPIdata);  // for testing
+  // compareTheData(state.Params.fmaDBdata, state.Params.returnedAPIdata);
   
-  alert("Going to compareTheData"); // for testing only
-  compareTheData(fmaDBdata, tempZipData, type, filter);  // for testing only
-  // compareTheData(tempDBdata, demoAPIdata, type, filter);  // for testing only
-
-  // compareTheData(fmaDBdata, returnedAPIdata, type, filter);
-  
+  // for testing only
+  alert("Going to compareTheData");
+  compareTheData(state.Params.fmaDBdata, state.Params.tempZipData);
+  // compareTheData(tempDBdata, demoAPIdata);
 };
 
 
-// function for search bar filtering on results page
-//---------------------------------------------------
-function searchBarSubmit(stateCode, stateText, type, style, filter) {
-  //getZipCodeData();  // with with new radius
+// search bar filtering on results page (Not WORKING)
+//-----------------------------------------------------------
+function searchBarSubmit() {
+  state.Params.zipCode = document.getElementById("zipSearch").value;
+  let radiusDropdown = document.querySelector("#radiusSearch");
+  state.Params.radius = radiusDropdown.options[radiusDropdown.selectedIndex].value;  
+  let stateDropdown = document.querySelector("#stateSearch");
+  state.Params.stateCode = stateDropdown.options[stateDropdown.selectedIndex].value;
+  state.Params.stateText = stateDropdown.options[stateDropdown.selectedIndex].text;
+    console.log(stateCode, stateText);  // for testing
+  let typeDropdown = document.querySelector("#typeSearch");
+  state.Params.type = typeDropdown.options[typeDropdown.selectedIndex].value;
+    console.log(state.Params.type);  // for testing
+  let styleDropdown = document.querySelector("#styleSearch");
+  state.Params.style = styleDropdown.options[styleDropdown.selectedIndex].value;
+    console.log(style);  // for testing
+  // Is data filtering needed?
+  if (state.Params.stateCode != "" || state.Params.type != "" || state.Params.style != "") {
+    state.Params.filter = true;
+  };
   
-  alert("Going to compareTheData"); // for testing only
-  compareTheData(fmaDBdata, tempZipData, stateCode, stateText, type, style, filter);  // for testing only
-  // compareTheData(tempDBdata, demoAPIdata,  stateCode, stateText, type, style, filter);  // for testing only
+  //*** Uncomment for demo day ***
+  // state.Params.returnedAPIdata = [];
+  // state.Params.returnedAPIdata = getAPIData();
+  // console.log(state.Params.returnedAPIdata);  
+  // compareTheData(state.Params.fmaDBdata, state.Params.returnedAPIdata);
 
-  // compareTheData(fmaDBdata, returnedAPIdata, stateCode, stateText, type, style, filter);
+  // for testing only
+  console.log(`variables ... ${state.Params.zipCode} -  ${state.Params.stateCode} - ${state.Params.stateText} - ${state.Params.radius} - ${state.Params.type} - ${state.Params.style} - ${state.Params.filter}`);  alert("Going to compareTheData");
+  compareTheData(state.Params.fmaDBdata, state.Params.tempZipData);
+  // compareTheData(tempDBdata, demoAPIdata);
 };
 
 
-//***************************************
-// Steps to GET Zip Code Data from API
-//***************************************
-let returnedAPIdata = [];
-function getZipCodeData() {
-  axios.get(`https://api.zip-codes.com/ZipCodesAPI.svc/1.0/FindZipCodesInRadius?zipcode=${zipCode}&minimumradius=0&maximumradius=${radius}&key=xxxxxxxxxxxxxxxxxxxxxxxxxxx`)
-    .then(results => {
-      returnedAPIdata = results.data;
-      // console.log(results.data);
-      return returnedAPIdata;
-      }
-    )
-    .catch(err => {
-        // What to do when the request fails
-        alert ("There seems to been a problem with this search. Kindly please try that again.");
-        console.log('The Axios API request failed!');
-        console.log('Error', err);
-        return location.reload();
-      }
-    );
-};
-
-
-//**************************************************
-//**  functions to COMPARE Data in the Datasets  ***
-//**************************************************
-let comparedData = [];  // To hold comparison API and DB data
-
-function compareTheData(dbData, zipData, stateCode = "", stateText = "", type = "All", style = "All", filter) {
-  // console.log(dbData, zipData, stateCode, stateText, type, style, filter);
-
+// functions to COMPARE Data (this works)
+//*****************************************
+export function compareTheData(dbData, zipData) {
+  state.Params.comparedData = [];
   zipData.forEach((zipItem) => {
-
     for(let i=0; i <= dbData.length-1; i++) {
       if (zipItem.ZipCode === dbData[i].ZipCode) {
         let tempItem = (dbData[i]);
@@ -327,54 +288,47 @@ function compareTheData(dbData, zipData, stateCode = "", stateText = "", type = 
         if (!tempItem.Distance || tempItem.Distance == "0") {
           tempItem.Distance = "Only a mile or so";
         };
-        comparedData.push(tempItem);
+        state.Params.comparedData.push(tempItem);
       }
     };
   });
-
   // check if filtering is needed?
-  if (filter) {
-    alert("Going to filterData");
-    filterData(comparedData, stateCode, stateText, type, style);
+  if (state.Params.filter) {
+     alert("Going to filterData"); // for testing
+    filterData(state.Params.comparedData);
   } else {
-    alert("Going to writeResults");
-    writeResults(comparedData, stateCode, stateText, type, style);
+     alert("Going to writeResults"); // for testing
+    writeResults(state.Params.comparedData);
   };
 };
 
 
-//****************************************************************
-//** Functions to FILTER New Data according to search criteria ***
-//****************************************************************
-let filteredData = [];
-
+//** FILTER according to search criteria (mostly works)
+//*******************************************************
 // ZipCode and radius already taken care of at this point
 // stateCode -- takes 2 alpha character code
 // stateText -- full state name
 // style -- Arnis, Escrima, Kali, or All
 // type -- club, group, school, event, or All
-
-function filterData(zipAndRadiusData, stateCode, stateText, type, style) {
-  alert("Filtering the data ...");	// for testing only
-  
+function filterData(zipAndRadiusData) {
+  state.Params.filteredData = [];
   // check for STATE filter
   let stateData = [];
-  if (stateCode != "" || stateText != "") {
-    console.log("stateCode = " + stateCode + " and stateText = " + stateText);
+  if (state.Params.stateCode != "" || state.Params.stateText != "") {
+    console.log("stateCode = " + state.Params.stateCode + " and stateText = " + state.Params.stateText);
     zipAndRadiusData.forEach((dataItem1) => {
-      if (dataItem1.State === stateCode || dataItem1.State === stateText) {
+      if (dataItem1.State === state.Params.stateCode || dataItem1.State === state.Params.stateText) {
         stateData.push(dataItem1);
       };
     });
     // for testing 
-    console.log(stateData);
-    alert("There was a state filter");
+     console.log(stateData);
+     alert("There was a state filter");
   };
-
   // check for STYLE filter
   let styleData = [];
-  if (style && (style != "All")) {
-  	// if there are previous state filter results
+  if (state.Params.style && (state.Params.state.Params.style != "All")) {
+  	// if previous state filter results
     if (stateData.length >= 1) {
       stateData.forEach((dataItem2) => {
         if (dataItem2.Style === style) {
@@ -384,77 +338,57 @@ function filterData(zipAndRadiusData, stateCode, stateText, type, style) {
     } else {
     	// if not state filter results
       zipAndRadiusData.forEach((dataItem2) => {
-        if (dataItem2.Style === style) {
+        if (dataItem2.Style === state.Params.style) {
           styleData.push(dataItem2);
         };
       });
     };
     // for testing 
-    console.log(styleData);
-    alert("There was a style filter");
+     console.log(styleData);
+     alert("There was a style filter");
   };
-
   // check TYPE of venue filter
-  if (type && (type !== "All")) {
-  	// if there are previous style filter results
+  if (state.Params.type && (state.Params.type !== "All")) {
+  	// if previous style filter results
     if (styleData.length >= 1) {
       styleData.forEach((dataItem3) => {
-        if (dataItem3.Type === type) {
-          filteredData.push(dataItem3);
+        if (dataItem3.Type === state.Params.type) {
+          state.Params.filteredData.push(dataItem3);
         };
       });
     } else if (stateData.length >= 1) {
-  		// if no style but there are previous state filter results    	
+  		// no style but previous state filter results    	
         stateData.forEach((dataItem3) => {
-        if (dataItem3.Type === type) {
-          filteredData.push(dataItem3);
+        if (dataItem3.Type === state.Params.type) {
+          state.Params.filteredData.push(dataItem3);
         };
       });
     } else {
-  		// if no style nor any state filter results    	  	
+  		// no style nor any state filter results    	  	
         zipAndRadiusData.forEach((dataItem3) => {
-        if (dataItem3.Type === type) {
-          filteredData.push(dataItem3);
+        if (dataItem3.Type === state.Params.type) {
+          state.Params.filteredData.push(dataItem3);
         };
       });
     };
     // for testing 
-    console.log(filteredData);
-    alert("There was a type filter");
+     console.log(state.Params.filteredData);
+     alert("There was a type filter");
   };
-
-  // now print out the results to the screen
-  writeResults(filteredData, stateCode, stateText, type, style);
+  // print results to the screen
+  alert("Going to print the results.");	// for testing
+  writeResults(state.Params.filteredData);
 };
 
 
-//*******************************************************
-//** Functions to Publish Search Data to result page ***
-//*******************************************************
-function writeResults(printableData, stateCode, stateText, type, style) {
+//** Publish Data to result page ( mostly works)
+//************************************************
+function writeResults(printableData) {
   render(state.FMAresults);
 
-  // Pre-fill search field options
-  document.getElementById("zipSearch").value = zipCode;
-  document.querySelector("#radiusSearch").value = radius;
-   alert(type);  // for testing
-  document.querySelector("#typeSearch").value = type;
-   alert(style);  // for testing
-  document.querySelector("#styleSearch").value = style;
-   alert(stateCode, stateText);  // for testing
-  let stateField = document.querySelector("#stateSearch");
-  if ((stateCode = "All") || (stateText = "All")) {
-    stateField.text = "State";
-  } else {
-    stateField.value = stateCode;
-  };
-
-  // get container on FMAresults page
 	const container = document.querySelector('#container');
-	 alert("About to print...");	// for testing
 
-  // build screen output
-	if (printableData.length >= 1) {
+  if (printableData.length >= 1) {
 		let i = 0;
 		printableData.forEach((element) => {
 			i++;
@@ -465,13 +399,12 @@ function writeResults(printableData, stateCode, stateText, type, style) {
         &nbsp; ${element.State}, ${element.ZipCode}<br />
         &nbsp; Phone : ${element.Phone}<br />
         &nbsp; Email : ${element.Email}<br />
+        &nbsp; Web URL : ${element["Web URL"]}<br />
         &nbsp; Type : ${element.Type} &nbsp; &nbsp; Style : ${element.Style}<br />
         &nbsp; Distance : ${element.Distance}<br />
 			`;
-
 			container.appendChild(elementdiv);
 		});
-
 	} else {
     console.log("Error in writeResults function");
 		alert("Nothing to print");

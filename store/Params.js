@@ -1,0 +1,15 @@
+export default {
+    formDateCollection: [],
+    fmaDBdata: [],
+    tempZipDate: [],
+    returnedAPIdata: [],
+    comparedData: [],
+    filteredData: [],
+    zipCode: "",
+    radius: "50",
+    type: "",
+    style: "",
+    stateCode: "",
+    stateText: "",
+    filter: false,
+};

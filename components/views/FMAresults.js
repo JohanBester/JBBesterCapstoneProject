@@ -10,6 +10,7 @@ export default () => `
         <div>
             <input type="text" name="Zip" id="zipSearch" class="sbField" pattern="(\d{5}([\-]\d{4})?)" placeholder="Zip" required>
         </div>
+        
         <div>
             <select id="stateSearch" name="state" class="sbField">
             <option disabled selected value>State</option>
