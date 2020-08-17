@@ -35,6 +35,7 @@ function render(st = state.Home) {
   addInfoEventListener();
   addButtonsEventListener();
   addDisclaimerEventListener();
+
   addZipSearchBtnListener();
   addSearchFilterBtnListener(st);
   addSearchBarDropDownsListeners(st);
@@ -111,7 +112,7 @@ function addZipSearchBtnListener() {
 // click listener for FMAresules Page (Not WORKING)
 //===================================================
 function addSearchFilterBtnListener(st) {
-  if (st == state.FMAresules) {
+  if (st == state.FMAresults) {
     document.querySelector("button").addEventListener("click", event => {
       event.preventDefault();
       searchBarSubmit();
@@ -120,20 +121,21 @@ function addSearchFilterBtnListener(st) {
 };
 
 function addSearchBarDropDownsListeners(st) {
-  if (st == state.FMAresules) {
+  if (st == state.FMAresults) {
     // check user zip code input
     let zipField = document.querySelector("#zipSearch");
     zipField.onChange = function() {
       state.Params.zipCode = zipField.value;
+      alert(state.Params.zipCode);
     };
 
     // check user Drop-Down inputs
     // const form = document.querySelector("form");
-    let sbFields = form.querySelectorAll("sbField");
+    let sbFields = form.querySelectorAll(".sbField");
     sbFields.forEach(field =>
-      field.onChange = function() {
-        let value = field.options[field.selectedIndex].value;
-        const name = field.name;
+      field.addEventListener("click", event => {
+        let value = event.options[event.selectedIndex].value;
+        const name = event.name;
         switch (name) {
           case 'radius':
             alert("radius = " + value);
@@ -146,13 +148,16 @@ function addSearchBarDropDownsListeners(st) {
           case 'style':
             alert("style = " + value);
             state.Params.style = value;
+            break;
           case 'state':
             alert("state = " + value);
             state.Params.stateCode = value;
+            break;
           default:
             console.log(`Sorry, we are out of ${name}.`);
         };
-      });
+      })
+    );
 
     // Is data filtering needed?
     if (state.Params.stateCode != "" || state.Params.type != "" || state.Params.style != "") {
@@ -385,6 +390,27 @@ function filterData(zipAndRadiusData) {
 //************************************************
 function writeResults(printableData) {
   render(state.FMAresults);
+
+// to Pre-fill search field options
+document.getElementById("zipSearch").value = state.Params.zipCode;
+    alert(state.Params.zipCode);  // for testing
+document.querySelector("#radiusSearch").value = state.Params.radius;
+    alert(state.Params.radius);  // for testing
+
+document.querySelector("#typeSearch").value = state.Params.type;
+alert(state.Params.type);  // for testing
+
+document.querySelector("#styleSearch").value = state.Params.style;
+alert(state.Params.style);  // for testing
+
+let stateField = document.querySelector("#stateSearch");
+if (state.Params.stateCode = "All") {
+    stateField.value = "State";
+} else {
+    stateField.value = state.Params.stateCode;
+};
+alert(state.Params.stateCode, Params.stateText);
+
 
 	const container = document.querySelector('#container');
 
