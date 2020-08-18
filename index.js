@@ -1,12 +1,13 @@
 
 import { Header, Main, Footer } from "./components";
-import * as state from "./store"
+import * as state from "./store";
 
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 
-import randomImage from "./lib/randomImage"
-import getAPIData from "./lib/getAPIData"
+import randomImage from "./lib/randomImage";
+// import preSetValues from "./lib/preSetValues";
+import getAPIData from "./lib/getAPIData";
 // import DBJSON from "./lib/DBJSON"  // not working
 // import ZIPJSON from "./lib/ZIPJSON"  // not working
 
@@ -35,10 +36,11 @@ function render(st = state.Home) {
   addInfoEventListener();
   addButtonsEventListener();
   addDisclaimerEventListener();
-
   addZipSearchBtnListener();
-  addSearchFilterBtnListener(st);
-  addSearchBarDropDownsListeners(st);
+
+  addSearchBtnListener(st);
+  // addSearchBarDropDownsListeners(st);
+
 };
 
 // add random image to page (works)
@@ -109,66 +111,67 @@ function addZipSearchBtnListener() {
     });
 };
 
-// click listener for FMAresules Page (Not WORKING)
+
+// The listeners for FMAresules Page (Not WORKING)
 //===================================================
-function addSearchFilterBtnListener(st) {
+function addSearchBtnListener(st) {
   if (st == state.FMAresults) {
     document.querySelector("button").addEventListener("click", event => {
       event.preventDefault();
+      alert("The Search Filter button works!");
       searchBarSubmit();
     });
   };
 };
 
-function addSearchBarDropDownsListeners(st) {
-  if (st == state.FMAresults) {
-    // check user zip code input
-    let zipField = document.querySelector("#zipSearch");
-    zipField.onChange = function() {
-      state.Params.zipCode = zipField.value;
-      alert(state.Params.zipCode);
-    };
+// function addSearchBarDropDownsListeners(st) {
+//   if (st == state.FMAresults) {
+//     // check user zip code input
+//     let zipField = document.querySelector("#zipSearch");
+//     zipField.onChange = function() {
+//       state.Params.zipCode = zipField.value;
+//       alert(state.Params.zipCode);
+//     };
+//     // check user Drop-Down inputs
+//     let sbFields = form.querySelectorAll("#searchBar > div > select > .sbField");
+//     console.log(sbFields);
+//     sbFields.forEach(field =>
+//       field.addEventListener("click", event => {
+//         alert(event);
+//         let value = event.options[event.selectedIndex].value;
+//         const name = event.name;
+//         switch (name) {
+//           case 'radius':
+//             alert("radius = " + value);
+//             state.Params.radius = value;
+//             break;
+//           case 'type':
+//             alert("type = " + value);
+//             state.Params.type = value;
+//             break;
+//           case 'style':
+//             alert("style = " + value);
+//             state.Params.style = value;
+//             break;
+//           case 'state':
+//             alert("state = " + value);
+//             state.Params.stateCode = value;
+//             break;
+//           default:
+//             console.log(`Sorry, we are out of ${name}.`);
+//         };
+//       })
+//     );
+//     // Is data filtering needed?
+//     if (state.Params.stateCode != "" || state.Params.type != "" || state.Params.style != "") {
+//       state.Params.filter = true;
+//     };
+//   };
+// };
 
-    // check user Drop-Down inputs
-    // const form = document.querySelector("form");
-    let sbFields = form.querySelectorAll(".sbField");
-    sbFields.forEach(field =>
-      field.addEventListener("click", event => {
-        let value = event.options[event.selectedIndex].value;
-        const name = event.name;
-        switch (name) {
-          case 'radius':
-            alert("radius = " + value);
-            state.Params.radius = value;
-            break;
-          case 'type':
-            alert("type = " + value);
-            state.Params.type = value;
-            break;
-          case 'style':
-            alert("style = " + value);
-            state.Params.style = value;
-            break;
-          case 'state':
-            alert("state = " + value);
-            state.Params.stateCode = value;
-            break;
-          default:
-            console.log(`Sorry, we are out of ${name}.`);
-        };
-      })
-    );
 
-    // Is data filtering needed?
-    if (state.Params.stateCode != "" || state.Params.type != "" || state.Params.style != "") {
-      state.Params.filter = true;
-    };
-  };
-};
-
-
-// Still need to finish - Form Submissions listeners ???
-//------------------------------------------------------
+// Still need to finish - User Form Submissions listeners ???
+//------------------------------------------------------------
 // state.Params.formDateCollection = [];
 // form.addEventListener("submit", event => {
 //   event.preventDefault();
@@ -232,7 +235,7 @@ function zipCodeSearch() {
     state.Params.zipCode = userZipCode;
   };
 
-  //*** Uncomment for demo day ***
+  //*** UNCOMMENT FOR DEMO DAY ***
   // state.Params.returnedAPIdata = [];
   // state.Params.returnedAPIdata = getAPIData();
   // console.log(state.Params.returnedAPIdata);  // for testing
@@ -245,43 +248,9 @@ function zipCodeSearch() {
 };
 
 
-// search bar filtering on results page (Not WORKING)
-//-----------------------------------------------------------
-function searchBarSubmit() {
-  state.Params.zipCode = document.getElementById("zipSearch").value;
-  let radiusDropdown = document.querySelector("#radiusSearch");
-  state.Params.radius = radiusDropdown.options[radiusDropdown.selectedIndex].value;  
-  let stateDropdown = document.querySelector("#stateSearch");
-  state.Params.stateCode = stateDropdown.options[stateDropdown.selectedIndex].value;
-  state.Params.stateText = stateDropdown.options[stateDropdown.selectedIndex].text;
-    console.log(stateCode, stateText);  // for testing
-  let typeDropdown = document.querySelector("#typeSearch");
-  state.Params.type = typeDropdown.options[typeDropdown.selectedIndex].value;
-    console.log(state.Params.type);  // for testing
-  let styleDropdown = document.querySelector("#styleSearch");
-  state.Params.style = styleDropdown.options[styleDropdown.selectedIndex].value;
-    console.log(style);  // for testing
-  // Is data filtering needed?
-  if (state.Params.stateCode != "" || state.Params.type != "" || state.Params.style != "") {
-    state.Params.filter = true;
-  };
-  
-  //*** Uncomment for demo day ***
-  // state.Params.returnedAPIdata = [];
-  // state.Params.returnedAPIdata = getAPIData();
-  // console.log(state.Params.returnedAPIdata);  
-  // compareTheData(state.Params.fmaDBdata, state.Params.returnedAPIdata);
-
-  // for testing only
-  console.log(`variables ... ${state.Params.zipCode} -  ${state.Params.stateCode} - ${state.Params.stateText} - ${state.Params.radius} - ${state.Params.type} - ${state.Params.style} - ${state.Params.filter}`);  alert("Going to compareTheData");
-  compareTheData(state.Params.fmaDBdata, state.Params.tempZipData);
-  // compareTheData(tempDBdata, demoAPIdata);
-};
-
-
 // functions to COMPARE Data (this works)
 //*****************************************
-export function compareTheData(dbData, zipData) {
+function compareTheData(dbData, zipData) {
   state.Params.comparedData = [];
   zipData.forEach((zipItem) => {
     for(let i=0; i <= dbData.length-1; i++) {
@@ -297,6 +266,7 @@ export function compareTheData(dbData, zipData) {
       }
     };
   });
+
   // check if filtering is needed?
   if (state.Params.filter) {
      alert("Going to filterData"); // for testing
@@ -315,101 +285,135 @@ export function compareTheData(dbData, zipData) {
 // stateText -- full state name
 // style -- Arnis, Escrima, Kali, or All
 // type -- club, group, school, event, or All
+
 function filterData(zipAndRadiusData) {
   state.Params.filteredData = [];
+
   // check for STATE filter
   let stateData = [];
   if (state.Params.stateCode != "" || state.Params.stateText != "") {
     console.log("stateCode = " + state.Params.stateCode + " and stateText = " + state.Params.stateText);
     zipAndRadiusData.forEach((dataItem1) => {
-      if (dataItem1.State === state.Params.stateCode || dataItem1.State === state.Params.stateText) {
+      if (dataItem1.State == state.Params.stateCode || dataItem1.State === state.Params.stateText) {
         stateData.push(dataItem1);
       };
     });
     // for testing 
      console.log(stateData);
+     console.log(state.Params.stateCode, state.Params.stateText);
      alert("There was a state filter");
   };
+
   // check for STYLE filter
   let styleData = [];
   if (state.Params.style && (state.Params.state.Params.style != "All")) {
   	// if previous state filter results
     if (stateData.length >= 1) {
       stateData.forEach((dataItem2) => {
-        if (dataItem2.Style === style) {
+        if (dataItem2.Style == style) {
           styleData.push(dataItem2);
         };
       });
     } else {
     	// if not state filter results
       zipAndRadiusData.forEach((dataItem2) => {
-        if (dataItem2.Style === state.Params.style) {
+        if (dataItem2.Style == state.Params.style) {
           styleData.push(dataItem2);
         };
       });
     };
     // for testing 
      console.log(styleData);
+     console.log(state.Params.style);
      alert("There was a style filter");
   };
+
   // check TYPE of venue filter
   if (state.Params.type && (state.Params.type !== "All")) {
   	// if previous style filter results
     if (styleData.length >= 1) {
       styleData.forEach((dataItem3) => {
-        if (dataItem3.Type === state.Params.type) {
+        if (dataItem3.Type == state.Params.type) {
           state.Params.filteredData.push(dataItem3);
         };
       });
     } else if (stateData.length >= 1) {
   		// no style but previous state filter results    	
         stateData.forEach((dataItem3) => {
-        if (dataItem3.Type === state.Params.type) {
+        if (dataItem3.Type == state.Params.type) {
           state.Params.filteredData.push(dataItem3);
         };
       });
     } else {
   		// no style nor any state filter results    	  	
         zipAndRadiusData.forEach((dataItem3) => {
-        if (dataItem3.Type === state.Params.type) {
+        if (dataItem3.Type == state.Params.type) {
           state.Params.filteredData.push(dataItem3);
         };
       });
     };
     // for testing 
      console.log(state.Params.filteredData);
+     console.log(state.Params.type);
      alert("There was a type filter");
   };
+
+  // pre-populate the search results view
+  alert("Loading results page");	// for testing
+  render(state.FMAresults);
+  preSetValues()
+
+  // // print results to the screen
+  // alert("Going to print the results.");	// for testing
+  // writeResults(state.Params.filteredData);
+};
+
+//** pre-populate the search results page options
+//**************************************************
+function preSetValues() {
+  alert("About to pre-set Search Results");
+
+  document.getElementById("zipSearch").value = state.Params.zipCode;
+      alert("zipCode = " + state.Params.zipCode);  // for testing
+
+  document.querySelector("#radiusSearch").value = state.Params.radius;
+      alert("radius = " + state.Params.radius);  // for testing
+
+  let typeField = document.querySelector("#typeSearch");
+  if (state.Params.type == "All") {
+    typeField.text = "Type";
+  } else {
+    typeField.value = state.Params.type;
+  };
+      alert("type = " + state.Params.type);  // for testing
+
+  let styleField = document.querySelector("#styleSearch");
+  if (state.Params.style == "All") {
+    styleField.text = "Style";
+  } else {
+    styleField.value = state.Params.style;
+  };
+      alert("style = " + state.Params.style);  // for testing
+
+  let stateField = document.querySelector("#stateSearch");
+  if (state.Params.stateCode == "All") {
+      stateField.text = "State";
+  } else {
+      stateField.value = state.Params.stateCode;
+  };
+      alert("The state = " + state.Params.stateCode, state.Params.stateText);
+
   // print results to the screen
   alert("Going to print the results.");	// for testing
   writeResults(state.Params.filteredData);
+
 };
 
 
-//** Publish Data to result page ( mostly works)
-//************************************************
+//** write Data to result page ( mostly works)
+//**********************************************
 function writeResults(printableData) {
-  render(state.FMAresults);
-
-// to Pre-fill search field options
-document.getElementById("zipSearch").value = state.Params.zipCode;
-    alert(state.Params.zipCode);  // for testing
-document.querySelector("#radiusSearch").value = state.Params.radius;
-    alert(state.Params.radius);  // for testing
-
-document.querySelector("#typeSearch").value = state.Params.type;
-alert(state.Params.type);  // for testing
-
-document.querySelector("#styleSearch").value = state.Params.style;
-alert(state.Params.style);  // for testing
-
-let stateField = document.querySelector("#stateSearch");
-if (state.Params.stateCode = "All") {
-    stateField.value = "State";
-} else {
-    stateField.value = state.Params.stateCode;
-};
-alert(state.Params.stateCode, Params.stateText);
+  // preSetValues();  // to pre-populate the results page
 
 
 	const container = document.querySelector('#container');
@@ -440,6 +444,63 @@ alert(state.Params.stateCode, Params.stateText);
 	      </div>
 	  `;
 	};
+};
+
+
+// search bar options on results page (Not WORKING)
+//---------------------------------------------------
+function searchBarSubmit() {
+  state.Params.formDateCollection = [];
+  alert("We are here now!");
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    console.log(form);
+
+    Array.from(event.target.elements).forEach(el => {
+      console.log(Array);
+      console.log("Input Type: ", el.type);
+      console.log("Name: ", el.name);
+      console.log("Value: ", el.value);
+
+    // state.Params.zipCode = document.getElementById("zipSearch").value;
+    //   console.log(state.Params.zipCode);  // for testing
+    // let radiusDropdown = document.querySelector("#radiusSearch");
+    // state.Params.radius = radiusDropdown.options[radiusDropdown.selectedIndex].value;  
+    //   console.log(state.Params.radius);  // for testing
+    // let stateDropdown = document.querySelector("#stateSearch");
+    // state.Params.stateCode = stateDropdown.options[stateDropdown.selectedIndex].value;
+    // state.Params.stateText = stateDropdown.options[stateDropdown.selectedIndex].text;
+    //   console.log(state.Params.stateCode, state.Params.stateText);  // for testing
+    // let typeDropdown = document.querySelector("#typeSearch");
+    // state.Params.type = typeDropdown.options[typeDropdown.selectedIndex].value;
+    //   console.log(state.Params.type);  // for testing
+    // let styleDropdown = document.querySelector("#styleSearch");
+    // state.Params.style = styleDropdown.options[styleDropdown.selectedIndex].value;
+    //   console.log(state.Params.style);  // for testing
+
+    });
+
+    console.log(Array);
+    // // Is data filtering needed?
+    // if (state.Params.stateCode != "" || state.Params.type != "" || state.Params.style != "") {
+    //   state.Params.filter = true;
+    // };
+
+  });
+  
+
+  //*** UNCOMMENT FOR DEMO DAY ***
+  // state.Params.returnedAPIdata = [];
+  // state.Params.returnedAPIdata = getAPIData();
+  // console.log(state.Params.returnedAPIdata);  
+  // compareTheData(state.Params.fmaDBdata, state.Params.returnedAPIdata);
+
+  // for testing only
+  console.log(`variables ... ${state.Params.zipCode} -  ${state.Params.stateCode} - ${state.Params.stateText} - ${state.Params.radius} - ${state.Params.type} - ${state.Params.style} - ${state.Params.filter}`);
+  alert("Going from results to compareTheData");
+  compareTheData(state.Params.fmaDBdata, state.Params.tempZipData);
+  // compareTheData(tempDBdata, demoAPIdata);
 };
 
 
