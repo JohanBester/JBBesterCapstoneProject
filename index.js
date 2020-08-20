@@ -6,8 +6,8 @@ import Navigo from "navigo";
 import { capitalize } from "lodash";
 
 import randomImage from "./lib/randomImage";
-// import preSetValues from "./lib/preSetValues";
 import getAPIData from "./lib/getAPIData";
+// import preSetValues from "./lib/preSetValues"; // not working
 // import DBJSON from "./lib/DBJSON"  // not working
 // import ZIPJSON from "./lib/ZIPJSON"  // not working
 
@@ -118,7 +118,7 @@ function addSearchBtnListener(st) {
   if (st == state.FMAresults) {
     document.querySelector("button").addEventListener("click", event => {
       event.preventDefault();
-      alert("The Search Filter button works!");
+      alert("This Search Filter button works!");
       searchBarSubmit();
     });
   };
@@ -200,6 +200,7 @@ function addSearchBtnListener(st) {
     });
 }) ();
 
+
 //**  Get the ZIP Data from the data JSON file (works)
 //*****************************************************
 (function importZIPJSON() {
@@ -218,15 +219,32 @@ function addSearchBtnListener(st) {
 }) ();
 
 
+  //*** UNCOMMENT THIS FOR DEMO DAY ***
+  //***********************************
+  //** Get the API Data
+  //**********************
+  // state.Params.returnedAPIdata = [];
+  // state.Params.returnedAPIdata = getAPIData();
+  // console.log(state.Params.returnedAPIdata);  
+  // compareTheData(state.Params.fmaDBdata, state.Params.returnedAPIdata);
+  //
+  // for testing only
+  // console.log(`variables ... ${state.Params.zipCode} -  ${state.Params.stateCode} - ${state.Params.stateText} - ${state.Params.radius} - ${state.Params.type} - ${state.Params.style} - ${state.Params.filter}`);
+  // alert("Going from results to compareTheData");
+  // compareTheData(state.Params.fmaDBdata, state.Params.tempZipData);
+  // compareTheData(tempDBdata, demoAPIdata);
+  // };
+
+
 // Search from Home Page form (this works)
 //----------------------------------------
 function zipCodeSearch() {
-  // get user radio button selection on home page
+  // user radio button selection
   state.Params.type = form.querySelector('input[name="selectOptions"]:checked').value;
   if (state.Params.type !== "All") {
     state.Params.filter = true;
   };
-  // get user zip code input
+  // user zip code input
   let userZipCode = document.getElementById("zipSearch").value;
   if (userZipCode == "") {
     alert("A Zip Code Is required");
@@ -241,7 +259,7 @@ function zipCodeSearch() {
   // console.log(state.Params.returnedAPIdata);  // for testing
   // compareTheData(state.Params.fmaDBdata, state.Params.returnedAPIdata);
   
-  // for testing only
+  // for testing only remove on Demo day
   alert("Going to compareTheData");
   compareTheData(state.Params.fmaDBdata, state.Params.tempZipData);
   // compareTheData(tempDBdata, demoAPIdata);
@@ -267,7 +285,6 @@ function compareTheData(dbData, zipData) {
     };
   });
 
-  // check if filtering is needed?
   if (state.Params.filter) {
      alert("Going to filterData"); // for testing
     filterData(state.Params.comparedData);
@@ -288,7 +305,6 @@ function compareTheData(dbData, zipData) {
 
 function filterData(zipAndRadiusData) {
   state.Params.filteredData = [];
-
   // check for STATE filter
   let stateData = [];
   if (state.Params.stateCode != "" || state.Params.stateText != "") {
@@ -303,7 +319,6 @@ function filterData(zipAndRadiusData) {
      console.log(state.Params.stateCode, state.Params.stateText);
      alert("There was a state filter");
   };
-
   // check for STYLE filter
   let styleData = [];
   if (state.Params.style && (state.Params.state.Params.style != "All")) {
@@ -359,14 +374,11 @@ function filterData(zipAndRadiusData) {
   };
 
   // pre-populate the search results view
-  alert("Loading results page");	// for testing
+    alert("Loading results page");	// for testing
   render(state.FMAresults);
   preSetValues()
-
-  // // print results to the screen
-  // alert("Going to print the results.");	// for testing
-  // writeResults(state.Params.filteredData);
 };
+
 
 //** pre-populate the search results page options
 //**************************************************
@@ -406,16 +418,12 @@ function preSetValues() {
   // print results to the screen
   alert("Going to print the results.");	// for testing
   writeResults(state.Params.filteredData);
-
 };
 
 
 //** write Data to result page ( mostly works)
 //**********************************************
 function writeResults(printableData) {
-  // preSetValues();  // to pre-populate the results page
-
-
 	const container = document.querySelector('#container');
 
   if (printableData.length >= 1) {
@@ -489,20 +497,6 @@ function searchBarSubmit() {
 
   });
   
-
-  //*** UNCOMMENT FOR DEMO DAY ***
-  // state.Params.returnedAPIdata = [];
-  // state.Params.returnedAPIdata = getAPIData();
-  // console.log(state.Params.returnedAPIdata);  
-  // compareTheData(state.Params.fmaDBdata, state.Params.returnedAPIdata);
-
-  // for testing only
-  console.log(`variables ... ${state.Params.zipCode} -  ${state.Params.stateCode} - ${state.Params.stateText} - ${state.Params.radius} - ${state.Params.type} - ${state.Params.style} - ${state.Params.filter}`);
-  alert("Going from results to compareTheData");
-  compareTheData(state.Params.fmaDBdata, state.Params.tempZipData);
-  // compareTheData(tempDBdata, demoAPIdata);
-};
-
 
 
 
