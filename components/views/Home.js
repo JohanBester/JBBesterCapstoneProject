@@ -31,7 +31,7 @@ export default () => `
         </form>
 
         <div id="hpAddInfoButton" class="addInfo">
-            <a href="AddInfo" data-navigo>Click here to ADD FMA Info</a>
+            <a href="/Addinfo" data-navigo>Click here to ADD FMA Info</a>
         </div>
         <br/>
     </div>

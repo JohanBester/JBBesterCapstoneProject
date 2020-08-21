@@ -1,3 +1,3 @@
 export default {
-    page: "AddInfo"
+    page: "Addinfo"
 };

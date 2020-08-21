@@ -6,16 +6,17 @@ import Navigo from "navigo";
 import { capitalize } from "lodash";
 
 import randomImage from "./lib/randomImage";
-import getAPIData from "./lib/getAPIData";
-// import preSetValues from "./lib/preSetValues"; // not working
-// import DBJSON from "./lib/DBJSON"  // not working
-// import ZIPJSON from "./lib/ZIPJSON"  // not working
+import getAPIData from "./lib/getAPIData";  // Used for API call
+
 
 const router = new Navigo(window.location.origin);
 router.on({
   "/": () => render(state.Home),
   ":page": params => {
     let page = capitalize(params.page);
+    console.log(page);
+    console.log(state[page]);
+
     render(state[page]);
   },
 })
@@ -23,87 +24,32 @@ router.on({
 
 function render(st = state.Home) {
   document.querySelector("#root").innerHTML = `
-  ${Header()}
-  ${Main(st)}
-  ${Footer()}
+    ${Header()}
+    ${Main(st)}
+    ${Footer()}
   `;
 
   router.updatePageLinks();
 
   randomImage();
-  addBannerEventListener();
   addHamburgerEventListener()
-  addInfoEventListener();
-  addButtonsEventListener();
-  addDisclaimerEventListener();
   addZipSearchBtnListener();
-
-  addSearchBtnListener(st);
-  // addSearchBarDropDownsListeners(st);
+  addSearchBarBtnListener(st);
 
 };
 
-// add random image to page (works)
-let randomURL = randomImage();
-document.querySelector('.addOrImage').innerHTML = `
-  <img id="imgFMAfighters" src="${randomURL}" alt="General Filipino martial Artists images about Arnis, Escrima, and Kali."/>
-`;
 
 // Constant for Forms submit and to clear form data (works)
 const form = document.querySelector("form");
 
-// Header listeners (works)
-//==========================
-// Nav toggle for bars icon in nav bar
+// Hamburger listeners
 function addHamburgerEventListener() {
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden");
   });
 };
-// banner clicks to go to home page
-function addBannerEventListener() {
-  let banner = document.querySelectorAll("header.a")
-  banner.forEach(link =>
-    link.addEventListener("click", event => {
-      event.preventDefault();
-      render(state.Home);
-    })
-  );
-};
 
-// click listener for AddInfo button (works)
-//===========================================
-function addInfoEventListener() {
-  document.querySelector('#hpAddInfoButton').addEventListener("click", event => {
-    event.preventDefault();
-    render(state.AddInfo);
-  });
-};
-
-// click listeners for Footer (Works)
-//====================================
-// disclaimer area
-function addDisclaimerEventListener() {
-  document.querySelector("#disclaimers > a").addEventListener("click", event => {
-    event.preventDefault();
-    render(state.Disclaimers);
-  });
-};
-// nav buttons
-function addButtonsEventListener() {
-  let buttons = document.querySelectorAll(".fixed-footer a");
-  buttons.forEach(link =>
-    link.addEventListener("click", event => {
-      event.preventDefault();
-      let linkText = capitalize(event.target.text);
-      let pieceOfState = state[linkText];
-      render(pieceOfState);
-    })
-  );
-};
-
-// click listener for HOMEPAGE (works)
-//=====================================
+// click listener for HOMEPAGE
 function addZipSearchBtnListener() {
     document.querySelector("button").addEventListener("click", event => {
       event.preventDefault();
@@ -114,83 +60,27 @@ function addZipSearchBtnListener() {
 
 // The listeners for FMAresules Page (Not WORKING)
 //===================================================
-function addSearchBtnListener(st) {
-  if (st == state.FMAresults) {
-    document.querySelector("button").addEventListener("click", event => {
+function addSearchBarBtnListener(st) {
+  if (st.page === "Fmaresults") {
+    alert("This Search Filter button works!");
+
+    document.querySelector("#searchBar").addEventListener("submit", event => {
       event.preventDefault();
-      alert("This Search Filter button works!");
-      searchBarSubmit();
+
+      console.log(event.target.inputs);
     });
   };
 };
 
-// function addSearchBarDropDownsListeners(st) {
-//   if (st == state.FMAresults) {
-//     // check user zip code input
-//     let zipField = document.querySelector("#zipSearch");
-//     zipField.onChange = function() {
-//       state.Params.zipCode = zipField.value;
-//       alert(state.Params.zipCode);
-//     };
-//     // check user Drop-Down inputs
-//     let sbFields = form.querySelectorAll("#searchBar > div > select > .sbField");
-//     console.log(sbFields);
-//     sbFields.forEach(field =>
-//       field.addEventListener("click", event => {
-//         alert(event);
-//         let value = event.options[event.selectedIndex].value;
-//         const name = event.name;
-//         switch (name) {
-//           case 'radius':
-//             alert("radius = " + value);
-//             state.Params.radius = value;
-//             break;
-//           case 'type':
-//             alert("type = " + value);
-//             state.Params.type = value;
-//             break;
-//           case 'style':
-//             alert("style = " + value);
-//             state.Params.style = value;
-//             break;
-//           case 'state':
-//             alert("state = " + value);
-//             state.Params.stateCode = value;
-//             break;
-//           default:
-//             console.log(`Sorry, we are out of ${name}.`);
-//         };
-//       })
-//     );
-//     // Is data filtering needed?
-//     if (state.Params.stateCode != "" || state.Params.type != "" || state.Params.style != "") {
-//       state.Params.filter = true;
-//     };
-//   };
-// };
 
-
-// Still need to finish - User Form Submissions listeners ???
-//------------------------------------------------------------
-// state.Params.formDateCollection = [];
-// form.addEventListener("submit", event => {
-//   event.preventDefault();
-//   Array.from(event.target.elements).forEach(el => {
-//     console.log("Input Type: ", el.type);
-//     console.log("Name: ", el.name);
-//     console.log("Value: ", el.value);
-//   });
-// });
-
-
-//**  Get the FMA Data from the data JSON file (works)
-//*****************************************************
+//**  Get the FMA Data from the data JSON file 
+//**********************************************
 (function importDBJSON() {
-  state.Params.fmaDBdata = [];
+  state.Fmaresults.fmaDBdata = [];
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/FMAData.json')
   .then(response => response.json())
   .then(response => {
-    state.Params.fmaDBdata = response;
+    state.Fmaresults.fmaDBdata = response;
   })
   .catch(err => {
       // What to do when the request fails
@@ -201,14 +91,14 @@ function addSearchBtnListener(st) {
 }) ();
 
 
-//**  Get the ZIP Data from the data JSON file (works)
-//*****************************************************
+//**  Get the ZIP Data from the data JSON file 
+//*********************************************
 (function importZIPJSON() {
-  state.Params.tempZipData = [];
+  state.Fmaresults.tempZipData = [];
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/ZIPdata.json')
   .then(response => response.json())
   .then(response => {
-    state.Params.tempZipData = response;  // save JSON data here...
+    state.Fmaresults.tempZipData = response;  // save JSON data here...
     })
   .catch(err => {
       // What to do when the request fails
@@ -219,30 +109,13 @@ function addSearchBtnListener(st) {
 }) ();
 
 
-  //*** UNCOMMENT THIS FOR DEMO DAY ***
-  //***********************************
-  //** Get the API Data
-  //**********************
-  // function getAPIData() {
-  //  state.Params.returnedAPIdata = [];
-  //  console.log(state.Params.returnedAPIdata);  
-  //  compareTheData(state.Params.fmaDBdata, state.Params.returnedAPIdata);
-  //
-  //  for testing only
-  //  console.log(`variables ... ${state.Params.zipCode} -  ${state.Params.stateCode} - ${state.Params.stateText} - ${state.Params.radius} - ${state.Params.type} - ${state.Params.style} - ${state.Params.filter}`);
-  //  alert("Going from results to compareTheData");
-  //  compareTheData(state.Params.fmaDBdata, state.Params.tempZipData);
-  //  compareTheData(tempDBdata, demoAPIdata);
-  // };
-
-
-// Search from Home Page form (this works)
-//----------------------------------------
+// Search from Home Page form
+//----------------------------
 function zipCodeSearch() {
   // user radio button selection
-  state.Params.type = form.querySelector('input[name="selectOptions"]:checked').value;
-  if (state.Params.type !== "All") {
-    state.Params.filter = true;
+  state.Fmaresults.type = form.querySelector('input[name="selectOptions"]:checked').value;
+  if (state.Fmaresults.type !== "All") {
+    state.Fmaresults.filter = true;
   };
   // user zip code input
   let userZipCode = document.getElementById("zipSearch").value;
@@ -250,49 +123,51 @@ function zipCodeSearch() {
     alert("A Zip Code Is required");
     return
   } else {
-    state.Params.zipCode = userZipCode;
+    state.Fmaresults.zipCode = userZipCode;
   };
 
+  alert(state.Fmaresults.zipCode);
+  alert(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData);
   //*** UNCOMMENT FOR DEMO DAY ***
-  // state.Params.returnedAPIdata = [];
-  // state.Params.returnedAPIdata = getAPIData();
-  // console.log(state.Params.returnedAPIdata);  // for testing
-  // compareTheData(state.Params.fmaDBdata, state.Params.returnedAPIdata);
+  // state.Fmaresults.returnedAPIdata = [];
+  // state.Fmaresults.returnedAPIdata = getAPIData();
+  // console.log(state.Fmaresults.returnedAPIdata);  // for testing
+  // compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.returnedAPIdata);
   
-  // for testing only remove on Demo day
-  alert("Going to compareTheData");
-  compareTheData(state.Params.fmaDBdata, state.Params.tempZipData);
-  // compareTheData(tempDBdata, demoAPIdata);
+  compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData);
 };
 
 
 // functions to COMPARE Data (this works)
 //*****************************************
-function compareTheData(dbData, zipData) {
-  state.Params.comparedData = [];
+function compareTheData(fmaDBdata, zipData) {
+  state.Fmaresults.comparedData = [];
   zipData.forEach((zipItem) => {
-    for(let i=0; i <= dbData.length-1; i++) {
-      if (zipItem.ZipCode === dbData[i].ZipCode) {
-        let tempItem = (dbData[i]);
-        console.log(dbData[i])
+    for(let i=0; i <= fmaDBdata.length-1; i++) {
+      if (zipItem.ZipCode === fmaDBdata[i].ZipCode) {
+        let tempItem = (fmaDBdata[i]);
+        // console.log(fmaDBdata[i])
         // Pull the distance from target into data collection
         tempItem.Distance = (zipItem.Distance)
         if (!tempItem.Distance || tempItem.Distance == "0") {
           tempItem.Distance = "Only a mile or so";
         };
-        state.Params.comparedData.push(tempItem);
+        state.Fmaresults.comparedData.push(tempItem);
       }
     };
   });
 
-  if (state.Params.filter) {
-     alert("Going to filterData"); // for testing
-    filterData(state.Params.comparedData);
+  if (state.Fmaresults.filter) {
+     // alert("Going to filterData"); // for testing
+    filterData(state.Fmaresults.comparedData);
   } else {
-     alert("Going to writeResults"); // for testing
-    writeResults(state.Params.comparedData);
+    // load the search results view
+    alert("Going to writeResults"); // for testing
+    router.navigate("/Fmaresults");
   };
+  
 };
+
 
 
 //** FILTER according to search criteria (mostly works)
@@ -304,24 +179,24 @@ function compareTheData(dbData, zipData) {
 // type -- club, group, school, event, or All
 
 function filterData(zipAndRadiusData) {
-  state.Params.filteredData = [];
+  state.Fmaresults.filteredData = [];
   // check for STATE filter
   let stateData = [];
-  if (state.Params.stateCode != "" || state.Params.stateText != "") {
-    console.log("stateCode = " + state.Params.stateCode + " and stateText = " + state.Params.stateText);
+  if (state.Fmaresults.stateCode != "" || state.Fmaresults.stateText != "") {
+    console.log("stateCode = " + state.Fmaresults.stateCode + " and stateText = " + state.Fmaresults.stateText);
     zipAndRadiusData.forEach((dataItem1) => {
-      if (dataItem1.State == state.Params.stateCode || dataItem1.State === state.Params.stateText) {
+      if (dataItem1.State == state.Fmaresults.stateCode || dataItem1.State === state.Fmaresults.stateText) {
         stateData.push(dataItem1);
       };
     });
     // for testing 
      console.log(stateData);
-     console.log(state.Params.stateCode, state.Params.stateText);
+     console.log(state.Fmaresults.stateCode, state.Fmaresults.stateText);
      alert("There was a state filter");
   };
   // check for STYLE filter
   let styleData = [];
-  if (state.Params.style && (state.Params.state.Params.style != "All")) {
+  if (state.Fmaresults.style && (state.Fmaresults.style != "All")) {
   	// if previous state filter results
     if (stateData.length >= 1) {
       stateData.forEach((dataItem2) => {
@@ -332,171 +207,63 @@ function filterData(zipAndRadiusData) {
     } else {
     	// if not state filter results
       zipAndRadiusData.forEach((dataItem2) => {
-        if (dataItem2.Style == state.Params.style) {
+        if (dataItem2.Style == state.Fmaresults.style) {
           styleData.push(dataItem2);
         };
       });
     };
     // for testing 
      console.log(styleData);
-     console.log(state.Params.style);
+     console.log(state.Fmaresults.style);
      alert("There was a style filter");
   };
-
+  
   // check TYPE of venue filter
-  if (state.Params.type && (state.Params.type !== "All")) {
+  if (state.Fmaresults.type && (state.Fmaresults.type !== "All")) {
   	// if previous style filter results
     if (styleData.length >= 1) {
       styleData.forEach((dataItem3) => {
-        if (dataItem3.Type == state.Params.type) {
-          state.Params.filteredData.push(dataItem3);
+        if (dataItem3.Type == state.Fmaresults.type) {
+          state.Fmaresults.filteredData.push(dataItem3);
         };
       });
     } else if (stateData.length >= 1) {
   		// no style but previous state filter results    	
         stateData.forEach((dataItem3) => {
-        if (dataItem3.Type == state.Params.type) {
-          state.Params.filteredData.push(dataItem3);
+        if (dataItem3.Type == state.Fmaresults.type) {
+          state.Fmaresults.filteredData.push(dataItem3);
         };
       });
     } else {
   		// no style nor any state filter results    	  	
         zipAndRadiusData.forEach((dataItem3) => {
-        if (dataItem3.Type == state.Params.type) {
-          state.Params.filteredData.push(dataItem3);
+        if (dataItem3.Type == state.Fmaresults.type) {
+          state.Fmaresults.filteredData.push(dataItem3);
         };
       });
     };
     // for testing 
-     console.log(state.Params.filteredData);
-     console.log(state.Params.type);
+     console.log(state.Fmaresults.filteredData);
+     console.log(state.Fmaresults.type);
      alert("There was a type filter");
   };
 
   // pre-populate the search results view
-  render(state.FMAresults);
-  preSetValues()
+  router.navigate("/Fmaresults");
 };
 
 
-//** pre-populate the search results page options
-//**************************************************
-function preSetValues() {
-  alert("Loading results page, and pre-set Search Results");	// for testing
-
-  document.getElementById("zipSearch").value = state.Params.zipCode;
-      alert("zipCode = " + state.Params.zipCode);  // for testing
-
-  document.querySelector("#radiusSearch").value = state.Params.radius;
-      alert("radius = " + state.Params.radius);  // for testing
-
-  let typeField = document.querySelector("#typeSearch");
-  if (state.Params.type == "All") {
-    typeField.text = "Type";
-  } else {
-    typeField.value = state.Params.type;
-  };
-      alert("type = " + state.Params.type);  // for testing
-
-  let styleField = document.querySelector("#styleSearch");
-  if (state.Params.style == "All") {
-    styleField.text = "Style";
-  } else {
-    styleField.value = state.Params.style;
-  };
-      alert("style = " + state.Params.style);  // for testing
-
-  let stateField = document.querySelector("#stateSearch");
-  if (state.Params.stateCode == "All") {
-      stateField.text = "State";
-  } else {
-      stateField.value = state.Params.stateCode;
-  };
-      alert("The state = " + state.Params.stateCode, state.Params.stateText);
-
-  // print results to the screen
-  alert("Going to print the results.");	// for testing
-  writeResults(state.Params.filteredData);
-};
-
-
-//** write Data to result page ( mostly works)
-//**********************************************
-function writeResults(printableData) {
-	const container = document.querySelector('#container');
-
-  if (printableData.length >= 1) {
-		let i = 0;
-		printableData.forEach((element) => {
-			i++;
-			let elementdiv = document.createElement("div");
-      elementdiv.innerHTML = `
-        <b>#${i} ${element.Name}</b><br/>
-        &nbsp; ${element.Address},
-        &nbsp; ${element.State}, ${element.ZipCode}<br />
-        &nbsp; Phone : ${element.Phone}<br />
-        &nbsp; Email : ${element.Email}<br />
-        &nbsp; Web URL : ${element["Web URL"]}<br />
-        &nbsp; Type : ${element.Type} &nbsp; &nbsp; Style : ${element.Style}<br />
-        &nbsp; Distance : ${element.Distance}<br />
-			`;
-			container.appendChild(elementdiv);
-		});
-	} else {
-    console.log("Error in writeResults function");
-		alert("Nothing to print");
-	  container.innerHTML = `
-	    <div>
-	        There seems to be no data for this search. We are very sorry. Please try a different search combination. <br />
-	      </div>
-	  `;
-	};
-};
-
-
-// search bar options on results page (Not WORKING)
-//---------------------------------------------------
-function searchBarSubmit() {
-  state.Params.formDateCollection = [];
-  alert("We are here now!");
-
-  form.addEventListener("submit", event => {
-    event.preventDefault();
-    console.log(form);
-
-    Array.from(event.target.elements).forEach(el => {
-      console.log(Array);
-      console.log("Input Type: ", el.type);
-      console.log("Name: ", el.name);
-      console.log("Value: ", el.value);
-
-    // state.Params.zipCode = document.getElementById("zipSearch").value;
-    //   console.log(state.Params.zipCode);  // for testing
-    // let radiusDropdown = document.querySelector("#radiusSearch");
-    // state.Params.radius = radiusDropdown.options[radiusDropdown.selectedIndex].value;  
-    //   console.log(state.Params.radius);  // for testing
-    // let stateDropdown = document.querySelector("#stateSearch");
-    // state.Params.stateCode = stateDropdown.options[stateDropdown.selectedIndex].value;
-    // state.Params.stateText = stateDropdown.options[stateDropdown.selectedIndex].text;
-    //   console.log(state.Params.stateCode, state.Params.stateText);  // for testing
-    // let typeDropdown = document.querySelector("#typeSearch");
-    // state.Params.type = typeDropdown.options[typeDropdown.selectedIndex].value;
-    //   console.log(state.Params.type);  // for testing
-    // let styleDropdown = document.querySelector("#styleSearch");
-    // state.Params.style = styleDropdown.options[styleDropdown.selectedIndex].value;
-    //   console.log(state.Params.style);  // for testing
-
-    });
-
-    console.log(Array);
-    // // Is data filtering needed?
-    // if (state.Params.stateCode != "" || state.Params.type != "" || state.Params.style != "") {
-    //   state.Params.filter = true;
-    // };
-
-  });
-};  
-
+// Still need to finish - User Form Submissions listeners ???
+//------------------------------------------------------------
+// st.formDateCollection = [];
+// form.addEventListener("submit", event => {
+//   event.preventDefault();
+//   Array.from(event.target.elements).forEach(el => {
+//     console.log("Input Type: ", el.type);
+//     console.log("Name: ", el.name);
+//     console.log("Value: ", el.value);
+//   });
+// });
 
 
 // Interim Example DEMO data from API

@@ -1,4 +1,5 @@
-export default () => `
+import writeResults from "../../lib/writeResults";
+export default (st) => `
 <div class="addOrImage" style="display: none;"></div>
 
 <main id="fmaSearchPage">
@@ -8,11 +9,11 @@ export default () => `
 
     <form id="searchBar" class="searchBar">
         <div>
-            <input type="text" name="Zip" id="zipSearch" class="sbField" pattern="(\d{5}([\-]\d{4})?)" placeholder="Zip" required>
+            <input type="text" name="Zip" id="zipSearch" class="sbField" pattern="(\d{5}([\-]\d{4})?)" placeholder="Zip" value="${st.zipCode}" required>
         </div>
         
         <div>
-            <select id="stateSearch" name="state" class="sbField">
+            <select id="stateSearch" name="state" class="sbField" value="${st.stateCode}">
             <option disabled selected value>State</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -68,7 +69,7 @@ export default () => `
             </select>
         </div>
         <div>
-            <select id="radiusSearch" name="radius" class="sbField" required>
+            <select id="radiusSearch" name="radius" class="sbField" value="${st.radius}" required>
             <option disabled selected value>Radius</option>
             <option value="5">5</option>
             <option value="10">10</option>
@@ -79,7 +80,7 @@ export default () => `
             </select>
         </div>
         <div>
-            <select id="typeSearch" name="type" class="sbField">
+            <select id="typeSearch" name="type" class="sbField" value="${st.type}">
             <option disabled selected value>Type</option>
             <option value="Club">Club</option>
             <option value="Group">Group</option>
@@ -89,7 +90,7 @@ export default () => `
             </select>
         </div>
         <div>
-            <select id="styleSearch" name="style" class="sbField">
+            <select id="styleSearch" name="style" class="sbField" value="${st.style}">
             <option disabled selected value>Style</option>
             <option value="Arnis">Arnis</option>
             <option value="Eskrima">Escrima</option>
@@ -102,8 +103,11 @@ export default () => `
         </div>
     </form>
 
-    <div id="container" class="container"></div>
+    <div id="container" class="container">
+        ${writeResults(st.filteredData)}
+    </div>
     
     <div id="hpAddInfoButton" class="addInfo" style="display: none;"></div>
 </main>
 `;
+
