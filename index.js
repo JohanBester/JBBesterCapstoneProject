@@ -223,16 +223,16 @@ function addSearchBtnListener(st) {
   //***********************************
   //** Get the API Data
   //**********************
-  // state.Params.returnedAPIdata = [];
-  // state.Params.returnedAPIdata = getAPIData();
-  // console.log(state.Params.returnedAPIdata);  
-  // compareTheData(state.Params.fmaDBdata, state.Params.returnedAPIdata);
+  // function getAPIData() {
+  //  state.Params.returnedAPIdata = [];
+  //  console.log(state.Params.returnedAPIdata);  
+  //  compareTheData(state.Params.fmaDBdata, state.Params.returnedAPIdata);
   //
-  // for testing only
-  // console.log(`variables ... ${state.Params.zipCode} -  ${state.Params.stateCode} - ${state.Params.stateText} - ${state.Params.radius} - ${state.Params.type} - ${state.Params.style} - ${state.Params.filter}`);
-  // alert("Going from results to compareTheData");
-  // compareTheData(state.Params.fmaDBdata, state.Params.tempZipData);
-  // compareTheData(tempDBdata, demoAPIdata);
+  //  for testing only
+  //  console.log(`variables ... ${state.Params.zipCode} -  ${state.Params.stateCode} - ${state.Params.stateText} - ${state.Params.radius} - ${state.Params.type} - ${state.Params.style} - ${state.Params.filter}`);
+  //  alert("Going from results to compareTheData");
+  //  compareTheData(state.Params.fmaDBdata, state.Params.tempZipData);
+  //  compareTheData(tempDBdata, demoAPIdata);
   // };
 
 
@@ -374,7 +374,6 @@ function filterData(zipAndRadiusData) {
   };
 
   // pre-populate the search results view
-    alert("Loading results page");	// for testing
   render(state.FMAresults);
   preSetValues()
 };
@@ -383,7 +382,7 @@ function filterData(zipAndRadiusData) {
 //** pre-populate the search results page options
 //**************************************************
 function preSetValues() {
-  alert("About to pre-set Search Results");
+  alert("Loading results page, and pre-set Search Results");	// for testing
 
   document.getElementById("zipSearch").value = state.Params.zipCode;
       alert("zipCode = " + state.Params.zipCode);  // for testing
@@ -496,7 +495,7 @@ function searchBarSubmit() {
     // };
 
   });
-  
+};  
 
 
 
@@ -510,7 +509,7 @@ function searchBarSubmit() {
 //   "Longitude": -89.998742000000,
 //   "County": "MADISON",
 //   "Distance": 3.04
-// },
+// }
 
 let demoAPIdata = [
   {
@@ -731,7 +730,7 @@ let demoAPIdata = [
 //   "Web URL": "www.edwardsvilleymca.com",
 //   "Type": "Club",
 //   "Style": "Escrima"
-// },
+// }
 
 let tempDBdata = [
   {
