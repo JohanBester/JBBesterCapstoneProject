@@ -7,13 +7,15 @@ import { capitalize } from "lodash";
 
 import randomImage from "./lib/randomImage";
 import getAPIData from "./lib/getAPIData";  // Used for API call
-
+import writeResults from "./lib/writeResults";
 
 const router = new Navigo(window.location.origin);
 router.on({
   "/": () => render(state.Home),
   ":page": params => {
     let page = capitalize(params.page);
+
+    // For Testing Only
     console.log(page);
     console.log(state[page]);
 
@@ -33,13 +35,12 @@ function render(st = state.Home) {
 
   randomImage();
   addHamburgerEventListener()
-  addZipSearchBtnListener();
+  // addZipSearchBtnListener();
   addSearchBarBtnListener(st);
 
 };
 
-
-// Constant for Forms submit and to clear form data (works)
+// Constant for Forms submit and to clear form data
 const form = document.querySelector("form");
 
 // Hamburger listeners
@@ -50,26 +51,92 @@ function addHamburgerEventListener() {
 };
 
 // click listener for HOMEPAGE
-function addZipSearchBtnListener() {
-    document.querySelector("button").addEventListener("click", event => {
-      event.preventDefault();
-      zipCodeSearch();
-    });
-};
+//-----------------------------
+// function addZipSearchBtnListener() {
+//     document.querySelector("button").addEventListener("click", event => {
+//       event.preventDefault();
+//       zipCodeSearch();
+//     });
+// };
+
+// Search from Home Page form
+//----------------------------
+// function zipCodeSearch() {
+//   state.Fmaresults.type = form.querySelector('input[name="selectOptions"]:checked').value;
+//   if (state.Fmaresults.type !== "All") {
+//     state.Fmaresults.filter = true;
+//   };
+//   let userZipCode = document.getElementById("zipSearch").value;
+//   if (userZipCode == "") {
+//     alert("A Zip Code Is required");
+//     return
+//   } else {
+//     state.Fmaresults.zipCode = userZipCode;
+//   };
+//   state.Fmaresults.returnedAPIdata = [];
+//   state.Fmaresults.returnedAPIdata = getAPIData();
+//   console.log(state.Fmaresults.returnedAPIdata);  // for testing
+//   compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.returnedAPIdata);
+//   compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData);
+// };
 
 
-// The listeners for FMAresules Page (Not WORKING)
-//===================================================
+// Click listener for FMAresults Page
+//-------------------------------------
 function addSearchBarBtnListener(st) {
   if (st.page === "Fmaresults") {
-    alert("This Search Filter button works!");
-
     document.querySelector("#searchBar").addEventListener("submit", event => {
       event.preventDefault();
-
-      console.log(event.target.inputs);
+      searchBarSearch();
     });
   };
+};
+
+// Search from search Results Page
+//---------------------------------
+function searchBarSearch() {
+  let userZipCode = document.getElementById("zipSearch").value;
+  if (userZipCode == "") {
+    alert("A Zip Code Is required");
+    return
+  } else {
+    state.Fmaresults.zipCode = userZipCode;
+  };
+
+  let userRadius = document.querySelector("#radiusSearch").value;
+  if (userRadius == "radius") {
+    state.Fmaresults.radius = 50;
+  } else {
+    state.Fmaresults.radius = userRadius;
+  };
+
+  let userState = document.querySelector("#stateSearch");
+  if (userState.value && (userState.value !== "State")) {
+    state.Fmaresults.filter = true;
+    state.Fmaresults.stateCode = userState.value;
+    state.Fmaresults.stateText = userState.text;    
+  };
+
+  let userType = document.querySelector("#typeSearch").value;
+  if (userType) {
+    state.Fmaresults.type = userType;
+    state.Fmaresults.filter = true;
+  };
+
+  let userStyle = document.querySelector("#styleSearch").value;
+  if (userStyle) {
+    state.Fmaresults.style = userStyle;
+    state.Fmaresults.filter = true;
+  };
+
+  state.Fmaresults.returnedAPIdata = [];
+  //*** Uncomment for Demmo day
+  //****************************
+  // state.Fmaresults.returnedAPIdata = getAPIData();
+  // console.log(state.Fmaresults.returnedAPIdata);  // for testing
+  // compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.returnedAPIdata);
+  
+  compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData);
 };
 
 
@@ -83,7 +150,6 @@ function addSearchBarBtnListener(st) {
     state.Fmaresults.fmaDBdata = response;
   })
   .catch(err => {
-      // What to do when the request fails
       alert("Error with the DBdata import LINE 150. please try your search again.");
       console.log('The DBdata load request failed!');
       console.log('error', err);
@@ -98,44 +164,14 @@ function addSearchBarBtnListener(st) {
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/ZIPdata.json')
   .then(response => response.json())
   .then(response => {
-    state.Fmaresults.tempZipData = response;  // save JSON data here...
+    state.Fmaresults.tempZipData = response;
     })
   .catch(err => {
-      // What to do when the request fails
       alert("Error with the ZIPdata import LINE 180. please try your search again.");
       console.log('The ZIPdata load request failed!');
       console.log('error', err);
     });
 }) ();
-
-
-// Search from Home Page form
-//----------------------------
-function zipCodeSearch() {
-  // user radio button selection
-  state.Fmaresults.type = form.querySelector('input[name="selectOptions"]:checked').value;
-  if (state.Fmaresults.type !== "All") {
-    state.Fmaresults.filter = true;
-  };
-  // user zip code input
-  let userZipCode = document.getElementById("zipSearch").value;
-  if (userZipCode == "") {
-    alert("A Zip Code Is required");
-    return
-  } else {
-    state.Fmaresults.zipCode = userZipCode;
-  };
-
-  alert(state.Fmaresults.zipCode);
-  alert(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData);
-  //*** UNCOMMENT FOR DEMO DAY ***
-  // state.Fmaresults.returnedAPIdata = [];
-  // state.Fmaresults.returnedAPIdata = getAPIData();
-  // console.log(state.Fmaresults.returnedAPIdata);  // for testing
-  // compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.returnedAPIdata);
-  
-  compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData);
-};
 
 
 // functions to COMPARE Data (this works)
@@ -157,17 +193,18 @@ function compareTheData(fmaDBdata, zipData) {
     };
   });
 
-  if (state.Fmaresults.filter) {
-     // alert("Going to filterData"); // for testing
+  let filter = state.Fmaresults.filter;
+  console.log(state.Fmaresults.comparedData, filter);
+
+  if (filter == true) {
+    alert("Going to filterData"); // for testing
     filterData(state.Fmaresults.comparedData);
   } else {
-    // load the search results view
-    alert("Going to writeResults"); // for testing
-    router.navigate("/Fmaresults");
+    alert("Going to Write the Data"); // for testing
+    writeResults(state.Fmaresults.comparedData)
   };
-  
-};
 
+};
 
 
 //** FILTER according to search criteria (mostly works)
@@ -179,28 +216,30 @@ function compareTheData(fmaDBdata, zipData) {
 // type -- club, group, school, event, or All
 
 function filterData(zipAndRadiusData) {
-  state.Fmaresults.filteredData = [];
+  let filteredData = [];
+
   // check for STATE filter
   let stateData = [];
-  if (state.Fmaresults.stateCode != "" || state.Fmaresults.stateText != "") {
-    console.log("stateCode = " + state.Fmaresults.stateCode + " and stateText = " + state.Fmaresults.stateText);
+  if (state.Fmaresults.stateCode && (state.Fmaresults.stateCode != "State")) {
     zipAndRadiusData.forEach((dataItem1) => {
       if (dataItem1.State == state.Fmaresults.stateCode || dataItem1.State === state.Fmaresults.stateText) {
         stateData.push(dataItem1);
       };
     });
     // for testing 
-     console.log(stateData);
-     console.log(state.Fmaresults.stateCode, state.Fmaresults.stateText);
-     alert("There was a state filter");
+      console.log(stateData);
+      console.log(state.Fmaresults.stateCode, state.Fmaresults.stateText);
+      alert("There was a state filter");
+    filteredData = stateData;
   };
+
   // check for STYLE filter
   let styleData = [];
-  if (state.Fmaresults.style && (state.Fmaresults.style != "All")) {
+  if (state.Fmaresults.style != "All") {
   	// if previous state filter results
-    if (stateData.length >= 1) {
-      stateData.forEach((dataItem2) => {
-        if (dataItem2.Style == style) {
+    if (filteredData.length >= 1) {
+      filteredData.forEach((dataItem2) => {
+        if (dataItem2.Style == state.Fmaresults.style) {
           styleData.push(dataItem2);
         };
       });
@@ -216,45 +255,43 @@ function filterData(zipAndRadiusData) {
      console.log(styleData);
      console.log(state.Fmaresults.style);
      alert("There was a style filter");
+    filteredData = styleData;
   };
   
   // check TYPE of venue filter
-  if (state.Fmaresults.type && (state.Fmaresults.type !== "All")) {
+  let typeData = [];
+  if (state.Fmaresults.type !== "All") {
   	// if previous style filter results
-    if (styleData.length >= 1) {
-      styleData.forEach((dataItem3) => {
+    if (filteredData.length >= 1) {
+      filteredData.forEach((dataItem3) => {
         if (dataItem3.Type == state.Fmaresults.type) {
-          state.Fmaresults.filteredData.push(dataItem3);
-        };
-      });
-    } else if (stateData.length >= 1) {
-  		// no style but previous state filter results    	
-        stateData.forEach((dataItem3) => {
-        if (dataItem3.Type == state.Fmaresults.type) {
-          state.Fmaresults.filteredData.push(dataItem3);
+          typeData.push(dataItem3);
         };
       });
     } else {
   		// no style nor any state filter results    	  	
         zipAndRadiusData.forEach((dataItem3) => {
         if (dataItem3.Type == state.Fmaresults.type) {
-          state.Fmaresults.filteredData.push(dataItem3);
+          typeData.push(dataItem3);
         };
       });
     };
     // for testing 
-     console.log(state.Fmaresults.filteredData);
+     console.log(typeData);
      console.log(state.Fmaresults.type);
      alert("There was a type filter");
+    filteredData = typeData;
   };
 
-  // pre-populate the search results view
-  router.navigate("/Fmaresults");
+  state.Fmaresults.filteredData = filteredData;
+  console.log(state.Fmaresults.filteredData); // for testing
+  alert("Going to Write the Data"); // for testing
+  writeResults(state.Fmaresults.filteredData)
 };
 
 
-// Still need to finish - User Form Submissions listeners ???
-//------------------------------------------------------------
+// Still need to finish - User Form listeners ???
+//-------------------------------------------------
 // st.formDateCollection = [];
 // form.addEventListener("submit", event => {
 //   event.preventDefault();

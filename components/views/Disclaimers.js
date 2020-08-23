@@ -1,3 +1,4 @@
+
 export default () => `
 <main>
     <div class="addOrImage"></div>
@@ -22,7 +23,15 @@ export default () => `
             <br>  
         </div>
 
-        <div id="hpAddInfoButton" class="addInfo" style="display: none;"></div>
+	    <div class="center">
+			<a href="Fmaresults"  data-navigo id="search" class="btnStyled submit-button">Go To Search Now</a>
+		</div>
+        <br />
+
+        <div id="hpAddInfoButton" class="addInfo">
+            <a href="/Addinfo" data-navigo>Click here to ADD FMA Info</a>
+        </div>
+        <br/>
         
     </div>
 </main>

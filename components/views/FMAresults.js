@@ -1,20 +1,20 @@
-import writeResults from "../../lib/writeResults";
+
 export default (st) => `
 <div class="addOrImage" style="display: none;"></div>
 
 <main id="fmaSearchPage">
     <div class="pageIntro">
-        <p>Refine your search results by entering a zip code, selecting additional options from the search bar, and then clicking the search button.</p>
+        <p>With the <b>STIX FMA Fun Finder</b> you can now find the FMA venues and events you're looking for! Refine your search results by selecting additional options from the search bar, and then clicking the search button.</p>
     </div>
 
     <form id="searchBar" class="searchBar">
         <div>
-            <input type="text" name="Zip" id="zipSearch" class="sbField" pattern="(\d{5}([\-]\d{4})?)" placeholder="Zip" value="${st.zipCode}" required>
+            <input type="text" name="Zip" id="zipSearch" class="sbField" placeholder="Zip Code" value="${st.zipCode}" required>
         </div>
         
         <div>
             <select id="stateSearch" name="state" class="sbField" value="${st.stateCode}">
-            <option disabled selected value>State</option>
+            <option disabled selected value="State">State</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -70,7 +70,7 @@ export default (st) => `
         </div>
         <div>
             <select id="radiusSearch" name="radius" class="sbField" value="${st.radius}" required>
-            <option disabled selected value>Radius</option>
+            <option disabled selected value="radius">Radius</option>
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="15">15</option>
@@ -104,10 +104,13 @@ export default (st) => `
     </form>
 
     <div id="container" class="container">
-        ${writeResults(st.filteredData)}
+        <div>
+            <h5>How to search</h2>
+            <p>To search, enter a zip code and a radius, then click the search button for quick easy results.</p>
+            <p>To make your search more specific, choose search options from the drop-down menus before clicking the search button.</p>
+        </div>
     </div>
     
     <div id="hpAddInfoButton" class="addInfo" style="display: none;"></div>
 </main>
 `;
-

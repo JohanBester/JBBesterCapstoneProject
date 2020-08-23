@@ -1,3 +1,4 @@
+
 export default () => `
 <main>
     <div class="addOrImage"></div>

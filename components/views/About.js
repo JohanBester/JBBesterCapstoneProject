@@ -1,3 +1,4 @@
+
 export default () => `
 <main>
     <div class="addOrImage"></div>
@@ -21,6 +22,11 @@ export default () => `
         <p>The Filipino Martial Arts have always been practiced in a community, and we still do it that way today!</p>
         <p>Despite the growing popularity of all the Filipino martial Arts, it can often still be hard to find a club, group, school, or events where one can meet other practitioners. <br/>We hope that through this application it would become easier for FMA practitioners to find each other, and list their club, school, or event for others to find. <br/>If you know of a club, school, or event that does not appear on our lists, please take a moment to click the link to add that information. It is by sharing that our community and our sport will grow.</p>
         <br/>
+
+	    <div class="center">
+			<a href="Fmaresults"  data-navigo id="search" class="btnStyled submit-button">Go To Search Now</a>
+		</div>
+        <br />
 
         <div id="hpAddInfoButton" class="addInfo">
             <a href="/AddInfo" data-navigo>Click here to ADD FMA Info</a> 

@@ -7,7 +7,7 @@ export default {
     comparedData: [],
     filteredData: [],
     zipCode: "",
-    radius: "50",
+    radius: "",
     type: "",
     style: "",
     stateCode: "",
