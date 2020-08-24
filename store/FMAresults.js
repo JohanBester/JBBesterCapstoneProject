@@ -2,6 +2,7 @@
 export default {
     page: "Fmaresults",
     fmaDBdata: [],
+    fmaFirestormData: [],
     tempZipData: [],
     returnedAPIdata: [],
     comparedData: [],

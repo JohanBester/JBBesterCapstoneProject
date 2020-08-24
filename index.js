@@ -4,6 +4,7 @@ import * as state from "./store";
 
 import Navigo from "navigo";
 import { capitalize } from "lodash";
+import { auth, db } from "./firebase";
 
 import randomImage from "./lib/randomImage";
 import getAPIData from "./lib/getAPIData";  // Used for API call
@@ -35,50 +36,19 @@ function render(st = state.Home) {
 
   randomImage();
   addHamburgerEventListener()
-  // addZipSearchBtnListener();
   addSearchBarBtnListener(st);
-
 };
 
 // Constant for Forms submit and to clear form data
 const form = document.querySelector("form");
-
+// Constant for Firebase Firestorm DB
+const coll = db.collection("FMAdata");
 // Hamburger listeners
 function addHamburgerEventListener() {
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden");
   });
 };
-
-// click listener for HOMEPAGE
-//-----------------------------
-// function addZipSearchBtnListener() {
-//     document.querySelector("button").addEventListener("click", event => {
-//       event.preventDefault();
-//       zipCodeSearch();
-//     });
-// };
-
-// Search from Home Page form
-//----------------------------
-// function zipCodeSearch() {
-//   state.Fmaresults.type = form.querySelector('input[name="selectOptions"]:checked').value;
-//   if (state.Fmaresults.type !== "All") {
-//     state.Fmaresults.filter = true;
-//   };
-//   let userZipCode = document.getElementById("zipSearch").value;
-//   if (userZipCode == "") {
-//     alert("A Zip Code Is required");
-//     return
-//   } else {
-//     state.Fmaresults.zipCode = userZipCode;
-//   };
-//   state.Fmaresults.returnedAPIdata = [];
-//   state.Fmaresults.returnedAPIdata = getAPIData();
-//   console.log(state.Fmaresults.returnedAPIdata);  // for testing
-//   compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.returnedAPIdata);
-//   compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData);
-// };
 
 
 // Click listener for FMAresults Page
@@ -92,12 +62,13 @@ function addSearchBarBtnListener(st) {
   };
 };
 
-// Search from search Results Page
-//---------------------------------
+
+// Search from FMAresults Page
+//-------------------------------
 function searchBarSearch() {
   let userZipCode = document.getElementById("zipSearch").value;
   if (userZipCode == "") {
-    alert("A Zip Code Is required");
+    alert("A Zip Code Is required");  // zip code validation
     return
   } else {
     state.Fmaresults.zipCode = userZipCode;
@@ -130,13 +101,29 @@ function searchBarSearch() {
   };
 
   state.Fmaresults.returnedAPIdata = [];
-  //*** Uncomment for Demmo day
-  //****************************
+  //*** Uncomment for Demmo day !!!
+  //*********************************
   // state.Fmaresults.returnedAPIdata = getAPIData();
   // console.log(state.Fmaresults.returnedAPIdata);  // for testing
   // compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.returnedAPIdata);
   
   compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData);
+};
+
+
+//**  Get the FMA Data from Firestore 
+//*************************************
+function firestormdata() {
+  state.Fmaresults.fmaFirestormData = [];
+  coll.get()
+    .then(snapshot => snapshot.docs.forEach(doc => {
+      state.Fmaresults.fmaFirestormData.push(doc.data());
+    }))
+    .catch(err => {
+      alert("Error with the Firestorm import LINE 130. please try your search again.");
+      console.log('The Firestorm load request failed!');
+      console.log('error', err);
+    });  
 };
 
 
@@ -157,8 +144,8 @@ function searchBarSearch() {
 }) ();
 
 
-//**  Get the ZIP Data from the data JSON file 
-//*********************************************
+//**  Get TEST ZIP Data from the data JSON file 
+//**********************************************
 (function importZIPJSON() {
   state.Fmaresults.tempZipData = [];
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/ZIPdata.json')
