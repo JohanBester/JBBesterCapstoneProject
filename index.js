@@ -64,58 +64,8 @@ function addSearchBarBtnListener(st) {
 };
 
 
-// Search from FMAresults Page
-//-------------------------------
-function searchBarSearch() {
-  let userZipCode = document.getElementById("zipSearch").value;
-  if (userZipCode == "") {
-    alert("A Zip Code Is required");  // zip code validation
-    return
-  } else {
-    state.Fmaresults.zipCode = userZipCode;
-  };
-
-  let userRadius = document.querySelector("#radiusSearch").value;
-  if (userRadius == "radius") {
-    alert("A radius is required");  // radius code validation
-    return
-  } else {
-    state.Fmaresults.radius = userRadius;
-    state.Fmaresults.filter = true;
-  };
-
-  let userState = document.querySelector("#stateSearch");
-  if (userState.value != "state") {
-    state.Fmaresults.filter = true;
-    state.Fmaresults.stateCode = userState.value;
-  };
-
-  let userType = document.querySelector("#typeSearch");
-  if (userType.value != "type") {
-    state.Fmaresults.type = userType.value;
-    state.Fmaresults.filter = true;
-  };
-
-  let userStyle = document.querySelector("#styleSearch");
-  if (userStyle.value != "style") {
-    state.Fmaresults.style = userStyle.value;
-    state.Fmaresults.filter = true;
-  };
-
-  state.Fmaresults.returnedAPIdata = [];
-  //*** Uncomment for Demmo day !!!
-  //*********************************
-  // const APIdata = getAPIData();
-  // console.log(APIdata);  // for testing
-  // state.Fmaresults.returnedAPIdata = APIdata;
-  // compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.returnedAPIdata);
-
-  compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData);
-};
-
-
-//**  Get the FMA Data from the data JSON file 
-//**********************************************
+//**  Get the FMA Data from the JSON file 
+//*****************************************
 (function importDBJSON() {
   state.Fmaresults.fmaDBdata = [];
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/FMAData.json')
@@ -130,8 +80,8 @@ function searchBarSearch() {
 }) ();
 
 
-//**  Get TEST ZIP Data from the data JSON file 
-//**********************************************
+//**  Get TEST ZIP Data from the JSON file 
+//*******************************************
 (function importZIPJSON() {
   state.Fmaresults.tempZipData = [];
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/ZIPdata.json')
@@ -161,30 +111,85 @@ function firestormdata() {
 };
 
 
+// Search from FMAresults Page
+//-------------------------------
+function searchBarSearch() {
+  // zip code
+  let userZipCode = document.getElementById("zipSearch").value;
+  if (userZipCode == "") {
+    alert("A Zip Code Is required");  // zip code validation
+    return
+  } else {
+    state.Fmaresults.zipCode = userZipCode;
+  };
+
+  // radius
+  let userRadius = document.querySelector("#radiusSearch").value;
+  if (userRadius == "Radius") {
+    alert("A radius is required");  // radius code validation
+    return
+  } else {
+    state.Fmaresults.radius = userRadius;
+    state.Fmaresults.filter = true;
+  };
+
+  // state
+  let userState = document.querySelector("#stateSearch");
+  if (userState.value != "Sate") {
+    state.Fmaresults.filter = true;
+    state.Fmaresults.stateCode = userState.value;
+  };
+
+  // type
+  let userType = document.querySelector("#typeSearch");
+  if (userType.value != "Type") {
+    state.Fmaresults.type = userType.value;
+    state.Fmaresults.filter = true;
+  };
+
+  // style
+  let userStyle = document.querySelector("#styleSearch");
+  if (userStyle.value != "Style") {
+    state.Fmaresults.style = userStyle.value;
+    state.Fmaresults.filter = true;
+  };
+
+  state.Fmaresults.returnedAPIdata = [];
+  //*** Uncomment for Demmo day !!!
+  //*********************************
+  // const APIdata = getAPIData();
+  // console.log(APIdata);  // for testing
+  // state.Fmaresults.returnedAPIdata = APIdata;
+  // compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.returnedAPIdata);
+
+  compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData);
+};
+
+
 // functions to COMPARE Data
 //****************************
-function compareTheData(fmaDBdata, zipData) {
+function compareTheData(DBdata, zipData) {
   state.Fmaresults.comparedData = [];
   zipData.forEach((zipItem) => {
-    for(let i=0; i <= fmaDBdata.length-1; i++) {
-      if (zipItem.ZipCode === fmaDBdata[i].ZipCode) {
-        let tempItem = (fmaDBdata[i]);
-        // console.log(fmaDBdata[i])  // for testing
+    // Ugh! Hate that one can't have nested forEach fxns!
+    for(let i = 0; i <= DBdata.length; i++) {
+      if (zipItem.Code === DBdata[i].ZipCode) {
+        console.log("DBdata[i]ZipCode ", DBdata[1].ZipCode);
+
+        let tempItem = DBdata[i];
         // Pull the distance from target into data collection
-        tempItem.Distance = (zipItem.Distance)
+        tempItem.Distance = zipItem.Distance;
         if (!tempItem.Distance || tempItem.Distance == "0") {
           tempItem.Distance = "Only a mile or so";
         };
         state.Fmaresults.comparedData.push(tempItem);
-      }
+      };
     };
   });
 
-  let filter = state.Fmaresults.filter;
-  // For testing 
-  // console.log(state.Fmaresults.comparedData, filter);
+  // console.log(state.Fmaresults.comparedData, filter);  // For testing 
 
-  if (filter == true) {
+  if (state.Fmaresults.filter) {
     // alert("Going to filterData"); // for testing
     filterData(state.Fmaresults.comparedData);
   } else {
@@ -197,7 +202,7 @@ function compareTheData(fmaDBdata, zipData) {
 
 //** FILTER according to search criteria (mostly works)
 //*******************************************************
-// ZipCode and radius already taken care of at this point
+// zipCode and radius already taken care of at this point
 // stateCode -- takes 2 alpha character code
 // stateText -- full state name
 // style -- Arnis, Escrima, Kali, or All
@@ -213,14 +218,16 @@ function filterData(zipAndRadiusData) {
     zipAndRadiusData.forEach((dataItem1) => {
       if (dataItem1.Distance == "Only a mile or so") {
         radiusData.push(dataItem1);
-      };
-      if (dataItem1.Distance <= state.Fmaresults.radius) {
+      } else if (dataItem1.Distance <= state.Fmaresults.radius) {
         radiusData.push(dataItem1);
       };
     });
     // for testing 
     // alert("There was a radius filter");
-    filteredData = radiusData;
+
+    if (radiusData.length >= 1) {
+      filteredData = radiusData;
+    };
   };
 
   // check STATE filter
@@ -245,7 +252,10 @@ function filterData(zipAndRadiusData) {
     // for testing 
       console.log("state data = ", state.Fmaresults.stateCode, state.Fmaresults.stateText, stateData);
       alert("There was a state filter");
-    filteredData = stateData;
+
+    if (stateData.length >= 1) {
+      filteredData = stateData;
+    };
     console.log("filteredData = ", filteredData);
   };
 
@@ -271,7 +281,10 @@ function filterData(zipAndRadiusData) {
     // for testing 
      console.log("style data = ", state.Fmaresults.style, styleData);
      alert("There was a style filter");
-    filteredData = styleData;
+
+    if (styleData.length >= 1) {
+      filteredData = styleData;
+    };     
     console.log("filteredData = ", filteredData);
   };
   
@@ -297,7 +310,10 @@ function filterData(zipAndRadiusData) {
     // for testing 
      console.log("type data = ", state.Fmaresults.type, typeData);
      alert("There was a type filter");
-    filteredData = typeData;
+
+    if (typeData.length >= 1) {
+      filteredData = typeData;
+    };     
     console.log("filteredData = ", filteredData);
   };
 
