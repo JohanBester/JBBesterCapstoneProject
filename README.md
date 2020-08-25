@@ -45,11 +45,16 @@ When search results are returned, first results returned will fall into a defaul
 
 
 ## Contributing: 
-Instructions on how to contribute to this project will be shared as they become available.
+Instructions on how to contribute to this project in particular will be shared as they become available.
 
 
 ## Credits: 
-Credits will be included as credit is due to those awesome peeps that have given of themselves to this project.
+I am grateful for the experience of the Savvy Coders full-stack web development bootcamp. I have learned an incredible amount in a very short time. 
+
+I am particularly grateful for Dezerae Abelon who believed in me and got me into Savvy Coders, for my TA, Vanessa Kratohvil, for our fearless instructor, Martin Carriel, and his awesome teaching and coding help, for Brandon Bunch and the other Tas, and for all the other teachers and dedicated staff of Savvy Coders. Thank you, thank you, thank you!
+
+Thank you also for the lovely friends of our June 2020 bootcamp cohort! Folks, we made it. We are sad for those who left early, but we are glad that we could see this through together!
+It is heartening to know that my collaboration with Savvy Coders will continue as longs as I wish. Thank again!
 
 
 ## License: 
