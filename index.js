@@ -174,7 +174,7 @@ function compareTheData(DBdata, zipData) {
     // Ugh! Hate that one can't have nested forEach fxns!
     for(let i = 0; i <= DBdata.length; i++) {
       if (zipItem.Code === DBdata[i].ZipCode) {
-        console.log("DBdata[i]ZipCode ", DBdata[1].ZipCode);
+        console.log("DBdata[i]ZipCode ", DBdata[i].ZipCode);
 
         let tempItem = DBdata[i];
         // Pull the distance from target into data collection
