@@ -2,7 +2,6 @@
 import { Header, Main, Footer } from "./components";
 import * as state from "./store";
 
-import env from "env"
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 import { auth, db } from "./firebase";
@@ -16,10 +15,6 @@ router.on({
   "/": () => render(state.Home),
   ":page": params => {
     let page = capitalize(params.page);
-
-    // For Testing Only
-    console.log(page);
-    console.log(state[page]);
 
     render(state[page]);
   },
@@ -51,9 +46,7 @@ function addHamburgerEventListener() {
   });
 };
 
-
 // Click listener for FMAresults Page
-//-------------------------------------
 function addSearchBarBtnListener(st) {
   if (st.page === "Fmaresults") {
     document.querySelector("#searchBar").addEventListener("submit", event => {
@@ -63,9 +56,7 @@ function addSearchBarBtnListener(st) {
   };
 };
 
-
-//**  Get the FMA Data from the JSON file 
-//*****************************************
+//***  Get the FMA Data from the JSON file ***
 (function importDBJSON() {
   state.Fmaresults.fmaDBdata = [];
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/FMAData.json')
@@ -80,8 +71,7 @@ function addSearchBarBtnListener(st) {
 }) ();
 
 
-//**  Get TEST ZIP Data from the JSON file 
-//*******************************************
+//***  Get TEST ZIP Data from the JSON file ***
 (function importZIPJSON() {
   state.Fmaresults.tempZipData = [];
   fetch('https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/ZIPdata.json')
@@ -96,8 +86,7 @@ function addSearchBarBtnListener(st) {
 }) ();
 
 
-//**  Get the FMA Data from Firestore 
-//*************************************
+//***  Get the FMA Data from Firestore ***
 function firestormdata() {
   state.Fmaresults.fmaFirestormData = [];
   coll.get()
@@ -112,7 +101,6 @@ function firestormdata() {
 
 
 // Search from FMAresults Page
-//-------------------------------
 function searchBarSearch() {
   // zip code
   let userZipCode = document.getElementById("zipSearch").value;
@@ -133,12 +121,12 @@ function searchBarSearch() {
     state.Fmaresults.filter = true;
   };
 
-  // state
-  let userState = document.querySelector("#stateSearch");
-  if (userState.value != "Sate") {
-    state.Fmaresults.filter = true;
-    state.Fmaresults.stateCode = userState.value;
-  };
+  // // state
+  // let userState = document.querySelector("#stateSearch");
+  // if (userState.value != "Sate") {
+  //   state.Fmaresults.filter = true;
+  //   state.Fmaresults.stateCode = userState.value;
+  // };
 
   // type
   let userType = document.querySelector("#typeSearch");
@@ -166,159 +154,126 @@ function searchBarSearch() {
 };
 
 
-// functions to COMPARE Data
-//****************************
+//** functions to COMPARE Data
+//*****************************
 function compareTheData(DBdata, zipData) {
   state.Fmaresults.comparedData = [];
   zipData.forEach((zipItem) => {
-    // Ugh! Hate that one can't have nested forEach fxns!
-    for(let i = 0; i <= DBdata.length; i++) {
-      if (zipItem.Code === DBdata[i].ZipCode) {
-        console.log("DBdata[i]ZipCode ", DBdata[i].ZipCode);
-        let tempItem = DBdata[i];
+    DBdata.forEach((dbItem) => {
+      if (zipItem.Code === dbItem.ZipCode) {
+        let tempItem = dbItem;
         tempItem.Distance = zipItem.Distance; // Pull distance from target into data collection
         if (!tempItem.Distance || tempItem.Distance == "0") {
           tempItem.Distance = "Only a mile or so";
         };
         state.Fmaresults.comparedData.push(tempItem);
       };
-    };
+    });
   });
-
-  // console.log(state.Fmaresults.comparedData, filter);  // For testing 
-
   if (state.Fmaresults.filter) {
-    // alert("Going to filterData"); // for testing
     filterData(state.Fmaresults.comparedData);
   } else {
-    // alert("Going to Write the Data"); // for testing
     writeResults(state.Fmaresults.comparedData)
   };
-
 };
 
 
-//** FILTER according to search criteria (mostly works)
-//*******************************************************
-// zipCode and radius already taken care of at this point
-// stateCode -- takes 2 alpha character code
-// stateText -- full state name
-// style -- Arnis, Escrima, Kali, or All
-// type -- club, group, school, event, or All
-
+//** FILTER according to search criteria
+//***************************************
 function filterData(zipAndRadiusData) {
   let filteredData = [];
-
   // Check Radius
-  //---------------
   let radiusData = [];
   if (state.Fmaresults.radius) {
     zipAndRadiusData.forEach((dataItem1) => {
-      if (dataItem1.Distance == "Only a mile or so") {
+      if (dataItem1.Distance === "Only a mile or so") {
         radiusData.push(dataItem1);
-      } else if (dataItem1.Distance <= state.Fmaresults.radius) {
+      }
+      if (dataItem1.Distance <= state.Fmaresults.radius) {
         radiusData.push(dataItem1);
       };
     });
-    // for testing 
-    // alert("There was a radius filter");
-
     if (radiusData.length >= 1) {
       filteredData = radiusData;
     };
   };
 
   // check STATE filter
-  //---------------------
-  let stateData = [];
-  if (state.Fmaresults.stateCode != "state" || state.Fmaresults.stateCode != "") {
-    if (filteredData.length >= 1) {
-  	// if previous filter results
-      filteredData.forEach((dataItem2) => {
-        if (dataItem2.State == state.Fmaresults.stateCode || dataItem2.State === state.Fmaresults.stateText) {
-          stateData.push(dataItem2);
-        };
-      });
-    } else {
-    	// if no previous filter results
-      zipAndRadiusData.forEach((dataItem2) => {
-        if (dataItem2.State == state.Fmaresults.stateCode || dataItem2.State === state.Fmaresults.stateText) {
-          stateData.push(dataItem2);
-        };
-      });
-    };
-    // for testing 
-      console.log("state data = ", state.Fmaresults.stateCode, state.Fmaresults.stateText, stateData);
-      alert("There was a state filter");
+  // let stateData = [];
+  // if (state.Fmaresults.stateCode != "state" || state.Fmaresults.stateCode != "") {
+  //   if (filteredData.length >= 1) {
+  // 	// if previous filter results
+  //     filteredData.forEach((dataItem2) => {
+  //       if (dataItem2.State === state.Fmaresults.stateText || dataItem2.State == state.Fmaresults.stateCode) {
+  //         stateData.push(dataItem2);
+  //       };
+  //     });
+  //   } else {
+  //   	// if no previous filter results
+  //     zipAndRadiusData.forEach((dataItem2) => {
+  //       if (dataItem2.State == state.Fmaresults.stateCode || dataItem2.State === state.Fmaresults.stateText) {
+  //         stateData.push(dataItem2);
+  //       };
+  //     });
+  //   };
+  //   // for testing 
+  //     console.log("state data = ", state.Fmaresults.stateCode, state.Fmaresults.stateText, stateData);
+  //     alert("There was a state filter");
 
-    if (stateData.length >= 1) {
-      filteredData = stateData;
-    };
-    console.log("filteredData = ", filteredData);
-  };
+  //   if (stateData.length >= 1) {
+  //     filteredData = stateData;
+  //   };
+  //   console.log("filteredData = ", filteredData);
+  // };
 
-  // check STYLE filter
-  //---------------------
-  let styleData = [];
-  if (state.Fmaresults.style != "" || state.Fmaresults.style !== "All") {
-  	// if previous filter results
-    if (filteredData.length >= 1) {
-      filteredData.forEach((dataItem3) => {
-        if (dataItem3.Style == state.Fmaresults.style) {
-          styleData.push(dataItem3);
-        };
-      });
-    } else {
-    	// if no previous results
-      zipAndRadiusData.forEach((dataItem3) => {
-        if (dataItem3.Style == state.Fmaresults.style) {
-          styleData.push(dataItem3);
-        };
-      });
-    };
-    // for testing 
-     console.log("style data = ", state.Fmaresults.style, styleData);
-     alert("There was a style filter");
-
-    if (styleData.length >= 1) {
-      filteredData = styleData;
-    };     
-    console.log("filteredData = ", filteredData);
-  };
-  
   // check TYPE filter
-  //---------------------
   let typeData = [];
-  if (state.Fmaresults.type != "" || state.Fmaresults.type !== "All") {
+  if (state.Fmaresults.type != "" && state.Fmaresults.type !== "All") {
   	// if previous filter results
     if (filteredData.length >= 1) {
       filteredData.forEach((dataItem4) => {
-        if (dataItem4.Type == state.Fmaresults.type) {
+        if ( capitalize(dataItem4.Type) === capitalize(state.Fmaresults.type) ) {
           typeData.push(dataItem4);
         };
       });
     } else {
   		// If no previous filter results    	  	
         zipAndRadiusData.forEach((dataItem4) => {
-        if (dataItem4.Type == state.Fmaresults.type) {
+        if ( capitalize(dataItem4.Type) === capitalize(state.Fmaresults.type) ) {
           typeData.push(dataItem4);
         };
       });
     };
-    // for testing 
-     console.log("type data = ", state.Fmaresults.type, typeData);
-     alert("There was a type filter");
-
     if (typeData.length >= 1) {
       filteredData = typeData;
     };     
-    console.log("filteredData = ", filteredData);
   };
 
+  // check STYLE filter
+  let styleData = [];
+  if (state.Fmaresults.style !== "" && state.Fmaresults.style !== "All") {
+  	// if previous filter results
+      if (filteredData.length >= 1) {
+        filteredData.forEach((dataItem3) => {
+          if ( capitalize(dataItem3.Style) === capitalize(state.Fmaresults.style) ) {
+            console.log("Style = ", state.Fmaresults.style);
+            styleData.push(dataItem3);
+          };
+        });
+      } else {
+        // if no previous results
+        zipAndRadiusData.forEach((dataItem3) => {
+          if ( capitalize(dataItem3.Style) === capitalize(state.Fmaresults.style) ) {
+            styleData.push(dataItem3);
+          };
+        });
+      };
+    if (styleData.length >= 1) {
+      filteredData = styleData;
+    };     
+  };
+  
   state.Fmaresults.filteredData = filteredData;
-  console.log("final filtered data = ", state.Fmaresults.filteredData); // for testing
-
-  // alert("Going to Write the Data"); // for testing
   writeResults(state.Fmaresults.filteredData)
 };
 
