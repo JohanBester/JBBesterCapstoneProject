@@ -175,10 +175,8 @@ function compareTheData(DBdata, zipData) {
     for(let i = 0; i <= DBdata.length; i++) {
       if (zipItem.Code === DBdata[i].ZipCode) {
         console.log("DBdata[i]ZipCode ", DBdata[i].ZipCode);
-
         let tempItem = DBdata[i];
-        // Pull the distance from target into data collection
-        tempItem.Distance = zipItem.Distance;
+        tempItem.Distance = zipItem.Distance; // Pull distance from target into data collection
         if (!tempItem.Distance || tempItem.Distance == "0") {
           tempItem.Distance = "Only a mile or so";
         };
