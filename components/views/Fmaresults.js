@@ -70,7 +70,7 @@ export default (st) => `
         </div>
         <div>
             <select id="radiusSearch" name="radius" class="sbField" value="${st.radius}" required>
-            <option disabled selected value="radius">Radius</option>
+            <option disabled selected value="Radius">Radius</option>
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="15">15</option>
@@ -81,7 +81,7 @@ export default (st) => `
         </div>
         <div>
             <select id="typeSearch" name="type" class="sbField" value="${st.type}">
-            <option disabled selected value>Type</option>
+            <option disabled selected value="Type">Type</option>
             <option value="Club">Club</option>
             <option value="Group">Group</option>
             <option value="School">School</option>
@@ -91,7 +91,7 @@ export default (st) => `
         </div>
         <div>
             <select id="styleSearch" name="style" class="sbField" value="${st.style}">
-            <option disabled selected value>Style</option>
+            <option disabled selected value="Style">Style</option>
             <option value="Arnis">Arnis</option>
             <option value="Eskrima">Escrima</option>
             <option value="Kali">Kali</option>
