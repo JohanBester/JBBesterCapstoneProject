@@ -443,7 +443,7 @@ main > div {
   border: 0 solid var(--grey-color);
   border-radius: 15px;
   background-color: var(--grey-color);
-  width: 50%;
+  width: 40%;
 }
 
 @media (max-width: 768px) {
@@ -673,11 +673,12 @@ label {
 .container > div {
   border: 1px dotted var(--black-color);
   margin: 10px;
-  padding: 10px;
+  padding: 15px;
   min-width: 200px;
   max-width: 300px;
   min-height: 200px;
   flex-grow: 1;
+  overflow-wrap: break-word;
 }
 
 @media (max-width: 426px) {
@@ -709,6 +710,9 @@ label {
   }
 
   /* content container */
+  .container {
+    align-items: flex-start;
+  }
   .container > div {
     font-size: 12px;
     margin: 2px;

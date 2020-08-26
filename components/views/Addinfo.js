@@ -23,7 +23,7 @@ export default () => `
         
         <div class="form-group">
             <label id="phone-label" for="phone">Phone <span class="required">*</span></label>
-            <input type="tel" name="phone" id="phone" pattern="\d{3}[\-]\d{3}[\-]\d{4}" class="form-control" placeholder="Enter number 123-465-7980" required>
+            <input type="tel" name="phone" id="phone" class="form-control" placeholder="Enter number 123-465-7980" required>
         </div>
         
         <div class="form-group">
