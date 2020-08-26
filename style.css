@@ -212,6 +212,14 @@ nav > ul > li > a {
   text-decoration: none;
 }
 
+nav > ul > li > a:visited {
+  color: var(--red-color);
+}
+
+nav > ul > li > a:hover {
+  color: var(--yellow-color);
+}
+
 @media (max-width: 768px) {
   .logo {
     margin: 5px 5px 5px 3%;
