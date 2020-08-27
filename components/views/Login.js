@@ -24,13 +24,14 @@ export default () => `
         <div class="form-group">
             <button type="reset" id="clear" class="btnStyled submit-button" onclick="form.reset()">Clear</button>
             <button type="submit" id="login" class="btnStyled submit-button">Login</button>
+            <br /><br /><a href="/Resetpassword" class="addInfo center" data-navigo>Forgot your password? Request to reset your password.</a>
         </div>
     </form>
 
     <br/>
 
-    <div id="registerButton" class="register center">
-        <a href="Register.html">Click here to Register a New User Account</a> 
+    <div id="registerButton" class="addInfo center">
+        <a href="/Register" data-navigo>Register a New User Account</a> 
     </div>
 
     <br/>
