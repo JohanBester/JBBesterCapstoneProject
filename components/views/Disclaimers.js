@@ -1,4 +1,3 @@
-
 export default () => `
 <main>
     <div class="addOrImage"></div>
@@ -20,7 +19,7 @@ export default () => `
             <p>Fun Finder Applications shall not at any time, be liable for any injury or damage occurring to any person or property from any cause, whatsoever, arising out of actions taken, by any person(s), based on any content of the FMA Fun Finder application.</p>
             <br>
             <p>Copyright © Fun Finder Applications, Illinois, USA. 2020. All Rights Reserved.</p>
-            <br>  
+            <br>
         </div>
 
 	    <div class="center">
@@ -32,7 +31,7 @@ export default () => `
             <a href="/Addinfo" data-navigo>Click here to ADD FMA Info</a>
         </div>
         <br/>
-        
+
     </div>
 </main>
 `;

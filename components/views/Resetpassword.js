@@ -1,4 +1,3 @@
-
 export default () => `
 <main>
     <div class="addOrImage"></div>
@@ -19,7 +18,7 @@ export default () => `
             <label id="name-label" for="username">User Name </label>
             <input type="text" name="name" id="username" class="form-control" placeholder="Enter your user name">
         </div>
-        
+
         <div class="form-group right">
             <label id="email-label" for="email">Email </label>
             <input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" placeholder="Enter your email address">

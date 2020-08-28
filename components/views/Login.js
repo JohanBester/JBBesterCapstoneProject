@@ -1,4 +1,3 @@
-
 export default () => `
 <main>
     <div class="addOrImage"></div>
@@ -15,12 +14,12 @@ export default () => `
             <label id="name-label" for="username">User Name <span class="required">*</span></label>
             <input type="text" name="name" id="username" class="form-control" placeholder="Enter your user name" required>
         </div>
-        
+
         <div class="form-group right">
             <label id="password-label" for="password">Password <span class="required">*</span></label>
             <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required>
         </div>
-        
+
         <div class="form-group">
             <button type="reset" id="clear" class="btnStyled submit-button" onclick="form.reset()">Clear</button>
             <button type="submit" id="login" class="btnStyled submit-button">Login</button>
@@ -31,7 +30,7 @@ export default () => `
     <br/>
 
     <div id="registerButton" class="addInfo center">
-        <a href="/Register" data-navigo>Register a New User Account</a> 
+        <a href="/Register" data-navigo>Register a New User Account</a>
     </div>
 
     <br/>

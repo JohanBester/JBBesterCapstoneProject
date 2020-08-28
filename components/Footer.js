@@ -1,4 +1,3 @@
-
 export default () => `
 <footer class="fixed-footer">
     <div id="disclaimers">

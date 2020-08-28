@@ -1,4 +1,3 @@
-
 export default {
-    page: "Home"
+  page: "Home"
 };

@@ -1,4 +1,3 @@
-
 export default {
-    page: "Resetpassword"
+  page: "Resetpassword"
 };

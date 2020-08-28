@@ -1,4 +1,3 @@
-
 export default {
-    page: "Register"
+  page: "Register"
 };

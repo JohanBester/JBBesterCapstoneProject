@@ -1,5 +1,4 @@
-
-export default (st) => `
+export default st => `
 <div class="addOrImage" style="display: none;"></div>
 
 <main id="fmaSearchPage">
@@ -11,7 +10,7 @@ export default (st) => `
         <div>
             <input type="text" name="Zip" id="zipSearch" class="sbField" placeholder="Zip Code" value="${st.zipCode}" required>
         </div>
-        
+
         <div>
             <select id="radiusSearch" name="radius" class="sbField" value="${st.radius}" required>
             <option disabled selected value="Radius">Radius</option>
@@ -54,7 +53,7 @@ export default (st) => `
             <p>To make your search more specific, choose search options from the drop-down menus before clicking the search button.</p>
         </div>
     </div>
-    
+
     <div id="hpAddInfoButton" class="addInfo" style="display: none;"></div>
 </main>
 `;

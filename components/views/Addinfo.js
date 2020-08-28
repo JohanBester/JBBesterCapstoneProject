@@ -1,4 +1,3 @@
-
 export default () => `
 <main>
     <div class="addOrImage"></div>
@@ -10,33 +9,33 @@ export default () => `
     </div>
 
     <form id="contact-form" action="https://formspree.io/mjvajbql" method="POST">
-        
+
         <div class="form-group">
             <label id="name-label" for="name">Full Name <span class="required">*</span></label>
             <input type="text" name="name" id="name" class="form-control" placeholder="Enter your full name" required>
         </div>
-        
+
         <div class="form-group">
             <label id="email-label" for="email">Email <span class="required">*</span></label>
             <input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" placeholder="Enter your email address" required>
         </div>
-        
+
         <div class="form-group">
             <label id="phone-label" for="phone">Phone <span class="required">*</span></label>
             <input type="tel" name="phone" id="phone" class="form-control" placeholder="Enter number 123-465-7980" required>
         </div>
-        
+
         <div class="form-group">
             <label id="website-label" for="website">Website <span>(Optional)</span></label>
             <input type="url" name="website" id="website" pattern="^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?" class="form-control" placeholder="Enter a website address">
         </div>
-        
+
         <div class="form-group">
             <p class="labelText" for="role">Which best describes your role? (Optional)</p>
             <select id="ddRole" name="role" class="form-control ddDropdown">
                 <option disabled selected value>Select your current role</option>
                 <option value="student">FMA Student</option>
-                <option value="instructor">FMA Instructor</option>         
+                <option value="instructor">FMA Instructor</option>
                 <option value="Organizer">Event Organizer</option>
                 <option value="other">Other</option>
             </select>
@@ -58,7 +57,7 @@ export default () => `
             <label id="venueName-label" for="venueName">FMA Name <span class="required">*</span></label>
             <input type="text" name="venueName" id="venueName" class="form-control" placeholder="Enter the event or venue name" required>
         </div>
-        
+
         <div class="form-group">
             <p class="labelText" for="activityAddress">Please enter the address details for the new FMA venue <span class="required">*</span></p>
             <div id="activityAddress">
@@ -121,7 +120,7 @@ export default () => `
                 </select><br />
                 <label id="zipcode-label" for="zipcode">Zip Code <span class="required">*</span></label>
                 <input type="number" name="zipcode" id="zipcode" pattern="(\d{5}([\-]\d{4})?)" class="form-control" placeholder="Enter a Zip Code" required>
-            </div>         
+            </div>
         </div>
 
         <div class="form-group">

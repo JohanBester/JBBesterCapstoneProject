@@ -1,4 +1,3 @@
-
 export default () => `
 <header class="fixed-header">
     <a href="/"><img class="logo" src="https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/IMAGES/FMAlogo.jpg?raw=true" /></a>

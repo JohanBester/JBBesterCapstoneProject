@@ -1,4 +1,3 @@
-
 export default {
-    page: "Contact"
+  page: "Contact"
 };

@@ -1,4 +1,3 @@
-
 export default () => `
 <main>
     <div class="addOrImage"></div>
@@ -29,7 +28,7 @@ export default () => `
         <br />
 
         <div id="hpAddInfoButton" class="addInfo">
-            <a href="/AddInfo" data-navigo>Click here to ADD FMA Info</a> 
+            <a href="/AddInfo" data-navigo>Click here to ADD FMA Info</a>
         </div>
         <br/>
     </div>
