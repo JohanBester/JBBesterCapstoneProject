@@ -55,6 +55,9 @@ function addSearchBarBtnListener(st) {
   }
 }
 
+// Contact Form Send Button intervention
+function sendButton() {}
+
 //***  Get the FMA Data from the JSON file ***
 (function importDBJSON() {
   state.Fmaresults.fmaDBdata = [];

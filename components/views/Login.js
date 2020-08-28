@@ -23,7 +23,8 @@ export default () => `
         <div class="form-group">
             <button type="reset" id="clear" class="btnStyled submit-button" onclick="form.reset()">Clear</button>
             <button type="submit" id="login" class="btnStyled submit-button">Login</button>
-            <br /><br /><a href="/Resetpassword" class="addInfo center" data-navigo>Forgot your password? Request to reset your password.</a>
+            <br /><br />
+            <a href="/Resetpassword"  id="resetButton" class="addInfo center" data-navigo>Forgot your password? Request to reset your password.</a>
         </div>
     </form>
 

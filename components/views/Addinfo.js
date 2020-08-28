@@ -8,7 +8,7 @@ export default () => `
         <p>To alert us about new clubs, groups, schools, or events you think we should add to this list, please fill out all the fields in this form with the necessary information as indicated. Thanks!</p>
     </div>
 
-    <form id="contact-form" action="https://formspree.io/mjvajbql" method="POST">
+    <form id="contact-form" action="https://formspree.io/mjvajbql" target="_blank" method="POST">
 
         <div class="form-group">
             <label id="name-label" for="name">Full Name <span class="required">*</span></label>
