@@ -15,7 +15,6 @@ router
     "/": () => render(state.Home),
     ":page": params => {
       let page = capitalize(params.page);
-
       render(state[page]);
     }
   })

@@ -222,8 +222,8 @@ nav > ul > li > a:hover {
 
 @media (max-width: 768px) {
   .logo {
-    margin: 5px 5px 5px 3%;
-    max-height: 90%;
+    margin: 5px 3px 3px 2%;
+    max-height: 88%;
     width: auto;
   }
 
@@ -237,7 +237,7 @@ nav > ul > li > a:hover {
   }
 
   nav {
-    top: 3%;
+    top: 4%;
     right: 2%;
   }
 
