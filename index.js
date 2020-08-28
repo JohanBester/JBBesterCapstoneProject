@@ -8,6 +8,7 @@ import { auth, db } from "./firebase";
 import randomImage from "./lib/randomImage";
 import getAPIData from "./lib/getAPIData"; // Used for API call
 import writeResults from "./lib/writeResults";
+import formSubmit from "./lib/formSubmit";
 
 const router = new Navigo(window.location.origin);
 router
@@ -31,6 +32,7 @@ function render(st = state.Home) {
 
   randomImage();
   addHamburgerEventListener();
+  formSendButtonListener(st);
   addSearchBarBtnListener(st);
 }
 
@@ -45,6 +47,17 @@ function addHamburgerEventListener() {
   });
 }
 
+// Forms Send Button intervention
+function formSendButtonListener(st) {
+  if (st.page === "Contact" || st.page === "Addinfo") {
+    // handle the form submission event
+    document.querySelector("#send").addEventListener("click", event => {
+      event.preventDefault();
+      formSubmit(st);
+    });
+  }
+}
+
 // Click listener for FMAresults Page
 function addSearchBarBtnListener(st) {
   if (st.page === "Fmaresults") {
@@ -54,9 +67,6 @@ function addSearchBarBtnListener(st) {
     });
   }
 }
-
-// Contact Form Send Button intervention
-function sendButton() {}
 
 //***  Get the FMA Data from the JSON file ***
 (function importDBJSON() {

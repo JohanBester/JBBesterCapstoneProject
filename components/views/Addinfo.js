@@ -8,7 +8,7 @@ export default () => `
         <p>To alert us about new clubs, groups, schools, or events you think we should add to this list, please fill out all the fields in this form with the necessary information as indicated. Thanks!</p>
     </div>
 
-    <form id="contact-form" action="https://formspree.io/mjvajbql" target="_blank" method="POST">
+    <form id="contact-form">
 
         <div class="form-group">
             <label id="name-label" for="name">Full Name <span class="required">*</span></label>
@@ -130,8 +130,13 @@ export default () => `
 
         <div class="button-group">
             <button type="reset" id="clear" class="btnStyled submit-button" onclick="form.reset()">Clear</button>
-            <button type="submit" id="sendInfo" class="btnStyled submit-button">Send Info</button>
+            <button type="submit" id="send" class="btnStyled submit-button">Send Info</button>
         </div>
+
+        <div>
+            <p id="form-status"></p>
+        </div>
+
     </form>
     <br/>
 

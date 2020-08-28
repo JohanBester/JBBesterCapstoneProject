@@ -477,6 +477,12 @@ form {
   padding: 5px;
 }
 
+#form-status {
+  padding: 5px;
+  font-weight: 700;
+  color: var(--red-color);
+}
+
 label {
   text-align: right;
   font-weight: 700;

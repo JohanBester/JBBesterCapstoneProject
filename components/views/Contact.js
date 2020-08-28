@@ -8,7 +8,8 @@ export default () => `
         </div>
         <p>We welcome feed-back and contact from folks who use our app. You are encouraged to let us know if some information is wrong or outdated. Send us the new updated info and we'll get that on the list as well. Any other comments are also welcomed! Thanks!</p>
 
-        <form id="contact-form" action="https://formspree.io/xdowpwkb" target="_blank" method="POST">
+        <form id="contact-form">
+
             <div class="form-group right">
                 <label id="name-label" for="name">Full Name <span class="required">*</span></label>
                 <input type="text" name="name" id="name" class="form-control" placeholder="Enter your full name" required>
@@ -40,10 +41,15 @@ export default () => `
                 <textarea type="text" id="comments" class="input-textarea" name="comment" placeholder="Enter your comment here..." required></textarea>
             </div>
 
-            <div class="form-group">
+            <div class="button-group">
                 <button type="reset" id="clear" class="btnStyled submit-button" onclick="form.reset())">Clear</button>
-                <button type="submit" id="sendContact" class="btnStyled submit-button")>Send Message</button>
+                <button type="submit" id="send" class="btnStyled submit-button")>Send Message</button>
             </div>
+
+            <div>
+                <p id="form-status"></p>
+            </div>
+
         </form>
         <br/>
 
