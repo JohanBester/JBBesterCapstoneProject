@@ -4,9 +4,10 @@ import * as state from "./store";
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 import { auth, db } from "./firebase";
+import axios from "axios";
 
 import randomImage from "./lib/randomImage";
-import getAPIData from "./lib/getAPIData"; // Used for API call
+// import getAPIData from "./lib/getAPIData"; // Used for API call
 import writeResults from "./lib/writeResults";
 import formSubmit from "./lib/formSubmit";
 
@@ -38,8 +39,7 @@ function render(st = state.Home) {
 
 // Constant for Forms submit and to clear form data
 const form = document.querySelector("form");
-// Constant for Firebase Firestorm DB
-const coll = db.collection("FMAdata");
+
 // Hamburger listeners
 function addHamburgerEventListener() {
   document.querySelector(".fa-bars").addEventListener("click", () => {
@@ -86,42 +86,6 @@ function addSearchBarBtnListener(st) {
     });
 })();
 
-//***  Get TEST ZIP Data from the JSON file ***
-(function importZIPJSON() {
-  state.Fmaresults.tempZipData = [];
-  fetch(
-    "https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/ZIPdata.json"
-  )
-    .then(response => response.json())
-    .then(response => {
-      state.Fmaresults.tempZipData = response;
-    })
-    .catch(err => {
-      console.log(
-        "The ZIPdata load request failed! Error with the ZIPdata import LINE 180. please try your search again."
-      );
-      console.log("error", err);
-    });
-})();
-
-//***  Get the FMA Data from Firestore ***
-function firestormdata() {
-  state.Fmaresults.fmaFirestormData = [];
-  coll
-    .get()
-    .then(snapshot =>
-      snapshot.docs.forEach(doc => {
-        state.Fmaresults.fmaFirestormData.push(doc.data());
-      })
-    )
-    .catch(err => {
-      console.log(
-        "The Firestorm load request failed! Error with the Firestorm import LINE 130. please try your search again."
-      );
-      console.log("error", err);
-    });
-}
-
 // Search from FMAresults Page
 function searchBarSearch() {
   // zip code
@@ -132,7 +96,6 @@ function searchBarSearch() {
   } else {
     state.Fmaresults.zipCode = userZipCode;
   }
-
   // radius
   let userRadius = document.querySelector("#radiusSearch").value;
   if (userRadius == "Radius") {
@@ -140,46 +103,76 @@ function searchBarSearch() {
     return;
   } else {
     state.Fmaresults.radius = userRadius;
-    state.Fmaresults.filter = true;
   }
-
   // state
   // let userState = document.querySelector("#stateSearch");
   // if (userState.value != "Sate") {
   //   state.Fmaresults.filter = true;
   //   state.Fmaresults.stateCode = userState.value;
   // };
-
   // type
   let userType = document.querySelector("#typeSearch");
   if (userType.value != "Type") {
     state.Fmaresults.type = userType.value;
     state.Fmaresults.filter = true;
   }
-
   // style
   let userStyle = document.querySelector("#styleSearch");
   if (userStyle.value != "Style") {
     state.Fmaresults.style = userStyle.value;
     state.Fmaresults.filter = true;
   }
-
-  state.Fmaresults.returnedAPIdata = [];
-  //*** Uncomment for Demmo day !!!
+  alert("Getting API data now.");
+  //*** Uncomment for Demo day !!!
   //*********************************
-  // const APIdata = getAPIData();
-  // console.log(APIdata);  // for testing
-  // state.Fmaresults.returnedAPIdata = APIdata;
-  // compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.returnedAPIdata);
+  getAPIData();
+  // compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData); // for testing
+}
 
-  compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData);
+//***  Get the FMA Data from API ***
+function getAPIData() {
+  state.Fmaresults.returnedAPIdata = [];
+  let zipCode = state.Fmaresults.zipCode;
+  let radius = state.Fmaresults.radius;
+  let APIkey = process.env.ZIP_CODES_API_KEY;
+  axios
+    .get(
+      `https://api.zip-codes.com/ZipCodesAPI.svc/1.0/FindZipCodesInRadius?zipcode=${zipCode}&minimumradius=0&maximumradius=${radius}&key=${APIkey}`
+    )
+    .then(response => {
+      console.log(response.data);
+      state.Fmaresults.returnedAPIdata = response.data;
+      if (response.status === 200) {
+        alert("Going to compare the Data"); // for testing
+        compareTheData(
+          state.Fmaresults.fmaDBdata,
+          state.Fmaresults.returnedAPIdata
+        );
+        return true;
+      } else {
+        alert(
+          "There seems to be a problem with this search. Kindly please try that again."
+        );
+      }
+    })
+    .catch(err => {
+      // What to do when the request fails
+      alert(
+        "There seems to be a problem with this search. Kindly please try that again."
+      );
+      console.log("The Axios API request failed!");
+      console.log("Error", err);
+    });
 }
 
 //** functions to COMPARE Data
 //*****************************
 function compareTheData(DBdata, zipData) {
+  console.log("DBdata = ", DBdata);
+  console.log("zipData = ", zipData);
+
   state.Fmaresults.comparedData = [];
-  zipData.forEach(zipItem => {
+  zipData.DataList.forEach(zipItem => {
     DBdata.forEach(dbItem => {
       if (zipItem.Code === dbItem.ZipCode) {
         let tempItem = dbItem;
@@ -191,9 +184,12 @@ function compareTheData(DBdata, zipData) {
       }
     });
   });
+  console.log("compared data = ", state.Fmaresults.comparedData);
   if (state.Fmaresults.filter) {
+    alert("Going to filter the data");
     filterData(state.Fmaresults.comparedData);
   } else {
+    alert("Going to Print the data");
     writeResults(state.Fmaresults.comparedData);
   }
 }
@@ -202,49 +198,6 @@ function compareTheData(DBdata, zipData) {
 //***************************************
 function filterData(zipAndRadiusData) {
   let filteredData = [];
-  // Check Radius
-  let radiusData = [];
-  if (state.Fmaresults.radius) {
-    zipAndRadiusData.forEach(dataItem1 => {
-      if (dataItem1.Distance === "Only a mile or so") {
-        radiusData.push(dataItem1);
-      }
-      if (dataItem1.Distance <= state.Fmaresults.radius) {
-        radiusData.push(dataItem1);
-      }
-    });
-    if (radiusData.length >= 1) {
-      filteredData = radiusData;
-    }
-  }
-
-  // check STATE filter
-  // let stateData = [];
-  // if (state.Fmaresults.stateCode != "state" || state.Fmaresults.stateCode != "") {
-  //   if (filteredData.length >= 1) {
-  // 	// if previous filter results
-  //     filteredData.forEach((dataItem2) => {
-  //       if (dataItem2.State === state.Fmaresults.stateText || dataItem2.State == state.Fmaresults.stateCode) {
-  //         stateData.push(dataItem2);
-  //       };
-  //     });
-  //   } else {
-  //   	// if no previous filter results
-  //     zipAndRadiusData.forEach((dataItem2) => {
-  //       if (dataItem2.State == state.Fmaresults.stateCode || dataItem2.State === state.Fmaresults.stateText) {
-  //         stateData.push(dataItem2);
-  //       };
-  //     });
-  //   };
-  //   // for testing
-  //     console.log("state data = ", state.Fmaresults.stateCode, state.Fmaresults.stateText, stateData);
-  //     alert("There was a state filter");
-
-  //   if (stateData.length >= 1) {
-  //     filteredData = stateData;
-  //   };
-  //   console.log("filteredData = ", filteredData);
-  // };
 
   // check TYPE filter
   let typeData = [];
@@ -297,18 +250,49 @@ function filterData(zipAndRadiusData) {
     }
   }
 
+  // check STATE filter
+  // let stateData = [];
+  // if (state.Fmaresults.stateCode != "state" || state.Fmaresults.stateCode != "") {
+  // 	// if previous filter results
+  //   if (filteredData.length >= 1) {
+  //     filteredData.forEach((dataItem2) => {
+  //       if (dataItem2.State === state.Fmaresults.stateText || dataItem2.State == state.Fmaresults.stateCode) {
+  //         stateData.push(dataItem2);
+  //       };
+  //     });
+  //   } else {
+  //   	// if no previous filter results
+  //     zipAndRadiusData.forEach((dataItem2) => {
+  //       if (dataItem2.State == state.Fmaresults.stateCode || dataItem2.State === state.Fmaresults.stateText) {
+  //         stateData.push(dataItem2);
+  //       };
+  //     });
+  //   };
+  //   // for testing
+  //     console.log("state data = ", state.Fmaresults.stateCode, state.Fmaresults.stateText, stateData);
+  //     alert("There was a state filter");
+  //   if (stateData.length >= 1) {
+  //     filteredData = stateData;
+  //   };
+  //   console.log("filteredData = ", filteredData);
+  // };
+
+  // Check Radius
+  // let radiusData = [];
+  // if (state.Fmaresults.radius) {
+  //   zipAndRadiusData.forEach(dataItem1 => {
+  //     if (dataItem1.Distance === "Only a mile or so") {
+  //       radiusData.push(dataItem1);
+  //     }
+  //     if (dataItem1.Distance <= state.Fmaresults.radius) {
+  //       radiusData.push(dataItem1);
+  //     }
+  //   });
+  //   if (radiusData.length >= 1) {
+  //     filteredData = radiusData;
+  //   }
+  // }
+
   state.Fmaresults.filteredData = filteredData;
   writeResults(state.Fmaresults.filteredData);
 }
-
-// Still need to finish - User Form listeners ???
-//-------------------------------------------------
-// st.formDateCollection = [];
-// form.addEventListener("submit", event => {
-//   event.preventDefault();
-//   Array.from(event.target.elements).forEach(el => {
-//     console.log("Input Type: ", el.type);
-//     console.log("Name: ", el.name);
-//     console.log("Value: ", el.value);
-//   });
-// });
