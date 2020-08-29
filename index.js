@@ -86,7 +86,7 @@ function addSearchBarBtnListener(st) {
     });
 })();
 
-// Search from FMAresults Page
+//*** Search from FMAresults Page ***
 function searchBarSearch() {
   // zip code
   let userZipCode = document.getElementById("zipSearch").value;
@@ -122,7 +122,7 @@ function searchBarSearch() {
     state.Fmaresults.style = userStyle.value;
     state.Fmaresults.filter = true;
   }
-  alert("Getting API data now.");
+  // alert("Getting API data now.");  // for testing
   //*** Uncomment for Demo day !!!
   //*********************************
   getAPIData();
@@ -184,7 +184,7 @@ function compareTheData(DBdata, zipData) {
       }
     });
   });
-  console.log("compared data = ", state.Fmaresults.comparedData);
+  // console.log("compared data = ", state.Fmaresults.comparedData);
   if (state.Fmaresults.filter) {
     alert("Going to filter the data");
     filterData(state.Fmaresults.comparedData);
@@ -250,7 +250,7 @@ function filterData(zipAndRadiusData) {
     }
   }
 
-  // check STATE filter
+  // check STATE filter (disabled for now)
   // let stateData = [];
   // if (state.Fmaresults.stateCode != "state" || state.Fmaresults.stateCode != "") {
   // 	// if previous filter results
@@ -277,7 +277,7 @@ function filterData(zipAndRadiusData) {
   //   console.log("filteredData = ", filteredData);
   // };
 
-  // Check Radius
+  // Check Radius (disabled for now)
   // let radiusData = [];
   // if (state.Fmaresults.radius) {
   //   zipAndRadiusData.forEach(dataItem1 => {
