@@ -35,6 +35,12 @@ function render(st = state.Home) {
   addHamburgerEventListener();
   formSendButtonListener(st);
   addSearchBarBtnListener(st);
+
+  loginLogoutListener(state.Profile);
+  listenForRegister(st);
+  listenForLogin(st);
+
+  profileTestBtnListener(st);
 }
 
 // Constant for Forms submit and to clear form data
@@ -45,6 +51,17 @@ function addHamburgerEventListener() {
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden");
   });
+}
+
+// Profile test Button Listener
+function profileTestBtnListener(st) {
+  if (st.page === "Login") {
+    document.querySelector("#profileTestBtn").addEventListener("click", () => {
+      event.preventDefault();
+      render(state.Profile);
+      router.navigate("/Profile");
+    });
+  }
 }
 
 // Forms Send Button intervention
@@ -295,4 +312,208 @@ function filterData(zipAndRadiusData) {
 
   state.Fmaresults.filteredData = filteredData;
   writeResults(state.Fmaresults.filteredData);
+}
+
+//*** Register form click listener **
+function listenForRegister(st) {
+  if (st.view === "Register") {
+    document.querySelector("#signup-form").addEventListener("submit", event => {
+      event.preventDefault();
+      //convert html elements to Array
+      let inputList = Array.from(event.target.elements);
+      //remove submit button so it's not included
+      inputList.pop();
+      inputList.pop();
+      const inputs = inputList.map(input => input.value);
+      let firstname = inputs[0];
+      let lastname = inputs[0];
+      let username = inputs[0];
+      let useremail = inputs[1];
+      let password1 = inputs[2];
+      let password2 = inputs[3];
+
+      if (password1 === password2) {
+        let password = password2;
+        //create user in database
+        auth
+          .createUserWithEmailAndPassword(useremail, password)
+          .then(response => {
+            if (response.status === 200) {
+              console.log("user registered");
+              //add user to state and database
+              addUserToStateAndDB(
+                firstname,
+                lastname,
+                username,
+                useremail,
+                password
+              );
+              console.log(state.User);
+              render(state.Profile);
+              router.navigate("/Profile");
+              populateProfilePage();
+            }
+          })
+          .catch(err => {
+            // What to do when the request fails
+            alert(
+              "There seems to be a problem with this Registration. Kindly please reload the page and try that again."
+            );
+            console.log("The DB create user request failed!");
+            console.log("Error", err);
+          });
+      } else {
+        alert("Passwords have to match. Please re-enter the passwords.");
+      }
+    });
+  }
+}
+
+//*** Add user to state and database ***
+function addUserToStateAndDB(
+  firstname,
+  lastname,
+  username,
+  useremail,
+  password
+) {
+  // add user to state
+  state.Profile.firstname;
+  state.Profile.lastname;
+  state.Profile.username;
+  state.Profile.useremail;
+  state.Profile.password;
+  state.Profile.signedIn = true;
+  state.Profile.loggedIn = true;
+
+  // add user to database
+  db.collection("users").add({
+    firstname: firstname,
+    lastname: lastname,
+    username: username,
+    useremail: useremail,
+    password: password,
+    signedIn: true,
+    loggedIn: true
+  });
+}
+
+//*** Populate the profile page with user info ***
+function populateProfilePage(st) {
+  if (st.view === "Profile") {
+    document.querySelector(
+      "#user-name"
+    ).innerText = `${state.Profile.firstname} ${state.Profile.lastname}`;
+    document.querySelector(
+      "#user-name"
+    ).innerText = `${state.Profile.username}`;
+    document.querySelector(
+      "#user-email"
+    ).innerText = `${state.Profile.useremail}`;
+  }
+}
+
+//*** Listen for User Login ***
+function listenForLogin(st) {
+  if (st.view === "Login") {
+    document.querySelector("#login-form").addEventListener("submit", event => {
+      event.preventDefault();
+      //convert html elements to Array
+      let inputList = Array.from(event.target.elements);
+      //remove the login button so it's not included
+      inputList.pop();
+      inputList.pop();
+      const inputs = inputList.map(input => input.value);
+      let username = inputs[0];
+      let email = inputs[1];
+      let password = inputs[2];
+      auth.signInWithEmailAndPassword(email, password).then(() => {
+        console.log("user logged in");
+        getUserFromDb(email)
+          .then(() => render(state.Profile), router.navigate("/Profile"))
+          .then(() => {
+            populateProfilePage();
+          });
+      });
+    });
+  }
+}
+
+//*** Get user form the Database ***
+function getUserFromDb(email) {
+  return db
+    .collection("users")
+    .get()
+    .then(snapshot =>
+      snapshot.docs.forEach(doc => {
+        if (email === doc.data().email) {
+          let id = doc.id;
+          db.collection("users")
+            .doc(id)
+            .update({ signedIn: true });
+          console.log("user signed in db");
+          let user = doc.data();
+          state.Profile.firstname = user.firstname;
+          state.Profile.lastname = user.lastname;
+          state.Profile.username = user.username;
+          state.Profile.useremail = user.useremail;
+          state.Profile.signedIn = true;
+          state.Profile.loggedIn = true;
+
+          console.log(state.User); // for testing
+        }
+      })
+    );
+}
+
+function loginLogoutListener(st) {
+  if (st.view === "Profile") {
+    document.querySelector("#log-out").addEventListener("click", event => {
+      //Test if user is logged-in
+      if (st.loggedIn) {
+        event.preventDefault();
+        //log-out fxn//
+        auth.signOut().then(() => {
+          console.log("user logged out");
+          logOutUserInDb(st.email);
+          resetUserInState();
+          //update user in db
+          db.collection("users").get;
+          render(state.Home);
+          router.navigate("/Home");
+        });
+        console.log(state.User);
+      }
+    });
+  }
+}
+
+//*** log-out the user in the Database ***
+function logOutUserInDb(email) {
+  if (state.Profile.loggedIn) {
+    db.collection("users")
+      .get()
+      .then(snapshot =>
+        snapshot.docs.forEach(doc => {
+          if (email === doc.data().email) {
+            let id = doc.id;
+            db.collection("users")
+              .doc(id)
+              .update({ signedIn: false });
+          }
+        })
+      );
+    console.log("user signed out in db");
+  }
+}
+
+//*** Reset user in state ***
+function resetUserInState() {
+  state.Profile.firstname = "";
+  state.Profile.lastname = "";
+  state.Profile.username = "";
+  state.Profile.useremail = "";
+  state.Profile.password = "";
+  state.Profile.signedIn = false;
+  state.Profile.loggedIn = false;
 }

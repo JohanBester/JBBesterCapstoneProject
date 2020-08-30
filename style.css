@@ -772,3 +772,16 @@ label {
   background-color: var(--red-color);
   color: var(--white-color);
 }
+
+/*=======================*/
+/*== User Profile Page ==*/
+/*=======================*/
+.profileOptions {
+  width: 35%;
+  max-width: 400px;
+  min-width: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px dotted var(--black-color);
+  text-align: center;
+}

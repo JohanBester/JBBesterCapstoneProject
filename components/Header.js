@@ -16,7 +16,7 @@ export default () => `
             <li><a href="Addinfo" data-navigo>Add Info</a></li>
             <li><a href="About" data-navigo>About</a></li>
             <li><a href="Contact" data-navigo>Contact</a></li>
-            <li><a href="Login" data-navigo>Login</a></li>
+            <li><a id="loginLink" href="Login" data-navigo>Login</a></li>
             <li><a href="Disclaimers" data-navigo>Disclaimers</a></li>
         </ul>
     </nav>
