@@ -6,10 +6,12 @@ import { capitalize } from "lodash";
 import { auth, db } from "./firebase";
 import axios from "axios";
 
-// import getAPIData from "./lib/getAPIData"; // Used for API call
 import randomImage from "./lib/randomImage";
-import writeResults from "./lib/writeResults";
 import formSubmit from "./lib/formSubmit";
+import getAPIData from "./lib/getAPIData"; // Used for API call
+import compareTheData from "./lib/compareTheData";
+// import filterData from "./lib/filterData";
+// import writeResults from "./lib/writeResults";
 import checklogin from "./lib/checkLogin";
 // import accountLock from "./lib/accountLock";
 
@@ -146,171 +148,6 @@ function searchBarSearch() {
   // alert("Getting API data now.");  // for testing
   getAPIData();
   // compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData); // for testing
-}
-
-//***  Get the FMA Data from API ***
-function getAPIData() {
-  state.Fmaresults.returnedAPIdata = [];
-  let zipCode = state.Fmaresults.zipCode;
-  let radius = state.Fmaresults.radius;
-  let APIkey = process.env.ZIP_CODES_API_KEY;
-  axios
-    .get(
-      `https://api.zip-codes.com/ZipCodesAPI.svc/1.0/FindZipCodesInRadius?zipcode=${zipCode}&minimumradius=0&maximumradius=${radius}&key=${APIkey}`
-    )
-    .then(response => {
-      console.log(response.data);
-      state.Fmaresults.returnedAPIdata = response.data;
-      if (response.status === 200) {
-        // alert("Going to compare the Data"); // for testing
-        compareTheData(
-          state.Fmaresults.fmaDBdata,
-          state.Fmaresults.returnedAPIdata
-        );
-        return true;
-      } else {
-        alert(
-          "There seems to be a problem with this search. Kindly please try that again."
-        );
-      }
-    })
-    .catch(err => {
-      // What to do when the request fails
-      alert(
-        "There seems to be a problem with this search. Kindly please try that again."
-      );
-      console.log("The Axios API request failed!");
-      console.log("Error", err);
-    });
-}
-
-//** functions to COMPARE Data
-//*****************************
-function compareTheData(DBdata, zipData) {
-  console.log("DBdata = ", DBdata);
-  console.log("zipData = ", zipData);
-
-  state.Fmaresults.comparedData = [];
-  zipData.DataList.forEach(zipItem => {
-    DBdata.forEach(dbItem => {
-      if (zipItem.Code === dbItem.ZipCode) {
-        let tempItem = dbItem;
-        tempItem.Distance = zipItem.Distance; // Pull distance from target into data collection
-        if (!tempItem.Distance || tempItem.Distance == "0") {
-          tempItem.Distance = "Only a mile or so";
-        }
-        state.Fmaresults.comparedData.push(tempItem);
-      }
-    });
-  });
-  // console.log("compared data = ", state.Fmaresults.comparedData);
-  if (state.Fmaresults.filter) {
-    alert("Going to filter the data");
-    filterData(state.Fmaresults.comparedData);
-  } else {
-    // alert("Going to Print the data");
-    writeResults(state.Fmaresults.comparedData);
-  }
-}
-
-//** FILTER according to search criteria
-//***************************************
-function filterData(zipAndRadiusData) {
-  let filteredData = [];
-  // check TYPE filter
-  let typeData = [];
-  if (state.Fmaresults.type != "" && state.Fmaresults.type !== "All") {
-    // if previous filter results
-    if (filteredData.length >= 1) {
-      filteredData.forEach(dataItem4 => {
-        if (capitalize(dataItem4.Type) === capitalize(state.Fmaresults.type)) {
-          typeData.push(dataItem4);
-        }
-      });
-    } else {
-      // If no previous filter results
-      zipAndRadiusData.forEach(dataItem4 => {
-        if (capitalize(dataItem4.Type) === capitalize(state.Fmaresults.type)) {
-          typeData.push(dataItem4);
-        }
-      });
-    }
-    if (typeData.length >= 1) {
-      filteredData = typeData;
-    }
-  }
-  // check STYLE filter
-  let styleData = [];
-  if (state.Fmaresults.style !== "" && state.Fmaresults.style !== "All") {
-    // if previous filter results
-    if (filteredData.length >= 1) {
-      filteredData.forEach(dataItem3 => {
-        if (
-          capitalize(dataItem3.Style) === capitalize(state.Fmaresults.style)
-        ) {
-          console.log("Style = ", state.Fmaresults.style);
-          styleData.push(dataItem3);
-        }
-      });
-    } else {
-      // if no previous results
-      zipAndRadiusData.forEach(dataItem3 => {
-        if (
-          capitalize(dataItem3.Style) === capitalize(state.Fmaresults.style)
-        ) {
-          styleData.push(dataItem3);
-        }
-      });
-    }
-    if (styleData.length >= 1) {
-      filteredData = styleData;
-    }
-  }
-  // check STATE filter (disabled for now)
-  // let stateData = [];
-  // if (state.Fmaresults.stateCode != "state" || state.Fmaresults.stateCode != "") {
-  // 	// if previous filter results
-  //   if (filteredData.length >= 1) {
-  //     filteredData.forEach((dataItem2) => {
-  //       if (dataItem2.State === state.Fmaresults.stateText || dataItem2.State == state.Fmaresults.stateCode) {
-  //         stateData.push(dataItem2);
-  //       };
-  //     });
-  //   } else {
-  //   	// if no previous filter results
-  //     zipAndRadiusData.forEach((dataItem2) => {
-  //       if (dataItem2.State == state.Fmaresults.stateCode || dataItem2.State === state.Fmaresults.stateText) {
-  //         stateData.push(dataItem2);
-  //       };
-  //     });
-  //   };
-  //   // for testing
-  //     console.log("state data = ", state.Fmaresults.stateCode, state.Fmaresults.stateText, stateData);
-  //     alert("There was a state filter");
-  //   if (stateData.length >= 1) {
-  //     filteredData = stateData;
-  //   };
-  //   console.log("filteredData = ", filteredData);
-  // };
-
-  // Check Radius (disabled for now)
-  // let radiusData = [];
-  // if (state.Fmaresults.radius) {
-  //   zipAndRadiusData.forEach(dataItem1 => {
-  //     if (dataItem1.Distance === "Only a mile or so") {
-  //       radiusData.push(dataItem1);
-  //     }
-  //     if (dataItem1.Distance <= state.Fmaresults.radius) {
-  //       radiusData.push(dataItem1);
-  //     }
-  //   });
-  //   if (radiusData.length >= 1) {
-  //     filteredData = radiusData;
-  //   }
-  // }
-
-  state.Fmaresults.filteredData = filteredData;
-  writeResults(state.Fmaresults.filteredData);
 }
 
 //*** Register form submit listener **
