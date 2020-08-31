@@ -6,10 +6,12 @@ import { capitalize } from "lodash";
 import { auth, db } from "./firebase";
 import axios from "axios";
 
-import randomImage from "./lib/randomImage";
 // import getAPIData from "./lib/getAPIData"; // Used for API call
+import randomImage from "./lib/randomImage";
 import writeResults from "./lib/writeResults";
 import formSubmit from "./lib/formSubmit";
+import checklogin from "./lib/checkLogin";
+// import accountLock from "./lib/accountLock";
 
 const router = new Navigo(window.location.origin);
 router
@@ -36,22 +38,15 @@ function render(st = state.Home) {
   formSendButtonListener(st);
   addSearchBarBtnListener(st);
 
-  loginLogoutListener(st);
   listenForRegister(st);
   listenForLoginForm(st);
+  loginLogoutListener(st);
 
   profileTestBtnListener(st);
 }
 
 // Constant for Forms submit and to clear form data
 const form = document.querySelector("form");
-
-// Hamburger listeners
-function addHamburgerEventListener() {
-  document.querySelector(".fa-bars").addEventListener("click", () => {
-    document.querySelector("nav > ul").classList.toggle("hidden");
-  });
-}
 
 // Profile test Button Listener
 function profileTestBtnListener(st) {
@@ -64,6 +59,13 @@ function profileTestBtnListener(st) {
         router.navigate("/Profile");
       });
   }
+}
+
+// Hamburger listeners
+function addHamburgerEventListener() {
+  document.querySelector(".fa-bars").addEventListener("click", () => {
+    document.querySelector("nav > ul").classList.toggle("hidden");
+  });
 }
 
 // Forms Send Button intervention
@@ -142,8 +144,6 @@ function searchBarSearch() {
     state.Fmaresults.filter = true;
   }
   // alert("Getting API data now.");  // for testing
-  //*** Uncomment for Demo day !!!
-  //*********************************
   getAPIData();
   // compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData); // for testing
 }
@@ -162,7 +162,7 @@ function getAPIData() {
       console.log(response.data);
       state.Fmaresults.returnedAPIdata = response.data;
       if (response.status === 200) {
-        alert("Going to compare the Data"); // for testing
+        // alert("Going to compare the Data"); // for testing
         compareTheData(
           state.Fmaresults.fmaDBdata,
           state.Fmaresults.returnedAPIdata
@@ -208,7 +208,7 @@ function compareTheData(DBdata, zipData) {
     alert("Going to filter the data");
     filterData(state.Fmaresults.comparedData);
   } else {
-    alert("Going to Print the data");
+    // alert("Going to Print the data");
     writeResults(state.Fmaresults.comparedData);
   }
 }
@@ -217,7 +217,6 @@ function compareTheData(DBdata, zipData) {
 //***************************************
 function filterData(zipAndRadiusData) {
   let filteredData = [];
-
   // check TYPE filter
   let typeData = [];
   if (state.Fmaresults.type != "" && state.Fmaresults.type !== "All") {
@@ -240,7 +239,6 @@ function filterData(zipAndRadiusData) {
       filteredData = typeData;
     }
   }
-
   // check STYLE filter
   let styleData = [];
   if (state.Fmaresults.style !== "" && state.Fmaresults.style !== "All") {
@@ -268,7 +266,6 @@ function filterData(zipAndRadiusData) {
       filteredData = styleData;
     }
   }
-
   // check STATE filter (disabled for now)
   // let stateData = [];
   // if (state.Fmaresults.stateCode != "state" || state.Fmaresults.stateCode != "") {
@@ -335,6 +332,7 @@ function listenForRegister(st) {
       let password2 = inputs[5];
 
       console.log(inputs);
+
       if (password1 === password2) {
         let password = password2;
         let email = useremail;
@@ -343,13 +341,7 @@ function listenForRegister(st) {
           .createUserWithEmailAndPassword(email, password)
           .then(() => {
             //add user to state and database
-            addUserToStateAndDB(
-              firstname,
-              lastname,
-              username,
-              useremail,
-              password
-            );
+            addUserToStateAndDB(firstname, lastname, username, email, password);
 
             render(state.Profile);
             router.navigate("/Profile");
@@ -371,55 +363,12 @@ function listenForRegister(st) {
   }
 }
 
-//*** Add user to state and database ***
-function addUserToStateAndDB(
-  firstname,
-  lastname,
-  username,
-  useremail,
-  password
-) {
-  // add user to state
-  state.Profile.firstname = firstname;
-  state.Profile.lastname = lastname;
-  state.Profile.username = username;
-  state.Profile.useremail = useremail;
-  state.Profile.password = password;
-  state.Profile.signedIn = true;
-  state.Profile.loggedIn = true;
-
-  // add user to database
-  db.collection("users").add({
-    firstname: firstname,
-    lastname: lastname,
-    username: username,
-    useremail: useremail,
-    password: password,
-    signedIn: true,
-    loggedIn: true
-  });
-}
-
-//*** Populate the profile page with user info ***
-function populateProfilePage(st) {
-  if (st.page === "Profile") {
-    document.querySelector(
-      "#user-name"
-    ).innerText = `${state.Profile.firstname} ${state.Profile.lastname}`;
-    document.querySelector(
-      "#user-name"
-    ).innerText = `${state.Profile.username}`;
-    document.querySelector(
-      "#user-email"
-    ).innerText = `${state.Profile.useremail}`;
-  }
-}
-
 //*** Listen for User Login ***
 function listenForLoginForm(st) {
   if (st.page === "Login") {
     document.querySelector("#login-form").addEventListener("submit", event => {
       event.preventDefault();
+
       //convert html elements to Array
       let inputList = Array.from(event.target.elements);
       //remove the button links so they aren't included
@@ -427,13 +376,11 @@ function listenForLoginForm(st) {
       inputList.pop();
 
       console.log(inputList);
-      alert(inputList);
 
       const inputs = inputList.map(input => input.value);
       let username = inputs[0];
       let email = inputs[1];
       let password = inputs[2];
-
       auth
         .signInWithEmailAndPassword(email, password)
         .then(() => {
@@ -453,8 +400,73 @@ function listenForLoginForm(st) {
           alert(err);
           console.log("Login request failed!");
           console.log("Error", err);
+          checklogin();
         });
     });
+  }
+}
+
+function loginLogoutListener(st) {
+  if (st.page === "Profile") {
+    document.querySelector("#logButton").addEventListener("click", event => {
+      event.preventDefault();
+      //Test if user is logged-in
+      if (st.loggedIn) {
+        //log-out fxn//
+        auth.signOut().then(() => {
+          console.log("user logged out");
+          logOutUserInDb(st.email);
+          resetUserInState();
+          //update user in db
+          db.collection("users").get;
+        });
+        console.log(state.Profile);
+        render(state.Home);
+        router.navigate("/Home");
+      } else {
+        console.log(state.Profile);
+        render(state.Home);
+        router.navigate("/Home");
+      }
+    });
+  }
+}
+
+//*** Add user to state and database ***
+function addUserToStateAndDB(firstname, lastname, username, email, password) {
+  // add user to state
+  state.Profile.firstname = firstname;
+  state.Profile.lastname = lastname;
+  state.Profile.username = username;
+  state.Profile.useremail = email;
+  state.Profile.password = password;
+  state.Profile.signedIn = true;
+  state.Profile.loggedIn = true;
+
+  // add user to database
+  db.collection("users").add({
+    firstname: firstname,
+    lastname: lastname,
+    username: username,
+    useremail: email,
+    password: password,
+    signedIn: true,
+    loggedIn: true
+  });
+}
+
+//*** Populate the profile page with user info ***
+function populateProfilePage(st) {
+  if (st.page === "Profile") {
+    document.querySelector(
+      "#user-name"
+    ).innerText = `${state.Profile.firstname} ${state.Profile.lastname}`;
+    document.querySelector(
+      "#user-name"
+    ).innerText = `${state.Profile.username}`;
+    document.querySelector(
+      "#user-email"
+    ).innerText = `${state.Profile.useremail}`;
   }
 }
 
@@ -490,28 +502,6 @@ function getUserFromDb(email) {
       console.log("Get user from DB request failed!");
       console.log("Error", err);
     });
-}
-
-function loginLogoutListener(st) {
-  if (st.page === "Profile") {
-    document.querySelector("#logButton").addEventListener("click", event => {
-      //Test if user is logged-in
-      if (st.loggedIn) {
-        event.preventDefault();
-        //log-out fxn//
-        auth.signOut().then(() => {
-          console.log("user logged out");
-          logOutUserInDb(st.email);
-          resetUserInState();
-          //update user in db
-          db.collection("users").get;
-          render(state.Home);
-          router.navigate("/Home");
-        });
-        console.log(state.User);
-      }
-    });
-  }
 }
 
 //*** log-out the user in the Database ***
