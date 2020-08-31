@@ -31,7 +31,7 @@ export default () => `
 
             <div class="form-group right">
                 <label id="email-label" for="email">Email <span class="required">*</span></label>
-                <input type="email" name="email" id="useremail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" placeholder="Enter your email address" required>
+                <input type="email" name="email" id="useremail" class="form-control" placeholder="Enter your email address" required>
             </div>
 
             <div class="form-group right">
@@ -46,7 +46,7 @@ export default () => `
 
             <div class="form-group">
                 <button type="reset" id="clear" class="btnStyled submit-button" onclick="form.reset()">Clear</button>
-                <button type="submit" id="login" class="btnStyled submit-button">Submit</button>
+                <button type="submit" id="register" class="btnStyled submit-button">Register</button>
             </div>
         </form>
         <br/>

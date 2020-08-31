@@ -15,7 +15,7 @@ export default () => `
         <br />
 
 	    <div class="center">
-			<a href="Fmaresults"  data-navigo id="search" class="btnStyled submit-button">Go To Search Now</a>
+			<a href="Fmaresults" data-navigo id="search" class="btnStyled submit-button">Go To Search Now</a>
 		</div>
         <br />
 

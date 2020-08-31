@@ -19,7 +19,7 @@ export default () => `
 
         <div class="form-group right">
             <label id="email-label" for="email">Email <span class="required">*</span></label>
-            <input type="email" name="email" id="useremail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" placeholder="Enter your email address" required>
+            <input type="email" name="email" id="useremail" class="form-control" placeholder="Enter your email address" required>
         </div>
 
         <div class="form-group right">
@@ -45,9 +45,17 @@ export default () => `
 
     <div id="hpAddInfoButton" class="addInfo" style="display: none;"></div>
     <br/>
-
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     <div id="profileTestBtn" class="center">
-        <button type="submit" class="btnStyled submit-button">Test Login - Temp</button>
+        <button type="submit" class="submit-button">Test Login - Temp</button>
     </div>
     <br/>
     <br />

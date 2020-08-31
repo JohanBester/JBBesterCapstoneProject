@@ -1,18 +1,26 @@
 export default st => `
   <main>
+  <div class="addOrImage" style="display: none"></div>
+
   <div class="profileOptions center">
   <div id="logState">
     <h4>Currently Logged In</h3>
   </div>
   <div class="center">
     <div>
+      <p><b>Full Name: </b><br />
+        ${st.firstname} ${st.lastname}
+      </p>
       <p><b>User Name: </b><br />
         ${st.username}
+      </p>
+      <p><b>Email: </b><br />
+        ${st.useremail}
       </p>
     </div>
   </div>
   <div class="center">
-      <button id="log-out" type="submit" class="btnStyled submit-button">Logout</button>
+    <button type="submit" id="logButton" class="btnStyled submit-button">Logout</button>
   </div>
 
 </div>
