@@ -26,7 +26,8 @@ Documentation for this project has been collected into the DOCS folder in the Gi
 Most all of the planning layout for the project was done on [my Trello board](https://trello.com/b/zWx1qQFB/stix-fma-fun-finder) which can be accessed by clicking the link.
 
 ## Installation: 
-Installation instructions will be added as they become clearer, but the application will initially be available as a website, and eventually as a mobile app.
+More installation instructions will be added as they become clearer, but the application will initially be available as a website, and eventually as a mobile app.
+The web URL for the STIX FMA Fun Finder is as follows: [STIX FMA Fun Finder](https://stix-fma-funfinder.netlify.app/)
 
 ## Usage: 
 This App should be pretty simple to use, Once installed the UI has an input field for a zip code, and 3 option buttons – one for school, one for event, and one for all. By default he all option is selected.
