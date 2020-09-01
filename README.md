@@ -27,7 +27,7 @@ Most all of the planning layout for the project was done on [my Trello board](ht
 
 ## Installation: 
 More installation instructions will be added as they become clearer, but the application will initially be available as a website, and eventually as a mobile app.
-The web URL for the STIX FMA Fun Finder is as follows: [STIX FMA Fun Finder](https://stix-fma-funfinder.netlify.app/)
+The web URL for the STIX FMA Fun Finder is as follows: [https://stix-fma-funfinder.netlify.app/](https://stix-fma-funfinder.netlify.app/)
 
 ## Usage: 
 This App should be pretty simple to use.The home page has a button that leads to the main search page.
