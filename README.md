@@ -23,7 +23,7 @@ This README contains the following information
 ## Documentation:
 Documentation for this project has been collected into the DOCS folder in the GitHub repository root. The DOCS can be accesed by clicking [this DOCS Link here](https://github.com/JohanBester/JBBesterCapstoneProject/tree/master/DOCS).
 
-Most all of the planning layout for the project was done on [my Trello board](https://trello.com/b/zWx1qQFB/stix-fma-fun-finder) which can be accessed by clicking the link.
+Most all of the planning layout for the project was done on [my Trello board](https://trello.com/b/zWx1qQFB/stix-fma-fun-finder) which can be accessed by clicking this link: [https://trello.com/b/zWx1qQFB/stix-fma-fun-finder](https://trello.com/b/zWx1qQFB/stix-fma-fun-finder).
 
 ## Installation: 
 More installation instructions will be added as they become clearer, but the application will initially be available as a website, and eventually as a mobile app.
