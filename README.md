@@ -30,19 +30,20 @@ More installation instructions will be added as they become clearer, but the app
 The web URL for the STIX FMA Fun Finder is as follows: [STIX FMA Fun Finder](https://stix-fma-funfinder.netlify.app/)
 
 ## Usage: 
-This App should be pretty simple to use, Once installed the UI has an input field for a zip code, and 3 option buttons – one for school, one for event, and one for all. By default he all option is selected.
-Toward the bottom of the display, a simple text button offers the options to "Add a School / Event".
+This App should be pretty simple to use.The home page has a button that leads to the main search page.
+On the search page a zip code is required along with a radius that can be chosen from the drop=down menu.
+Other options can be chosen as well to limit the results returned.
 
+Searching (submitting) without a zip will ask for one to continue - a zip code is required. A radius is also required.
+
+When search results are returned, first results returned will fall into the target radius. Filtering options are present to narrow the search. Filter drop-down options will include fields for… Zip, State, Radius, Type (which would be school, event, or all), and style (which could be Arnis, Escrima, kali, or All). Choosing new options and clicking the search button agian will return the new seerch results.
+
+Toward the bottom of most pages, a simple text button offers the options to "Add more information to the FMA application. 
 Clicking the "Add a School / Event" button opens a form interface that requests info about the submitter and the addition to be made. 
 
 In the application-wide footer there are 3 buttons - "About", "Home", "Contact".
 Clicking on the "About" button takes the user to the about us page with basic info on the application.
 Clicking the "Contact" button opensa a contact us form interface that allows the users to write to the application owner.
-
-Searching (submitting) without a zip will ask for one to continue - a zip code is required.
-The option buttons below the search bar are optional. Searching without an option selected will return all schools and events that match the zip code search parameters.
-
-When search results are returned, first results returned will fall into a default 50-mile radius. Filtering options and a search button will be presented to narrow the search. Filter drop-down options will include fields for… Zip, State, Radius, Type (which would be school, event, or all), and style (which could be Arnis, Escrima, kali, or All). Choosing new options and clicking the search button agian will return the new seerch results.
 
 
 ## Contributing: 
@@ -55,7 +56,7 @@ I am grateful for the experience of the Savvy Coders full-stack web development 
 I am particularly grateful for Dezerae Abelon who believed in me and got me into Savvy Coders, for my TA, Vanessa Kratohvil, for our fearless instructor, Martin Carriel, and his awesome teaching and coding help, for Brandon Bunch and the other Tas, and for all the other teachers and dedicated staff of Savvy Coders. Thank you, thank you, thank you!
 
 Thank you also for the lovely friends of our June 2020 bootcamp cohort! Folks, we made it. We are sad for those who left early, but we are glad that we could see this through together!
-It is heartening to know that my collaboration with Savvy Coders will continue as longs as I wish. Thank again!
+It is heartening to know that my collaboration with Savvy Coders will continue as longs as I wish. Thanks again!
 
 
 ## License: 
