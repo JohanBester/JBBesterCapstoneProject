@@ -4,14 +4,10 @@ import * as state from "./store";
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 import { auth, db } from "./firebase";
-import axios from "axios";
 
 import randomImage from "./lib/randomImage";
 import formSubmit from "./lib/formSubmit";
-import getAPIData from "./lib/getAPIData"; // Used for API call
-import compareTheData from "./lib/compareTheData";
-// import filterData from "./lib/filterData";
-// import writeResults from "./lib/writeResults";
+import getAPIData from "./lib/getAPIData";
 import checklogin from "./lib/checkLogin";
 // import accountLock from "./lib/accountLock";
 
@@ -102,9 +98,6 @@ function addSearchBarBtnListener(st) {
       state.Fmaresults.fmaDBdata = response;
     })
     .catch(err => {
-      console.log(
-        "The DBdata load request failed! Error with the DBdata import LINE 150. please try your search again."
-      );
       console.log("error", err);
     });
 })();
@@ -168,8 +161,6 @@ function listenForRegister(st) {
       let password1 = inputs[4];
       let password2 = inputs[5];
 
-      console.log(inputs);
-
       if (password1 === password2) {
         let password = password2;
         let email = useremail;
@@ -182,7 +173,6 @@ function listenForRegister(st) {
 
             render(state.Profile);
             router.navigate("/Profile");
-            console.log(state.Profile);
             populateProfilePage();
           })
           .catch(err => {
@@ -190,7 +180,6 @@ function listenForRegister(st) {
             alert(
               "There seems to be a problem with this Registration. Kindly please reload the page and try that again."
             );
-            console.log("The DB create user request failed!");
             console.log("Error", err);
           });
       } else {
@@ -212,17 +201,12 @@ function listenForLoginForm(st) {
       inputList.pop();
       inputList.pop();
 
-      console.log(inputList);
-
       const inputs = inputList.map(input => input.value);
       let username = inputs[0];
       let email = inputs[1];
       let password = inputs[2];
       auth
         .signInWithEmailAndPassword(email, password)
-        .then(() => {
-          console.log("user logged in");
-        })
         .then(() => {
           getUserFromDb(email)
             .then(() => {
@@ -235,7 +219,6 @@ function listenForLoginForm(st) {
         .catch(err => {
           // What to do when the request fails
           alert(err);
-          console.log("Login request failed!");
           console.log("Error", err);
           checklogin();
         });
@@ -251,17 +234,14 @@ function loginLogoutListener(st) {
       if (st.loggedIn) {
         //log-out fxn//
         auth.signOut().then(() => {
-          console.log("user logged out");
           logOutUserInDb(st.email);
           resetUserInState();
           //update user in db
           db.collection("users").get;
         });
-        console.log(state.Profile);
         render(state.Home);
         router.navigate("/Home");
       } else {
-        console.log(state.Profile);
         render(state.Home);
         router.navigate("/Home");
       }
@@ -314,13 +294,11 @@ function getUserFromDb(email) {
     .get()
     .then(snapshot =>
       snapshot.docs.forEach(doc => {
-        console.log(doc.data);
         if (email === doc.data().email) {
           let id = doc.id;
           db.collection("users")
             .doc(id)
             .update({ signedIn: true });
-          console.log("user signed in db");
 
           let user = doc.data();
           // update state with user info
@@ -336,7 +314,6 @@ function getUserFromDb(email) {
     .catch(err => {
       // What to do when the request fails
       alert(err);
-      console.log("Get user from DB request failed!");
       console.log("Error", err);
     });
 }
@@ -356,7 +333,6 @@ function logOutUserInDb(email) {
           }
         })
       );
-    console.log("user signed out in db");
   }
 }
 
