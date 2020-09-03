@@ -278,10 +278,10 @@ function addUserToStateAndDB(firstname, lastname, username, email, password) {
 
 //*** Populate the profile page with user info ***
 function populateProfilePage(st) {
-  alert("About to populate the Profile page");
+  // alert("About to populate the Profile page");
   render(state.Profile), router.navigate("/Profile");
   if (st.page === "Profile") {
-    alert("On profile page");
+    // alert("On profile page");
     document.querySelector(
       "#full-name"
     ).innerText = `${st.firstname} ${st.lastname}`;
