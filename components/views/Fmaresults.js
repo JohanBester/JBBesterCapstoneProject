@@ -3,7 +3,7 @@ export default st => `
 
 <main id="fmaSearchPage">
     <div class="pageIntro">
-        <p>With the <b>STIX FMA Fun Finder</b> you can now find the FMA venues and events you're looking for! Refine your search results by selecting additional options from the search bar, and then clicking the search button.</p>
+        <p>With the <b>STIX FMA Fun Finder</b> you can now find the FMA venues and events you're looking for! Refine your search results by selecting additional options from the search bar, and then clicking the search button. Results are listed in order, from the closest to the furthest venue from your zip code.</p>
     </div>
 
     <form id="searchBar" class="searchBar">
@@ -45,6 +45,10 @@ export default st => `
             <button type="submit" id="btnFilterSearch" class="btnStyled">Search</button>
         </div>
     </form>
+
+    <div id="results" class="center">
+        <h3></h3>
+    </div>
 
     <div id="container" class="container">
         <div>

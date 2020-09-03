@@ -104,6 +104,7 @@ function addSearchBarBtnListener(st) {
 
 //*** Search from FMAresults Page ***
 function searchBarSearch() {
+  state.Fmaresults.filter = false;
   // zip code
   let userZipCode = document.getElementById("zipSearch").value;
   if (userZipCode == "") {
@@ -128,17 +129,19 @@ function searchBarSearch() {
   // };
   // type
   let userType = document.querySelector("#typeSearch");
-  if (userType.value != "Type") {
-    state.Fmaresults.type = userType.value;
+  if (userType.value !== "Type" && userType.value !== "All") {
     state.Fmaresults.filter = true;
+    state.Fmaresults.type = userType.value;
   }
   // style
   let userStyle = document.querySelector("#styleSearch");
-  if (userStyle.value != "Style") {
-    state.Fmaresults.style = userStyle.value;
+  if (userStyle.value !== "Style" && userStyle.value !== "All") {
     state.Fmaresults.filter = true;
+    state.Fmaresults.style = userStyle.value;
   }
+
   // alert("Getting API data now.");  // for testing
+  state.Fmaresults.returnedAPIdata = [];
   getAPIData();
   // compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData); // for testing
 }
