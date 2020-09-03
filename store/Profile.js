@@ -1,9 +1,9 @@
 export default {
   page: "Profile",
-  firstname: "Test",
-  lastname: "Name",
-  username: "Test_username",
-  useremail: "test_email",
+  firstname: " ",
+  lastname: " ",
+  username: "username",
+  useremail: "email",
   emailVerified: false,
   photoURL: "",
   isAnonymous: "",
@@ -12,6 +12,6 @@ export default {
   password: "",
   signedIn: false,
   loggedIn: false,
-  attempts: 2,
+  attempts: 4,
   accountLock: false
 };

@@ -51,10 +51,11 @@ export default st => `
     </div>
 
     <div id="container" class="container">
-        <div>
+        <div id="searchMessage">
             <h5>How to search</h2>
             <p>To search, enter a zip code and a radius, then click the search button for quick easy results.</p>
-            <p>To make your search more specific, choose search options from the drop-down menus before clicking the search button.</p>
+            <p>To make your search more specific, choose search options from the drop-down menus and click the search button.</p>
+            <p>Results will be displayed in this area. Results are listed in order, from the closest to the furthest venue from your zip code.Scroll down to see all the results.</p>
         </div>
     </div>
 

@@ -174,8 +174,6 @@ function listenForRegister(st) {
             //add user to state and database
             addUserToStateAndDB(firstname, lastname, username, email, password);
 
-            render(state.Profile);
-            router.navigate("/Profile");
             populateProfilePage();
           })
           .catch(err => {
@@ -208,16 +206,19 @@ function listenForLoginForm(st) {
       let username = inputs[0];
       let email = inputs[1];
       let password = inputs[2];
+
+      state.Profile.username = username;
+      state.Profile.useremail = email;
+      state.Profile.password = password;
+
       auth
         .signInWithEmailAndPassword(email, password)
         .then(() => {
-          getUserFromDb(email)
-            .then(() => {
-              render(state.Profile), router.navigate("/Profile");
-            })
-            .then(() => {
-              populateProfilePage();
-            });
+          getUserFromDb(email).then(() => {
+            render(state.Profile);
+            router.navigate("/Profile");
+            populateProfilePage(st);
+          });
         })
         .catch(err => {
           // What to do when the request fails
@@ -277,16 +278,15 @@ function addUserToStateAndDB(firstname, lastname, username, email, password) {
 
 //*** Populate the profile page with user info ***
 function populateProfilePage(st) {
+  alert("About to populate the Profile page");
+  render(state.Profile), router.navigate("/Profile");
   if (st.page === "Profile") {
+    alert("On profile page");
     document.querySelector(
-      "#user-name"
-    ).innerText = `${state.Profile.firstname} ${state.Profile.lastname}`;
-    document.querySelector(
-      "#user-name"
-    ).innerText = `${state.Profile.username}`;
-    document.querySelector(
-      "#user-email"
-    ).innerText = `${state.Profile.useremail}`;
+      "#full-name"
+    ).innerText = `${st.firstname} ${st.lastname}`;
+    document.querySelector("#user-name").innerText = st.username;
+    document.querySelector("#user-email").innerText = st.useremail;
   }
 }
 

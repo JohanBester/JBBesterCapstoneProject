@@ -18,9 +18,12 @@ export default () => `
             <p>Extreme caution is advised as techniques described in these pages could lead to and cause pain, physical trauma, severe bodily harm, catastrophic injuries, maiming, and possible death. </p>
             <p>Fun Finder Applications shall not at any time, be liable for any injury or damage occurring to any person or property from any cause, whatsoever, arising out of actions taken, by any person(s), based on any content of the FMA Fun Finder application.</p>
             <br>
+            <p>This application was build by Johan Bester (<a href="https://www.linkedin.com/in/johanbester/" target="_blank" rel="noopener noreferrer">linkedin.com/in/johanbester</a>) as capstone project for the June 2020 cohort of the <a href="https://savvycoders.com/" target="_blank" rel="noopener noreferrer">Savvy Coders</a> full-stack web development bootcamp.</p>
+            <br/>
             <p>Copyright © Fun Finder Applications, Illinois, USA. 2020. All Rights Reserved.</p>
             <br>
         </div>
+        <br/>
 
 	    <div class="center">
 			<a href="Fmaresults"  data-navigo id="search" class="btnStyled submit-button">Go To Search Now</a>

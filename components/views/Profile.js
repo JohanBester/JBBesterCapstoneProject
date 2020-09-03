@@ -9,13 +9,13 @@ export default st => `
   <div class="center">
     <div>
       <p><b>Full Name: </b><br />
-        ${st.firstname} ${st.lastname}
+        <span id="full-name">${st.firstname} ${st.lastname}</span>
       </p>
       <p><b>User Name: </b><br />
-        ${st.username}
+        <span id="user-name">${st.username}</span>
       </p>
       <p><b>Email: </b><br />
-        ${st.useremail}
+        <span id="user-email">${st.useremail}</span>
       </p>
     </div>
   </div>
@@ -30,12 +30,25 @@ export default st => `
         <h1>User Profile Page</h1>
       </div>
 
-      <h2 class="secHead"> The profile page content will be placed here</h2>
+      <p class="secHead"> To manage any of your information, just click on alink below.</p>
+      <br/>
 
+      <div>
+        <ul>
+          <li>
+            <a href="#">Update your user profile</a><br /><br />
+          </li>
+          <li>
+            <a href="#">Change you password</a><br /><br />
+          </li>
+          <li>
+            <a href="#">Modify your venue or event listing</a><br /><br />
+          </li>
+        </ul>
+      </div>
       <br/>
 
       <div id="hpAddInfoButton" class="addInfo"></div>
-
       <br/>
       <br/>
 

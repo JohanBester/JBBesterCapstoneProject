@@ -668,6 +668,13 @@ label {
   font-size: 1rem;
 }
 
+#searchMessage > h5 {
+  margin: 0;
+  padding: 0;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+
 /* content container */
 .container {
   margin: 0 auto;
