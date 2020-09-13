@@ -598,6 +598,7 @@ label {
 }
 
 #search.btnStyled {
+  text-decoration: none;
   background-color: var(--yellow-color);
   color: var(--black-color);
 }
@@ -791,10 +792,68 @@ label {
 /*=======================*/
 .profileOptions {
   width: 35%;
-  max-width: 400px;
+  max-width: 768px;
   min-width: 300px;
   overflow-y: auto;
   overflow-x: hidden;
   border: 1px dotted var(--black-color);
   text-align: center;
+}
+
+#logoutButton {
+  margin-top: 25px;
+}
+
+#profilePageLinks > ul > li > a {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  main > div {
+    margin: 2px;
+    padding: 2px;
+  }
+  .mainBody {
+    overflow-y: auto;
+    line-height: 1rem;
+  }
+  .pageIntro {
+    text-align: center;
+    margin: 0;
+  }
+  .pageIntro > h1 {
+    font-size: large;
+  }
+  .secHead {
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+  }
+  .profileOptions {
+    width: 98%;
+    height: 40%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px dotted var(--black-color);
+    text-align: center;
+  }
+  #profilePageLinks > ul {
+    margin: 0;
+  }
+  #logState > h4 {
+    font-size: medium;
+    margin: 0;
+  }
+  #full-name, #user-name, #user-email {
+    font-size: small;
+  }
+  #logedinInfo > p > b {
+    font-size: small;
+  }
+  #logoutButton {
+    margin-top: 5px;
+    padding: 0.3rem 1.5rem;
+    font-size: small;
+    border-radius: 15px;
+  }
 }

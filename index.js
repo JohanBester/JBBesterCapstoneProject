@@ -31,6 +31,15 @@ function render(st = state.Home) {
 
   router.updatePageLinks();
 
+  // only load Profile page if user is Signed in 
+  if (st.page === "Profile") {
+    logoutListener(st);
+    if (!state.Profile.signedIn) {
+      render(state.Home);
+      router.navigate("/Home");
+    }
+  };
+
   randomImage();
   addHamburgerEventListener();
   formSendButtonListener(st);
@@ -38,7 +47,6 @@ function render(st = state.Home) {
 
   listenForRegister(st);
   listenForLoginForm(st);
-  loginLogoutListener(st);
 
   profileTestBtnListener(st);
 }
@@ -146,6 +154,34 @@ function searchBarSearch() {
   // compareTheData(state.Fmaresults.fmaDBdata, state.Fmaresults.tempZipData); // for testing
 }
 
+/***************************************************** */
+/*
+  Login and Profile Process is as follows ...
+  -------------------------------------------
+    Register New User
+      - Create user in AUTH 
+      - Add user to DB
+      - send registration confirmation Email
+      - check confirmation link
+    
+    User Login
+      - Check Auth
+      - Get user from DB
+        - set user as signedIn : True
+      - load Profile page
+
+    User Logout
+      - Signout in AUTH
+      - Signout in DB
+        - set user as signedIn : False
+      - Reset user in State
+      - load Home page
+
+    AUTH state listener
+      - Auth state change listener
+
+*/
+
 //*** Register form submit listener **
 function listenForRegister(st) {
   if (st.page === "Register") {
@@ -166,15 +202,15 @@ function listenForRegister(st) {
 
       if (password1 === password2) {
         let password = password2;
-        let email = useremail;
+
         //create user in database
         auth
-          .createUserWithEmailAndPassword(email, password)
+          .createUserWithEmailAndPassword(useremail, password)
           .then(() => {
-            //add user to state and database
-            addUserToStateAndDB(firstname, lastname, username, email, password);
-
-            populateProfilePage();
+            addUserToDB(firstname, lastname, username, useremail);
+          })
+          .then(() => {
+            registrationConfirmation();
           })
           .catch(err => {
             // What to do when the request fails
@@ -188,6 +224,13 @@ function listenForRegister(st) {
       }
     });
   }
+}
+
+//*** Registration Confirmation process */
+function registrationConfirmation() {
+  // Send email asking user to confirm registration by clicking the link
+
+  // Capture URL confirmation link and accept user
 }
 
 //*** Listen for User Login ***
@@ -214,11 +257,8 @@ function listenForLoginForm(st) {
       auth
         .signInWithEmailAndPassword(email, password)
         .then(() => {
-          getUserFromDb(email).then(() => {
-            render(state.Profile);
-            router.navigate("/Profile");
-            populateProfilePage(st);
-          });
+          getUserFromDb(email)
+          .then(() => {populateProfilePage()});
         })
         .catch(err => {
           // What to do when the request fails
@@ -230,21 +270,22 @@ function listenForLoginForm(st) {
   }
 }
 
-function loginLogoutListener(st) {
+//*** Listen for User Logout ***
+function logoutListener(st) {
   if (st.page === "Profile") {
-    document.querySelector("#logButton").addEventListener("click", event => {
+    document.querySelector("#logoutButton").addEventListener("click", event => {
       event.preventDefault();
       //Test if user is logged-in
       if (st.loggedIn) {
-        //log-out fxn//
-        auth.signOut().then(() => {
-          logOutUserInDb(st.email);
-          resetUserInState();
-          //update user in db
-          db.collection("users").get;
-        });
-        render(state.Home);
-        router.navigate("/Home");
+        auth
+          .signOut()
+          .then(() => {
+            logOutUserInDb(st.useremail)
+            .then(() => {
+              render(state.Home);
+              router.navigate("/Home");
+            })
+          });
       } else {
         render(state.Home);
         router.navigate("/Home");
@@ -253,42 +294,23 @@ function loginLogoutListener(st) {
   }
 }
 
-//*** Add user to state and database ***
-function addUserToStateAndDB(firstname, lastname, username, email, password) {
-  // add user to state
-  state.Profile.firstname = firstname;
-  state.Profile.lastname = lastname;
-  state.Profile.username = username;
-  state.Profile.useremail = email;
-  state.Profile.password = password;
-  state.Profile.signedIn = true;
-  state.Profile.loggedIn = true;
+//*** Populate the profile page with user info ***
+function populateProfilePage() {
+  document.querySelector("#logInOutLink").textContent = "Logout";
+  render(state.Profile), router.navigate("/Profile");
+}
 
-  // add user to database
+//*** Add user to the Database ***
+function addUserToDB(firstname, lastname, username, email, password) {
   db.collection("users").add({
     firstname: firstname,
     lastname: lastname,
     username: username,
     useremail: email,
     password: password,
-    signedIn: true,
-    loggedIn: true
+    signedIn: false,
   });
-}
-
-//*** Populate the profile page with user info ***
-function populateProfilePage(st) {
-  // alert("About to populate the Profile page");
-  render(state.Profile), router.navigate("/Profile");
-  if (st.page === "Profile") {
-    // alert("On profile page");
-    document.querySelector(
-      "#full-name"
-    ).innerText = `${st.firstname} ${st.lastname}`;
-    document.querySelector("#user-name").innerText = st.username;
-    document.querySelector("#user-email").innerText = st.useremail;
-  }
-}
+};
 
 //*** Get user form the Database ***
 function getUserFromDb(email) {
@@ -297,20 +319,14 @@ function getUserFromDb(email) {
     .get()
     .then(snapshot =>
       snapshot.docs.forEach(doc => {
-        if (email === doc.data().email) {
+        if (email === doc.data().useremail) {
+          let user = doc.data();
           let id = doc.id;
           db.collection("users")
             .doc(id)
             .update({ signedIn: true });
 
-          let user = doc.data();
-          // update state with user info
-          state.Profile.firstname = user.firstname;
-          state.Profile.lastname = user.lastname;
-          state.Profile.username = user.username;
-          state.Profile.useremail = user.useremail;
-          state.Profile.signedIn = true;
-          state.Profile.loggedIn = true;
+            setUserInState(user);
         }
       })
     )
@@ -321,22 +337,37 @@ function getUserFromDb(email) {
     });
 }
 
-//*** log-out the user in the Database ***
+//*** log-out the user in the DB ***
 function logOutUserInDb(email) {
-  if (state.Profile.loggedIn) {
-    db.collection("users")
-      .get()
-      .then(snapshot =>
-        snapshot.docs.forEach(doc => {
-          if (email === doc.data().email) {
-            let id = doc.id;
-            db.collection("users")
-              .doc(id)
-              .update({ signedIn: false });
+  return db
+    .collection("users")
+    .get()
+    .then(snapshot =>
+      snapshot.docs.forEach(doc => {
+        if (email === doc.data().useremail) {
+          let id = doc.id;
+          db.collection("users")
+            .doc(id)
+            .update({ signedIn: false });
+
+            resetUserInState();
           }
-        })
-      );
-  }
+      })
+    )
+    .catch(err => {
+      // What to do when the request fails
+      alert(err);
+      console.log("Error", err);
+    });
+}
+
+//*** SET the user in state ***
+function setUserInState(user) {
+  state.Profile.firstname = user.firstname;
+  state.Profile.lastname = user.lastname;
+  state.Profile.username = user.username;
+  state.Profile.useremail = user.useremail;
+  state.Profile.signedIn = true;
 }
 
 //*** Reset user in state ***
@@ -347,5 +378,4 @@ function resetUserInState() {
   state.Profile.useremail = "";
   state.Profile.password = "";
   state.Profile.signedIn = false;
-  state.Profile.loggedIn = false;
 }

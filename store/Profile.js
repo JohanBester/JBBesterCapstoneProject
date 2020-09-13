@@ -1,7 +1,7 @@
 export default {
   page: "Profile",
-  firstname: " ",
-  lastname: " ",
+  firstname: "",
+  lastname: "",
   username: "username",
   useremail: "email",
   emailVerified: false,
@@ -11,7 +11,6 @@ export default {
   providerData: "",
   password: "",
   signedIn: false,
-  loggedIn: false,
   attempts: 4,
   accountLock: false
 };

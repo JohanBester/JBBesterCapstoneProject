@@ -1,3 +1,4 @@
+import * as state from "../store/Profile";
 export default () => `
 <header class="fixed-header">
     <a href="/"><img class="logo" src="https://github.com/JohanBester/JBBesterCapstoneProject/blob/master/IMAGES/FMAlogo.jpg?raw=true" /></a>
@@ -16,7 +17,10 @@ export default () => `
             <li><a href="Addinfo" data-navigo>Add Info</a></li>
             <li><a href="About" data-navigo>About</a></li>
             <li><a href="Contact" data-navigo>Contact</a></li>
-            <li><a id="loginLink" href="Login" data-navigo>Login</a></li>
+            <li><a id="logInOutLink"
+            href="${!state.loggedIn ? "Login" : "/"}" data-navigo>${
+  !state.loggedIn ? "Login" : "Logout"
+}</a></li>
             <li><a href="Disclaimers" data-navigo>Disclaimers</a></li>
         </ul>
     </nav>
