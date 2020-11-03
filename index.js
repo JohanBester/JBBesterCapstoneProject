@@ -15,10 +15,10 @@ const router = new Navigo(window.location.origin);
 router
   .on({
     "/": () => render(state.Home),
-    ":page": params => {
+    ":page": (params) => {
       let page = capitalize(params.page);
       render(state[page]);
-    }
+    },
   })
   .resolve();
 
@@ -31,14 +31,14 @@ function render(st = state.Home) {
 
   router.updatePageLinks();
 
-  // only load Profile page if user is Signed in 
+  // only load Profile page if user is Signed in
   if (st.page === "Profile") {
     logoutListener(st);
     if (!state.Profile.signedIn) {
       render(state.Home);
       router.navigate("/Home");
     }
-  };
+  }
 
   randomImage();
   addHamburgerEventListener();
@@ -78,7 +78,7 @@ function addHamburgerEventListener() {
 function formSendButtonListener(st) {
   if (st.page === "Contact" || st.page === "Addinfo") {
     // handle the form submission event
-    document.querySelector("#send").addEventListener("click", event => {
+    document.querySelector("#send").addEventListener("click", (event) => {
       event.preventDefault();
       formSubmit(st);
     });
@@ -88,7 +88,7 @@ function formSendButtonListener(st) {
 // Click listener for FMAresults Page
 function addSearchBarBtnListener(st) {
   if (st.page === "Fmaresults") {
-    document.querySelector("#searchBar").addEventListener("submit", event => {
+    document.querySelector("#searchBar").addEventListener("submit", (event) => {
       event.preventDefault();
       searchBarSearch();
     });
@@ -101,11 +101,11 @@ function addSearchBarBtnListener(st) {
   fetch(
     "https://raw.githubusercontent.com/JohanBester/JBBesterCapstoneProject/master/FMAData.json"
   )
-    .then(response => response.json())
-    .then(response => {
+    .then((response) => response.json())
+    .then((response) => {
       state.Fmaresults.fmaDBdata = response;
     })
-    .catch(err => {
+    .catch((err) => {
       console.log("error", err);
     });
 })();
@@ -185,112 +185,115 @@ function searchBarSearch() {
 //*** Register form submit listener **
 function listenForRegister(st) {
   if (st.page === "Register") {
-    document.querySelector("#signup-form").addEventListener("submit", event => {
-      event.preventDefault();
-      //convert html elements to Array
-      let inputList = Array.from(event.target.elements);
-      //remove submit and clear buttons from array
-      inputList.pop();
-      inputList.pop();
-      const inputs = inputList.map(input => input.value);
-      let firstname = inputs[0];
-      let lastname = inputs[1];
-      let username = inputs[2];
-      let useremail = inputs[3];
-      let password1 = inputs[4];
-      let password2 = inputs[5];
+    document
+      .querySelector("#signup-form")
+      .addEventListener("submit", (event) => {
+        event.preventDefault();
+        //convert html elements to Array
+        let inputList = Array.from(event.target.elements);
+        //remove submit and clear buttons from array
+        inputList.pop();
+        inputList.pop();
+        const inputs = inputList.map((input) => input.value);
+        let firstname = inputs[0];
+        let lastname = inputs[1];
+        let username = inputs[2];
+        let useremail = inputs[3];
+        let password1 = inputs[4];
+        let password2 = inputs[5];
 
-      if (password1 === password2) {
-        let password = password2;
+        if (password1 === password2) {
+          let password = password2;
 
-        //create user in database
-        auth
-          .createUserWithEmailAndPassword(useremail, password)
-          .then(() => {
-            addUserToDB(firstname, lastname, username, useremail);
-          })
-          .then(() => {
-            registrationConfirmation();
-          })
-          .catch(err => {
-            // What to do when the request fails
-            alert(
-              "There seems to be a problem with this Registration. Kindly please reload the page and try that again."
-            );
-            console.log("Error", err);
-          });
-      } else {
-        alert("Passwords have to match. Please re-enter the passwords.");
-      }
-    });
+          //create user in database
+          auth
+            .createUserWithEmailAndPassword(useremail, password)
+            .then(() => {
+              addUserToDB(firstname, lastname, username, useremail);
+            })
+            .then(() => {
+              registrationConfirmation();
+            })
+            .catch((err) => {
+              // What to do when the request fails
+              alert(
+                "There seems to be a problem with this Registration. Kindly please reload the page and try that again."
+              );
+              console.log("Error", err);
+            });
+        } else {
+          alert("Passwords have to match. Please re-enter the passwords.");
+        }
+      });
   }
 }
 
 //*** Registration Confirmation process */
 function registrationConfirmation() {
   // Send email asking user to confirm registration by clicking the link
-
   // Capture URL confirmation link and accept user
 }
 
 //*** Listen for User Login ***
 function listenForLoginForm(st) {
   if (st.page === "Login") {
-    document.querySelector("#login-form").addEventListener("submit", event => {
-      event.preventDefault();
+    document
+      .querySelector("#login-form")
+      .addEventListener("submit", (event) => {
+        event.preventDefault();
 
-      //convert html elements to Array
-      let inputList = Array.from(event.target.elements);
-      //remove the button links so they aren't included
-      inputList.pop();
-      inputList.pop();
+        //convert html elements to Array
+        let inputList = Array.from(event.target.elements);
+        //remove the button links so they aren't included
+        inputList.pop();
+        inputList.pop();
 
-      const inputs = inputList.map(input => input.value);
-      let username = inputs[0];
-      let email = inputs[1];
-      let password = inputs[2];
+        const inputs = inputList.map((input) => input.value);
+        let username = inputs[0];
+        let email = inputs[1];
+        let password = inputs[2];
 
-      state.Profile.username = username;
-      state.Profile.useremail = email;
-      state.Profile.password = password;
+        state.Profile.username = username;
+        state.Profile.useremail = email;
+        state.Profile.password = password;
 
-      auth
-        .signInWithEmailAndPassword(email, password)
-        .then(() => {
-          getUserFromDb(email)
-          .then(() => {populateProfilePage()});
-        })
-        .catch(err => {
-          // What to do when the request fails
-          alert(err);
-          console.log("Error", err);
-          checklogin();
-        });
-    });
+        auth
+          .signInWithEmailAndPassword(email, password)
+          .then(() => {
+            getUserFromDb(email).then(() => {
+              populateProfilePage();
+            });
+          })
+          .catch((err) => {
+            // What to do when the request fails
+            alert(err);
+            console.log("Error", err);
+            checklogin();
+          });
+      });
   }
 }
 
 //*** Listen for User Logout ***
 function logoutListener(st) {
   if (st.page === "Profile") {
-    document.querySelector("#logoutButton").addEventListener("click", event => {
-      event.preventDefault();
-      //Test if user is logged-in
-      if (st.loggedIn) {
-        auth
-          .signOut()
-          .then(() => {
-            logOutUserInDb(st.useremail)
-            .then(() => {
+    document
+      .querySelector("#logoutButton")
+      .addEventListener("click", (event) => {
+        event.preventDefault();
+        //Test if user is logged-in
+        if (st.loggedIn) {
+          auth.signOut().then(() => {
+            logOutUserInDb(st.useremail).then(() => {
               render(state.Home);
               router.navigate("/Home");
-            })
+            });
           });
-      } else {
-        render(state.Home);
-        router.navigate("/Home");
-      }
-    });
+        } else {
+          render(state.Home);
+          router.navigate("/Home");
+        }
+      });
   }
 }
 
@@ -310,15 +313,15 @@ function addUserToDB(firstname, lastname, username, email, password) {
     password: password,
     signedIn: false,
   });
-};
+}
 
 //*** Get user form the Database ***
 function getUserFromDb(email) {
   return db
     .collection("users")
     .get()
-    .then(snapshot =>
-      snapshot.docs.forEach(doc => {
+    .then((snapshot) =>
+      snapshot.docs.forEach((doc) => {
         if (email === doc.data().useremail) {
           let user = doc.data();
           let id = doc.id;
@@ -326,11 +329,11 @@ function getUserFromDb(email) {
             .doc(id)
             .update({ signedIn: true });
 
-            setUserInState(user);
+          setUserInState(user);
         }
       })
     )
-    .catch(err => {
+    .catch((err) => {
       // What to do when the request fails
       alert(err);
       console.log("Error", err);
@@ -342,19 +345,19 @@ function logOutUserInDb(email) {
   return db
     .collection("users")
     .get()
-    .then(snapshot =>
-      snapshot.docs.forEach(doc => {
+    .then((snapshot) =>
+      snapshot.docs.forEach((doc) => {
         if (email === doc.data().useremail) {
           let id = doc.id;
           db.collection("users")
             .doc(id)
             .update({ signedIn: false });
 
-            resetUserInState();
-          }
+          resetUserInState();
+        }
       })
     )
-    .catch(err => {
+    .catch((err) => {
       // What to do when the request fails
       alert(err);
       console.log("Error", err);
